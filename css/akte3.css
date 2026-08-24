@@ -1,0 +1,1387 @@
+/* =====================================================
+   JAC PORTAL
+   AKTE 03
+   AUDIO FORENSICS
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #182b3d 0%,
+            #0b141d 45%,
+            #050a0f 100%
+        );
+
+    color: #e7edf3;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.jac-button {
+    border: 1px solid #6f9ab7;
+
+    background:
+        linear-gradient(
+            180deg,
+            #1e4059,
+            #102536
+        );
+
+    color: #e9f5ff;
+
+    padding: 13px 26px;
+
+    min-height: 46px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .15s ease,
+        opacity .2s ease;
+}
+
+
+.jac-button:hover:not(:disabled) {
+    background:
+        linear-gradient(
+            180deg,
+            #28556f,
+            #163449
+        );
+
+    border-color: #a4d4f2;
+
+    box-shadow:
+        0 0 18px rgba(90, 170, 220, .25);
+}
+
+
+.jac-button:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+
+.jac-button:disabled {
+    opacity: .35;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   STARTUP SCREEN
+===================================================== */
+
+.startup-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #13283a 0%,
+            #071018 55%,
+            #020508 100%
+        );
+
+    transition:
+        opacity .7s ease;
+}
+
+
+/* =====================================================
+   SYSTEM START PANEL
+===================================================== */
+
+.system-start-panel {
+    width: min(560px, 90vw);
+
+    padding: 55px 40px;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(100, 155, 190, .45);
+
+    background:
+        rgba(5, 13, 20, .94);
+
+    box-shadow:
+        0 0 70px rgba(0, 0, 0, .6),
+        inset 0 0 35px rgba(70, 130, 170, .04);
+
+    animation:
+        startupPanelIn .7s ease both;
+}
+
+
+@keyframes startupPanelIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+.system-start-status {
+    margin-top: 20px;
+
+    color: #82abc5;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.system-start-button {
+    margin-top: 32px;
+
+    min-width: 230px;
+
+    min-height: 52px;
+
+    font-size: 14px;
+
+    letter-spacing: 1.6px;
+}
+
+
+/* =====================================================
+   STARTUP BOX
+===================================================== */
+
+.audio-startup-box {
+    width: min(720px, 92vw);
+
+    padding: 40px;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(100, 155, 190, .45);
+
+    background:
+        rgba(5, 13, 20, .96);
+
+    box-shadow:
+        0 0 70px rgba(0, 0, 0, .65),
+        inset 0 0 40px rgba(80, 140, 180, .05);
+
+    animation:
+        startupPanelIn .5s ease both;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.startup-logo {
+    width: 82px;
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto 20px;
+
+    filter:
+        drop-shadow(
+            0 0 14px rgba(130, 190, 230, .22)
+        );
+}
+
+
+/* =====================================================
+   STARTUP TEXT
+===================================================== */
+
+.audio-startup-label {
+    color: #789ab0;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.audio-startup-title {
+    margin-top: 10px;
+
+    color: #e8f5ff;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   VISUALIZER
+===================================================== */
+
+.audio-visualizer {
+    height: 70px;
+
+    margin: 30px auto 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+}
+
+
+.audio-visualizer span {
+    display: block;
+
+    width: 5px;
+
+    height: 8px;
+
+    border-radius: 2px;
+
+    background: #6d9ab8;
+
+    opacity: .35;
+
+    transition:
+        height .08s linear,
+        opacity .08s linear;
+}
+
+
+.audio-visualizer span.active {
+    opacity: 1;
+
+    box-shadow:
+        0 0 9px rgba(100, 180, 230, .55);
+}
+
+
+/* =====================================================
+   SIGNAL STATUS
+===================================================== */
+
+.audio-signal-status {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 24px;
+
+    color: #a8c3d5;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+.signal-indicator {
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #3c5361;
+
+    transition:
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.signal-indicator.active {
+    background: #79b8d9;
+
+    box-shadow:
+        0 0 12px rgba(100, 190, 235, .8);
+}
+
+
+/* =====================================================
+   ANALYSIS GRID
+===================================================== */
+
+.audio-analysis-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+
+    margin-top: 28px;
+}
+
+
+.audio-analysis-item {
+    padding: 13px 8px;
+
+    border:
+        1px solid rgba(100, 145, 170, .25);
+
+    background:
+        rgba(255, 255, 255, .015);
+
+    text-align: center;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.audio-analysis-item.active {
+    border-color:
+        rgba(115, 175, 210, .65);
+
+    background:
+        rgba(80, 140, 180, .08);
+}
+
+
+.audio-analysis-item.complete {
+    border-color:
+        rgba(90, 165, 125, .55);
+
+    background:
+        rgba(60, 130, 90, .07);
+}
+
+
+.analysis-number {
+    display: block;
+
+    color: #65879b;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+.analysis-name {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+.analysis-state {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #6d8998;
+
+    font-size: 11px;
+}
+
+
+.audio-analysis-item.complete
+.analysis-state {
+    color: #87c59d;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.audio-progress {
+    margin-top: 28px;
+}
+
+
+.audio-progress-track {
+    width: 100%;
+
+    height: 5px;
+
+    overflow: hidden;
+
+    background: #15232d;
+}
+
+
+.audio-progress-fill {
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #507c98,
+            #92c4df
+        );
+
+    box-shadow:
+        0 0 10px rgba(100, 180, 220, .35);
+
+    transition:
+        width .35s ease;
+}
+
+
+.audio-progress-label {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 9px;
+
+    color: #607d8d;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   FOOTER STARTUP
+===================================================== */
+
+.audio-startup-footer {
+    margin-top: 25px;
+
+    color: #4f6978;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.audio-startup-footer span {
+    margin: 0 8px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.jac-header {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 50;
+
+    min-height: 74px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 35px;
+
+    border-bottom:
+        1px solid rgba(110, 150, 175, .22);
+
+    background:
+        rgba(5, 11, 16, .94);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.header-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+.jac-logo {
+    width: 42px;
+
+    height: auto;
+}
+
+
+.header-title {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.portal-title {
+    color: #8da9ba;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.case-title {
+    color: #e5eef4;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+.header-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #83a6b9;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+}
+
+
+.status-dot {
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #72b98d;
+
+    box-shadow:
+        0 0 9px rgba(90, 190, 125, .7);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.case-container {
+    width: min(1100px, 92vw);
+
+    margin: 0 auto;
+
+    padding:
+        55px 0 80px;
+}
+
+
+/* =====================================================
+   CASE INTRO
+===================================================== */
+
+.case-intro {
+    margin-bottom: 35px;
+}
+
+
+.case-label,
+.puzzle-label {
+    color: #6f9bb1;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.case-intro h1 {
+    margin: 10px 0 14px;
+
+    color: #edf5f9;
+
+    font-size: 42px;
+
+    letter-spacing: 2px;
+}
+
+
+.case-intro p {
+    max-width: 800px;
+
+    margin: 0;
+
+    color: #91a5b1;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.evidence-card,
+.suspect-card {
+    margin-top: 24px;
+
+    padding: 28px;
+
+    border:
+        1px solid rgba(100, 145, 170, .25);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(18, 31, 41, .82),
+            rgba(7, 14, 20, .88)
+        );
+
+    box-shadow:
+        0 14px 45px rgba(0, 0, 0, .2);
+}
+
+
+.puzzle-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 24px;
+}
+
+
+.puzzle-header h2 {
+    margin: 7px 0 0;
+
+    color: #dce8ee;
+
+    font-size: 22px;
+
+    letter-spacing: .7px;
+}
+
+
+.case-number {
+    color: #496576;
+
+    font-size: 26px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   WITNESS PROGRESS
+===================================================== */
+
+.witness-progress {
+    margin-bottom: 18px;
+
+    padding: 12px 15px;
+
+    border:
+        1px solid rgba(90, 140, 165, .25);
+
+    background:
+        rgba(80, 140, 170, .045);
+
+    color: #7299ad;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+
+    text-align: center;
+
+    transition:
+        color .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+}
+
+
+.witness-progress.complete {
+    color: #87c99c;
+
+    border-color:
+        rgba(90, 170, 120, .45);
+
+    background:
+        rgba(70, 150, 95, .07);
+}
+
+
+/* =====================================================
+   WITNESS LIST
+===================================================== */
+
+.witness-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.witness-item {
+    display: grid;
+
+    grid-template-columns:
+        52px 1fr minmax(280px, 420px);
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 15px;
+
+    border:
+        1px solid rgba(100, 145, 170, .18);
+
+    background:
+        rgba(255, 255, 255, .018);
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+}
+
+
+.witness-item.audio-active {
+    border-color:
+        rgba(100, 170, 205, .55);
+
+    background:
+        rgba(70, 130, 170, .07);
+}
+
+
+.witness-item.audio-complete {
+    border-color:
+        rgba(90, 160, 115, .38);
+
+    background:
+        rgba(60, 130, 85, .045);
+}
+
+
+.witness-number {
+    color: #6e95aa;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+.witness-title {
+    color: #dce8ed;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.witness-role {
+    margin-top: 4px;
+
+    color: #708794;
+
+    font-size: 11px;
+}
+
+
+.witness-item audio {
+    width: 100%;
+
+    height: 38px;
+}
+
+
+/* =====================================================
+   SUSPECT STATUS
+===================================================== */
+
+.suspect-status {
+    margin-bottom: 20px;
+
+    padding: 12px 15px;
+
+    border:
+        1px solid rgba(150, 130, 80, .28);
+
+    background:
+        rgba(130, 105, 55, .055);
+
+    color: #9e9273;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    transition:
+        color .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+}
+
+
+.suspect-status.unlocked {
+    border-color:
+        rgba(90, 165, 120, .45);
+
+    background:
+        rgba(60, 140, 85, .06);
+
+    color: #82bd94;
+}
+
+
+/* =====================================================
+   SUSPECT LIST
+===================================================== */
+
+.suspect-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+.suspect-item {
+    position: relative;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(100, 145, 170, .22);
+
+    background:
+        #09131b;
+
+    color: #dce8ed;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        opacity .25s ease;
+}
+
+
+.suspect-item img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(.2)
+        brightness(.78);
+
+    transition:
+        filter .25s ease;
+}
+
+
+.suspect-name {
+    display: block;
+
+    padding: 12px 8px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .8px;
+}
+
+
+/* GESPERRT */
+
+.suspect-item.suspects-locked {
+    opacity: .42;
+
+    cursor: not-allowed;
+}
+
+
+.suspect-item.suspects-locked img {
+    filter:
+        grayscale(1)
+        brightness(.42);
+}
+
+
+/* FREIGESCHALTET */
+
+.suspect-item.suspects-unlocked:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(110, 180, 215, .65);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, .35);
+}
+
+
+.suspect-item.suspects-unlocked:hover img {
+    filter:
+        grayscale(0)
+        brightness(.95);
+}
+
+
+/* AUSGEWÄHLT */
+
+.suspect-item.selected {
+    border-color:
+        #8bc3df;
+
+    box-shadow:
+        0 0 0 2px rgba(110, 185, 220, .2),
+        0 0 28px rgba(80, 160, 210, .2);
+}
+
+
+.suspect-item.selected img {
+    filter:
+        grayscale(0)
+        brightness(1);
+}
+
+
+/* =====================================================
+   HINT
+===================================================== */
+
+.puzzle-hint {
+    margin-top: 20px;
+
+    padding: 14px;
+
+    color: #718794;
+
+    border-left:
+        2px solid #385467;
+
+    background:
+        rgba(80, 120, 145, .035);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+.puzzle-hint.unlocked {
+    border-left-color:
+        #67a77d;
+
+    color: #82b695;
+}
+
+
+/* =====================================================
+   CHECK BUTTON
+===================================================== */
+
+#check-suspect {
+    margin-top: 20px;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.jac-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0, 0, 0, .76);
+
+    backdrop-filter:
+        blur(7px);
+}
+
+
+.result-modal-box {
+    width: min(520px, 92vw);
+
+    padding: 38px;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(110, 160, 185, .42);
+
+    background:
+        #09131b;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .6);
+}
+
+
+.result-logo {
+    width: 58px;
+
+    margin-bottom: 20px;
+}
+
+
+.result-icon {
+    font-size: 44px;
+
+    font-weight: 700;
+
+    color: #88bcd6;
+}
+
+
+.result-title {
+    margin-top: 12px;
+
+    color: #e4edf2;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.result-text {
+    margin: 18px auto 25px;
+
+    color: #879ba6;
+
+    line-height: 1.7;
+
+    font-size: 13px;
+}
+
+
+.result-modal-box .jac-button {
+    min-width: 210px;
+}
+
+
+/* =====================================================
+   COMPLETION
+===================================================== */
+
+.completion-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10001;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #132d3e,
+            #050b10 70%
+        );
+}
+
+
+.completion-box {
+    width: min(560px, 92vw);
+
+    padding: 50px 40px;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(100, 165, 195, .42);
+
+    background:
+        rgba(5, 14, 21, .94);
+
+    box-shadow:
+        0 0 70px rgba(0, 0, 0, .6);
+}
+
+
+.completion-logo {
+    width: 70px;
+
+    margin-bottom: 20px;
+}
+
+
+.completion-label {
+    color: #7098ac;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.completion-box h2 {
+    margin: 12px 0;
+
+    color: #e7f0f4;
+
+    font-size: 25px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.completion-box p {
+    margin: 0 auto 28px;
+
+    max-width: 420px;
+
+    color: #8ca0aa;
+
+    line-height: 1.7;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.jac-footer {
+    padding: 25px;
+
+    border-top:
+        1px solid rgba(100, 140, 160, .15);
+
+    color: #49616e;
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.jac-footer span {
+    margin: 0 8px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .witness-item {
+        grid-template-columns:
+            45px 1fr;
+    }
+
+
+    .witness-item audio {
+        grid-column:
+            1 / -1;
+    }
+
+
+    .suspect-list {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .jac-header {
+        padding: 0 18px;
+    }
+
+
+    .header-status {
+        display: none;
+    }
+
+
+    .case-container {
+        width: 94vw;
+
+        padding-top: 35px;
+    }
+
+
+    .evidence-card,
+    .suspect-card {
+        padding: 18px;
+    }
+
+
+    .case-intro h1 {
+        font-size: 32px;
+    }
+
+
+    .audio-startup-box,
+    .system-start-panel {
+        padding: 30px 20px;
+    }
+
+
+    .audio-analysis-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .suspect-list {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}

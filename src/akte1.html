@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        JAC | Akte 01 – Manipuliertes Beweisfoto
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/akte1.css"
+    >
+
+</head>
+
+
+<body>
+
+<div id="akte1-page">
+
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <header id="akte-header">
+
+        <div class="header-left">
+
+            <img
+                src="../assets/logos/jac-logo.png"
+                alt="JAC Logo"
+                id="jac-logo"
+            >
+
+            <div class="header-title">
+
+                <span class="jac-small">
+                    JURY ASSESSMENT COMMISSION
+                </span>
+
+                <h1>
+                    AKTE 01
+                </h1>
+
+                <h2>
+                    Manipuliertes Beweisfoto
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <div class="system-box">
+
+                <span class="system-label">
+                    JAC SYSTEM
+                </span>
+
+                <span class="system-online">
+                    ● ONLINE
+                </span>
+
+            </div>
+
+
+            <div class="case-box">
+
+                <span>
+                    Fallstatus
+                </span>
+
+                <strong>
+                    AKTIV
+                </strong>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         EINSATZAUFTRAG
+    ================================================== -->
+
+    <section
+        id="mission-intro"
+        class="card"
+    >
+
+        <div class="card-header">
+
+            <h2>
+                Einsatzauftrag
+            </h2>
+
+            <span class="mission-tag">
+                AKTE 01
+            </span>
+
+        </div>
+
+
+        <p>
+
+            Bei einem Ermittlungsverfahren wurde ein
+            wichtiges Beweisfoto manipuliert.
+
+            Ihre Aufgabe besteht darin, sämtliche
+            Veränderungen zu erkennen und die Echtheit
+            des Bildes forensisch zu überprüfen.
+
+        </p>
+
+
+        <div class="mission-warning">
+
+            <strong>
+                ACHTUNG
+            </strong>
+
+            <span>
+                Genau
+                <strong>8 Manipulationen</strong>
+                wurden vorgenommen.
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SYSTEMSTART
+    ================================================== -->
+
+    <section
+        id="system-start-card"
+        class="card system-start-card"
+    >
+
+        <div class="card-header">
+
+            <div>
+
+                <span class="section-label">
+                    JAC FORENSICS
+                </span>
+
+                <h2>
+                    Forensisches Analysesystem
+                </h2>
+
+            </div>
+
+
+            <div
+                id="system-state"
+                class="system-state standby"
+            >
+
+                ● SYSTEM BEREIT
+
+            </div>
+
+        </div>
+
+
+        <div class="system-start-content">
+
+            <div class="system-description">
+
+                <p>
+
+                    Das forensische Analysesystem ist
+                    bereit. Starten Sie das System, um
+                    die Beweisaufnahme zu initialisieren.
+
+                </p>
+
+            </div>
+
+
+            <button
+                id="start-system"
+                type="button"
+            >
+
+                <span class="button-icon">
+                    ▶
+                </span>
+
+                <span>
+                    SYSTEM STARTEN
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         EIN EINZIGER FORENSISCHER SCAN
+    ================================================== -->
+
+    <section
+        id="scan-screen"
+        class="card hidden"
+    >
+
+        <div class="card-header">
+
+            <div>
+
+                <span class="section-label">
+                    JAC FORENSICS
+                </span>
+
+                <h2>
+                    Forensische Analyse
+                </h2>
+
+            </div>
+
+
+            <span
+                id="analysis-state"
+                class="analysis-state"
+            >
+                ANALYSE AKTIV
+            </span>
+
+        </div>
+
+
+        <div class="scanner">
+
+            <div class="scanner-grid"></div>
+
+            <div class="scanner-glow"></div>
+
+            <div class="scanner-line"></div>
+
+            <div class="scanner-center">
+
+                <div class="scanner-ring"></div>
+
+                <div class="scanner-crosshair">
+                    +
+                </div>
+
+                <div
+                    id="scanner-percent"
+                    class="scanner-percent"
+                >
+                    0 %
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="scan-status">
+
+            <span
+                id="scan-text"
+            >
+                SYSTEM WIRD INITIALISIERT...
+            </span>
+
+
+            <span
+                id="scan-check"
+                class="scan-check"
+            >
+                ●
+            </span>
+
+        </div>
+
+
+        <div class="scan-progress">
+
+            <div class="scan-progress-track">
+
+                <div
+                    id="scan-progress-fill"
+                    class="scan-progress-fill"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         BEWEISFOTO
+    ================================================== -->
+
+    <section
+        id="evidence-card"
+        class="card hidden"
+    >
+
+        <div class="card-header">
+
+            <div>
+
+                <span class="section-label">
+                    BEWEISMITTEL
+                </span>
+
+                <h2>
+                    Beweisfoto
+                </h2>
+
+            </div>
+
+
+            <span class="analysis-state">
+                ANALYSE AKTIV
+            </span>
+
+        </div>
+
+
+        <div
+            id="jac-progress"
+            class="forensic-progress"
+        >
+
+            <div class="progress-header">
+
+                <span>
+                    FORENSISCHE ANALYSE
+                </span>
+
+                <strong id="progress-count">
+                    0 / 8
+                </strong>
+
+            </div>
+
+
+            <div class="progress-track">
+
+                <div
+                    id="progress-fill"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <div id="image-container">
+
+            <img
+                id="beweisfoto"
+                src="../assets/images/akte1/beweisfoto.png"
+                alt="Manipuliertes Beweisfoto"
+                draggable="false"
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         STATUS
+    ================================================== -->
+
+    <section
+        id="status-card"
+        class="card hidden"
+    >
+
+        <div class="card-header">
+
+            <h2>
+                Forensischer Status
+            </h2>
+
+        </div>
+
+
+        <p id="status-message">
+            Bereit zur Analyse.
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ABSCHLUSS
+    ================================================== -->
+
+    <section
+        id="success-card"
+        class="card hidden"
+    >
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <span class="section-label">
+            JAC FORENSICS
+        </span>
+
+
+        <h2>
+            Analyse abgeschlossen
+        </h2>
+
+
+        <p>
+            Alle 8 Manipulationen wurden erfolgreich
+            erkannt.
+        </p>
+
+
+        <button
+            id="continue-button"
+            type="button"
+        >
+            ZURÜCK ZUM DASHBOARD
+        </button>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     SYSTEM POPUP
+====================================================== -->
+
+<div id="jac-popup">
+
+    <div class="popup-title">
+        JAC SYSTEM
+    </div>
+
+    <div class="popup-check">
+        ✓ MANIPULATION ERKANNT
+    </div>
+
+    <div
+        id="popup-name"
+        class="popup-name"
+    >
+        -
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SCRIPTS
+====================================================== -->
+
+<script src="../js/gameState.js"></script>
+<script src="../js/audio.js"></script>
+<script src="../js/akte1.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1347 @@
+/* =========================================================
+   JAC PORTAL – SPIELSTAND
+   spielstand.css
+   Im Stil des bestehenden JAC-Dashboards
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLEN
+   ========================================================= */
+
+:root {
+    --bg-main: #070d11;
+    --bg-panel: #0c151b;
+    --bg-panel-2: #101c23;
+
+    --border: rgba(210, 225, 230, 0.14);
+    --border-strong: rgba(210, 225, 230, 0.26);
+
+    --text-main: #eef3f5;
+    --text-soft: #aab8be;
+    --text-muted: #718087;
+
+    --silver: #d8e0e3;
+    --silver-dark: #77858c;
+
+    --cyan: #71d5e5;
+
+    --gold: #d8ad4a;
+    --gold-light: #f1d17a;
+    --gold-glow: rgba(216, 173, 74, 0.55);
+
+    --success: #75c98a;
+
+    --danger: #d96b6b;
+    --danger-light: #ef8b8b;
+
+    --radius: 12px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    min-height: 100%;
+    background: var(--bg-main);
+}
+
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(75, 125, 140, 0.08),
+            transparent 38%
+        ),
+        linear-gradient(
+            180deg,
+            #091217 0%,
+            #070d11 100%
+        );
+
+    color: var(--text-main);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   HAUPTSEITE
+   ========================================================= */
+
+.save-page {
+    width:
+        min(
+            1100px,
+            calc(100% - 64px)
+        );
+
+    margin: 0 auto;
+
+    padding:
+        34px
+        0
+        50px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.save-header {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 74px;
+
+    padding-bottom: 24px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+/* =========================================================
+   HEADER LOGO
+   ========================================================= */
+
+.header-logo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    margin-right: 18px;
+
+    border:
+        1px solid
+        var(--border-strong);
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 29, 36, 0.95),
+            rgba(8, 16, 21, 0.98)
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+.header-logo-text {
+    color: var(--silver);
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   HEADER TITEL
+   ========================================================= */
+
+.header-title {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.header-title .eyebrow {
+    color: var(--text-muted);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+}
+
+
+.header-title h1 {
+    margin-top: 6px;
+
+    color: var(--text-main);
+
+    font-size: 25px;
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+}
+
+
+.section-number {
+    flex:
+        0 0 auto;
+
+    color:
+        rgba(
+            113,
+            213,
+            229,
+            0.65
+        );
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    padding-top: 6px;
+}
+
+
+.section-heading h2 {
+    color: var(--text-main);
+
+    font-size: 20px;
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+}
+
+
+.section-heading p {
+    margin-top: 6px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORTSCHRITT PANEL
+   ========================================================= */
+
+.progress-panel {
+    margin-top: 38px;
+
+    padding: 30px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 29, 36, 0.95),
+            rgba(8, 16, 21, 0.98)
+        );
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   FORTSCHRITT ZAHLEN
+   ========================================================= */
+
+.progress-summary {
+    display: flex;
+
+    align-items: baseline;
+    justify-content: space-between;
+
+    margin-top: 30px;
+}
+
+
+.progress-count {
+    display: flex;
+
+    align-items: baseline;
+}
+
+
+.progress-number {
+    color: var(--silver);
+
+    font-size: 42px;
+    font-weight: 300;
+
+    letter-spacing: 0.03em;
+}
+
+
+.progress-divider {
+    margin:
+        0
+        7px;
+
+    color: var(--text-muted);
+
+    font-size: 27px;
+}
+
+
+.progress-total {
+    color: var(--text-soft);
+
+    font-size: 27px;
+    font-weight: 300;
+}
+
+
+.progress-label {
+    margin-left: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+}
+
+
+.progress-percent {
+    color: var(--gold-light);
+
+    font-size: 27px;
+    font-weight: 400;
+
+    letter-spacing: 0.04em;
+
+    text-shadow:
+        0 0 15px
+        rgba(216, 173, 74, 0.12);
+}
+
+
+/* =========================================================
+   FORTSCHRITTSBALKEN
+   ========================================================= */
+
+.progress-bar {
+    position: relative;
+
+    width: 100%;
+    height: 7px;
+
+    margin-top: 18px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+        rgba(
+            184,
+            196,
+            201,
+            0.10
+        );
+
+    border:
+        1px solid
+        rgba(
+            210,
+            225,
+            230,
+            0.08
+        );
+}
+
+
+.progress-bar-fill {
+    width: 0%;
+    height: 100%;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(216, 173, 74, 0.35);
+
+    transition:
+        width 0.8s ease;
+}
+
+
+/* =========================================================
+   AKTEN PANEL
+   ========================================================= */
+
+.cases-panel {
+    margin-top: 48px;
+}
+
+
+/* =========================================================
+   AKTENLISTE
+   ========================================================= */
+
+.cases-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 24px;
+}
+
+
+/* =========================================================
+   AKTENZEILE
+   ========================================================= */
+
+.case-row {
+    display: grid;
+
+    grid-template-columns:
+        64px
+        1fr
+        auto;
+
+    align-items: center;
+
+    min-height: 86px;
+
+    padding:
+        18px
+        22px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(14, 26, 32, 0.94),
+            rgba(8, 16, 21, 0.98)
+        );
+
+    transition:
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+.case-row:hover {
+    border-color:
+        var(--border-strong);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================================
+   AKTENNUMMER
+   ========================================================= */
+
+.case-number {
+    color:
+        rgba(
+            215,
+            224,
+            228,
+            0.24
+        );
+
+    font-size: 27px;
+    font-weight: 300;
+
+    letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   AKTENINFORMATION
+   ========================================================= */
+
+.case-info h3 {
+    color: var(--text-main);
+
+    font-size: 15px;
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+}
+
+
+.case-info p {
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   AKTENSTATUS
+   ========================================================= */
+
+.case-status {
+    min-width: 100px;
+
+    padding:
+        9px
+        12px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(
+            190,
+            210,
+            218,
+            0.14
+        );
+
+    border-radius: 7px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.018
+        );
+
+    color: var(--text-muted);
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+}
+
+
+/* =========================================================
+   ABGESCHLOSSENE AKTE
+   ========================================================= */
+
+.case-row.completed {
+    border-color:
+        rgba(
+            216,
+            173,
+            74,
+            0.28
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27, 28, 24, 0.94),
+            rgba(10, 17, 20, 0.98)
+        );
+}
+
+
+.case-row.completed .case-number {
+    color: var(--gold);
+}
+
+
+.case-row.completed .case-status {
+    border-color:
+        rgba(
+            216,
+            173,
+            74,
+            0.32
+        );
+
+    color: var(--gold-light);
+
+    background:
+        rgba(
+            216,
+            173,
+            74,
+            0.06
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(
+            216,
+            173,
+            74,
+            0.06
+        );
+}
+
+
+/* =========================================================
+   AKTE GESPERRT
+   ========================================================= */
+
+.case-row.locked {
+    opacity: 0.46;
+}
+
+
+.case-row.locked:hover {
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   ERMITTLUNGSINFORMATIONEN
+   ========================================================= */
+
+.information-panel {
+    margin-top: 48px;
+
+    padding:
+        26px
+        28px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.018
+        );
+}
+
+
+.information-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 12px;
+
+    margin-top: 24px;
+}
+
+
+.information-card {
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 105px;
+
+    padding: 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.018
+        );
+}
+
+
+.information-card-number {
+    color: var(--text-muted);
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+}
+
+
+.information-card strong {
+    margin-top: 13px;
+
+    color: var(--silver);
+
+    font-size: 27px;
+    font-weight: 300;
+}
+
+
+.information-card span:last-child {
+    margin-top: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   SYSTEMSTATUS
+   ========================================================= */
+
+.system-status-panel {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-top: 34px;
+
+    padding:
+        24px
+        26px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.018
+        );
+}
+
+
+.system-status-content {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 22px;
+}
+
+
+.status-indicator {
+    width: 9px;
+    height: 9px;
+
+    flex:
+        0 0 9px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 10px
+        rgba(
+            117,
+            201,
+            138,
+            0.65
+        );
+}
+
+
+.system-status-content strong {
+    color: var(--silver);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+}
+
+
+.system-status-content p {
+    margin-top: 5px;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   AKTIONEN
+   ========================================================= */
+
+.actions-panel {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    margin-top: 34px;
+
+    padding-top: 22px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+/* =========================================================
+   BUTTON BASIS
+   ========================================================= */
+
+.action-button {
+    min-height: 42px;
+
+    padding:
+        11px
+        17px;
+
+    border:
+        1px solid
+        rgba(
+            190,
+            210,
+            218,
+            0.20
+        );
+
+    border-radius: 7px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    color: var(--silver);
+
+    cursor: pointer;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.action-button:hover {
+    border-color: var(--cyan);
+
+    color: var(--cyan);
+
+    background:
+        rgba(
+            113,
+            213,
+            229,
+            0.05
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(
+            113,
+            213,
+            229,
+            0.08
+        );
+}
+
+
+.action-button:active {
+    transform:
+        translateY(1px);
+}
+
+
+/* =========================================================
+   DANGER BUTTON
+   ========================================================= */
+
+.action-button.danger {
+    border-color:
+        rgba(
+            217,
+            107,
+            107,
+            0.28
+        );
+
+    color:
+        rgba(
+            239,
+            139,
+            139,
+            0.85
+        );
+
+    background:
+        rgba(
+            217,
+            107,
+            107,
+            0.035
+        );
+}
+
+
+.action-button.danger:hover {
+    border-color:
+        var(--danger-light);
+
+    color:
+        var(--danger-light);
+
+    background:
+        rgba(
+            217,
+            107,
+            107,
+            0.07
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(
+            217,
+            107,
+            107,
+            0.08
+        );
+}
+
+
+/* =========================================================
+   RESET DIALOG
+   ========================================================= */
+
+.dialog {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(
+            3,
+            8,
+            11,
+            0.94
+        );
+
+    backdrop-filter:
+        blur(10px);
+
+    opacity: 1;
+}
+
+
+.dialog.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   DIALOG BOX
+   ========================================================= */
+
+.dialog-box {
+    width:
+        min(
+            500px,
+            100%
+        );
+
+    padding:
+        40px
+        34px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(
+            217,
+            107,
+            107,
+            0.28
+        );
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 28, 32, 0.98),
+            rgba(7, 14, 18, 0.98)
+        );
+
+    box-shadow:
+        0 0 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.28
+        );
+}
+
+
+.dialog-label {
+    color:
+        var(--danger-light);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.20em;
+}
+
+
+.dialog-box h2 {
+    margin-top: 12px;
+
+    color: var(--text-main);
+
+    font-size: 22px;
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+}
+
+
+.dialog-box p {
+    margin-top: 14px;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+.dialog-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.save-page::after {
+    content:
+        "JAC PORTAL • CONFIDENTIAL";
+
+    display: block;
+
+    margin-top: 28px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid var(--border);
+
+    color: var(--text-muted);
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+}
+
+
+/* =========================================================
+   RESPONSIVE – TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .save-page {
+        width:
+            min(
+                100% - 32px,
+                700px
+            );
+    }
+
+
+    .information-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .case-row {
+        grid-template-columns:
+            52px
+            1fr
+            auto;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE – HANDY
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .save-page {
+        width:
+            calc(
+                100% - 24px
+            );
+
+        padding-top: 20px;
+    }
+
+
+    .save-header {
+        align-items: flex-start;
+    }
+
+
+    .header-logo {
+        width: 48px;
+        height: 48px;
+
+        margin-right: 13px;
+    }
+
+
+    .header-title .eyebrow {
+        font-size: 8px;
+    }
+
+
+    .header-title h1 {
+        font-size: 21px;
+    }
+
+
+    .progress-panel {
+        padding:
+            20px
+            16px;
+    }
+
+
+    .progress-summary {
+        align-items: flex-end;
+    }
+
+
+    .progress-number {
+        font-size: 32px;
+    }
+
+
+    .progress-divider {
+        font-size: 22px;
+    }
+
+
+    .progress-total {
+        font-size: 22px;
+    }
+
+
+    .progress-label {
+        font-size: 8px;
+    }
+
+
+    .progress-percent {
+        font-size: 22px;
+    }
+
+
+    .case-row {
+        grid-template-columns:
+            42px
+            1fr;
+
+        gap: 8px;
+
+        padding:
+            18px;
+    }
+
+
+    .case-number {
+        font-size: 22px;
+    }
+
+
+    .case-info h3 {
+        font-size: 14px;
+    }
+
+
+    .case-status {
+        grid-column: 2;
+
+        justify-self: start;
+
+        min-width: 90px;
+
+        margin-top: 4px;
+    }
+
+
+    .information-panel {
+        padding:
+            22px
+            18px;
+    }
+
+
+    .system-status-panel {
+        padding:
+            20px
+            18px;
+    }
+
+
+    .actions-panel {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .action-button {
+        width: 100%;
+    }
+
+
+    .dialog-box {
+        padding:
+            34px
+            22px;
+    }
+
+
+    .dialog-actions {
+        flex-direction: column;
+    }
+
+
+    .dialog-actions .action-button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+}

@@ -1,0 +1,882 @@
+/* =========================================================
+   JAC PORTAL
+   SYSTEM BOOT
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HAUPTSEITE
+========================================================= */
+
+.system-boot {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 620px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(35, 255, 150, 0.055),
+            transparent 40%
+        ),
+        #050806;
+
+    color: #d8e8df;
+
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
+}
+
+
+.system-boot::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.12;
+
+    background-image:
+        linear-gradient(
+            rgba(90, 255, 170, 0.055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(90, 255, 170, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.system-boot-header {
+    position: relative;
+    z-index: 2;
+
+    flex: 0 0 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 34px;
+
+    border-bottom:
+        1px solid rgba(60, 255, 155, 0.18);
+
+    background:
+        rgba(3, 8, 6, 0.92);
+}
+
+
+.system-boot-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.system-boot-logo {
+    width: 38px;
+    height: 38px;
+
+    object-fit: contain;
+
+    opacity: 0.9;
+}
+
+
+.system-boot-heading {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.system-boot-heading span {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(150, 190, 170, 0.65);
+}
+
+
+.system-boot-heading strong {
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    color: #b9d9c8;
+}
+
+
+.system-boot-phase {
+    padding: 8px 12px;
+
+    border:
+        1px solid rgba(60, 255, 155, 0.28);
+
+    color: #63ffad;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.system-boot-main {
+    position: relative;
+    z-index: 1;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding:
+        24px
+        clamp(22px, 8vw, 120px)
+        14px;
+
+    gap: 16px;
+}
+
+
+.system-boot-intro {
+    text-align: center;
+}
+
+
+.terminal-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(85, 255, 165, 0.6);
+}
+
+
+.system-boot-intro h1 {
+    margin: 0;
+
+    font-size: clamp(25px, 4vw, 42px);
+
+    line-height: 0.95;
+
+    letter-spacing: 6px;
+
+    color: #dcece3;
+}
+
+
+.system-boot-intro p {
+    margin: 10px 0 0;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #78b395;
+}
+
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.boot-terminal {
+    flex: 1;
+
+    min-height: 230px;
+
+    display: flex;
+    flex-direction: column;
+
+    border:
+        1px solid rgba(72, 255, 163, 0.2);
+
+    background:
+        rgba(3, 10, 7, 0.9);
+}
+
+
+.boot-terminal-header {
+    flex: 0 0 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 14px;
+
+    border-bottom:
+        1px solid rgba(70, 255, 160, 0.1);
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    color: #587966;
+}
+
+
+#boot-terminal-state {
+    color: #63ffad;
+}
+
+
+.boot-log {
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 14px;
+
+    overflow: hidden;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+    color: #718d7c;
+}
+
+
+.boot-log-line {
+    opacity: 0.9;
+}
+
+
+.boot-log-line span {
+    color: #405a4b;
+}
+
+
+.boot-log-line.system {
+    color: #91b8a1;
+}
+
+
+.boot-log-line.success {
+    color: #5cff9e;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.boot-progress-container {
+    padding: 10px 14px 14px;
+}
+
+
+.boot-progress-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 6px;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    color: #526e5e;
+}
+
+
+#boot-percent {
+    color: #62fda6;
+}
+
+
+.boot-progress {
+    width: 100%;
+    height: 3px;
+
+    overflow: hidden;
+
+    background:
+        rgba(80, 120, 100, 0.15);
+}
+
+
+.boot-progress-bar {
+    width: 0;
+    height: 100%;
+
+    background: #52ff9c;
+
+    box-shadow:
+        0 0 10px rgba(75, 255, 155, 0.75);
+
+    transition:
+        width 0.35s ease;
+}
+
+
+/* =========================================================
+   MODULE
+========================================================= */
+
+.boot-modules {
+    flex: 0 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+
+.boot-module {
+    min-height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border:
+        1px solid rgba(70, 255, 160, 0.12);
+
+    background:
+        rgba(5, 15, 9, 0.8);
+
+    transition:
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.boot-module[data-state="active"] {
+    border-color:
+        rgba(75, 255, 160, 0.45);
+
+    box-shadow:
+        inset 0 0 20px rgba(60, 255, 150, 0.04);
+}
+
+
+.boot-module[data-state="verified"] {
+    border-color:
+        rgba(75, 255, 160, 0.7);
+
+    box-shadow:
+        inset 0 0 20px rgba(60, 255, 150, 0.05);
+}
+
+
+.boot-module-number {
+    font-size: 8px;
+
+    color: #4ce697;
+}
+
+
+.boot-module-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.boot-module-info span {
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    color: #527060;
+}
+
+
+.boot-module-info strong {
+    font-size: 8px;
+
+    letter-spacing: 0.7px;
+
+    color: #607a6b;
+}
+
+
+.boot-module[data-state="active"]
+.boot-module-info strong {
+    color: #b5ddc5;
+}
+
+
+.boot-module[data-state="verified"]
+.boot-module-info strong {
+    color: #5cff9e;
+}
+
+
+.boot-module-indicator {
+    margin-left: auto;
+
+    font-size: 13px;
+
+    color: #405a4a;
+}
+
+
+.boot-module[data-state="active"]
+.boot-module-indicator {
+    color: #baffd4;
+}
+
+
+.boot-module[data-state="verified"]
+.boot-module-indicator {
+    color: #58ff9e;
+}
+
+
+/* =========================================================
+   SYSTEM READY
+========================================================= */
+
+.boot-complete {
+    flex: 0 0 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 14px;
+
+    border:
+        1px solid rgba(65, 255, 155, 0.12);
+
+    opacity: 0.35;
+
+    transition:
+        opacity 0.5s ease,
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+.boot-complete.ready {
+    opacity: 1;
+
+    border-color:
+        rgba(65, 255, 155, 0.75);
+
+    box-shadow:
+        0 0 25px rgba(50, 255, 150, 0.08);
+}
+
+
+.boot-complete-icon {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid #52ff9c;
+
+    border-radius: 50%;
+
+    color: #52ff9c;
+}
+
+
+.boot-complete div:nth-child(2) {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.boot-complete div:nth-child(2) span {
+    font-size: 6px;
+
+    letter-spacing: 1px;
+
+    color: #557665;
+}
+
+
+.boot-complete div:nth-child(2) strong {
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    color: #61ffa5;
+}
+
+
+#boot-access {
+    margin-left: auto;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    color: #5cff9e;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.system-boot-footer {
+    position: relative;
+    z-index: 2;
+
+    flex: 0 0 25px;
+
+    padding: 0 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border-top:
+        1px solid rgba(65, 255, 155, 0.1);
+
+    color: #405a4c;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    body {
+        overflow: auto;
+    }
+
+
+    .system-boot {
+        height: auto;
+
+        min-height: 100vh;
+
+        overflow: visible;
+    }
+
+
+    .system-boot-header {
+        padding: 0 16px;
+    }
+
+
+    .system-boot-phase {
+        display: none;
+    }
+
+
+    .system-boot-main {
+        padding:
+            18px
+            14px
+            12px;
+    }
+
+
+    .boot-modules {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .boot-terminal {
+        min-height: 280px;
+    }
+
+
+    .system-boot-footer {
+        padding: 0 16px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .boot-modules {
+        grid-template-columns: 1fr;
+    }
+
+
+    .boot-module {
+        min-height: 55px;
+    }
+
+}
+
+
+@media (max-height: 700px) and (min-width: 801px) {
+
+    .system-boot-header {
+        flex-basis: 56px;
+    }
+
+
+    .system-boot-main {
+        padding-top: 12px;
+
+        gap: 9px;
+    }
+
+
+    .system-boot-intro h1 {
+        font-size: 27px;
+    }
+
+
+    .boot-terminal {
+        min-height: 170px;
+    }
+
+
+    .boot-log {
+        padding: 8px 12px;
+
+        line-height: 1.55;
+    }
+
+
+    .boot-modules {
+        gap: 7px;
+    }
+
+
+    .boot-module {
+        min-height: 48px;
+
+        padding: 7px;
+    }
+
+
+    .boot-complete {
+        flex-basis: 44px;
+    }
+
+}
+/* =========================================================
+   BOOT START OVERLAY
+========================================================= */
+
+.boot-start-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(35, 255, 150, 0.07),
+            transparent 45%
+        ),
+        #050806;
+
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+}
+
+
+.boot-start-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+.boot-start-content {
+    width: min(520px, 90vw);
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(70, 255, 160, 0.25);
+
+    background:
+        rgba(3, 10, 7, 0.95);
+
+    box-shadow:
+        0 0 50px rgba(50, 255, 150, 0.06);
+}
+
+
+.boot-start-logo {
+    width: 90px;
+    height: 90px;
+
+    object-fit: contain;
+
+    margin-bottom: 22px;
+}
+
+
+.boot-start-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #5cff9e;
+}
+
+
+.boot-start-content h1 {
+    margin: 0;
+
+    font-size: 30px;
+
+    letter-spacing: 5px;
+
+    color: #dcece3;
+}
+
+
+.boot-start-content p {
+    margin: 22px 0 28px;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+
+    color: #71917e;
+}
+
+
+#start-system-boot {
+    min-width: 260px;
+
+    padding: 14px 22px;
+
+    border:
+        1px solid rgba(75, 255, 160, 0.65);
+
+    background:
+        rgba(40, 255, 145, 0.06);
+
+    color: #63ffad;
+
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+#start-system-boot:hover {
+    background:
+        rgba(40, 255, 145, 0.13);
+
+    border-color:
+        rgba(75, 255, 160, 0.95);
+
+    box-shadow:
+        0 0 20px rgba(60, 255, 150, 0.12);
+}
+
+
+#start-system-boot:disabled {
+    opacity: 0.5;
+
+    cursor: default;
+}

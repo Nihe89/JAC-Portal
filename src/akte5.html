@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>JAC Portal – Akte 05</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/akte5.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     STARTSCREEN
+====================================================== -->
+
+<div
+    id="startup-screen"
+    class="startup-screen"
+>
+
+    <div class="startup-box">
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="startup-logo"
+        >
+
+        <div class="startup-label">
+            JAC FORENSIC SYSTEM
+        </div>
+
+        <div class="startup-title">
+            AKTE 05
+        </div>
+
+        <div class="startup-subtitle">
+            ABSCHLIESSENDE FALLANALYSE
+        </div>
+
+
+        <button
+            id="system-start-button"
+            class="system-start-button"
+            type="button"
+        >
+
+            <span class="start-icon">▶</span>
+
+            SYSTEM STARTEN
+
+        </button>
+
+
+        <!-- =================================================
+             STARTANIMATION
+        ================================================== -->
+
+        <div
+            id="startup-animation"
+            class="startup-animation hidden"
+        >
+
+            <div class="system-terminal">
+
+                <div class="terminal-line">
+
+                    <span class="terminal-prefix">
+                        JAC://
+                    </span>
+
+                    <span id="startup-text">
+                        SYSTEM WIRD INITIALISIERT...
+                    </span>
+
+                </div>
+
+                <div
+                    id="startup-detail"
+                    class="startup-detail"
+                >
+                    JAC FORENSIC SYSTEM
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 GROSSES PUZZLE
+            ================================================== -->
+
+            <div
+                id="startup-puzzle"
+                class="startup-puzzle"
+                aria-hidden="true"
+            >
+
+                <div class="puzzle-glow"></div>
+
+                <!-- Reihe 1 -->
+
+                <div
+                    class="puzzle-piece piece-01"
+                    data-number="01"
+                >
+                    <span>01</span>
+                </div>
+
+                <div
+                    class="puzzle-piece piece-02"
+                    data-number="02"
+                >
+                    <span>02</span>
+                </div>
+
+                <div
+                    class="puzzle-piece piece-03"
+                    data-number="03"
+                >
+                    <span>03</span>
+                </div>
+
+                <div
+                    class="puzzle-piece piece-04"
+                    data-number="04"
+                >
+                    <span>04</span>
+                </div>
+
+
+                <!-- Reihe 2 -->
+
+                <div
+                    class="puzzle-piece piece-05"
+                    data-number="05"
+                >
+                    <span>05</span>
+                </div>
+
+                <div
+                    class="puzzle-piece piece-06"
+                    data-number="06"
+                >
+                    <span>06</span>
+                </div>
+
+                <div
+                    class="puzzle-piece piece-07"
+                    data-number="07"
+                >
+                    <span>07</span>
+                </div>
+
+                <div
+                    class="puzzle-piece piece-08"
+                    data-number="08"
+                >
+                    <span>08</span>
+                </div>
+
+
+                <!-- Reihe 3 -->
+
+                <div
+                    class="puzzle-piece piece-09"
+                    data-number="09"
+                >
+                    <span>09</span>
+                </div>
+
+                <div
+                    class="puzzle-piece piece-10"
+                    data-number="10"
+                >
+                    <span>10</span>
+                </div>
+
+                <div
+                    class="puzzle-piece piece-11"
+                    data-number="11"
+                >
+                    <span>11</span>
+                </div>
+
+                <div
+                    class="puzzle-piece piece-12"
+                    data-number="12"
+                >
+                    <span>12</span>
+                </div>
+
+
+                <div class="puzzle-center">
+
+                    <strong>JAC</strong>
+
+                    <small>
+                        CASE 05
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ANALYSE
+            ================================================== -->
+
+            <div class="startup-analysis">
+
+                <div
+                    class="analysis-item"
+                    id="analysis-1"
+                >
+
+                    <span class="analysis-number">
+                        01
+                    </span>
+
+                    <span class="analysis-name">
+                        FALLDATEN
+                    </span>
+
+                    <span class="analysis-state">
+                        —
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="analysis-item"
+                    id="analysis-2"
+                >
+
+                    <span class="analysis-number">
+                        02
+                    </span>
+
+                    <span class="analysis-name">
+                        ZEITLINIE
+                    </span>
+
+                    <span class="analysis-state">
+                        —
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="analysis-item"
+                    id="analysis-3"
+                >
+
+                    <span class="analysis-number">
+                        03
+                    </span>
+
+                    <span class="analysis-name">
+                        BEWEISDATEN
+                    </span>
+
+                    <span class="analysis-state">
+                        —
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="analysis-item"
+                    id="analysis-4"
+                >
+
+                    <span class="analysis-number">
+                        04
+                    </span>
+
+                    <span class="analysis-name">
+                        FALLABGLEICH
+                    </span>
+
+                    <span class="analysis-state">
+                        —
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROGRESS
+            ================================================== -->
+
+            <div class="startup-progress-wrapper">
+
+                <div class="startup-progress-header">
+
+                    <span>
+                        SYSTEMANALYSE
+                    </span>
+
+                    <span id="startup-percent">
+                        0 %
+                    </span>
+
+                </div>
+
+                <div class="startup-progress-track">
+
+                    <div
+                        id="startup-progress"
+                        class="startup-progress-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="startup-status"
+                class="startup-status"
+            >
+                SYSTEM BEREITSTELLUNG
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="jac-header">
+
+    <div class="header-left">
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="jac-logo"
+        >
+
+        <div class="header-title">
+
+            <div class="portal-title">
+                JAC PORTAL
+            </div>
+
+            <div class="case-title">
+                AKTE 05
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-status">
+
+        <span class="status-dot"></span>
+
+        SYSTEM ONLINE
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HAUPTINHALT
+====================================================== -->
+
+<main
+    id="case-content"
+    class="case-container hidden"
+>
+
+    <section class="case-intro">
+
+        <div class="case-label">
+            ABSCHLIESSENDE FALLANALYSE
+        </div>
+
+        <h1>
+            AKTE 05
+        </h1>
+
+        <p>
+            Setzen Sie die letzten Informationen des Falls
+            korrekt zusammen. Ordnen Sie die Beweisdaten
+            den vier Kategorien zu und vervollständigen Sie
+            damit die abschließende Fallanalyse.
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         PUZZLE
+    ================================================== -->
+
+    <section class="puzzle-card">
+
+        <div class="puzzle-header">
+
+            <div>
+
+                <div class="puzzle-label">
+                    BEWEISPUZZLE
+                </div>
+
+                <h2>
+                    Fallinformationen zuordnen
+                </h2>
+
+            </div>
+
+            <div class="case-number">
+                05
+            </div>
+
+        </div>
+
+
+        <div
+            id="puzzle-progress-text"
+            class="puzzle-progress"
+        >
+            0 / 4 ANALYSEN ABGESCHLOSSEN
+        </div>
+
+
+        <!-- =================================================
+             FRAGE 1
+        ================================================== -->
+
+        <div
+            class="puzzle-item"
+            data-category="date"
+        >
+
+            <div class="puzzle-item-header">
+
+                <div class="puzzle-number">
+                    01
+                </div>
+
+                <div>
+
+                    <div class="puzzle-category">
+                        DATUM
+                    </div>
+
+                    <div class="puzzle-question">
+                        Wann findet das Ereignis statt?
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="puzzle-options">
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="03. Oktober 2026"
+                >
+                    03. Oktober 2026
+                </button>
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="04. Oktober 2026"
+                >
+                    04. Oktober 2026
+                </button>
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="05. Oktober 2026"
+                >
+                    05. Oktober 2026
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FRAGE 2
+        ================================================== -->
+
+        <div
+            class="puzzle-item"
+            data-category="location"
+        >
+
+            <div class="puzzle-item-header">
+
+                <div class="puzzle-number">
+                    02
+                </div>
+
+                <div>
+
+                    <div class="puzzle-category">
+                        ORT
+                    </div>
+
+                    <div class="puzzle-question">
+                        Wo findet das Ereignis statt?
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="puzzle-options">
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="Jury Experience Stuttgart"
+                >
+                    Jury Experience Stuttgart
+                </button>
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="JAC Headquarters"
+                >
+                    JAC Headquarters
+                </button>
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="Stuttgart Convention Center"
+                >
+                    Stuttgart Convention Center
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FRAGE 3
+        ================================================== -->
+
+        <div
+            class="puzzle-item"
+            data-category="time"
+        >
+
+            <div class="puzzle-item-header">
+
+                <div class="puzzle-number">
+                    03
+                </div>
+
+                <div>
+
+                    <div class="puzzle-category">
+                        Briefing
+                    </div>
+
+                    <div class="puzzle-question">
+                        Wann ist das Briefing?
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="puzzle-options">
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="14:00 Uhr"
+                >
+                    14:00 Uhr
+                </button>
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="16:00 Uhr"
+                >
+                    16:00 Uhr
+                </button>
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="18:00 Uhr"
+                >
+                    18:00 Uhr
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FRAGE 4
+        ================================================== -->
+
+        <div
+            class="puzzle-item"
+            data-category="case"
+        >
+
+            <div class="puzzle-item-header">
+
+                <div class="puzzle-number">
+                    04
+                </div>
+
+                <div>
+
+                    <div class="puzzle-category">
+                        FALL
+                    </div>
+
+                    <div class="puzzle-question">
+                        Wie lautet der Fall?
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="puzzle-options">
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="10 Millionen Dollar Raub"
+                >
+                    10 Millionen Dollar Raub
+                </button>
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="20 Millionen Dollar Raub"
+                >
+                    20 Millionen Dollar Raub
+                </button>
+
+                <button
+                    type="button"
+                    class="puzzle-option"
+                    data-value="50 Millionen Dollar Raub"
+                >
+                    50 Millionen Dollar Raub
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="check-puzzle"
+            class="jac-button"
+            type="button"
+            disabled
+        >
+            FALLANALYSE BESTÄTIGEN
+        </button>
+
+
+        <div
+            id="puzzle-hint"
+            class="puzzle-hint"
+        >
+            Vervollständigen Sie alle vier Analysebereiche.
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     RESULTAT
+====================================================== -->
+
+<div
+    id="result-modal"
+    class="jac-modal hidden"
+>
+
+    <div class="result-modal-box">
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="result-logo"
+        >
+
+        <div
+            id="result-icon"
+            class="result-icon"
+        ></div>
+
+        <div
+            id="result-title"
+            class="result-title"
+        ></div>
+
+        <div
+            id="result-text"
+            class="result-text"
+        ></div>
+
+        <button
+            id="result-button"
+            class="jac-button"
+            type="button"
+        ></button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ABSCHLUSS
+====================================================== -->
+
+<div
+    id="completion-screen"
+    class="completion-screen hidden"
+>
+
+    <div class="completion-box">
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="completion-logo"
+        >
+
+        <div class="completion-label">
+            JAC FORENSIC SYSTEM
+        </div>
+
+        <h2>
+            AKTE 05 ABGESCHLOSSEN
+        </h2>
+
+        <p>
+            Die abschließende Fallanalyse wurde erfolgreich
+            durchgeführt. Alle Beweisdaten konnten korrekt
+            zusammengeführt werden.
+        </p>
+
+        <button
+            id="dashboard-button"
+            class="jac-button"
+            type="button"
+        >
+            Weiter
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<footer class="jac-footer">
+
+    JAC FORENSIC SYSTEM
+
+    <span>•</span>
+
+    CASE 05
+
+</footer>
+
+
+
+<script src="../js/audio.js"></script>
+
+<script src="../js/gameState.js"></script>
+
+<script src="../js/akte5.js"></script>
+
+
+</body>
+
+</html>

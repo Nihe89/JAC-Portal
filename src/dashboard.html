@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>JAC Portal – Kommandozentrale</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<main class="dashboard">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="dashboard-header">
+
+        <div class="header-brand">
+
+            <div class="brand-line"></div>
+
+            <div>
+
+                <div class="brand-title">
+                    JURY ASSESSMENT COMMISSION
+                </div>
+
+                <div class="brand-subtitle">
+                    JAC – INTERNES FALLPORTAL
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            SYSTEM AKTIV
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         FORTSCHRITT
+    ====================================================== -->
+
+    <section class="progress-section">
+
+
+        <div class="progress-header">
+
+            <div>
+
+                <div class="section-label">
+                    FALLFORTSCHRITT
+                </div>
+
+                <h1>
+                    Ermittlungsstatus
+                </h1>
+
+            </div>
+
+
+            <div class="progress-counter">
+
+                <span id="progress-current">
+                    0
+                </span>
+
+                <span class="progress-divider">
+                    /
+                </span>
+
+                <span>
+                    5
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FORTSCHRITT + AGENTENAUSWEIS
+        ================================================== -->
+
+        <div class="dashboard-status-area">
+
+
+            <!-- =================================================
+                 FORTSCHRITTSLOGO
+            ================================================== -->
+
+            <div class="progress-area">
+
+
+                <div
+                    id="progress-logo"
+                    class="progress-logo"
+                    aria-label="JAC Fallfortschritt"
+                >
+
+
+                    <div class="progress-ring">
+
+
+                        <span
+                            class="progress-segment segment-1"
+                            data-segment="1">
+                        </span>
+
+
+                        <span
+                            class="progress-segment segment-2"
+                            data-segment="2">
+                        </span>
+
+
+                        <span
+                            class="progress-segment segment-3"
+                            data-segment="3">
+                        </span>
+
+
+                        <span
+                            class="progress-segment segment-4"
+                            data-segment="4">
+                        </span>
+
+
+                        <span
+                            class="progress-segment segment-5"
+                            data-segment="5">
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         INNERES LOGO
+                    ================================================== -->
+
+                    <div class="inner-logo">
+
+
+                        <img
+                            id="logo-empty"
+                            src="../assets/logos/jac-logo-empty.png"
+                            alt="JAC"
+                        >
+
+
+                        <img
+                            id="logo-gold"
+                            src="../assets/logos/jac-logo-gold.png"
+                            alt="JAC"
+                        >
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         GLITZER
+                    ================================================== -->
+
+                    <div
+                        id="sparkle-container"
+                        class="sparkle-container"
+                        aria-hidden="true">
+                    </div>
+
+
+                </div>
+
+
+
+                <div
+                    id="progress-status"
+                    class="progress-status"
+                >
+                    5 Akten warten auf Bearbeitung
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 JAC AGENTENAUSWEIS
+            ================================================== -->
+
+            <aside
+                class="dashboard-agent-card"
+                aria-label="JAC Agentenausweis"
+            >
+
+
+                <div class="dashboard-agent-header">
+
+
+                    <div>
+
+                        <span class="dashboard-agent-label">
+                            JAC
+                        </span>
+
+                        <span class="dashboard-agent-title">
+                            AGENT IDENTIFICATION
+                        </span>
+
+                    </div>
+
+
+                    <div class="dashboard-agent-hologram">
+                        JAC
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="dashboard-agent-divider">
+                </div>
+
+
+
+                <div class="dashboard-agent-id">
+
+                    <span>
+                        AGENT
+                    </span>
+
+                    <strong>
+                        JAC-090996
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dashboard-agent-row">
+
+                    <span>
+                        BIOMETRIE
+                    </span>
+
+                    <strong>
+                        BESTÄTIGT
+                        <b>✓</b>
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dashboard-agent-row">
+
+                    <span>
+                        IDENTITÄT
+                    </span>
+
+                    <strong>
+                        BESTÄTIGT
+                        <b>✓</b>
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dashboard-agent-row">
+
+                    <span>
+                        HOLOGRAM
+                    </span>
+
+                    <strong>
+                        BESTÄTIGT
+                        <b>✓</b>
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dashboard-agent-row">
+
+                    <span>
+                        SICHERHEITSSTUFE
+                    </span>
+
+                    <strong>
+                        LEVEL 02
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dashboard-agent-divider">
+                </div>
+
+
+
+                <!-- =================================================
+                     PORTALSTATUS
+                ================================================== -->
+
+                <div class="dashboard-portal-status">
+
+
+                    <div class="portal-status-title">
+                        PORTALSTATUS
+                    </div>
+
+
+                    <div class="portal-status-line">
+
+                        <span
+                            class="portal-online-dot">
+                        </span>
+
+                        <strong>
+                            ONLINE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="portal-secure">
+                        SICHERE VERBINDUNG
+                    </div>
+
+
+                    <div
+                        id="portal-datetime"
+                        class="portal-datetime"
+                    >
+                        --.--.---- · --:--
+                    </div>
+
+
+                </div>
+
+
+            </aside>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         AKTEN
+    ====================================================== -->
+
+    <section class="cases-section">
+
+
+        <div class="section-heading">
+
+
+            <div class="section-label">
+                FALLAKTEN
+            </div>
+
+
+            <h2>
+                Ermittlungsakten
+            </h2>
+
+
+            <p>
+                Bearbeiten Sie die Akten in der vorgesehenen Reihenfolge.
+            </p>
+
+
+        </div>
+
+
+
+        <div class="case-grid">
+
+
+            <!-- =================================================
+                 AKTE 01
+            ================================================== -->
+
+            <article
+                class="case-card"
+                data-case="1"
+            >
+
+                <div class="case-number">
+                    01
+                </div>
+
+
+                <div class="case-content">
+
+                    <span class="case-label">
+                        AKTE 01
+                    </span>
+
+
+                    <h3>
+                        Erste Ermittlungsphase
+                    </h3>
+
+
+                    <p>
+                        Untersuchung des ersten Beweiskomplexes.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="case-button"
+                    data-case-button="1"
+                    type="button"
+                >
+                    AKTE ÖFFNEN
+                </button>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 AKTE 02
+            ================================================== -->
+
+            <article
+                class="case-card"
+                data-case="2"
+            >
+
+                <div class="case-number">
+                    02
+                </div>
+
+
+                <div class="case-content">
+
+                    <span class="case-label">
+                        AKTE 02
+                    </span>
+
+
+                    <h3>
+                        Forensische Analyse
+                    </h3>
+
+
+                    <p>
+                        Rekonstruktion und Analyse des Beweismaterials.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="case-button"
+                    data-case-button="2"
+                    type="button"
+                >
+                    AKTE ÖFFNEN
+                </button>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 AKTE 03
+            ================================================== -->
+
+            <article
+                class="case-card"
+                data-case="3"
+            >
+
+                <div class="case-number">
+                    03
+                </div>
+
+
+                <div class="case-content">
+
+                    <span class="case-label">
+                        AKTE 03
+                    </span>
+
+
+                    <h3>
+                        Ermittlungsanalyse
+                    </h3>
+
+
+                    <p>
+                        Auswertung der nächsten Beweisspur.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="case-button"
+                    data-case-button="3"
+                    type="button"
+                >
+                    AKTE ÖFFNEN
+                </button>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 AKTE 04
+            ================================================== -->
+
+            <article
+                class="case-card"
+                data-case="4"
+            >
+
+                <div class="case-number">
+                    04
+                </div>
+
+
+                <div class="case-content">
+
+                    <span class="case-label">
+                        AKTE 04
+                    </span>
+
+
+                    <h3>
+                        Rätsel und Schlussfolgerungen
+                    </h3>
+
+
+                    <p>
+                        Die gesammelten Hinweise führen zum nächsten Schritt.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="case-button"
+                    data-case-button="4"
+                    type="button"
+                >
+                    AKTE ÖFFNEN
+                </button>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 AKTE 05
+            ================================================== -->
+
+            <article
+                class="case-card"
+                data-case="5"
+            >
+
+                <div class="case-number">
+                    05
+                </div>
+
+
+                <div class="case-content">
+
+                    <span class="case-label">
+                        AKTE 05
+                    </span>
+
+
+                    <h3>
+                        Die letzte Spur
+                    </h3>
+
+
+                    <p>
+                        Abschluss der Ermittlungen.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="case-button"
+                    data-case-button="5"
+                    type="button"
+                >
+                    AKTE ÖFFNEN
+                </button>
+
+            </article>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SYSTEMINFORMATION
+    ====================================================== -->
+
+    <section class="system-panel">
+
+
+        <div class="system-panel-icon">
+            JAC
+        </div>
+
+
+        <div>
+
+            <span class="section-label">
+                SYSTEMINFORMATION
+            </span>
+
+
+            <p id="system-message">
+                Der Ermittlungsfall ist aktiv.
+                Bearbeiten Sie die verfügbaren Akten.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="dashboard-footer">
+
+        <span>
+            JAC INTERNAL SYSTEM
+        </span>
+
+
+        <span>
+            CLASSIFIED
+        </span>
+
+    </footer>
+
+
+</main>
+
+
+
+
+
+
+
+<!-- =========================================================
+     RESET OVERLAY
+     
+     Wird bei NEUES SPIEL von dashboard.js erzeugt.
+     Kein zusätzliches HTML notwendig.
+========================================================== -->
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script src="../js/gameState.js"></script>
+
+<script src="../js/audio.js"></script>
+
+<script src="../js/dashboard.js"></script>
+
+
+
+<!-- =========================================================
+     DATUM / UHRZEIT
+========================================================== -->
+
+<script>
+
+(function () {
+
+    function updatePortalDateTime() {
+
+        const element =
+            document.getElementById(
+                "portal-datetime"
+            );
+
+
+        if (!element) {
+
+            return;
+
+        }
+
+
+        const now =
+            new Date();
+
+
+        const date =
+            now.toLocaleDateString(
+                "de-DE",
+                {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric"
+                }
+            );
+
+
+        const time =
+            now.toLocaleTimeString(
+                "de-DE",
+                {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                }
+            );
+
+
+        element.textContent =
+            `${date} · ${time}`;
+
+    }
+
+
+    updatePortalDateTime();
+
+
+    setInterval(
+        updatePortalDateTime,
+        1000
+    );
+
+})();
+
+</script>
+
+
+</body>
+
+</html>

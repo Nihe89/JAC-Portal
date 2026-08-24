@@ -1,0 +1,2040 @@
+/* =====================================================
+   JAC PORTAL
+   AKTE 01
+   VERSION 7.0
+   FORENSIC SYSTEM START
+===================================================== */
+
+
+/* =====================================================
+   VARIABLEN
+===================================================== */
+
+:root {
+
+    --background: #060c15;
+
+    --background-light: #0b1422;
+
+    --panel: #101b2b;
+
+    --panel-light: #15243a;
+
+    --border:
+        rgba(255,255,255,.08);
+
+    --text: #f5f8fc;
+
+    --text-soft: #9fb1c6;
+
+    --blue: #168cff;
+
+    --blue-light: #53c8ff;
+
+    --cyan: #00e5ff;
+
+    --green: #00e676;
+
+    --orange: #ffb020;
+
+    --red: #ff5252;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+
+        radial-gradient(
+            circle at 50% -10%,
+            #173453 0%,
+            #0a1422 35%,
+            var(--background) 75%
+        );
+
+    color: var(--text);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+}
+
+
+/* =====================================================
+   HAUPTCONTAINER
+===================================================== */
+
+#akte1-page {
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding:
+        28px
+        22px
+        80px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+#akte-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+
+}
+
+
+.header-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+#jac-logo {
+
+    width: 82px;
+
+    height: 82px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(0,229,255,.25)
+        );
+
+}
+
+
+.jac-small {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--cyan);
+
+    font-size: .72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+}
+
+
+.header-title h1 {
+
+    margin: 0;
+
+    font-size: 2.4rem;
+
+    letter-spacing: 1px;
+
+}
+
+
+.header-title h2 {
+
+    margin: 3px 0 0;
+
+    color: var(--text-soft);
+
+    font-size: 1rem;
+
+    font-weight: 400;
+
+}
+
+
+/* =====================================================
+   HEADER BOXEN
+===================================================== */
+
+.header-right {
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+
+.system-box,
+.case-box {
+
+    min-width: 130px;
+
+    padding:
+        13px
+        17px;
+
+    background:
+        rgba(16,27,43,.9);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.system-label,
+.case-box span {
+
+    color: #71869d;
+
+    font-size: .68rem;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.system-online {
+
+    color: var(--green);
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+}
+
+
+.case-box strong {
+
+    color: var(--orange);
+
+    font-size: .85rem;
+
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card {
+
+    position: relative;
+
+    margin-bottom: 22px;
+
+    padding: 28px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(16,27,43,.96),
+            rgba(12,22,36,.96)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,.32);
+
+    animation:
+        fadeUp .45s ease both;
+
+}
+
+
+.card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.card-header h2 {
+
+    margin: 4px 0 0;
+
+    font-size: 1.45rem;
+
+}
+
+
+.section-label {
+
+    color: var(--cyan);
+
+    font-size: .68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.card p {
+
+    color: var(--text-soft);
+
+    line-height: 1.75;
+
+}
+
+
+/* =====================================================
+   MISSION
+===================================================== */
+
+#mission-intro {
+
+    overflow: hidden;
+
+}
+
+
+#mission-intro::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--cyan),
+            var(--blue)
+        );
+
+}
+
+
+.mission-tag {
+
+    padding:
+        6px
+        10px;
+
+    border:
+        1px solid
+        rgba(0,229,255,.25);
+
+    border-radius: 5px;
+
+    color: var(--cyan);
+
+    font-size: .65rem;
+
+    letter-spacing: 1px;
+
+}
+
+
+.mission-warning {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    padding: 14px 17px;
+
+    background:
+        rgba(255,176,32,.07);
+
+    border:
+        1px solid
+        rgba(255,176,32,.22);
+
+    border-radius: 8px;
+
+    color: #d7c18d;
+
+    font-size: .9rem;
+
+}
+
+
+.mission-warning > strong {
+
+    color: var(--orange);
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =====================================================
+   SYSTEM START
+===================================================== */
+
+.system-start-card {
+
+    border-color:
+        rgba(0,229,255,.14);
+
+}
+
+
+.system-start-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.system-description {
+
+    max-width: 720px;
+
+}
+
+
+.system-description p {
+
+    margin-bottom: 0;
+
+}
+
+
+/* BUTTON BEWUSST WEITER UNTEN */
+
+#start-system {
+
+    align-self: flex-start;
+
+    margin-top: 28px;
+
+    min-width: 245px;
+
+    min-height: 52px;
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border:
+        1px solid
+        rgba(0,229,255,.5);
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0876b7,
+            #09548a
+        );
+
+    color: white;
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+
+}
+
+
+#start-system:hover {
+
+    transform: translateY(-2px);
+
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 0 22px
+        rgba(0,229,255,.25);
+
+}
+
+
+#start-system:active {
+
+    transform: scale(.98);
+
+}
+
+
+#start-system:disabled {
+
+    opacity: .55;
+
+    cursor: default;
+
+    transform: none;
+
+}
+
+
+.button-icon {
+
+    color: var(--cyan);
+
+}
+
+
+/* =====================================================
+   SYSTEM STATUS
+===================================================== */
+
+.system-state {
+
+    padding:
+        7px
+        11px;
+
+    border-radius: 5px;
+
+    font-size: .68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.system-state.standby {
+
+    color: #8ca2b8;
+
+    border:
+        1px solid
+        rgba(140,162,184,.2);
+
+    background:
+        rgba(140,162,184,.05);
+
+}
+
+
+.system-state.running {
+
+    color: var(--cyan);
+
+    border:
+        1px solid
+        rgba(0,229,255,.3);
+
+    background:
+        rgba(0,229,255,.06);
+
+}
+
+
+.system-state.ready {
+
+    color: var(--green);
+
+    border:
+        1px solid
+        rgba(0,230,118,.3);
+
+    background:
+        rgba(0,230,118,.06);
+
+}
+
+
+/* =====================================================
+   FORENSISCHER SCAN
+===================================================== */
+
+#scan-screen {
+
+    border-color:
+        rgba(0,229,255,.2);
+
+}
+
+
+.analysis-state {
+
+    color: var(--green);
+
+    font-size: .7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.analysis-state::before {
+
+    content: "●";
+
+    margin-right: 7px;
+
+    animation:
+        pulse 1s infinite;
+
+}
+
+
+/* =====================================================
+   SCANNER
+===================================================== */
+
+.scanner {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 310px;
+
+    margin-top: 25px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(0,229,255,.25);
+
+    border-radius: 12px;
+
+    background:
+        #06101a;
+
+}
+
+
+.scanner-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0,229,255,.055) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0,229,255,.055) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        32px 32px;
+
+}
+
+
+.scanner-glow {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,229,255,.10),
+            transparent 58%
+        );
+
+}
+
+
+.scanner-line {
+
+    position: absolute;
+
+    left: 0;
+
+    top: -5px;
+
+    width: 100%;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--cyan),
+            white,
+            var(--cyan),
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(0,229,255,.9);
+
+    animation:
+        scannerMove 2.2s linear infinite;
+
+}
+
+
+.scanner-center {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width: 150px;
+
+    height: 150px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.scanner-ring {
+
+    position: absolute;
+
+    inset: 0;
+
+    border:
+        1px solid
+        rgba(0,229,255,.4);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 30px
+        rgba(0,229,255,.12);
+
+    animation:
+        ringPulse 1.8s ease-in-out infinite;
+
+}
+
+
+/* =====================================================
+   SCANNER CROSSHAIR – DEAKTIVIERT
+===================================================== */
+
+.scanner-crosshair {
+    display: none !important;
+}
+
+
+.scanner-percent {
+
+    position: relative;
+
+    color: var(--cyan);
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 10px
+        rgba(0,229,255,.7);
+
+}
+
+
+/* =====================================================
+   SCAN STATUS
+===================================================== */
+
+.scan-status {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 18px;
+
+    padding:
+        12px
+        15px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
+
+    border-radius: 7px;
+
+}
+
+
+#scan-text {
+
+    color: #a9cde0;
+
+    font-family:
+        "Consolas",
+        monospace;
+
+    font-size: .82rem;
+
+    letter-spacing: .6px;
+
+}
+
+
+.scan-check {
+
+    color: var(--cyan);
+
+    animation:
+        pulse 1s infinite;
+
+}
+
+
+/* =====================================================
+   SCAN PROGRESS
+===================================================== */
+
+.scan-progress {
+
+    margin-top: 12px;
+
+}
+
+
+.scan-progress-track {
+
+    width: 100%;
+
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+
+    background:
+        rgba(255,255,255,.07);
+
+}
+
+
+.scan-progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0876b7,
+            var(--cyan)
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(0,229,255,.5);
+
+    transition:
+        width .3s ease;
+
+}
+
+
+/* =====================================================
+   BEWEISFOTO
+===================================================== */
+
+#image-container {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 22px auto 0;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(0,229,255,.15);
+
+    border-radius: 10px;
+
+    background: #000;
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,.5);
+
+}
+
+
+#beweisfoto {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+}
+
+
+/* =====================================================
+   HOTSPOTS
+===================================================== */
+
+.hotspot {
+
+    position: absolute;
+
+    z-index: 20;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+}
+
+
+.hotspot:hover {
+
+    background:
+        rgba(0,229,255,.08);
+
+}
+
+
+.hotspot.found {
+
+    background:
+        rgba(0,230,118,.20);
+
+    border:
+        2px solid
+        var(--green);
+
+    box-shadow:
+        0 0 10px
+        var(--green),
+        0 0 24px
+        rgba(0,230,118,.55);
+
+    cursor: default;
+
+}
+
+
+.hotspot.found::after {
+
+    content: "✓";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    color: var(--green);
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 0 10px
+        var(--green);
+
+}
+
+
+/* =====================================================
+   FORTSCHRITT
+===================================================== */
+
+.forensic-progress {
+
+    margin-top: 20px;
+
+    padding: 15px 18px;
+
+    background:
+        rgba(4,10,17,.8);
+
+    border:
+        1px solid
+        rgba(0,229,255,.22);
+
+    border-radius: 8px;
+
+}
+
+
+.progress-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    color: var(--cyan);
+
+    font-size: .72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.progress-track {
+
+    width: 100%;
+
+    height: 9px;
+
+    overflow: hidden;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,.08);
+
+}
+
+
+.progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0876b7,
+            var(--green)
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(0,230,118,.35);
+
+    transition:
+        width .35s ease;
+
+}
+
+
+/* =====================================================
+   POPUP
+===================================================== */
+
+#jac-popup {
+
+    position: fixed;
+
+    top: 25px;
+
+    right: 25px;
+
+    width: 320px;
+
+    padding: 18px;
+
+    background:
+        rgba(7,14,23,.97);
+
+    border:
+        1px solid
+        var(--cyan);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 25px
+        rgba(0,229,255,.25);
+
+    z-index: 99999;
+
+    opacity: 0;
+
+    transform:
+        translateX(120%);
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+
+}
+
+
+#jac-popup.show {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+.popup-title {
+
+    margin-bottom: 8px;
+
+    color: var(--cyan);
+
+    font-size: .68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.popup-check {
+
+    margin-bottom: 6px;
+
+    color: var(--green);
+
+    font-weight: 700;
+
+}
+
+
+.popup-name {
+
+    color: white;
+
+    font-size: .9rem;
+
+}
+
+
+/* =====================================================
+   ABSCHLUSS
+===================================================== */
+
+#success-card {
+
+    text-align: center;
+
+    padding:
+        45px
+        25px;
+
+}
+
+
+.success-icon {
+
+    width: 80px;
+
+    height: 80px;
+
+    margin:
+        0 auto 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(0,230,118,.4);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,230,118,.1);
+
+    color: var(--green);
+
+    font-size: 2.5rem;
+
+    box-shadow:
+        0 0 30px
+        rgba(0,230,118,.2);
+
+}
+
+
+#success-card h2 {
+
+    margin:
+        8px 0 12px;
+
+}
+
+
+#success-card button {
+
+    margin-top: 15px;
+
+}
+
+
+/* =====================================================
+   HIDDEN
+===================================================== */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+/* =====================================================
+   ANIMATIONEN
+===================================================== */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(14px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes scannerMove {
+
+    0% {
+
+        top: -5px;
+
+    }
+
+    50% {
+
+        top: 100%;
+
+    }
+
+    100% {
+
+        top: -5px;
+
+    }
+
+}
+
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+
+        transform: scale(.88);
+
+        opacity: .45;
+
+    }
+
+    50% {
+
+        transform: scale(1);
+
+        opacity: .9;
+
+    }
+
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+
+        opacity: .4;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media screen and (max-width: 900px) {
+
+    #akte-header {
+
+        align-items: flex-start;
+
+    }
+
+    .header-right {
+
+        flex-direction: column;
+
+    }
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+    #akte1-page {
+
+        padding:
+            15px
+            12px
+            50px;
+
+    }
+
+
+    #akte-header {
+
+        flex-direction: column;
+
+        gap: 18px;
+
+    }
+
+
+    .header-right {
+
+        width: 100%;
+
+        flex-direction: row;
+
+    }
+
+
+    .system-box,
+    .case-box {
+
+        flex: 1;
+
+    }
+
+
+    .card {
+
+        padding: 20px;
+
+    }
+
+
+    .card-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    #start-system {
+
+        width: 100%;
+
+    }
+
+
+    .scanner {
+
+        height: 240px;
+
+    }
+
+
+    #jac-popup {
+
+        left: 12px;
+
+        right: 12px;
+
+        width: auto;
+
+        top: 15px;
+
+    }
+
+}
+
+
+@media screen and (max-width: 430px) {
+
+    #jac-logo {
+
+        width: 65px;
+
+        height: 65px;
+
+    }
+
+
+    .header-title h1 {
+
+        font-size: 1.8rem;
+
+    }
+
+
+    .header-title h2 {
+
+        font-size: .9rem;
+
+    }
+
+
+    .header-right {
+
+        flex-direction: column;
+
+    }
+
+
+    .scanner {
+
+        height: 210px;
+
+    }
+
+}
+/* =====================================================
+   HOTSPOTS – KEIN HOVER-HINTERGRUND
+===================================================== */
+
+.hotspot,
+.hotspot:hover,
+.hotspot:focus,
+.hotspot:active {
+
+    background: transparent !important;
+
+    border: none !important;
+
+    outline: none !important;
+
+    box-shadow: none;
+
+    filter: none;
+
+    opacity: 1;
+
+}
+
+
+/* Kein grauer Browser-/Touch-Effekt */
+
+.hotspot {
+
+    -webkit-tap-highlight-color: transparent;
+
+    -webkit-touch-callout: none;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+}
+
+
+/* Bild selbst niemals beim Hover verändern */
+
+#beweisfoto,
+#image-container,
+#image-container:hover {
+
+    filter: none;
+
+    opacity: 1;
+
+    background: transparent;
+
+}
+
+
+/* Gefundener Bereich darf weiterhin grün markiert werden */
+
+.hotspot.found {
+
+    background: rgba(0, 255, 90, 0.22) !important;
+
+    border: 3px solid #00ff5a !important;
+
+    box-shadow:
+        0 0 8px #00ff5a,
+        0 0 20px rgba(0, 255, 90, 0.7);
+
+}
+
+
+/* Haken */
+
+.hotspot.found::after {
+
+    background: transparent !important;
+
+    border: none !important;
+
+}
+/* =====================================================
+   AKTE 01 – JAC ABSCHLUSSPOPUP
+   ZENTRIERT
+===================================================== */
+
+#completion-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background:
+        rgba(3, 8, 15, 0.82);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    z-index: 100000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+
+}
+
+
+#completion-screen.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* =====================================================
+   JAC SYSTEM BOX
+===================================================== */
+
+.completion-box {
+
+    position: relative;
+
+    width: min(560px, 92vw);
+
+    padding: 42px 45px 38px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111c2d,
+            #0b1524
+        );
+
+    border:
+        1px solid rgba(96,165,250,.35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.65),
+        0 0 45px rgba(37,99,235,.16);
+
+    transform:
+        translateY(25px)
+        scale(.96);
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1);
+
+    overflow: hidden;
+
+}
+
+
+/* obere JAC-System-Linie */
+
+.completion-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #60a5fa,
+            #22c55e,
+            #60a5fa,
+            transparent
+        );
+
+}
+
+
+/* dezentes Raster */
+
+.completion-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 100% 4px;
+
+    opacity: .25;
+
+}
+
+
+/* Popup beim Öffnen */
+
+#completion-screen.show
+.completion-box {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =====================================================
+   JAC LOGO
+===================================================== */
+
+.completion-logo {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 46px;
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 18px rgba(96,165,250,.35);
+
+}
+
+
+/* =====================================================
+   TRENNLINIE
+===================================================== */
+
+.completion-line {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 90px;
+
+    height: 2px;
+
+    margin: 14px auto 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #60a5fa,
+            transparent
+        );
+
+}
+
+
+/* =====================================================
+   TITEL
+===================================================== */
+
+.completion-title {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #60a5fa;
+
+    font-size: 26px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =====================================================
+   8 / 8
+===================================================== */
+
+.completion-check {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-block;
+
+    margin-top: 22px;
+
+    padding: 8px 18px;
+
+    border:
+        1px solid rgba(34,197,94,.35);
+
+    border-radius: 8px;
+
+    background:
+        rgba(34,197,94,.08);
+
+    color: #22c55e;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 0 18px rgba(34,197,94,.12);
+
+}
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.completion-box p {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 22px auto;
+
+    max-width: 430px;
+
+    color: #b8c7da;
+
+    line-height: 1.65;
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.completion-status {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 18px;
+
+    color: #71869d;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =====================================================
+   DASHBOARD BUTTON
+===================================================== */
+
+#completion-button {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 28px;
+
+    padding: 14px 28px;
+
+    border:
+        1px solid rgba(96,165,250,.55);
+
+    border-radius: 9px;
+
+    background:
+        rgba(37,99,235,.12);
+
+    color: #60a5fa;
+
+    font-size: .9rem;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease;
+
+}
+
+
+#completion-button:hover {
+
+    transform: translateY(-1px);
+
+    background:
+        rgba(37,99,235,.25);
+
+    border-color:
+        #60a5fa;
+
+    box-shadow:
+        0 0 20px rgba(37,99,235,.25);
+
+}
+
+
+#completion-button:active {
+
+    transform: scale(.98);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 600px) {
+
+    .completion-box {
+
+        padding:
+            34px
+            24px
+            30px;
+
+    }
+
+    .completion-logo {
+
+        font-size: 38px;
+
+    }
+
+    .completion-title {
+
+        font-size: 21px;
+
+    }
+
+    .completion-check {
+
+        font-size: 21px;
+
+    }
+
+    #completion-button {
+
+        width: 100%;
+
+    }
+
+}

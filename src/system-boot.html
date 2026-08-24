@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>JAC Portal | System Boot</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/animation.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/system-boot.css"
+    >
+
+</head>
+
+
+<body>
+
+<main
+    id="system-boot"
+    class="system-boot"
+>
+<!-- =====================================================
+     SYSTEM BOOT START
+====================================================== -->
+
+<section
+    id="boot-start-overlay"
+    class="boot-start-overlay"
+>
+
+    <div class="boot-start-content">
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC"
+            class="boot-start-logo"
+        >
+
+        <span class="boot-start-label">
+            JAC SECURE TERMINAL
+        </span>
+
+        <h1>
+            SYSTEM BOOT
+        </h1>
+
+        <p>
+            Sichere Systemumgebung bereit.
+            <br>
+            Starten Sie die Systeminitialisierung.
+        </p>
+
+        <button
+            id="start-system-boot"
+            type="button"
+        >
+            ▶ SYSTEM BOOT STARTEN
+        </button>
+
+    </div>
+
+</section>
+    <header class="system-boot-header">
+
+        <div class="system-boot-brand">
+
+            <img
+                src="../assets/logos/jac-logo.png"
+                alt="JAC"
+                class="system-boot-logo"
+            >
+
+            <div class="system-boot-heading">
+
+                <span>
+                    JURY ASSESSMENT COMMISSION
+                </span>
+
+                <strong>
+                    SECURE TERMINAL
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="system-boot-phase">
+            SYSTEM BOOT
+        </div>
+
+    </header>
+
+
+    <section class="system-boot-main">
+
+        <div class="system-boot-intro">
+
+            <span class="terminal-label">
+                JAC SECURITY PROTOCOL // INITIALIZATION
+            </span>
+
+            <h1>
+                SYSTEM<br>
+                BOOT
+            </h1>
+
+            <p id="boot-status">
+                SICHERE SYSTEMUMGEBUNG WIRD INITIALISIERT...
+            </p>
+
+        </div>
+
+
+        <section class="boot-terminal">
+
+            <div class="boot-terminal-header">
+
+                <span>
+                    JAC SECURE TERMINAL
+                </span>
+
+                <span id="boot-terminal-state">
+                    INITIALIZING
+                </span>
+
+            </div>
+
+
+            <div
+                id="boot-log"
+                class="boot-log"
+            ></div>
+
+
+            <div class="boot-progress-container">
+
+                <div class="boot-progress-top">
+
+                    <span>
+                        SYSTEM INITIALIZATION
+                    </span>
+
+                    <span id="boot-percent">
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div class="boot-progress">
+
+                    <div
+                        id="boot-progress-bar"
+                        class="boot-progress-bar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="boot-modules">
+
+            <div
+                id="boot-module-identity"
+                class="boot-module"
+                data-state="pending"
+            >
+
+                <span class="boot-module-number">
+                    01
+                </span>
+
+                <div class="boot-module-info">
+
+                    <span>
+                        IDENTITY CORE
+                    </span>
+
+                    <strong>
+                        AUSSTEHEND
+                    </strong>
+
+                </div>
+
+                <span class="boot-module-indicator">
+                    ○
+                </span>
+
+            </div>
+
+
+            <div
+                id="boot-module-biometric"
+                class="boot-module"
+                data-state="pending"
+            >
+
+                <span class="boot-module-number">
+                    02
+                </span>
+
+                <div class="boot-module-info">
+
+                    <span>
+                        BIOMETRIC CORE
+                    </span>
+
+                    <strong>
+                        AUSSTEHEND
+                    </strong>
+
+                </div>
+
+                <span class="boot-module-indicator">
+                    ○
+                </span>
+
+            </div>
+
+
+            <div
+                id="boot-module-security"
+                class="boot-module"
+                data-state="pending"
+            >
+
+                <span class="boot-module-number">
+                    03
+                </span>
+
+                <div class="boot-module-info">
+
+                    <span>
+                        SECURITY LAYER
+                    </span>
+
+                    <strong>
+                        AUSSTEHEND
+                    </strong>
+
+                </div>
+
+                <span class="boot-module-indicator">
+                    ○
+                </span>
+
+            </div>
+
+
+            <div
+                id="boot-module-database"
+                class="boot-module"
+                data-state="pending"
+            >
+
+                <span class="boot-module-number">
+                    04
+                </span>
+
+                <div class="boot-module-info">
+
+                    <span>
+                        CASE DATABASE
+                    </span>
+
+                    <strong>
+                        AUSSTEHEND
+                    </strong>
+
+                </div>
+
+                <span class="boot-module-indicator">
+                    ○
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="boot-complete"
+            class="boot-complete"
+        >
+
+            <div class="boot-complete-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <span>
+                    JAC SYSTEM
+                </span>
+
+                <strong>
+                    SYSTEM READY
+                </strong>
+
+            </div>
+
+            <span id="boot-access">
+                ACCESS GRANTED
+            </span>
+
+        </section>
+
+    </section>
+
+
+    <footer class="system-boot-footer">
+
+        <span>
+            JAC SECURE TERMINAL
+        </span>
+
+        <span id="boot-footer-status">
+            SYSTEM INITIALIZATION ACTIVE
+        </span>
+
+    </footer>
+
+</main>
+
+
+<script src="../js/gameState.js"></script>
+
+<script src="../js/audio.js"></script>
+
+<script src="../js/system-boot.js"></script>
+
+</body>
+
+</html>

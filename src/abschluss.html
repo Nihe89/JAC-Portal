@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#020203"
+    >
+
+    <title>JAC – Abschluss</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/abschluss.css"
+    >
+
+</head>
+
+
+<body class="abschluss-body">
+
+
+    <!-- =====================================================
+         START-OVERLAY
+         
+         DIESES OVERLAY IST VON BEGINN AN SICHTBAR.
+         DIE FINALE ANIMATION STARTET ERST NACH DEM KLICK.
+         ===================================================== -->
+
+    <div
+        id="final-start-overlay"
+        class="final-start-overlay"
+        aria-hidden="false"
+    >
+
+        <div class="start-overlay-backdrop"></div>
+
+        <div
+            class="start-overlay-grid"
+            aria-hidden="true"
+        ></div>
+
+
+        <div
+            class="start-overlay-scanline"
+            aria-hidden="true"
+        ></div>
+
+
+        <div class="start-overlay-panel">
+
+
+            <div class="start-system-label">
+
+                <span class="start-status-dot"></span>
+
+                JAC • FINAL ASSESSMENT
+
+            </div>
+
+
+            <div class="start-seal">
+
+                <div class="start-seal-ring"></div>
+
+                <div class="start-seal-inner">
+
+                    <span>JAC</span>
+
+                    <small>FINAL</small>
+
+                </div>
+
+            </div>
+
+
+            <div class="start-kicker">
+
+                ABSCHLUSSPROTOKOLL
+
+            </div>
+
+
+            <h1>
+
+                ALLE 5 AKTEN<br>
+
+                <strong>ABGESCHLOSSEN</strong>
+
+            </h1>
+
+
+            <div class="start-gold-line"></div>
+
+
+            <p class="start-main-text">
+
+                Die Prüfung aller fünf Akten wurde
+                erfolgreich abgeschlossen.
+
+            </p>
+
+
+            <p class="start-sub-text">
+
+                Fünf Akten. Fünf Prüfungen.
+                Ein vollständiges Ergebnis.
+
+            </p>
+
+
+            <div class="start-command">
+
+                <span class="command-line"></span>
+
+                <span>
+
+                    FINALE AUSWERTUNG BEREIT
+
+                </span>
+
+                <span class="command-line"></span>
+
+            </div>
+
+
+            <button
+                id="final-start-button"
+                class="final-start-button"
+                type="button"
+            >
+
+                <span class="button-main">
+
+                    FINALE AUSWERTUNG ÖFFNEN
+
+                </span>
+
+                <span class="button-sub">
+
+                    ABSCHLUSSPROTOKOLL STARTEN
+
+                </span>
+
+                <span class="button-arrow">
+
+                    →
+
+                </span>
+
+            </button>
+
+
+            <div class="start-warning">
+
+                <span>●</span>
+
+                BEREIT ZUR FINALEN AUSWERTUNG
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FINALE ANIMATION
+         ===================================================== -->
+
+    <main
+        id="final-animation-screen"
+        class="final-animation-screen"
+        aria-hidden="true"
+    >
+
+        <div class="final-background"></div>
+
+
+        <div
+            id="background-stars"
+            class="background-stars"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- LICHTSTRAHLEN -->
+
+        <div
+            class="final-light-rays"
+            aria-hidden="true"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- RINGE -->
+
+        <div class="final-ring ring-outer"></div>
+
+        <div class="final-ring ring-middle"></div>
+
+        <div class="final-ring ring-inner"></div>
+
+
+
+        <!-- =================================================
+             5 AKTEN
+             ================================================= -->
+
+        <div
+            id="case-orbit"
+            class="case-orbit"
+            aria-label="Abgeschlossene Akten"
+        >
+
+
+            <div
+                class="final-case case-1"
+                data-case="1"
+            >
+
+                <div class="case-sheen"></div>
+
+                <div class="final-case-number">
+                    AKTE 01
+                </div>
+
+                <div class="final-case-label">
+                    ABGESCHLOSSEN
+                </div>
+
+            </div>
+
+
+            <div
+                class="final-case case-2"
+                data-case="2"
+            >
+
+                <div class="case-sheen"></div>
+
+                <div class="final-case-number">
+                    AKTE 02
+                </div>
+
+                <div class="final-case-label">
+                    ABGESCHLOSSEN
+                </div>
+
+            </div>
+
+
+            <div
+                class="final-case case-3"
+                data-case="3"
+            >
+
+                <div class="case-sheen"></div>
+
+                <div class="final-case-number">
+                    AKTE 03
+                </div>
+
+                <div class="final-case-label">
+                    ABGESCHLOSSEN
+                </div>
+
+            </div>
+
+
+            <div
+                class="final-case case-4"
+                data-case="4"
+            >
+
+                <div class="case-sheen"></div>
+
+                <div class="final-case-number">
+                    AKTE 04
+                </div>
+
+                <div class="final-case-label">
+                    ABGESCHLOSSEN
+                </div>
+
+            </div>
+
+
+            <div
+                class="final-case case-5"
+                data-case="5"
+            >
+
+                <div class="case-sheen"></div>
+
+                <div class="final-case-number">
+                    AKTE 05
+                </div>
+
+                <div class="final-case-label">
+                    ABGESCHLOSSEN
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ENERGIE -->
+
+        <div
+            class="energy-lines"
+            aria-hidden="true"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+
+        <!-- =================================================
+             JAC LOGO
+             ================================================= -->
+
+        <div
+            id="final-logo-stage"
+            class="final-logo-stage"
+        >
+
+            <div class="logo-energy-core"></div>
+
+            <div class="logo-pulse-ring pulse-1"></div>
+
+            <div class="logo-pulse-ring pulse-2"></div>
+
+            <div class="logo-pulse-ring pulse-3"></div>
+
+            <div class="logo-flash"></div>
+
+
+            <img
+                class="final-jac-logo"
+                src="../assets/logos/jac-logo-gold.png"
+                alt="JAC"
+            >
+
+        </div>
+
+
+
+        <!-- EFFEKTE -->
+
+        <div
+            id="final-sparkle-container"
+            class="sparkle-container"
+            aria-hidden="true"
+        ></div>
+
+
+        <div
+            id="firework-container"
+            class="firework-container"
+            aria-hidden="true"
+        ></div>
+
+
+        <div
+            id="lightning-container"
+            class="lightning-container"
+            aria-hidden="true"
+        ></div>
+
+
+
+        <!-- ÜBERGANG -->
+
+        <div
+            id="transition-flash"
+            class="transition-flash"
+            aria-hidden="true"
+        ></div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         ABSCHLUSSBILDSCHIRM
+         
+         ERST NACH DER FINALEN ANIMATION SICHTBAR
+         ===================================================== -->
+
+    <section
+        id="completion-screen"
+        class="completion-screen"
+        aria-hidden="true"
+    >
+
+        <div class="completion-background"></div>
+
+
+        <div
+            id="completion-sparkles"
+            class="completion-sparkles"
+            aria-hidden="true"
+        ></div>
+
+
+
+        <header class="completion-header">
+
+
+            <div class="completion-brand">
+
+                <img
+                    src="../assets/logos/jac-logo-gold.png"
+                    alt="JAC"
+                >
+
+            </div>
+
+
+            <div class="completion-heading">
+
+                JURY ASSESSMENT COMMISSION
+
+                <span>
+                    ABSCHLUSSBERICHT
+                </span>
+
+            </div>
+
+
+            <div class="completion-status">
+
+                <span></span>
+
+                STATUS:
+
+                <strong>
+                    ABGESCHLOSSEN
+                </strong>
+
+            </div>
+
+
+        </header>
+
+
+
+        <main class="completion-main">
+
+
+            <div class="completion-logo-stage">
+
+                <div class="completion-logo-glow"></div>
+
+                <div class="completion-logo-ring"></div>
+
+                <img
+                    src="../assets/logos/jac-logo-gold.png"
+                    alt="JAC"
+                >
+
+            </div>
+
+
+            <div class="completion-label">
+
+                JURY ASSESSMENT COMMISSION
+
+            </div>
+
+
+            <h1>
+
+                HERZLICHEN<br>
+
+                GLÜCKWUNSCH
+
+            </h1>
+
+
+            <div class="completion-gold-line"></div>
+
+
+            <div class="completion-congratulations">
+
+                DAS ASSESSMENT IST VOLLSTÄNDIG ABGESCHLOSSEN.
+
+            </div>
+
+
+            <p class="completion-description">
+
+                Alle fünf Akten wurden erfolgreich bearbeitet,
+                geprüft und abgeschlossen.
+
+            </p>
+
+
+
+            <div class="completed-case-row">
+
+                <div>
+                    <span>01</span>
+                    <small>ABGESCHLOSSEN</small>
+                </div>
+
+                <div>
+                    <span>02</span>
+                    <small>ABGESCHLOSSEN</small>
+                </div>
+
+                <div>
+                    <span>03</span>
+                    <small>ABGESCHLOSSEN</small>
+                </div>
+
+                <div>
+                    <span>04</span>
+                    <small>ABGESCHLOSSEN</small>
+                </div>
+
+                <div>
+                    <span>05</span>
+                    <small>ABGESCHLOSSEN</small>
+                </div>
+
+            </div>
+
+
+
+            <div class="completion-system-message">
+
+                <div class="completion-message-icon">
+                    ✓
+                </div>
+
+
+                <div class="completion-message-content">
+
+                    <div class="completion-message-label">
+                        SYSTEMMELDUNG
+                    </div>
+
+                    <strong>
+                        ABSCHLUSSUNTERLAGEN FREIGEGEBEN
+                    </strong>
+
+                    <p>
+                        Die Abschlussunterlagen dürfen nun
+                        geöffnet und eingesehen werden.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="completion-action">
+
+                <button
+                    id="end-button"
+                    type="button"
+                >
+
+                    <span>
+                        ASSESSMENT BEENDEN
+                    </span>
+
+                    <small>
+                        ABSCHLUSS BESTÄTIGEN &amp;
+                        ZURÜCK ZUM LOGIN
+                    </small>
+
+                </button>
+
+            </div>
+
+
+        </main>
+
+
+
+        <footer class="completion-footer">
+
+            <span>
+                JAC • ASSESSMENT SYSTEM
+            </span>
+
+            <span>
+                FINAL STATUS • 100 %
+            </span>
+
+        </footer>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABSCHLUSS-BESTÄTIGUNG
+         ===================================================== -->
+
+    <div
+        id="end-confirmation"
+        class="end-confirmation"
+        aria-hidden="true"
+    >
+
+        <div class="end-confirmation-backdrop"></div>
+
+
+        <div
+            class="end-confirmation-box"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <div class="end-confirmation-icon">
+                ✓
+            </div>
+
+
+            <div class="end-confirmation-label">
+
+                ABSCHLUSSUNTERLAGEN
+
+            </div>
+
+
+            <h2>
+
+                ABSCHLUSSUNTERLAGEN FREIGEGEBEN
+
+            </h2>
+
+
+            <p>
+
+                Die Abschlussunterlagen dürfen jetzt
+                geöffnet werden.
+
+            </p>
+
+
+            <div class="end-loading">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         WICHTIG:
+         AUDIO.JS ZUERST
+         ABSCHLUSS.JS DANACH
+         ===================================================== -->
+
+    <script src="../js/audio.js"></script>
+
+    <script src="../js/abschluss.js"></script>
+
+
+</body>
+
+</html>

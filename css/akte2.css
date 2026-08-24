@@ -1,0 +1,2381 @@
+/* =====================================================
+   JAC PORTAL
+   AKTE 02
+   FINALE CSS
+   FORENSIC ACCESS / JAC DARK-GOLD SYSTEM
+===================================================== */
+
+
+/* =====================================================
+   VARIABLEN
+===================================================== */
+
+:root {
+    --bg-main: #05070a;
+    --bg-deep: #070a0e;
+    --bg-panel: #0b1016;
+    --bg-panel-2: #101720;
+    --bg-panel-3: #151e28;
+
+    --gold: #d8ad4f;
+    --gold-light: #f2d68b;
+    --gold-dark: #806125;
+
+    --cyan: #00d9ff;
+    --cyan-soft: #66e7ff;
+
+    --green: #00e57a;
+    --green-bright: #00ff5a;
+
+    --red: #ff4d5f;
+    --orange: #ffbd4a;
+
+    --white: #f4f7f8;
+    --text: #d8e0e5;
+    --text-soft: #8998a3;
+    --text-dim: #56636d;
+
+    --border: rgba(216, 173, 79, .22);
+    --border-soft: rgba(255, 255, 255, .08);
+
+    --shadow:
+        0 25px 70px rgba(0, 0, 0, .55);
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: var(--bg-main);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(216, 173, 79, .10),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(0, 217, 255, .035),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #070a0e 0%,
+            #05070a 100%
+        );
+
+    color: var(--white);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   SUBTILES JAC-SYSTEM-RASTER
+===================================================== */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 0;
+
+    opacity: .035;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, .12) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, .12) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+}
+
+
+/* =====================================================
+   START SCREEN
+===================================================== */
+
+.startup-screen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216, 173, 79, .12),
+            transparent 40%
+        ),
+        #050608;
+}
+
+.startup-screen::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, .035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, .035) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+}
+
+.startup-screen::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: -5px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(216, 173, 79, .4),
+            var(--gold),
+            rgba(216, 173, 79, .4),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px var(--gold);
+
+    animation:
+        startupScan 3s linear infinite;
+}
+
+@keyframes startupScan {
+    0% {
+        top: -5px;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+
+/* =====================================================
+   START PANEL
+===================================================== */
+
+.startup-panel {
+    position: relative;
+    z-index: 5;
+
+    width: min(600px, 90vw);
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 21, 28, .96),
+            rgba(6, 9, 13, .98)
+        );
+
+    border:
+        1px solid rgba(216, 173, 79, .35);
+
+    box-shadow:
+        0 0 40px rgba(216, 173, 79, .08),
+        0 30px 80px rgba(0, 0, 0, .65);
+}
+
+
+/* =====================================================
+   START LOGO
+===================================================== */
+
+.startup-logo {
+    width: 105px;
+    height: 105px;
+
+    margin: 0 auto 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(216, 173, 79, .7);
+
+    border-radius: 50%;
+
+    color: var(--gold);
+
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 5px;
+
+    box-shadow:
+        0 0 20px rgba(216, 173, 79, .25),
+        inset 0 0 25px rgba(216, 173, 79, .08);
+
+    animation:
+        startupLogoPulse 2s ease-in-out infinite;
+}
+
+@keyframes startupLogoPulse {
+    0%,
+    100% {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 15px rgba(216, 173, 79, .25),
+            inset 0 0 20px rgba(216, 173, 79, .08);
+    }
+
+    50% {
+        transform: scale(1.04);
+
+        box-shadow:
+            0 0 35px rgba(216, 173, 79, .55),
+            0 0 70px rgba(216, 173, 79, .12),
+            inset 0 0 25px rgba(216, 173, 79, .12);
+    }
+}
+
+
+/* =====================================================
+   START TEXT
+===================================================== */
+
+.startup-title {
+    color: var(--white);
+
+    font-size: 12px;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.startup-case {
+    margin-top: 28px;
+
+    color: var(--gold);
+
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 8px;
+}
+
+.startup-subtitle {
+    margin-top: 8px;
+
+    color: var(--text-dim);
+
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.startup-status {
+    margin-top: 38px;
+
+    color: var(--green);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.startup-button {
+    margin-top: 35px;
+
+    padding: 15px 34px;
+
+    border:
+        1px solid rgba(216, 173, 79, .65);
+
+    background:
+        rgba(216, 173, 79, .06);
+
+    color: var(--gold-light);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease;
+}
+
+.startup-button:hover {
+    background:
+        rgba(216, 173, 79, .15);
+
+    box-shadow:
+        0 0 25px rgba(216, 173, 79, .25);
+
+    transform:
+        translateY(-2px);
+}
+
+.startup-button:active {
+    transform: scale(.98);
+}
+
+
+/* =====================================================
+   FORENSIC INTRO
+   WIRD VON AKTE2.JS ERZEUGT
+===================================================== */
+
+#jac-forensic-intro {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(191, 145, 52, .12),
+            transparent 42%
+        ),
+        #050608;
+
+    color: #e8e8e8;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity .75s ease,
+        visibility .75s ease;
+}
+
+#jac-forensic-intro.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   INTRO GRID
+===================================================== */
+
+.jac-forensic-grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: .13;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, .08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, .08) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    transform:
+        perspective(500px)
+        rotateX(2deg);
+}
+
+
+/* =====================================================
+   INTRO SCANLINE
+===================================================== */
+
+.jac-forensic-scanline {
+    position: absolute;
+
+    left: 0;
+    top: -8%;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(214, 170, 72, .15),
+            #d8ad4f,
+            rgba(214, 170, 72, .15),
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px #d8ad4f,
+        0 0 35px rgba(216, 173, 79, .55);
+
+    animation:
+        jacScan 2.6s linear infinite;
+
+    z-index: 4;
+}
+
+@keyframes jacScan {
+    0% {
+        top: -8%;
+    }
+
+    100% {
+        top: 108%;
+    }
+}
+
+
+/* =====================================================
+   INTRO NOISE
+===================================================== */
+
+.jac-forensic-noise {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .035;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            #fff 3px
+        );
+}
+
+
+/* =====================================================
+   INTRO CONTENT
+===================================================== */
+
+.jac-forensic-content {
+    position: relative;
+    z-index: 10;
+
+    width: min(760px, 86vw);
+
+    text-align: center;
+
+    padding: 50px 30px;
+}
+
+.jac-forensic-topline {
+    font-size: 11px;
+    letter-spacing: 5px;
+
+    color:
+        rgba(220, 220, 220, .55);
+
+    margin-bottom: 25px;
+
+    animation:
+        jacFadeIn .7s ease both;
+}
+
+.jac-forensic-logo {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 105px;
+    height: 105px;
+
+    border:
+        1px solid rgba(214, 170, 72, .65);
+
+    border-radius: 50%;
+
+    color: #d8ad4f;
+
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: 4px;
+
+    box-shadow:
+        0 0 12px rgba(216, 173, 79, .35),
+        inset 0 0 18px rgba(216, 173, 79, .08);
+
+    animation:
+        jacLogoPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes jacLogoPulse {
+    0%,
+    100% {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 12px rgba(216, 173, 79, .3),
+            inset 0 0 18px rgba(216, 173, 79, .08);
+    }
+
+    50% {
+        transform: scale(1.035);
+
+        box-shadow:
+            0 0 32px rgba(216, 173, 79, .7),
+            0 0 70px rgba(216, 173, 79, .18),
+            inset 0 0 25px rgba(216, 173, 79, .15);
+    }
+}
+
+.jac-forensic-case {
+    margin-top: 32px;
+
+    color: #d8ad4f;
+
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 7px;
+}
+
+.jac-forensic-label {
+    margin-top: 9px;
+
+    font-size: 10px;
+    letter-spacing: 5px;
+
+    color:
+        rgba(255, 255, 255, .42);
+}
+
+.jac-forensic-status {
+    margin-top: 38px;
+
+    min-height: 25px;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    color: #f0f0f0;
+}
+
+.jac-forensic-description {
+    margin-top: 9px;
+
+    min-height: 20px;
+
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    color:
+        rgba(255, 255, 255, .45);
+}
+
+
+/* =====================================================
+   INTRO PROGRESS
+===================================================== */
+
+.jac-forensic-progress {
+    position: relative;
+
+    width: 100%;
+    height: 2px;
+
+    margin:
+        30px auto 22px;
+
+    background:
+        rgba(255, 255, 255, .10);
+
+    overflow: hidden;
+}
+
+#jac-forensic-progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #806125,
+            #d8ad4f,
+            #f2d68b
+        );
+
+    box-shadow:
+        0 0 12px rgba(216, 173, 79, .8);
+
+    transition:
+        width .65s cubic-bezier(.22, .61, .36, 1);
+}
+
+.jac-forensic-data {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+
+    color:
+        rgba(255, 255, 255, .27);
+}
+
+
+/* =====================================================
+   INTRO FINAL FLASH
+===================================================== */
+
+.jac-forensic-flash {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.1);
+
+    pointer-events: none;
+}
+
+.jac-forensic-flash.active {
+    animation:
+        jacFinalFlash .75s ease-out forwards;
+}
+
+@keyframes jacFinalFlash {
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.1);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(100);
+    }
+}
+
+@keyframes jacFadeIn {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   HAUPTSEITE
+===================================================== */
+
+#akte2-page {
+    position: relative;
+
+    z-index: 1;
+
+    width: min(1450px, 94vw);
+
+    margin: 0 auto;
+
+    padding:
+        35px
+        0
+        80px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+#akte-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+}
+
+.header-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.jac-logo {
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid rgba(216, 173, 79, .55);
+
+    border-radius: 50%;
+
+    color: var(--gold);
+
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    box-shadow:
+        0 0 22px rgba(216, 173, 79, .15),
+        inset 0 0 18px rgba(216, 173, 79, .05);
+}
+
+.jac-small {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    margin-bottom: 6px;
+}
+
+.header-title h1 {
+    margin: 0;
+
+    color: var(--white);
+
+    font-size:
+        clamp(1.5rem, 2.5vw, 2.3rem);
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+}
+
+.header-title h2 {
+    margin: 7px 0 0;
+
+    color: var(--text-soft);
+
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   HEADER RECHTS
+===================================================== */
+
+.header-right {
+    display: flex;
+
+    gap: 12px;
+}
+
+.system-box,
+.case-box {
+    min-width: 145px;
+
+    padding: 14px 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 23, 32, .95),
+            rgba(8, 12, 17, .95)
+        );
+
+    border:
+        1px solid var(--border-soft);
+
+    border-radius: 8px;
+}
+
+.system-label,
+.case-box span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--text-dim);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.system-online {
+    color: var(--green);
+
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.case-box strong {
+    color: var(--gold);
+
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   ALLGEMEINE CARDS
+===================================================== */
+
+.card {
+    position: relative;
+
+    margin-bottom: 20px;
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13, 19, 26, .97),
+            rgba(8, 12, 17, .97)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, .075);
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, .35);
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 18px;
+    bottom: 18px;
+
+    width: 2px;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(216, 173, 79, .65),
+            transparent
+        );
+}
+
+.card-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.section-label {
+    color: var(--gold);
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    font-weight: 700;
+}
+
+.card h2 {
+    margin: 7px 0 0;
+
+    color: var(--white);
+
+    font-size: 1.3rem;
+    letter-spacing: .5px;
+}
+
+.card p {
+    margin: 12px 0;
+
+    color: var(--text-soft);
+
+    font-size: .95rem;
+    line-height: 1.75;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+#jac-progress {
+    margin-bottom: 20px;
+
+    padding: 15px 18px;
+
+    background:
+        rgba(8, 13, 18, .95);
+
+    border:
+        1px solid rgba(216, 173, 79, .25);
+
+    border-radius: 8px;
+}
+
+.progress-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 9px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+
+    overflow: hidden;
+
+    background:
+        #182129;
+
+    border-radius: 99px;
+}
+
+#progress-fill {
+    width: 0%;
+    height: 100%;
+
+    border-radius: 99px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #806125,
+            #d8ad4f,
+            #f2d68b
+        );
+
+    box-shadow:
+        0 0 12px rgba(216, 173, 79, .45);
+
+    transition:
+        width .4s ease;
+}
+
+
+/* =====================================================
+   MISSION
+===================================================== */
+
+.mission-card {
+    overflow: hidden;
+}
+
+.mission-card::after {
+    content: "FORENSIC";
+
+    position: absolute;
+
+    right: 25px;
+    bottom: 18px;
+
+    color:
+        rgba(216, 173, 79, .035);
+
+    font-size: 55px;
+    font-weight: 900;
+    letter-spacing: 6px;
+
+    pointer-events: none;
+}
+
+.analysis-state {
+    color: var(--green);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+.analysis-state::before {
+    content: "●";
+
+    margin-right: 7px;
+
+    color: var(--green);
+
+    text-shadow:
+        0 0 8px var(--green);
+}
+
+.mission-warning {
+    margin-top: 22px;
+
+    padding: 15px 18px;
+
+    background:
+        rgba(216, 173, 79, .055);
+
+    border:
+        1px solid rgba(216, 173, 79, .20);
+
+    border-left:
+        3px solid var(--gold);
+
+    color: var(--text-soft);
+
+    font-size: .88rem;
+    line-height: 1.6;
+}
+
+.mission-warning strong {
+    color: var(--gold-light);
+
+    letter-spacing: 2px;
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   EVIDENCE CARD
+===================================================== */
+
+.evidence-card {
+    overflow: visible;
+}
+
+.evidence-counter {
+    color: var(--text-dim);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   IMAGE GRID
+===================================================== */
+
+.image-order {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =====================================================
+   EVIDENCE ITEM
+===================================================== */
+
+.evidence-item {
+    position: relative;
+
+    min-width: 0;
+
+    overflow: visible;
+
+    padding: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111922,
+            #080c11
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, .08);
+
+    border-radius: 8px;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+.evidence-item:hover {
+    border-color:
+        rgba(216, 173, 79, .32);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, .4);
+
+    transform:
+        translateY(-2px);
+}
+
+.evidence-item.selected {
+    border-color:
+        rgba(216, 173, 79, .65);
+
+    box-shadow:
+        0 0 0 1px rgba(216, 173, 79, .12),
+        0 0 25px rgba(216, 173, 79, .08);
+}
+
+
+/* =====================================================
+   EVIDENCE IMAGE
+   VOLLSTÄNDIG SICHTBAR / NICHT VERZERRT
+===================================================== */
+
+.evidence-item img {
+    display: block;
+
+    width: 100%;
+
+    /*
+       Keine feste Höhe.
+       Das Bild darf sein eigenes Seitenverhältnis behalten.
+    */
+
+    height: auto;
+
+    /*
+       Bild vollständig darstellen.
+       NICHT beschneiden.
+    */
+
+    object-fit: contain;
+
+    /*
+       Verhindert, dass sehr große Bilder
+       die Karte sprengen.
+    */
+
+    max-width: 100%;
+
+    /*
+       Schwarzer Bildbereich für unterschiedliche
+       Bildformate.
+    */
+
+    background: #020304;
+
+    border:
+        1px solid rgba(255, 255, 255, .06);
+
+    border-radius: 5px;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    /*
+       Saubere Darstellung ohne künstliche
+       Skalierung / Verzerrung.
+    */
+
+    image-rendering: auto;
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.evidence-actions {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.evidence-button {
+    min-height: 40px;
+
+    padding: 9px 8px;
+
+    border:
+        1px solid rgba(216, 173, 79, .22);
+
+    border-radius: 5px;
+
+    background:
+        rgba(216, 173, 79, .045);
+
+    color: var(--gold-light);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease;
+}
+
+.evidence-button:hover {
+    background:
+        rgba(216, 173, 79, .12);
+
+    border-color:
+        rgba(216, 173, 79, .55);
+
+    box-shadow:
+        0 0 15px rgba(216, 173, 79, .08);
+
+    transform:
+        translateY(-1px);
+}
+
+.evidence-button:active {
+    transform: scale(.98);
+}
+
+
+/* =====================================================
+   POSITION BUTTON
+===================================================== */
+
+.position-button {
+    border-color:
+        rgba(0, 217, 255, .18);
+
+    color:
+        var(--cyan-soft);
+}
+
+.position-button:hover {
+    border-color:
+        rgba(0, 217, 255, .5);
+
+    background:
+        rgba(0, 217, 255, .07);
+}
+
+
+/* =====================================================
+   POSITION LABEL
+===================================================== */
+
+.position-label {
+    margin-top: 9px;
+
+    padding: 7px;
+
+    text-align: center;
+
+    background:
+        rgba(0, 0, 0, .25);
+
+    color: var(--text-dim);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.evidence-item.position-set .position-label {
+    color: var(--green);
+
+    background:
+        rgba(0, 229, 122, .045);
+}
+
+.evidence-item.position-set {
+    border-color:
+        rgba(0, 229, 122, .24);
+}
+
+
+/* =====================================================
+   POSITION SELECTOR
+===================================================== */
+
+.position-selector {
+    margin-top: 10px;
+
+    padding: 12px;
+
+    background:
+        #080d12;
+
+    border:
+        1px solid rgba(216, 173, 79, .16);
+
+    border-radius: 5px;
+}
+
+.position-select-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.position-select {
+    width: 100%;
+    min-height: 38px;
+
+    padding: 8px 10px;
+
+    appearance: auto;
+
+    background:
+        #111820;
+
+    border:
+        1px solid rgba(255, 255, 255, .12);
+
+    border-radius: 4px;
+
+    color: var(--white);
+
+    font-size: 12px;
+
+    outline: none;
+}
+
+.position-select:focus {
+    border-color:
+        rgba(216, 173, 79, .55);
+
+    box-shadow:
+        0 0 0 2px rgba(216, 173, 79, .08);
+}
+
+.position-select option {
+    background: #111820;
+    color: #fff;
+}
+
+.position-confirmed {
+    border-color:
+        rgba(0, 229, 122, .35);
+}
+
+
+/* =====================================================
+   ANALYSE BUTTON
+===================================================== */
+
+.analysis-action {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 28px;
+}
+
+.primary-button {
+    min-width: 270px;
+
+    padding: 14px 28px;
+
+    border:
+        1px solid rgba(216, 173, 79, .55);
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(216, 173, 79, .16),
+            rgba(128, 97, 37, .10)
+        );
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease;
+}
+
+.primary-button:hover {
+    background:
+        rgba(216, 173, 79, .20);
+
+    border-color:
+        var(--gold);
+
+    box-shadow:
+        0 0 25px rgba(216, 173, 79, .15);
+
+    transform:
+        translateY(-2px);
+}
+
+.primary-button:active {
+    transform: scale(.98);
+}
+
+
+/* =====================================================
+   STATUS CARD
+===================================================== */
+
+.status-card {
+    border-color:
+        rgba(0, 217, 255, .12);
+}
+
+.status-indicator {
+    margin-bottom: 10px;
+
+    color: var(--cyan);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.status-indicator::before {
+    content: "▸";
+
+    margin-right: 7px;
+}
+
+#status-message {
+    color: var(--text-soft);
+
+    font-size: .9rem;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   MODALS – GRUNDLAGE
+===================================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 100000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0, 0, 0, .88);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================
+   IMAGE MODAL
+===================================================== */
+
+.image-modal-box {
+    width: min(1000px, 94vw);
+
+    max-height: 92vh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background:
+        #090e13;
+
+    border:
+        1px solid rgba(216, 173, 79, .35);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, .75);
+}
+
+.modal-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 13px 17px;
+
+    background:
+        #0e151c;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, .07);
+
+    color: var(--gold);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.modal-close {
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    border:
+        1px solid rgba(255, 255, 255, .12);
+
+    border-radius: 4px;
+
+    background:
+        transparent;
+
+    color: var(--text-soft);
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: var(--white);
+
+    border-color:
+        rgba(216, 173, 79, .4);
+
+    background:
+        rgba(216, 173, 79, .06);
+}
+
+.modal-image-area {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 300px;
+
+    padding: 20px;
+
+    background:
+        #020406;
+}
+
+#modal-image {
+    display: block;
+
+    max-width: 100%;
+    max-height: 72vh;
+
+    object-fit: contain;
+}
+
+.modal-footer {
+    padding: 10px 15px;
+
+    color: var(--text-dim);
+
+    background:
+        #0b1117;
+
+    border-top:
+        1px solid rgba(255, 255, 255, .06);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   RESULT POPUP
+   MITTIG – JAC STYLE
+===================================================== */
+
+.result-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 110000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0, 0, 0, .78);
+
+    backdrop-filter:
+        blur(7px);
+}
+
+.result-box {
+    position: relative;
+
+    width: min(510px, 92vw);
+
+    padding: 38px 35px 32px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111922,
+            #070b10
+        );
+
+    border:
+        1px solid rgba(216, 173, 79, .42);
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 50px rgba(216, 173, 79, .10),
+        0 30px 100px rgba(0, 0, 0, .7);
+
+    animation:
+        resultAppear .35s ease both;
+}
+
+.result-box::before {
+    content: "JAC // SECURE SYSTEM";
+
+    position: absolute;
+
+    top: 13px;
+    left: 0;
+
+    width: 100%;
+
+    color:
+        rgba(216, 173, 79, .4);
+
+    font-size: 7px;
+    letter-spacing: 3px;
+}
+
+@keyframes resultAppear {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.result-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(216, 173, 79, .4);
+
+    border-radius: 50%;
+
+    color: var(--gold);
+
+    font-size: 28px;
+    font-weight: 700;
+
+    background:
+        rgba(216, 173, 79, .04);
+}
+
+.result-label {
+    color: var(--gold);
+
+    font-size: 8px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.result-box h2 {
+    margin:
+        10px 0 12px;
+
+    color: var(--white);
+
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+}
+
+.result-box p {
+    margin: 0 auto;
+
+    max-width: 420px;
+
+    color: var(--text-soft);
+
+    font-size: .9rem;
+
+    line-height: 1.65;
+}
+
+.result-button {
+    margin-top: 25px;
+
+    min-width: 190px;
+
+    padding: 12px 25px;
+
+    border:
+        1px solid rgba(216, 173, 79, .5);
+
+    border-radius: 5px;
+
+    background:
+        rgba(216, 173, 79, .07);
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.result-button:hover {
+    background:
+        rgba(216, 173, 79, .16);
+
+    border-color:
+        var(--gold);
+
+    box-shadow:
+        0 0 20px rgba(216, 173, 79, .12);
+}
+
+
+/* =====================================================
+   RESULT STATUSFARBEN
+===================================================== */
+
+.result-modal[data-type="success"] .result-icon {
+    color: var(--green);
+
+    border-color:
+        rgba(0, 229, 122, .4);
+
+    box-shadow:
+        0 0 20px rgba(0, 229, 122, .08);
+}
+
+.result-modal[data-type="error"] .result-icon {
+    color: var(--red);
+
+    border-color:
+        rgba(255, 77, 95, .4);
+}
+
+.result-modal[data-type="warning"] .result-icon {
+    color: var(--orange);
+
+    border-color:
+        rgba(255, 189, 74, .4);
+}
+
+
+/* =====================================================
+   COMPLETION SCREEN
+===================================================== */
+
+#completion-screen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 120000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0, 0, 0, .88);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+.completion-box {
+    position: relative;
+
+    width: min(560px, 92vw);
+
+    padding: 48px 40px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(216, 173, 79, .10),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #111922,
+            #070b10
+        );
+
+    border:
+        1px solid rgba(216, 173, 79, .45);
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 70px rgba(216, 173, 79, .10),
+        0 30px 100px rgba(0, 0, 0, .8);
+
+    animation:
+        completionAppear .55s ease both;
+}
+
+@keyframes completionAppear {
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.94)
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+.completion-logo {
+    color: var(--gold);
+
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 7px;
+}
+
+.completion-line {
+    width: 90px;
+    height: 1px;
+
+    margin: 15px auto 25px;
+
+    background:
+        var(--gold);
+
+    box-shadow:
+        0 0 12px rgba(216, 173, 79, .6);
+}
+
+.completion-case {
+    color: var(--text-dim);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.completion-title {
+    margin-top: 10px;
+
+    color: var(--white);
+
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.completion-check {
+    width: 65px;
+    height: 65px;
+
+    margin: 25px auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(0, 229, 122, .5);
+
+    border-radius: 50%;
+
+    color: var(--green);
+
+    font-size: 29px;
+
+    box-shadow:
+        0 0 25px rgba(0, 229, 122, .12);
+}
+
+.completion-box p {
+    max-width: 430px;
+
+    margin: 0 auto 20px;
+
+    color: var(--text-soft);
+
+    line-height: 1.7;
+
+    font-size: .9rem;
+}
+
+.completion-status {
+    color: var(--text-dim);
+
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.completion-button {
+    margin-top: 28px;
+
+    padding: 13px 30px;
+
+    border:
+        1px solid rgba(216, 173, 79, .55);
+
+    border-radius: 5px;
+
+    background:
+        rgba(216, 173, 79, .07);
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease;
+}
+
+.completion-button:hover {
+    background:
+        rgba(216, 173, 79, .17);
+
+    box-shadow:
+        0 0 25px rgba(216, 173, 79, .15);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =====================================================
+   FOCUS
+===================================================== */
+
+button:focus-visible,
+select:focus-visible {
+    outline:
+        2px solid var(--gold);
+
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #05080b;
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        #29343d;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:
+        #806125;
+}
+
+
+/* =====================================================
+   RESPONSIVE – TABLET
+===================================================== */
+
+@media screen and (max-width: 1050px) {
+
+    #akte2-page {
+        width: min(94vw, 900px);
+    }
+
+    #akte-header {
+        align-items: flex-start;
+    }
+
+    .image-order {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .evidence-item img {
+        height: 210px;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE – MOBILE
+===================================================== */
+
+@media screen and (max-width: 700px) {
+
+    #akte2-page {
+        width: 94vw;
+
+        padding-top: 20px;
+    }
+
+    #akte-header {
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .header-left {
+        width: 100%;
+    }
+
+    .header-right {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .system-box,
+    .case-box {
+        min-width: 0;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .image-order {
+        grid-template-columns:
+            1fr;
+    }
+
+    .evidence-item img {
+        height: auto;
+
+        max-height: 400px;
+    }
+
+    .analysis-action {
+        width: 100%;
+    }
+
+    .primary-button {
+        width: 100%;
+    }
+
+    .startup-panel {
+        padding:
+            40px 22px;
+    }
+
+    .startup-title {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+    .jac-forensic-content {
+        width: 94vw;
+
+        padding:
+            30px 15px;
+    }
+
+    .jac-forensic-data {
+        gap: 15px;
+    }
+
+    .result-box {
+        padding:
+            38px 22px 28px;
+    }
+
+    .completion-box {
+        padding:
+            40px 22px;
+    }
+}
+
+
+/* =====================================================
+   SEHR KLEINE HANDYS
+===================================================== */
+
+@media screen and (max-width: 430px) {
+
+    .header-left {
+        gap: 13px;
+    }
+
+    .jac-logo {
+        width: 60px;
+        height: 60px;
+
+        font-size: 18px;
+    }
+
+    .header-title h1 {
+        font-size: 1.25rem;
+    }
+
+    .header-title h2 {
+        font-size: .82rem;
+    }
+
+    .header-right {
+        grid-template-columns:
+            1fr;
+    }
+
+    .evidence-actions {
+        grid-template-columns:
+            1fr;
+    }
+
+    .startup-logo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .jac-forensic-logo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .jac-forensic-case {
+        font-size: 14px;
+
+        letter-spacing: 5px;
+    }
+
+    .jac-forensic-status {
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+    .completion-title {
+        font-size: 19px;
+    }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+    }
+}

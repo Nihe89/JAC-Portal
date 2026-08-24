@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>JAC Portal | Vertrauliche Einweisung</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/animation.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+</head>
+
+
+<body>
+
+<main id="intro-video-page">
+
+    <!-- =================================================
+         STARTBILDSCHIRM
+         ================================================= -->
+
+    <section id="intro-overlay">
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="intro-logo"
+        >
+
+        <h1>
+            VERTRAULICHE EINWEISUNG
+        </h1>
+
+        <h2>
+            SICHERHEITSFREIGABE ERFORDERLICH
+        </h2>
+
+        <p class="intro-text">
+
+            Für Sie wurde eine vertrauliche
+            Einweisung bereitgestellt.
+
+            <br><br>
+
+            Nach dem Start wird das Video automatisch
+            im <strong>Vollbildmodus</strong> wiedergegeben.
+
+            <br><br>
+
+            Bitte stellen Sie sicher, dass die Lautsprecher
+            eingeschaltet sind und die Einweisung ungestört
+            angesehen werden kann.
+
+        </p>
+
+        <button
+            id="start-intro"
+            type="button"
+        >
+
+            ▶ Einweisung starten
+
+        </button>
+
+    </section>
+
+
+    <!-- =================================================
+         INTROVIDEO
+         ================================================= -->
+
+    <video
+        id="intro-video"
+        playsinline
+        preload="auto"
+    >
+
+        <source
+            src="../assets/video/intro.mp4"
+            type="video/mp4"
+        >
+
+        Ihr Browser unterstützt dieses Video nicht.
+
+    </video>
+
+</main>
+
+
+<!-- =====================================================
+     AUDIO SYSTEM
+     ===================================================== -->
+
+<script src="../js/audio.js"></script>
+
+
+<!-- =====================================================
+     APP
+     ===================================================== -->
+
+<script src="../js/app.js"></script>
+
+
+<!-- =====================================================
+     INTRO VIDEO
+     ===================================================== -->
+
+<script src="../js/intro-video.js"></script>
+
+</body>
+
+</html>

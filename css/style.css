@@ -1,0 +1,4870 @@
+/* =====================================================
+   JURY ASSESSMENT COMMISSION
+   STYLE.CSS
+===================================================== */
+
+
+/* =====================================================
+   01 RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   02 BODY
+===================================================== */
+
+body {
+
+    font-family: var(--font-family);
+
+    background: var(--background-color);
+
+    color: var(--text-color);
+
+    line-height: 1.6;
+
+    min-height: 100vh;
+
+}
+
+
+/* =====================================================
+   03 BILDER
+===================================================== */
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+    height: auto;
+
+}
+
+
+/* =====================================================
+   04 LINKS
+===================================================== */
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+/* =====================================================
+   05 LISTEN
+===================================================== */
+
+ul,
+ol {
+
+    list-style: none;
+
+}
+
+
+/* =====================================================
+   06 BUTTONS
+===================================================== */
+
+button {
+
+    cursor: pointer;
+
+    border: none;
+
+    border-radius: var(--border-radius);
+
+    background: #0B1F3A;
+
+    color: white;
+
+    padding: 14px 28px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition: var(--transition);
+
+}
+
+button:hover {
+
+    background: #C9A227;
+
+    color: #0B1F3A;
+
+    transform: translateY(-2px);
+
+}
+
+button:disabled {
+
+    background: #BFC5CC;
+
+    color: #6B7280;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+}
+
+
+/* =====================================================
+   07 FORMULARE
+===================================================== */
+
+label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+}
+
+input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--border-radius);
+
+    background: white;
+
+    font-size: 16px;
+
+    font-family: inherit;
+
+    transition: var(--transition);
+
+}
+
+input:focus {
+
+    outline: none;
+
+    border-color: #C9A227;
+
+    box-shadow: 0 0 0 3px rgba(201,162,39,.15);
+
+}
+
+
+/* =====================================================
+   08 HEADER
+===================================================== */
+
+.jac-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #0B1F3A;
+
+    color: white;
+
+    padding: 20px 40px;
+
+    box-shadow: var(--shadow-medium);
+
+}
+
+.jac-header-left {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+.jac-logo {
+
+    width: 85px;
+
+}
+
+.jac-header-center {
+
+    text-align: center;
+
+    flex: 1;
+
+}
+
+.jac-header-center h1 {
+
+    color: #C9A227;
+
+    font-size: 32px;
+
+    letter-spacing: 2px;
+
+}
+
+.jac-header-center p {
+
+    margin-top: 6px;
+
+    color: #E5E7EB;
+
+}
+
+.jac-header-right {
+
+    display: flex;
+
+    gap: 30px;
+
+    text-align: center;
+
+}
+
+.jac-header-right span {
+
+    display: block;
+
+    font-size: 13px;
+
+    color: #CBD5E1;
+
+}
+
+.jac-header-right strong {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 17px;
+
+}
+
+
+/* =====================================================
+   09 MAIN
+===================================================== */
+
+main {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    padding: 20px;
+
+}
+
+
+/* =====================================================
+   10 KARTEN
+===================================================== */
+
+.message-card,
+.progress-card,
+.case-card,
+.mission-card,
+.instruction-card,
+.feedback-card,
+.finish-card,
+.success-card,
+.status-card,
+.login-card {
+
+    background: var(--surface-color);
+
+    border-radius: var(--border-radius-large);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-medium);
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+
+    transition: var(--transition);
+
+}
+
+.message-card:hover,
+.progress-card:hover,
+.case-card:hover,
+.mission-card:hover,
+.instruction-card:hover,
+.feedback-card:hover,
+.finish-card:hover,
+.success-card:hover,
+.status-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-large);
+
+}
+
+.message-card h2,
+.progress-card h2,
+.case-card h3,
+.mission-card h2,
+.instruction-card h2,
+.feedback-card h2,
+.finish-card h2,
+.success-card h2,
+.status-card h2 {
+
+    color: #0B1F3A;
+
+    margin-bottom: 15px;
+
+}
+
+.message-card p,
+.progress-card p,
+.case-card p,
+.mission-card p,
+.instruction-card p,
+.feedback-card p,
+.success-card p,
+.status-card p {
+
+    margin-bottom: 12px;
+
+}
+/* =====================================================
+   11 LOGIN
+===================================================== */
+
+#login-page{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:40px;
+
+}
+
+.login-header{
+
+    text-align:center;
+    margin-bottom:40px;
+
+}
+
+.login-header h1{
+
+    color:#0B1F3A;
+    font-size:38px;
+    margin-top:20px;
+
+}
+
+.subtitle{
+
+    color:var(--text-light);
+    margin-top:10px;
+
+}
+
+.login-card{
+
+    width:100%;
+    max-width:520px;
+
+}
+
+.description{
+
+    color:var(--text-light);
+    margin-bottom:25px;
+
+}
+
+/* ==========================
+   Login-Meldungen
+========================== */
+
+#login-message{
+
+    margin-top:20px;
+    text-align:center;
+    font-size:15px;
+    font-weight:600;
+    min-height:22px;
+
+}
+
+.error{
+
+    color:#d9534f;
+
+}
+
+.success{
+
+    color:#4CAF50;
+
+}
+
+
+/* =====================================================
+   12 VERIFIZIERUNG
+===================================================== */
+
+#verification-page{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:40px;
+
+}
+
+.verification-card{
+
+    width:100%;
+    max-width:650px;
+    text-align:center;
+
+}
+
+.verification-logo{
+
+    width:120px;
+    margin-bottom:30px;
+
+}
+
+.progress-container{
+
+    width:100%;
+    height:12px;
+    background:#d9d9d9;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:30px;
+
+}
+
+#progress-bar{
+
+    width:0%;
+    height:100%;
+    background:#0B1F3A;
+    transition:width .3s linear;
+
+}
+
+#progress-text{
+
+    margin-top:15px;
+    font-size:18px;
+    font-weight:600;
+
+}
+
+#verification-status{
+
+    margin-top:20px;
+    color:var(--text-light);
+
+}
+/* =====================================================
+   13 SYSTEMMITTEILUNG
+===================================================== */
+
+#system-message-page{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:40px;
+
+}
+
+.system-message-card{
+
+    width:100%;
+    max-width:700px;
+    text-align:center;
+
+}
+
+.system-logo{
+
+    width:120px;
+    margin-bottom:30px;
+
+}
+
+.system-message-card h2{
+
+    margin-top:20px;
+    color:#0B1F3A;
+
+}
+
+.system-text{
+
+    margin-top:20px;
+    color:var(--text-light);
+    line-height:1.8;
+
+}
+/* =====================================================
+   14 INTRO VIDEO
+===================================================== */
+
+/* ==========================================
+   INTRO VIDEO
+========================================== */
+
+#intro-video-page{
+    width:100%;
+    height:100vh;
+    background:#050b14;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+}
+
+/* ---------- Overlay ---------- */
+
+#intro-overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:#050b14;
+
+    z-index:100;
+
+    text-align:center;
+
+    padding:40px;
+}
+
+.intro-logo{
+    width:180px;
+    margin-bottom:30px;
+}
+
+#intro-overlay h1{
+
+    color:#ffffff;
+    font-size:42px;
+    letter-spacing:3px;
+    margin-bottom:12px;
+
+}
+
+#intro-overlay h2{
+
+    color:#caa84f;
+    font-size:22px;
+    font-weight:500;
+    margin-bottom:35px;
+
+}
+
+.intro-text{
+
+    max-width:650px;
+
+    color:#d5d8de;
+
+    font-size:18px;
+    line-height:1.8;
+
+    margin-bottom:45px;
+
+}
+
+/* ---------- Button ---------- */
+
+#start-intro{
+
+    background:#caa84f;
+
+    color:#07111d;
+
+    border:none;
+
+    padding:18px 45px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:0.25s;
+
+}
+
+#start-intro:hover{
+
+    background:#dcbc63;
+
+    transform:scale(1.05);
+
+}
+
+/* ---------- Video ---------- */
+
+/* ---------- Video ---------- */
+
+#intro-video{
+
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    object-fit: cover;
+    background: black;
+
+    display: none;
+
+    z-index: 1;
+
+}
+/* =====================================================
+   16 AKTENKARTEN
+===================================================== */
+
+.case-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    min-height:240px;
+
+    border-left:8px solid #0B1F3A;
+
+}
+
+.case-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.case-card h3{
+
+    color:#0B1F3A;
+
+    margin-bottom:15px;
+
+}
+
+.case-card p{
+
+    flex:1;
+
+    margin-bottom:25px;
+
+}
+
+.case-card button{
+
+    width:100%;
+
+}
+
+.case-card.completed{
+
+    border-left:8px solid #16A34A;
+
+}
+
+.case-card.locked{
+
+    opacity:.55;
+
+}
+
+.case-card.locked button{
+
+    background:#BFC5CC;
+
+    color:#6B7280;
+
+}
+/* =====================================================
+   17 AKTE 1 – BILDVERGLEICH
+===================================================== */
+
+.comparison-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+    gap:30px;
+
+    margin-top:25px;
+
+}
+
+.image-card{
+
+    background:#FFFFFF;
+
+    border-radius:var(--border-radius);
+
+    box-shadow:var(--shadow-small);
+
+    overflow:hidden;
+
+    border:1px solid var(--border-color);
+
+}
+
+.image-card h3{
+
+    background:#0B1F3A;
+
+    color:#FFFFFF;
+
+    padding:15px;
+
+    text-align:center;
+
+}
+
+.comparison-image{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.image-note{
+
+    padding:15px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   18 AKTE 2 – REKONSTRUKTION
+===================================================== */
+
+.document-section{
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border-color);
+
+    border-radius:var(--border-radius-large);
+
+    padding:30px;
+
+    margin-bottom:30px;
+
+    box-shadow:var(--shadow-small);
+
+}
+
+.document-section h2{
+
+    color:#0B1F3A;
+
+    margin-bottom:20px;
+
+}
+
+.answer-section{
+
+    margin-top:30px;
+
+}
+
+.answer-section input{
+
+    margin-bottom:15px;
+
+}
+
+
+/* =====================================================
+   19 AKTE 3 – AUDIOANALYSE
+===================================================== */
+
+.audio-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+.audio-card{
+
+    background:#FFFFFF;
+
+    border-radius:var(--border-radius-large);
+
+    border:1px solid var(--border-color);
+
+    box-shadow:var(--shadow-small);
+
+    padding:25px;
+
+}
+
+.audio-card h3{
+
+    color:#0B1F3A;
+
+    margin-bottom:15px;
+
+}
+
+audio{
+
+    width:100%;
+
+    margin:15px 0;
+
+}
+
+.audio-description{
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   20 AKTE 4 & 5 – CODEEINGABE
+===================================================== */
+
+.code-section{
+
+    background:#FFFFFF;
+
+    border-radius:var(--border-radius-large);
+
+    border:1px solid var(--border-color);
+
+    box-shadow:var(--shadow-small);
+
+    padding:30px;
+
+    margin-top:30px;
+
+}
+
+.code-section h2{
+
+    color:#0B1F3A;
+
+    margin-bottom:20px;
+
+}
+
+.code-section button{
+
+    width:100%;
+
+}
+
+.feedback-card{
+
+    margin-top:25px;
+
+}
+
+.feedback-success{
+
+    color:#16A34A;
+
+    font-weight:700;
+
+}
+
+.feedback-error{
+
+    color:#DC2626;
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   21 ABSCHLUSSSEITE
+===================================================== */
+
+#abschluss-page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+.abschluss-header{
+
+    text-align:center;
+
+}
+
+.success-card{
+
+    border-left:8px solid #16A34A;
+
+}
+
+.finish-card{
+
+    text-align:center;
+
+}
+
+.finish-card button{
+
+    min-width:260px;
+
+}
+/* =====================================================
+   22 FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:50px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+   23 STATUS BADGES
+===================================================== */
+
+.status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    background:#F3F4F6;
+
+}
+
+.status-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+}
+
+.status-active{
+
+    background:#16A34A;
+
+}
+
+.status-running{
+
+    background:#D97706;
+
+}
+
+.status-finished{
+
+    background:#2563EB;
+
+}
+
+.status-success{
+
+    background:#16A34A;
+
+}
+
+
+/* =====================================================
+   24 LOADING
+===================================================== */
+
+.loading{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.spinner{
+
+    width:55px;
+
+    height:55px;
+
+    border:5px solid #E5E7EB;
+
+    border-top:5px solid #C9A227;
+
+    border-radius:50%;
+
+}
+
+
+/* =====================================================
+   25 INFOBOXEN
+===================================================== */
+
+.info-box{
+
+    padding:20px;
+
+    border-left:6px solid #2563EB;
+
+    background:#EFF6FF;
+
+    border-radius:var(--border-radius);
+
+    margin:20px 0;
+
+}
+
+.warning-box{
+
+    padding:20px;
+
+    border-left:6px solid #D97706;
+
+    background:#FFF7ED;
+
+    border-radius:var(--border-radius);
+
+    margin:20px 0;
+
+}
+
+.error-box{
+
+    padding:20px;
+
+    border-left:6px solid #DC2626;
+
+    background:#FEF2F2;
+
+    border-radius:var(--border-radius);
+
+    margin:20px 0;
+
+}
+
+.success-box{
+
+    padding:20px;
+
+    border-left:6px solid #16A34A;
+
+    background:#F0FDF4;
+
+    border-radius:var(--border-radius);
+
+    margin:20px 0;
+
+}
+
+
+/* =====================================================
+   26 TABELLEN
+===================================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin:25px 0;
+
+}
+
+th{
+
+    background:#0B1F3A;
+
+    color:white;
+
+    padding:15px;
+
+    text-align:left;
+
+}
+
+td{
+
+    padding:15px;
+
+    border-bottom:1px solid var(--border-color);
+
+}
+
+tr:nth-child(even){
+
+    background:#F8FAFC;
+
+}
+
+
+/* =====================================================
+   27 SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#E5E7EB;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#C9A227;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#B58C18;
+
+}
+
+
+/* =====================================================
+   28 TEXTAUSWAHL
+===================================================== */
+
+::selection{
+
+    background:#C9A227;
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   29 UTILITIES
+===================================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.text-left{
+
+    text-align:left;
+
+}
+
+.text-right{
+
+    text-align:right;
+
+}
+
+.mt-10{
+
+    margin-top:10px;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mt-30{
+
+    margin-top:30px;
+
+}
+
+.mb-10{
+
+    margin-bottom:10px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
+.mb-30{
+
+    margin-bottom:30px;
+
+}
+
+.w-100{
+
+    width:100%;
+
+}
+
+.flex{
+
+    display:flex;
+
+}
+
+.flex-center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.space-between{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+/* =====================================================
+   30 DRUCK
+===================================================== */
+
+@media print{
+
+    .jac-header,
+    footer,
+    button{
+
+        display:none;
+
+    }
+
+    body{
+
+        background:white;
+
+    }
+
+    main{
+
+        max-width:100%;
+
+        margin:0;
+
+        padding:0;
+
+    }
+
+}
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+#dashboard-page{
+
+    max-width:900px;
+
+    margin:40px auto;
+
+    padding:25px;
+
+}
+
+/* ---------- Header ---------- */
+
+.dashboard-header{
+
+    background:var(--card);
+
+    border:1px solid var(--gold);
+
+    border-radius:14px;
+
+    text-align:center;
+
+    padding:35px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 0 18px rgba(0,0,0,.35);
+
+}
+
+.dashboard-logo{
+
+    width:140px;
+
+    margin-bottom:20px;
+
+}
+
+.dashboard-header h1{
+
+    color:var(--gold);
+
+    font-size:30px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+}
+
+.dashboard-header p{
+
+    color:var(--text-light);
+
+    font-size:18px;
+
+}
+
+/* ---------- Agent ---------- */
+
+.agent-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:var(--card);
+
+    border-radius:14px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    border-left:6px solid var(--gold);
+
+}
+
+.agent-left h2{
+
+    color:var(--text-light);
+
+    font-size:18px;
+
+}
+
+.agent-left h3{
+
+    color:var(--gold);
+
+    font-size:30px;
+
+    margin-top:6px;
+
+}
+
+.agent-right{
+
+    text-align:right;
+
+}
+
+.agent-right p{
+
+    margin:6px 0;
+
+}
+
+/* ---------- Fortschritt ---------- */
+
+.progress-card{
+
+    background:var(--card);
+
+    text-align:center;
+
+    padding:30px;
+
+    border-radius:14px;
+
+    margin-bottom:30px;
+
+}
+
+.progress-card h2{
+
+    color:var(--gold);
+
+    margin-bottom:20px;
+
+}
+
+#progress-logo{
+
+    width:180px;
+
+    margin:15px auto;
+
+    display:block;
+
+}
+
+#progress-text{
+
+    margin-top:18px;
+
+    color:var(--text-light);
+
+    font-size:17px;
+
+}
+
+/* ---------- Akten ---------- */
+
+.case-card{
+
+    background:var(--card);
+
+    border-radius:14px;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+    transition:.3s;
+
+    box-shadow:0 0 12px rgba(0,0,0,.25);
+
+}
+
+.case-card:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.case-card h2{
+
+    color:var(--gold);
+
+    margin-bottom:8px;
+
+}
+
+.case-card h3{
+
+    margin-bottom:15px;
+
+}
+
+.case-status{
+
+    margin-bottom:20px;
+
+    line-height:1.6;
+
+}
+
+.available{
+
+    border-left:6px solid #27ae60;
+
+}
+
+.locked{
+
+    border-left:6px solid #b52b2b;
+
+}
+
+.case-status.available{
+
+    color:#27ae60;
+
+    font-weight:bold;
+
+}
+
+.case-status.locked{
+
+    color:#d7d7d7;
+
+}
+
+/* ---------- Button ---------- */
+
+.case-card button{
+
+    width:100%;
+
+    background:var(--gold);
+
+    color:#06111c;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:15px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.case-card button:hover{
+
+    transform:scale(1.02);
+
+    filter:brightness(110%);
+
+}
+
+/* ---------- Systemstatus ---------- */
+
+.system-status{
+
+    background:var(--card);
+
+    border-radius:14px;
+
+    padding:25px;
+
+    margin-top:35px;
+
+    text-align:center;
+
+}
+
+.system-status h2{
+
+    color:var(--gold);
+
+    margin-bottom:20px;
+
+}
+
+.system-status p{
+
+    margin:8px 0;
+
+}
+
+.version{
+
+    margin-top:20px;
+
+    opacity:.6;
+
+    font-size:14px;
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:700px){
+
+    .agent-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .agent-right{
+
+        text-align:center;
+
+    }
+
+}
+/* =========================================================
+   JAC PORTAL
+   LOGIN – SPIELAUSWAHL
+   ========================================================= */
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+#game-choice-screen {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(24, 53, 62, 0.45),
+            rgba(5, 12, 16, 0.97) 65%
+        );
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+/* =========================================================
+   SICHTBAR
+========================================================= */
+
+#game-choice-screen.show {
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   TECHNISCHER HINTERGRUND
+========================================================= */
+
+#game-choice-screen::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 100% 4px;
+
+    opacity: 0.35;
+}
+
+
+/* =========================================================
+   AUSWAHLBOX
+========================================================= */
+
+.game-choice-box {
+
+    position: relative;
+
+    width: min(560px, 100%);
+
+    padding: 48px 46px 42px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 29, 35, 0.98),
+            rgba(7, 16, 21, 0.99)
+        );
+
+    border: 1px solid rgba(126, 164, 174, 0.28);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.65),
+        0 0 0 1px rgba(255,255,255,0.025) inset;
+
+    transform:
+        translateY(25px)
+        scale(0.97);
+
+    opacity: 0;
+
+    transition:
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        opacity 0.4s ease;
+}
+
+
+/* =========================================================
+   EINBLENDEN
+========================================================= */
+
+#game-choice-screen.show .game-choice-box {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   GOLDENE LINIE
+========================================================= */
+
+.game-choice-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 40px;
+    right: 40px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c9a646,
+            #f0d477,
+            #c9a646,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(201,166,70,0.35);
+}
+
+
+/* =========================================================
+   JAC LOGO
+========================================================= */
+
+.game-choice-logo {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 24px;
+
+    border: 1px solid rgba(201,166,70,0.55);
+
+    color: #d6b85b;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201,166,70,0.12),
+            rgba(201,166,70,0.015)
+        );
+
+    box-shadow:
+        0 0 25px rgba(201,166,70,0.08),
+        inset 0 0 18px rgba(201,166,70,0.04);
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.game-choice-label {
+
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    color: #c9a646;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITEL
+========================================================= */
+
+.game-choice-box h2 {
+
+    margin: 0 0 15px;
+
+    text-align: center;
+
+    color: #edf3f4;
+
+    font-size: 27px;
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BESCHREIBUNG
+========================================================= */
+
+.game-choice-box p {
+
+    max-width: 420px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    color: #8fa5ac;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   AKTUELLER SPIELSTAND
+========================================================= */
+
+#game-choice-progress {
+
+    margin: 28px auto 30px;
+
+    padding: 13px 18px;
+
+    border-top:
+        1px solid rgba(126,164,174,0.16);
+
+    border-bottom:
+        1px solid rgba(126,164,174,0.16);
+
+    color: #b7c8cd;
+
+    text-align: center;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    background:
+        rgba(255,255,255,0.015);
+}
+
+
+/* =========================================================
+   BUTTON-BEREICH
+========================================================= */
+
+.game-choice-buttons {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    margin-top: 6px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.game-choice-buttons button {
+
+    position: relative;
+
+    min-height: 52px;
+
+    padding: 14px 18px;
+
+    border:
+        1px solid rgba(126,164,174,0.35);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(25,43,50,0.95),
+            rgba(13,25,31,0.95)
+        );
+
+    color: #dce7e9;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.game-choice-buttons button:hover {
+
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(201,166,70,0.65);
+
+    color: #f0d477;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(45,50,42,0.98),
+            rgba(20,28,28,0.98)
+        );
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,0.35),
+        0 0 18px rgba(201,166,70,0.08);
+}
+
+
+/* =========================================================
+   AKTIV
+========================================================= */
+
+.game-choice-buttons button:active {
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   FORTSETZEN
+========================================================= */
+
+#continue-game-button {
+
+    border-color:
+        rgba(117,159,170,0.48);
+
+    color: #c8d7db;
+}
+
+
+/* =========================================================
+   NEUES SPIEL
+========================================================= */
+
+#new-game-login-button {
+
+    border-color:
+        rgba(201,166,70,0.42);
+
+    color: #d2b65d;
+}
+
+
+/* =========================================================
+   NEUES SPIEL HOVER
+========================================================= */
+
+#new-game-login-button:hover {
+
+    border-color:
+        rgba(231,200,105,0.85);
+
+    color: #f2d879;
+
+    box-shadow:
+        0 0 22px rgba(201,166,70,0.12);
+}
+
+
+/* =========================================================
+   FOKUS
+========================================================= */
+
+.game-choice-buttons button:focus-visible {
+
+    outline: none;
+
+    border-color: #d6b85b;
+
+    box-shadow:
+        0 0 0 2px rgba(201,166,70,0.18),
+        0 0 20px rgba(201,166,70,0.1);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    #game-choice-screen {
+
+        padding: 18px;
+    }
+
+
+    .game-choice-box {
+
+        padding:
+            38px
+            24px
+            30px;
+    }
+
+
+    .game-choice-box::before {
+
+        left: 24px;
+        right: 24px;
+    }
+
+
+    .game-choice-logo {
+
+        width: 66px;
+        height: 66px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .game-choice-box h2 {
+
+        font-size: 22px;
+    }
+
+
+    .game-choice-box p {
+
+        font-size: 13px;
+    }
+
+
+    .game-choice-buttons {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    .game-choice-buttons button {
+
+        min-height: 50px;
+    }
+}
+
+
+/* =========================================================
+   SEHR KLEINE HANDYS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .game-choice-box {
+
+        padding:
+            32px
+            18px
+            24px;
+    }
+
+
+    .game-choice-box h2 {
+
+        font-size: 19px;
+    }
+
+
+    #game-choice-progress {
+
+        font-size: 9px;
+
+        letter-spacing: 0.11em;
+    }
+}
+
+
+/* =========================================================
+   REDUZIERTE BEWEGUNG
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #game-choice-screen,
+    .game-choice-box,
+    .game-choice-buttons button {
+
+        transition: none;
+    }
+}
+/* =========================================================
+   JAC SYSTEMMITTEILUNG
+========================================================= */
+
+body.system-message-page {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow-x: hidden;
+}
+
+
+#system-message-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+
+#system-message-page .system-message-card {
+    width: min(680px, 100%);
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+
+#system-message-page .system-logo {
+    display: block;
+
+    width: 90px;
+    height: auto;
+
+    margin: 0 auto 28px;
+}
+
+
+#system-message-page .system-divider {
+    width: 100%;
+    max-width: 520px;
+
+    height: 1px;
+
+    margin: 25px auto;
+}
+
+
+#system-message-page .system-text {
+    max-width: 560px;
+
+    margin: 18px auto;
+
+    line-height: 1.7;
+}
+
+
+#system-message-page .system-warning {
+    max-width: 560px;
+
+    margin: 24px auto;
+
+    line-height: 1.7;
+
+    font-weight: 600;
+}
+
+
+#system-message-page .system-action-button {
+    display: block;
+
+    width: min(420px, 100%);
+
+    margin: 32px auto 0;
+}
+/* =========================================================
+   JAC SYSTEMMELDUNG – ZENTRIERUNG
+========================================================= */
+
+#system-message {
+    width: min(900px, 90%);
+    margin: 30px auto !important;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    display: block;
+
+    padding: 18px 24px;
+
+    position: relative;
+    left: auto;
+    right: auto;
+    transform: none;
+}
+
+/* Falls die Meldung in einem Container steckt,
+   der sie nach links drückt */
+.system-message {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.system-message #system-message {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+/* =========================================================
+   JAC SYSTEM PAGE
+   ZENTRIERUNG WIE AKTE-MESSAGE
+========================================================= */
+
+.system-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    text-align: center;
+}
+
+.system-page .system-message-card {
+    width: min(720px, 100%);
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.system-page .system-logo {
+    display: block;
+
+    width: 90px;
+    height: 90px;
+
+    object-fit: contain;
+
+    margin: 0 auto 24px;
+}
+
+.system-page .section-label {
+    width: 100%;
+
+    text-align: center;
+}
+
+.system-page h1,
+.system-page h2 {
+    text-align: center;
+}
+
+.system-page .system-text,
+.system-page .system-warning {
+    text-align: center;
+}
+
+.system-page .system-divider {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.system-page .system-action-button {
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+/* =========================================================
+   JAC – NEUES SPIEL BESTÄTIGUNG
+   ========================================================= */
+
+#new-game-confirmation {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(24, 53, 62, 0.45),
+            rgba(5, 12, 16, 0.97) 65%
+        );
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+#new-game-confirmation.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   TECHNISCHER HINTERGRUND
+   ========================================================= */
+
+#new-game-confirmation::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 100% 4px;
+
+    opacity: 0.35;
+}
+
+
+/* =========================================================
+   BESTÄTIGUNGSBOX
+   ========================================================= */
+
+.new-game-confirmation-box {
+
+    position: relative;
+
+    width: min(600px, 100%);
+
+    padding: 48px 46px 42px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 29, 35, 0.98),
+            rgba(7, 16, 21, 0.99)
+        );
+
+    border: 1px solid rgba(126, 164, 174, 0.28);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.65),
+        0 0 0 1px rgba(255,255,255,0.025) inset;
+
+    transform:
+        translateY(25px)
+        scale(0.97);
+
+    opacity: 0;
+
+    transition:
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        opacity 0.4s ease;
+
+    text-align: center;
+}
+
+
+#new-game-confirmation.show
+.new-game-confirmation-box {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   GOLDENE LINIE
+   ========================================================= */
+
+.new-game-confirmation-line {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 40px;
+
+    right: 40px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c9a646,
+            #f0d477,
+            #c9a646,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(201,166,70,0.35);
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.new-game-confirmation-logo {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 24px;
+
+    border:
+        1px solid rgba(201,166,70,0.55);
+
+    color: #d6b85b;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201,166,70,0.12),
+            rgba(201,166,70,0.015)
+        );
+
+    box-shadow:
+        0 0 25px rgba(201,166,70,0.08),
+        inset 0 0 18px rgba(201,166,70,0.04);
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.new-game-confirmation-label {
+
+    margin-bottom: 10px;
+
+    color: #c9a646;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITEL
+   ========================================================= */
+
+.new-game-confirmation-box h2 {
+
+    margin: 0 0 20px;
+
+    color: #edf3f4;
+
+    font-size: 27px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.confirmation-main-text {
+
+    margin: 0 auto 15px;
+
+    color: #b7c8cd;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+.confirmation-warning {
+
+    max-width: 470px;
+
+    margin: 0 auto;
+
+    padding: 16px 20px;
+
+    border:
+        1px solid rgba(201,166,70,0.25);
+
+    background:
+        rgba(201,166,70,0.045);
+
+    color: #d8c88d;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUTTONEN
+   ========================================================= */
+
+.confirmation-actions {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+
+.confirmation-actions button {
+
+    min-height: 52px;
+
+    padding: 14px 18px;
+
+    border:
+        1px solid rgba(126,164,174,0.35);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(25,43,50,0.95),
+            rgba(13,25,31,0.95)
+        );
+
+    color: #dce7e9;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+
+.confirmation-actions button:hover {
+
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(201,166,70,0.65);
+
+    color: #f0d477;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(45,50,42,0.98),
+            rgba(20,28,28,0.98)
+        );
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,0.35),
+        0 0 18px rgba(201,166,70,0.08);
+}
+
+
+/* =========================================================
+   ABBRECHEN
+   ========================================================= */
+
+#cancel-new-game-button {
+
+    border-color:
+        rgba(126,164,174,0.35);
+
+    color: #aebfc4;
+}
+
+
+/* =========================================================
+   BESTÄTIGEN
+   ========================================================= */
+
+#confirm-new-game-button {
+
+    border-color:
+        rgba(201,166,70,0.55);
+
+    color: #d2b65d;
+}
+
+
+#confirm-new-game-button:hover {
+
+    border-color:
+        rgba(231,200,105,0.9);
+
+    color: #f2d879;
+
+    box-shadow:
+        0 0 25px rgba(201,166,70,0.15);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #new-game-confirmation {
+
+        padding: 18px;
+    }
+
+
+    .new-game-confirmation-box {
+
+        padding:
+            38px
+            24px
+            30px;
+    }
+
+
+    .new-game-confirmation-line {
+
+        left: 24px;
+
+        right: 24px;
+    }
+
+
+    .new-game-confirmation-box h2 {
+
+        font-size: 22px;
+    }
+
+
+    .confirmation-actions {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+}
+
+
+/* =========================================================
+   REDUZIERTE BEWEGUNG
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #new-game-confirmation,
+    .new-game-confirmation-box,
+    .confirmation-actions button {
+
+        transition: none;
+    }
+}
+/* =========================================================
+   JAC AGENTENAUSWEIS
+   VERIFIZIERUNG / SECURITY UI
+   ========================================================= */
+
+#verification-page {
+    position: relative;
+}
+
+
+/* =========================================================
+   AUSWEIS – BASIS
+   ========================================================= */
+
+.jac-agent-card {
+    position: relative;
+
+    width: min(420px, calc(100vw - 40px));
+
+    margin: 34px auto 0;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 26, 36, 0.98),
+            rgba(8, 12, 18, 0.98)
+        );
+
+    color: #f1f4f8;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    font-family:
+        "Arial",
+        "Helvetica Neue",
+        sans-serif;
+
+    letter-spacing: 0.04em;
+
+    transition:
+        border-color 0.5s ease,
+        box-shadow 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+/* =========================================================
+   SCAN-LAYER
+   ========================================================= */
+
+.jac-agent-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.018) 0px,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+
+    opacity: 0.35;
+}
+
+
+/* =========================================================
+   LEUCHTENDER RAND
+   ========================================================= */
+
+.jac-agent-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: -100%;
+
+    height: 45%;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255, 255, 255, 0.08),
+            transparent
+        );
+
+    opacity: 0;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   VERIFIZIERUNG LÄUFT
+   ========================================================= */
+
+.jac-agent-card[data-status="pending"] {
+    border-color:
+        rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.38),
+        inset 0 0 30px rgba(255, 255, 255, 0.015);
+}
+
+
+.jac-agent-card[data-status="pending"]::after {
+    opacity: 1;
+
+    animation:
+        jacCardScan 2.4s
+        linear
+        infinite;
+}
+
+
+/* =========================================================
+   ERFOLGREICH VERIFIZIERT
+   ========================================================= */
+
+.jac-agent-card[data-status="verified"] {
+    border-color:
+        rgba(80, 220, 150, 0.65);
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.38),
+        0 0 28px rgba(80, 220, 150, 0.10),
+        inset 0 0 24px rgba(80, 220, 150, 0.035);
+
+    animation:
+        jacVerifiedPulse 1.2s ease-out;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.agent-card-header {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.agent-card-label {
+    display: block;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+
+    line-height: 1;
+
+    color: #ffffff;
+}
+
+
+.agent-card-title {
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.18em;
+
+    color:
+        rgba(255, 255, 255, 0.52);
+}
+
+
+/* =========================================================
+   STATUS INDICATOR
+   ========================================================= */
+
+.agent-card-indicator {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.16);
+
+    border-radius: 50%;
+
+    font-size: 11px;
+
+    color:
+        rgba(255, 255, 255, 0.5);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    transition:
+        color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.4s ease;
+}
+
+
+/* Prüfung */
+
+.jac-agent-card[data-status="pending"]
+.agent-card-indicator {
+    animation:
+        jacIndicatorPulse 1.4s ease-in-out infinite;
+}
+
+
+/* Erfolg */
+
+.jac-agent-card[data-status="verified"]
+.agent-card-indicator {
+    color:
+        rgb(90, 225, 155);
+
+    border-color:
+        rgba(90, 225, 155, 0.7);
+
+    box-shadow:
+        0 0 15px
+        rgba(90, 225, 155, 0.18);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   TRENNLINIE
+   ========================================================= */
+
+.agent-card-divider {
+    position: relative;
+
+    z-index: 2;
+
+    height: 1px;
+
+    margin: 20px 0;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   AGENT ID
+   ========================================================= */
+
+.agent-card-id {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+
+    padding: 15px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+
+.agent-card-id span {
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    color:
+        rgba(255, 255, 255, 0.42);
+}
+
+
+.agent-card-id strong {
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   DATENZEILEN
+   ========================================================= */
+
+.agent-card-row {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    min-height: 34px;
+
+    border-bottom: 1px solid
+        rgba(255, 255, 255, 0.055);
+}
+
+
+.agent-card-row:last-of-type {
+    border-bottom: none;
+}
+
+
+.agent-card-row span {
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    color:
+        rgba(255, 255, 255, 0.42);
+}
+
+
+.agent-card-row strong {
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-align: right;
+
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    transition:
+        color 0.4s ease,
+        text-shadow 0.4s ease;
+}
+
+
+/* =========================================================
+   VERIFIZIERTER STATUS
+   ========================================================= */
+
+.jac-agent-card[data-status="verified"]
+#agent-status,
+
+.jac-agent-card[data-status="verified"]
+#agent-identity,
+
+.jac-agent-card[data-status="verified"]
+#agent-card-access {
+    color:
+        rgb(90, 225, 155);
+
+    text-shadow:
+        0 0 10px
+        rgba(90, 225, 155, 0.25);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.agent-card-footer {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.agent-card-footer span {
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    color:
+        rgba(255, 255, 255, 0.32);
+}
+
+
+#agent-card-access {
+    color:
+        rgba(255, 255, 255, 0.52);
+
+    transition:
+        color 0.4s ease,
+        text-shadow 0.4s ease;
+}
+
+
+/* =========================================================
+   PRÜFSTUFEN
+   ========================================================= */
+
+/*
+ * Connecting
+ */
+
+.jac-agent-card[data-stage="connecting"] {
+    animation:
+        jacVerificationFloat 3s ease-in-out infinite;
+}
+
+
+/*
+ * Analyse
+ */
+
+.jac-agent-card[data-stage="analysis"] {
+    border-color:
+        rgba(255, 255, 255, 0.28);
+}
+
+
+/*
+ * Sicherheitsprüfung
+ */
+
+.jac-agent-card[data-stage="security"] {
+    border-color:
+        rgba(255, 255, 255, 0.38);
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.38),
+        inset 0 0 35px rgba(255, 255, 255, 0.025);
+}
+
+
+/*
+ * Autorisierung
+ */
+
+.jac-agent-card[data-stage="authorization"] {
+    border-color:
+        rgba(255, 255, 255, 0.52);
+}
+
+
+/*
+ * Erfolg
+ */
+
+.jac-agent-card[data-stage="success"] {
+    border-color:
+        rgba(90, 225, 155, 0.72);
+}
+
+
+/* =========================================================
+   VERIFIZIERUNGS-SCAN
+   ========================================================= */
+
+@keyframes jacCardScan {
+
+    0% {
+        top: -45%;
+    }
+
+    100% {
+        top: 115%;
+    }
+
+}
+
+
+/* =========================================================
+   STATUS-PULS
+   ========================================================= */
+
+@keyframes jacIndicatorPulse {
+
+    0%,
+    100% {
+        opacity: 0.45;
+
+        box-shadow:
+            0 0 0 rgba(255, 255, 255, 0);
+    }
+
+    50% {
+        opacity: 1;
+
+        box-shadow:
+            0 0 14px
+            rgba(255, 255, 255, 0.16);
+    }
+
+}
+
+
+/* =========================================================
+   VERIFIZIERUNG ERFOLGREICH
+   ========================================================= */
+
+@keyframes jacVerifiedPulse {
+
+    0% {
+        transform: scale(1);
+
+        box-shadow:
+            0 18px 50px rgba(0, 0, 0, 0.38),
+            0 0 0 rgba(90, 225, 155, 0);
+    }
+
+    45% {
+        transform: scale(1.012);
+
+        box-shadow:
+            0 18px 50px rgba(0, 0, 0, 0.38),
+            0 0 40px
+            rgba(90, 225, 155, 0.22);
+    }
+
+    100% {
+        transform: scale(1);
+
+        box-shadow:
+            0 18px 50px rgba(0, 0, 0, 0.38),
+            0 0 28px
+            rgba(90, 225, 155, 0.10);
+    }
+
+}
+
+
+/* =========================================================
+   LEICHTES SCHWEBEN
+   ========================================================= */
+
+@keyframes jacVerificationFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .jac-agent-card {
+        width:
+            calc(100vw - 28px);
+
+        margin-top: 24px;
+
+        padding: 19px;
+
+        border-radius: 12px;
+    }
+
+
+    .agent-card-label {
+        font-size: 21px;
+    }
+
+
+    .agent-card-id strong {
+        font-size: 18px;
+    }
+
+
+    .agent-card-row {
+        gap: 12px;
+    }
+
+
+    .agent-card-row span,
+    .agent-card-row strong {
+        font-size: 8px;
+    }
+
+
+    .agent-card-footer span {
+        font-size: 6px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .jac-agent-card,
+    .jac-agent-card::after,
+    .agent-card-indicator {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}
+/* =========================================================
+   JAC PRÜFUNG 2
+   BIOMETRISCHE AGENTENVERIFIZIERUNG
+========================================================= */
+
+.biometric-page {
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #14232b 0%,
+            #081117 45%,
+            #050a0f 100%
+        );
+
+    color: #dce7e9;
+
+}
+
+
+#biometric-page {
+
+    width: min(980px, 100%);
+
+    margin: 0 auto;
+
+    padding: 50px 20px 70px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.biometric-header {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+.biometric-logo {
+
+    width: 90px;
+
+    margin: 0 auto 22px;
+
+}
+
+
+.biometric-header h1 {
+
+    margin: 10px 0;
+
+    color: #edf3f4;
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+.biometric-subtitle {
+
+    color: #8fa5ac;
+
+    font-size: 13px;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   AGENTENAUSWEIS
+========================================================= */
+
+.biometric-agent-card {
+
+    position: relative;
+
+    max-width: 560px;
+
+    margin: 0 auto 30px;
+
+    padding: 26px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(126,164,174,.28);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,30,36,.98),
+            rgba(7,15,20,.99)
+        );
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    transition:
+        border-color .5s ease,
+        box-shadow .5s ease;
+
+}
+
+
+.biometric-agent-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.015) 0,
+            rgba(255,255,255,.015) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+
+}
+
+
+.biometric-agent-card[data-status="scanning"] {
+
+    border-color:
+        rgba(201,166,70,.55);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45),
+        0 0 30px rgba(201,166,70,.08);
+
+}
+
+
+.biometric-agent-card[data-status="verified"] {
+
+    border-color:
+        rgba(90,225,155,.7);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45),
+        0 0 35px rgba(90,225,155,.12);
+
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.biometric-card-top {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+}
+
+
+.biometric-card-label {
+
+    display: block;
+
+    color: #fff;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: .18em;
+
+}
+
+
+.biometric-card-title {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: rgba(255,255,255,.45);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: .18em;
+
+}
+
+
+.biometric-status-indicator {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    border-radius: 50%;
+
+    color: #c9a646;
+
+    font-size: 18px;
+
+}
+
+
+.biometric-agent-card[data-status="verified"]
+.biometric-status-indicator {
+
+    color: #5ae19b;
+
+    border-color: rgba(90,225,155,.7);
+
+    box-shadow:
+        0 0 15px rgba(90,225,155,.2);
+
+}
+
+
+/* =========================================================
+   CARD ELEMENTE
+========================================================= */
+
+.biometric-card-divider {
+
+    height: 1px;
+
+    margin: 20px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.16),
+            transparent
+        );
+
+}
+
+
+.biometric-agent-id {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    padding: 15px;
+
+    margin-bottom: 16px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.025);
+
+}
+
+
+.biometric-agent-id span,
+.biometric-data-row span {
+
+    color: rgba(255,255,255,.42);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: .16em;
+
+}
+
+
+.biometric-agent-id strong {
+
+    color: #fff;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 21px;
+
+    letter-spacing: .15em;
+
+}
+
+
+.biometric-data-row {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    min-height: 35px;
+
+    border-bottom: 1px solid rgba(255,255,255,.055);
+
+}
+
+
+.biometric-data-row strong {
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 9px;
+
+    letter-spacing: .08em;
+
+}
+
+
+.biometric-data-row strong.verified,
+.biometric-agent-card[data-status="verified"]
+#biometric-card-status,
+.biometric-agent-card[data-status="verified"]
+#biometric-access {
+
+    color: #5ae19b;
+
+    text-shadow:
+        0 0 10px rgba(90,225,155,.25);
+
+}
+
+
+/* =========================================================
+   STATUS CARD
+========================================================= */
+
+.biometric-status-card {
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    border: 1px solid rgba(126,164,174,.2);
+
+    border-radius: 14px;
+
+    background: rgba(10,20,26,.85);
+
+}
+
+
+.biometric-status-label {
+
+    margin-bottom: 10px;
+
+    color: #c9a646;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .2em;
+
+}
+
+
+.biometric-status-card h2 {
+
+    margin-bottom: 10px;
+
+    color: #edf3f4;
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+    letter-spacing: .08em;
+
+}
+
+
+.biometric-status-card p {
+
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    color: #8fa5ac;
+
+    font-size: 14px;
+
+}
+
+
+.biometric-progress-container {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    height: 8px;
+
+    margin: 25px auto 10px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.08);
+
+}
+
+
+.biometric-progress-bar {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8e742d,
+            #f0d477,
+            #c9a646
+        );
+
+    box-shadow:
+        0 0 12px rgba(201,166,70,.25);
+
+    transition: width .35s ease;
+
+}
+
+
+.biometric-progress-text {
+
+    color: #c9a646;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   MODULE
+========================================================= */
+
+.biometric-module {
+
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid rgba(126,164,174,.2);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16,28,34,.95),
+            rgba(7,15,20,.98)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+
+}
+
+
+.biometric-module-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.biometric-module-number {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    border: 1px solid rgba(201,166,70,.45);
+
+    color: #c9a646;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 13px;
+
+}
+
+
+.biometric-module-label {
+
+    display: block;
+
+    color: #c9a646;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .18em;
+
+}
+
+
+.biometric-module h2 {
+
+    margin-top: 5px;
+
+    color: #edf3f4;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    letter-spacing: .07em;
+
+}
+
+
+/* =========================================================
+   FINGERABDRUCK-SCANNER
+========================================================= */
+
+.fingerprint-scanner {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: min(360px, 100%);
+
+    height: 260px;
+
+    margin: 0 auto 25px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(126,164,174,.25);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(60,100,110,.12),
+            rgba(4,10,14,.95)
+        );
+
+}
+
+
+.fingerprint-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(126,164,174,.07) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(126,164,174,.07) 1px,
+            transparent 1px
+        );
+
+    background-size: 25px 25px;
+
+}
+
+
+.fingerprint-pattern {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 135px;
+
+    height: 175px;
+
+    opacity: .28;
+
+    border: 2px solid #c9a646;
+
+    border-radius: 50% 50% 45% 45%;
+
+    transform: rotate(180deg);
+
+}
+
+
+.fingerprint-pattern span {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 80%;
+
+    height: 88%;
+
+    border: 1px solid #c9a646;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+.fingerprint-pattern span:nth-child(2) {
+    width: 65%;
+    height: 72%;
+}
+
+.fingerprint-pattern span:nth-child(3) {
+    width: 50%;
+    height: 56%;
+}
+
+.fingerprint-pattern span:nth-child(4) {
+    width: 35%;
+    height: 40%;
+}
+
+.fingerprint-pattern span:nth-child(5) {
+    width: 18%;
+    height: 22%;
+}
+
+
+.fingerprint-scan-line {
+
+    position: absolute;
+
+    left: 10%;
+
+    right: 10%;
+
+    top: -5%;
+
+    height: 2px;
+
+    z-index: 4;
+
+    opacity: 0;
+
+    background: #d6b85b;
+
+    box-shadow:
+        0 0 12px #c9a646;
+
+}
+
+
+.fingerprint-scanner.scanning
+.fingerprint-scan-line {
+
+    opacity: 1;
+
+    animation:
+        fingerprintScan 1.7s
+        linear
+        infinite;
+
+}
+
+
+.fingerprint-scanner.scanning
+.fingerprint-pattern {
+
+    opacity: .8;
+
+    animation:
+        fingerprintPulse 1.4s
+        ease-in-out
+        infinite;
+
+}
+
+
+.fingerprint-icon {
+
+    position: absolute;
+
+    z-index: 5;
+
+    color: rgba(201,166,70,.2);
+
+    font-size: 42px;
+
+}
+
+
+.fingerprint-state {
+
+    position: absolute;
+
+    z-index: 6;
+
+    bottom: 18px;
+
+    color: #8fa5ac;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .18em;
+
+}
+
+
+.fingerprint-scanner.verified {
+
+    border-color:
+        rgba(90,225,155,.55);
+
+    box-shadow:
+        0 0 25px rgba(90,225,155,.08);
+
+}
+
+
+.fingerprint-scanner.verified
+.fingerprint-pattern {
+
+    border-color: #5ae19b;
+
+    opacity: .8;
+
+}
+
+
+/* =========================================================
+   CHECKLIST
+========================================================= */
+
+.biometric-check-list {
+
+    max-width: 520px;
+
+    margin: 0 auto;
+
+}
+
+
+.biometric-check {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.05);
+
+    color: rgba(255,255,255,.4);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .12em;
+
+}
+
+
+.biometric-check span {
+
+    width: 18px;
+
+    color: rgba(255,255,255,.3);
+
+}
+
+
+.biometric-check.active {
+
+    color: #d6b85b;
+
+}
+
+
+.biometric-check.complete {
+
+    color: #5ae19b;
+
+}
+
+
+/* =========================================================
+   HOLOGRAMM
+========================================================= */
+
+.hologram-module {
+
+    position: relative;
+
+}
+
+
+.hologram-scanner {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: min(360px, 100%);
+
+    height: 260px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(50,150,150,.12),
+            rgba(4,10,14,.98)
+        );
+
+    border: 1px solid rgba(100,180,190,.2);
+
+}
+
+
+.hologram-ring {
+
+    position: absolute;
+
+    border: 1px solid rgba(100,210,210,.3);
+
+    border-radius: 50%;
+
+}
+
+
+.ring-one {
+
+    width: 180px;
+    height: 180px;
+
+}
+
+
+.ring-two {
+
+    width: 125px;
+    height: 125px;
+
+}
+
+
+.ring-three {
+
+    width: 70px;
+    height: 70px;
+
+}
+
+
+.hologram-core {
+
+    position: relative;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 92px;
+    height: 92px;
+
+    border: 1px solid rgba(110,220,220,.7);
+
+    border-radius: 50%;
+
+    color: #b7ffff;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    letter-spacing: .15em;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(100,220,220,.22),
+            rgba(30,100,110,.05)
+        );
+
+    box-shadow:
+        0 0 25px rgba(80,220,220,.15);
+
+}
+
+
+.hologram-scan-line {
+
+    position: absolute;
+
+    z-index: 5;
+
+    left: 10%;
+    right: 10%;
+
+    top: -10%;
+
+    height: 2px;
+
+    opacity: 0;
+
+    background: #b7ffff;
+
+    box-shadow:
+        0 0 15px rgba(100,240,240,.8);
+
+}
+
+
+.hologram-scanner.scanning
+.hologram-scan-line {
+
+    opacity: 1;
+
+    animation:
+        hologramScan 1.5s
+        linear
+        infinite;
+
+}
+
+
+.hologram-scanner.scanning
+.hologram-ring {
+
+    animation:
+        hologramRotate 4s
+        linear
+        infinite;
+
+}
+
+
+.hologram-state {
+
+    position: absolute;
+
+    z-index: 7;
+
+    bottom: 18px;
+
+    color: #80a7ad;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .16em;
+
+}
+
+
+.hologram-result {
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    color: #8fa5ac;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .16em;
+
+}
+
+
+.hologram-result.verified {
+
+    color: #5ae19b;
+
+    text-shadow:
+        0 0 10px rgba(90,225,155,.25);
+
+}
+
+
+/* =========================================================
+   AKTION
+========================================================= */
+
+.biometric-action {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 30px 0;
+
+}
+
+
+.biometric-action button {
+
+    min-width: 300px;
+
+}
+
+
+#finish-biometric-button {
+
+    background:
+        linear-gradient(
+            180deg,
+            #c9a646,
+            #a98932
+        );
+
+    color: #07111d;
+
+}
+
+
+#finish-biometric-button:hover {
+
+    background: #e0c568;
+
+}
+
+
+/* =========================================================
+   ERFOLG
+========================================================= */
+
+.biometric-success {
+
+    padding: 35px 25px;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    border: 1px solid rgba(90,225,155,.4);
+
+    border-radius: 14px;
+
+    background:
+        rgba(40,150,100,.06);
+
+    box-shadow:
+        0 0 30px rgba(90,225,155,.06);
+
+}
+
+
+.success-symbol {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    border: 1px solid rgba(90,225,155,.7);
+
+    border-radius: 50%;
+
+    color: #5ae19b;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 0 25px rgba(90,225,155,.12);
+
+}
+
+
+.biometric-success h2 {
+
+    margin: 10px 0;
+
+    color: #5ae19b;
+
+    letter-spacing: .1em;
+
+}
+
+
+.biometric-success p {
+
+    margin-bottom: 15px;
+
+    color: #9fb2b7;
+
+}
+
+
+.biometric-success strong {
+
+    color: #5ae19b;
+
+    font-family: "Courier New", monospace;
+
+    letter-spacing: .18em;
+
+}
+
+
+/* =========================================================
+   ANIMATIONEN
+========================================================= */
+
+@keyframes fingerprintScan {
+
+    0% {
+        top: 8%;
+    }
+
+    50% {
+        top: 88%;
+    }
+
+    100% {
+        top: 8%;
+    }
+
+}
+
+
+@keyframes fingerprintPulse {
+
+    0%,
+    100% {
+        transform: rotate(180deg) scale(.98);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.03);
+    }
+
+}
+
+
+@keyframes hologramScan {
+
+    0% {
+        top: 5%;
+    }
+
+    50% {
+        top: 90%;
+    }
+
+    100% {
+        top: 5%;
+    }
+
+}
+
+
+@keyframes hologramRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    #biometric-page {
+
+        padding:
+            35px
+            14px
+            50px;
+
+    }
+
+
+    .biometric-header h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    .biometric-module {
+
+        padding: 22px 16px;
+
+    }
+
+
+    .biometric-module-header {
+
+        gap: 12px;
+
+    }
+
+
+    .biometric-module h2 {
+
+        font-size: 17px;
+
+    }
+
+
+    .fingerprint-scanner,
+    .hologram-scanner {
+
+        height: 230px;
+
+    }
+
+
+    .biometric-action button {
+
+        width: 100%;
+
+        min-width: 0;
+
+    }
+
+
+    .biometric-data-row {
+
+        gap: 15px;
+
+    }
+
+}

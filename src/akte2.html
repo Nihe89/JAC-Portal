@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>JAC Portal // Akte 02</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/akte2.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SYSTEM START SCREEN
+===================================================== -->
+
+<div
+    id="startup-screen"
+    class="startup-screen"
+>
+
+    <div class="startup-panel">
+
+        <div class="startup-logo">
+            JAC
+        </div>
+
+        <div class="startup-title">
+            JUSTICE ANALYSIS CONTROL
+        </div>
+
+        <div class="startup-case">
+            AKTE 02
+        </div>
+
+        <div class="startup-subtitle">
+            FORENSIC ACCESS
+        </div>
+
+
+        <div class="startup-status">
+            SYSTEM BEREIT
+        </div>
+
+
+        <button
+            id="start-system"
+            class="startup-button"
+            type="button"
+        >
+            SYSTEM STARTEN
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FORENSIC INTRO
+     WIRD VON JS ERZEUGT
+===================================================== -->
+
+
+
+<!-- =====================================================
+     HAUPTSEITE
+===================================================== -->
+
+<main
+    id="akte2-page"
+    class="akte-page"
+>
+
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <header
+        id="akte-header"
+        class="akte-header"
+    >
+
+        <div class="header-left">
+
+            <div
+                id="jac-logo"
+                class="jac-logo"
+            >
+                JAC
+            </div>
+
+            <div class="header-title">
+
+                <span class="jac-small">
+                    JUSTICE ANALYSIS CONTROL
+                </span>
+
+                <h1>
+                    FORENSISCHE FALLANALYSE
+                </h1>
+
+                <h2>
+                    Akte 02 // Zeitliche Rekonstruktion
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <div class="system-box">
+
+                <span class="system-label">
+                    SYSTEMSTATUS
+                </span>
+
+                <strong class="system-online">
+                    ● ONLINE
+                </strong>
+
+            </div>
+
+
+            <div class="case-box">
+
+                <span>
+                    FALLAKTE
+                </span>
+
+                <strong>
+                    AKTE 02
+                </strong>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         FORTSCHRITT
+    ================================================== -->
+
+    <section
+        id="jac-progress"
+        class="jac-progress"
+    >
+
+        <div class="progress-header">
+
+            <span>
+                FORENSISCHE ANALYSE
+            </span>
+
+            <span id="progress-percent">
+                0 %
+            </span>
+
+        </div>
+
+
+        <div class="progress-track">
+
+            <div
+                id="progress-fill"
+                class="progress-fill"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AUFGABE
+    ================================================== -->
+
+    <section
+        id="mission-card"
+        class="card mission-card"
+    >
+
+        <div class="card-header">
+
+            <div>
+
+                <span class="section-label">
+                    JAC // ANALYSEAUFTRAG
+                </span>
+
+                <h2>
+                    BEWEISMATERIAL REKONSTRUIEREN
+                </h2>
+
+            </div>
+
+            <div class="analysis-state">
+                ANALYSEMODUL AKTIV
+            </div>
+
+        </div>
+
+
+        <p>
+
+            Vor Ihnen befinden sich sechs forensische
+            Beweisbilder. Die Bilder wurden aus ihrem
+            ursprünglichen zeitlichen Zusammenhang
+            entfernt.
+
+        </p>
+
+
+        <p>
+
+            Analysieren Sie das Beweismaterial und
+            ordnen Sie jedes Bild der korrekten
+            zeitlichen Position zu.
+
+        </p>
+
+
+        <div class="mission-warning">
+
+            <strong>
+                HINWEIS
+            </strong>
+
+            <br>
+
+            Die korrekte Reihenfolge lautet nicht
+            automatisch der aktuellen Anzeigeordnung.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         BEWEISMATERIAL
+    ================================================== -->
+
+    <section
+        id="evidence-card"
+        class="card evidence-card"
+    >
+
+        <div class="card-header">
+
+            <div>
+
+                <span class="section-label">
+                    BEWEISMATERIAL
+                </span>
+
+                <h2>
+                    FORENSISCHE BEWEISBILDER
+                </h2>
+
+            </div>
+
+            <div class="evidence-counter">
+                6 BEWEISMITTEL
+            </div>
+
+        </div>
+
+
+        <div
+            id="image-order"
+            class="image-order"
+        ></div>
+
+
+        <div class="analysis-action">
+
+            <button
+                id="check-order"
+                class="primary-button"
+                type="button"
+            >
+                ANALYSE ABSCHLIESSEN
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         STATUS
+    ================================================== -->
+
+    <section
+        id="status-card"
+        class="card status-card"
+    >
+
+        <div class="status-indicator">
+            SYSTEMSTATUS
+        </div>
+
+        <div id="status-message">
+            Ordnen Sie alle sechs Beweisbilder einer
+            zeitlichen Position zu.
+        </div>
+
+    </section>
+
+
+
+</main>
+
+
+
+<!-- =====================================================
+     BILD ANALYSE MODAL
+===================================================== -->
+
+<div
+    id="image-modal"
+    class="modal hidden"
+>
+
+    <div class="image-modal-box">
+
+        <div class="modal-header">
+
+            <span>
+                JAC // FORENSIC VIEWER
+            </span>
+
+            <button
+                id="close-image-modal"
+                class="modal-close"
+                type="button"
+                aria-label="Schließen"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-image-area">
+
+            <img
+                id="modal-image"
+                src=""
+                alt="Forensisches Beweismaterial"
+            >
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            FORENSISCHES BEWEISMATERIAL
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ERGEBNIS POPUP
+===================================================== -->
+
+<div
+    id="result-modal"
+    class="result-modal hidden"
+>
+
+    <div
+        class="result-box"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <div
+            id="result-icon"
+            class="result-icon"
+        >
+            !
+        </div>
+
+
+        <div
+            class="result-label"
+        >
+            JAC // SYSTEMMELDUNG
+        </div>
+
+
+        <h2 id="result-title">
+            ANALYSE
+        </h2>
+
+
+        <p id="result-text">
+            Systemmeldung
+        </p>
+
+
+        <button
+            id="result-button"
+            class="result-button"
+            type="button"
+        >
+            SCHLIESSEN
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ABSCHLUSSBILDSCHIRM
+===================================================== -->
+
+<div
+    id="completion-screen"
+    class="completion-screen hidden"
+>
+
+    <div class="completion-box">
+
+        <div class="completion-logo">
+            JAC
+        </div>
+
+
+        <div class="completion-line"></div>
+
+
+        <div class="completion-case">
+            AKTE 02
+        </div>
+
+
+        <div class="completion-title">
+            ANALYSE ABGESCHLOSSEN
+        </div>
+
+
+        <div class="completion-check">
+            ✓
+        </div>
+
+
+        <p>
+
+            Die zeitliche Rekonstruktion des
+            Beweismaterials wurde erfolgreich
+            abgeschlossen.
+
+        </p>
+
+
+        <div class="completion-status">
+            CASE STATUS // VERIFIED
+        </div>
+
+
+        <button
+            id="dashboard-button"
+            class="completion-button"
+            type="button"
+        >
+            ZUM DASHBOARD
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script
+    src="../js/audio.js"
+></script>
+
+<script
+    src="../js/gameState.js"
+></script>
+
+<script
+    src="../js/akte2.js"
+></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JAC Portal | Anmeldung</title>
+
+    <meta name="description" content="Jury Assessment Commission Portal">
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+    <main id="login-page">
+
+        <!-- Logo -->
+        <section class="login-header">
+
+            <img
+                src="../assets/logos/jac-logo.png"
+                alt="Jury Assessment Commission Logo"
+                id="jac-logo">
+
+            <h1>JURY ASSESSMENT COMMISSION</h1>
+
+            <p class="subtitle">
+                Assessment Portal
+            </p>
+
+        </section>
+
+        <!-- Login -->
+        <section class="login-card">
+
+            <h2>Anmeldung</h2>
+
+            <p class="description">
+                Bitte melden Sie sich mit den Zugangsdaten Ihrer JAC-Zugangskarte an.
+            </p>
+
+            <form id="login-form" novalidate>
+
+                <div class="form-group">
+
+                    <label for="participant-id">
+                        Teilnehmer-ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="participant-id"
+                        name="participant-id"
+                        placeholder="Teilnehmer ID eingeben"
+                        autocomplete="off"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="access-code">
+                        Zugangscode
+                    </label>
+
+                    <input
+                        type="password"
+                        id="access-code"
+                        name="access-code"
+                        placeholder="Zugangscode eingeben"
+                        autocomplete="off"
+                        required>
+
+                </div>
+
+                <button
+                    type="submit"
+                    id="login-button">
+
+                    Anmelden
+
+                </button>
+
+            </form>
+
+            <div
+                id="login-message"
+                aria-live="polite">
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+
+            <p>
+                © 2026 Jury Assessment Commission
+            </p>
+
+        </footer>
+
+    </main>
+
+<script src="../js/gameState.js"></script>
+<script src="../js/audio.js"></script>
+<script src="../js/login.js"></script>
+</body>
+
+</html>

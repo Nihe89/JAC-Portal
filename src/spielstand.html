@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>JAC – Spielstand</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/spielstand.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================================
+         HAUPTBEREICH
+         ========================================= -->
+
+    <main class="save-page">
+
+        <!-- =====================================
+             KOPFBEREICH
+             ===================================== -->
+
+        <header class="save-header">
+
+            <div class="header-logo">
+                <span class="header-logo-text">JAC</span>
+            </div>
+
+            <div class="header-title">
+                <span class="eyebrow">
+                    JURY ACTION CASE
+                </span>
+
+                <h1>
+                    SPIELSTAND
+                </h1>
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             FORTSCHRITT
+             ===================================== -->
+
+        <section
+            class="progress-panel"
+            aria-labelledby="progress-title"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <div>
+                    <h2 id="progress-title">
+                        ERMITTLUNGSFORTSCHRITT
+                    </h2>
+
+                    <p>
+                        Übersicht über den aktuellen Stand des Falls.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="progress-summary">
+
+                <div class="progress-count">
+
+                    <span
+                        id="completed-count"
+                        class="progress-number"
+                    >
+                        0
+                    </span>
+
+                    <span class="progress-divider">
+                        /
+                    </span>
+
+                    <span class="progress-total">
+                        5
+                    </span>
+
+                    <span class="progress-label">
+                        AKTEN
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="progress-percent"
+                    class="progress-percent"
+                >
+                    0 %
+                </div>
+
+            </div>
+
+
+            <!-- Fortschrittsbalken -->
+
+            <div
+                class="progress-bar"
+                aria-label="Ermittlungsfortschritt"
+            >
+
+                <div
+                    id="progress-bar-fill"
+                    class="progress-bar-fill"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             AKTENÜBERSICHT
+             ===================================== -->
+
+        <section
+            class="cases-panel"
+            aria-labelledby="cases-title"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    02
+                </span>
+
+                <div>
+                    <h2 id="cases-title">
+                        AKTEN
+                    </h2>
+
+                    <p>
+                        Bearbeitungsstand der fünf Ermittlungsakten.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="cases-list">
+
+
+                <!-- AKTE 1 -->
+
+                <article
+                    class="case-row"
+                    data-case="1"
+                >
+
+                    <div class="case-number">
+                        01
+                    </div>
+
+                    <div class="case-info">
+
+                        <h3>
+                            AKTE 01
+                        </h3>
+
+                        <p>
+                            Ermittlungsakte
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="case-status"
+                        data-status="1"
+                    >
+                        OFFEN
+                    </div>
+
+                </article>
+
+
+                <!-- AKTE 2 -->
+
+                <article
+                    class="case-row"
+                    data-case="2"
+                >
+
+                    <div class="case-number">
+                        02
+                    </div>
+
+                    <div class="case-info">
+
+                        <h3>
+                            AKTE 02
+                        </h3>
+
+                        <p>
+                            Ermittlungsakte
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="case-status"
+                        data-status="2"
+                    >
+                        GESPERRT
+                    </div>
+
+                </article>
+
+
+                <!-- AKTE 3 -->
+
+                <article
+                    class="case-row"
+                    data-case="3"
+                >
+
+                    <div class="case-number">
+                        03
+                    </div>
+
+                    <div class="case-info">
+
+                        <h3>
+                            AKTE 03
+                        </h3>
+
+                        <p>
+                            Ermittlungsakte
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="case-status"
+                        data-status="3"
+                    >
+                        GESPERRT
+                    </div>
+
+                </article>
+
+
+                <!-- AKTE 4 -->
+
+                <article
+                    class="case-row"
+                    data-case="4"
+                >
+
+                    <div class="case-number">
+                        04
+                    </div>
+
+                    <div class="case-info">
+
+                        <h3>
+                            AKTE 04
+                        </h3>
+
+                        <p>
+                            Ermittlungsakte
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="case-status"
+                        data-status="4"
+                    >
+                        GESPERRT
+                    </div>
+
+                </article>
+
+
+                <!-- AKTE 5 -->
+
+                <article
+                    class="case-row"
+                    data-case="5"
+                >
+
+                    <div class="case-number">
+                        05
+                    </div>
+
+                    <div class="case-info">
+
+                        <h3>
+                            AKTE 05
+                        </h3>
+
+                        <p>
+                            Ermittlungsakte
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="case-status"
+                        data-status="5"
+                    >
+                        GESPERRT
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             GEFUNDENE INFORMATIONEN
+             ===================================== -->
+
+        <section
+            class="information-panel"
+            aria-labelledby="information-title"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    03
+                </span>
+
+                <div>
+                    <h2 id="information-title">
+                        ERMITTLUNGSINFORMATIONEN
+                    </h2>
+
+                    <p>
+                        Bereits gesicherte Informationen aus den Akten.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="information-grid">
+
+
+                <!-- BEWEISMITTEL -->
+
+                <div class="information-card">
+
+                    <span class="information-card-number">
+                        BEWEISMITTEL
+                    </span>
+
+                    <strong
+                        id="evidence-count"
+                    >
+                        0
+                    </strong>
+
+                    <span>
+                        gesichert
+                    </span>
+
+                </div>
+
+
+                <!-- HINWEISE -->
+
+                <div class="information-card">
+
+                    <span class="information-card-number">
+                        HINWEISE
+                    </span>
+
+                    <strong
+                        id="clue-count"
+                    >
+                        0
+                    </strong>
+
+                    <span>
+                        gefunden
+                    </span>
+
+                </div>
+
+
+                <!-- FEHLER -->
+
+                <div class="information-card">
+
+                    <span class="information-card-number">
+                        FEHLER
+                    </span>
+
+                    <strong
+                        id="error-count"
+                    >
+                        0
+                    </strong>
+
+                    <span>
+                        erkannt
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             SYSTEMSTATUS
+             ===================================== -->
+
+        <section
+            class="system-status-panel"
+            aria-labelledby="system-title"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    04
+                </span>
+
+                <div>
+                    <h2 id="system-title">
+                        SYSTEMSTATUS
+                    </h2>
+
+                    <p>
+                        Letzte gespeicherte Informationen.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="system-status-content">
+
+                <div class="status-indicator"></div>
+
+                <div>
+
+                    <strong>
+                        SPIELSTAND GESPEICHERT
+                    </strong>
+
+                    <p id="last-saved">
+                        Noch keine Daten gespeichert.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             AKTIONEN
+             ===================================== -->
+
+        <section
+            class="actions-panel"
+            aria-label="Spielstand Aktionen"
+        >
+
+            <button
+                id="back-dashboard"
+                class="action-button secondary"
+                type="button"
+            >
+                ZURÜCK ZUM DASHBOARD
+            </button>
+
+
+            <button
+                id="reset-game"
+                class="action-button danger"
+                type="button"
+            >
+                SPIELSTAND ZURÜCKSETZEN
+            </button>
+
+        </section>
+
+
+        <!-- =====================================
+             RESET-BESTÄTIGUNG
+             ===================================== -->
+
+        <div
+            id="reset-dialog"
+            class="dialog hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="reset-dialog-title"
+        >
+
+            <div class="dialog-box">
+
+                <span class="dialog-label">
+                    ACHTUNG
+                </span>
+
+                <h2 id="reset-dialog-title">
+                    SPIELSTAND ZURÜCKSETZEN?
+                </h2>
+
+                <p>
+                    Der gesamte bisherige Ermittlungsfortschritt
+                    wird gelöscht.
+                </p>
+
+                <div class="dialog-actions">
+
+                    <button
+                        id="cancel-reset"
+                        class="action-button secondary"
+                        type="button"
+                    >
+                        ABBRECHEN
+                    </button>
+
+                    <button
+                        id="confirm-reset"
+                        class="action-button danger"
+                        type="button"
+                    >
+                        ZURÜCKSETZEN
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script src="../js/gameState.js"></script>
+    <script src="../js/spielstand.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+/* =====================================================
+   JURY ASSESSMENT COMMISSION
+   RESPONSIVE.CSS
+===================================================== */
+
+
+/* =====================================================
+   LAPTOP (1200px)
+===================================================== */
+
+@media (max-width:1200px){
+
+    main{
+
+        max-width:1000px;
+
+    }
+
+}
+
+
+/* =====================================================
+   TABLET (992px)
+===================================================== */
+
+@media (max-width:992px){
+
+    .jac-header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        text-align:center;
+
+        padding:25px;
+
+    }
+
+    .jac-header-right{
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+    }
+
+    #cases{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/* =====================================================
+   TABLET KLEIN (768px)
+===================================================== */
+
+@media (max-width:768px){
+
+    body{
+
+        font-size:15px;
+
+    }
+
+    main{
+
+        margin:20px auto;
+
+        padding:15px;
+
+    }
+
+    .jac-logo{
+
+        width:70px;
+
+    }
+
+    .jac-header-center h1{
+
+        font-size:26px;
+
+    }
+
+    .comparison-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .image-card{
+
+        width:100%;
+
+    }
+
+    button{
+
+        width:100%;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMARTPHONE (576px)
+===================================================== */
+
+@media (max-width:576px){
+
+    .jac-header{
+
+        padding:20px 15px;
+
+    }
+
+    .jac-header-right{
+
+        flex-direction:column;
+
+        gap:12px;
+
+    }
+
+    .message-card,
+    .progress-card,
+    .case-card,
+    .mission-card,
+    .instruction-card,
+    .feedback-card,
+    .finish-card,
+    .success-card,
+    .status-card,
+    .login-card,
+    .audio-card,
+    .document-section,
+    .code-section{
+
+        padding:20px;
+
+    }
+
+    .jac-header-center h1{
+
+        font-size:22px;
+
+    }
+
+    .jac-header-center p{
+
+        font-size:14px;
+
+    }
+
+}
+
+
+/* =====================================================
+   KLEINE SMARTPHONES (400px)
+===================================================== */
+
+@media (max-width:400px){
+
+    body{
+
+        font-size:14px;
+
+    }
+
+    .jac-logo{
+
+        width:60px;
+
+    }
+
+    .jac-header-center h1{
+
+        font-size:19px;
+
+    }
+
+}

@@ -1,0 +1,1906 @@
+/* =========================================================
+   JAC PORTAL
+   AKTE 05
+   VERSION 6.0
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --bg:
+        #05080d;
+
+    --panel:
+        rgba(12, 20, 29, 0.94);
+
+    --panel-light:
+        rgba(18, 29, 41, 0.95);
+
+    --line:
+        rgba(100, 180, 220, 0.22);
+
+    --cyan:
+        #56d9ff;
+
+    --cyan-bright:
+        #9cecff;
+
+    --green:
+        #4cff9b;
+
+    --red:
+        #ff5266;
+
+    --text:
+        #e7f7ff;
+
+    --muted:
+        #7f9aaa;
+
+}
+
+
+html,
+body {
+
+    margin: 0;
+
+    min-height: 100%;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #102433 0%,
+            #05080d 55%,
+            #020406 100%
+        );
+
+    color:
+        var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   STARTSCREEN
+========================================================= */
+
+.startup-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 24px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(24, 60, 80, 0.22),
+            rgba(2, 5, 8, 0.98) 70%
+        );
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+}
+
+
+.startup-screen.startup-finished {
+
+    opacity: 0;
+
+    transform:
+        scale(1.03);
+
+    pointer-events: none;
+
+}
+
+
+.startup-box {
+
+    width:
+        min(920px, 96vw);
+
+    max-height:
+        94vh;
+
+    padding:
+        34px 42px 30px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 21, 31, 0.98),
+            rgba(4, 10, 16, 0.98)
+        );
+
+    box-shadow:
+        0 0 60px rgba(0, 210, 255, 0.08),
+        inset 0 0 40px rgba(0, 160, 220, 0.03);
+
+    text-align:
+        center;
+
+}
+
+
+.startup-logo {
+
+    width:
+        72px;
+
+    height:
+        72px;
+
+    object-fit:
+        contain;
+
+    margin-bottom:
+        12px;
+
+    filter:
+        drop-shadow(
+            0 0 14px rgba(70, 220, 255, 0.35)
+        );
+
+}
+
+
+.startup-label {
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        4px;
+
+    color:
+        var(--cyan);
+
+}
+
+
+.startup-title {
+
+    margin-top:
+        8px;
+
+    font-size:
+        clamp(34px, 5vw, 52px);
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        5px;
+
+}
+
+
+.startup-subtitle {
+
+    margin-top:
+        4px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* =========================================================
+   STARTBUTTON
+========================================================= */
+
+.system-start-button {
+
+    margin-top:
+        25px;
+
+    min-width:
+        230px;
+
+    padding:
+        13px 24px;
+
+    border:
+        1px solid rgba(86, 217, 255, 0.6);
+
+    background:
+        rgba(10, 38, 52, 0.8);
+
+    color:
+        var(--cyan-bright);
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.system-start-button:hover {
+
+    background:
+        rgba(26, 79, 101, 0.9);
+
+    box-shadow:
+        0 0 25px rgba(86, 217, 255, 0.18);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.system-start-button:disabled {
+
+    opacity:
+        0.55;
+
+    cursor:
+        default;
+
+}
+
+
+.start-icon {
+
+    margin-right:
+        9px;
+
+}
+
+
+/* =========================================================
+   STARTANIMATION
+========================================================= */
+
+.startup-animation {
+
+    margin-top:
+        24px;
+
+    animation:
+        animationFadeIn 0.5s ease;
+
+}
+
+
+.hidden {
+
+    display:
+        none !important;
+
+}
+
+
+@keyframes animationFadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.system-terminal {
+
+    padding:
+        10px 14px;
+
+    border:
+        1px solid rgba(86, 217, 255, 0.14);
+
+    background:
+        rgba(0, 8, 13, 0.7);
+
+    text-align:
+        left;
+
+}
+
+
+.terminal-line {
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        12px;
+
+}
+
+
+.terminal-prefix {
+
+    color:
+        var(--cyan);
+
+    margin-right:
+        8px;
+
+}
+
+
+.startup-detail {
+
+    margin-top:
+        5px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* =========================================================
+   PUZZLE
+========================================================= */
+
+.startup-puzzle {
+
+    position:
+        relative;
+
+    width:
+        min(570px, 75vw);
+
+    aspect-ratio:
+        4 / 3;
+
+    margin:
+        18px auto 15px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    grid-template-rows:
+        repeat(3, 1fr);
+
+    filter:
+        drop-shadow(
+            0 0 25px rgba(50, 210, 255, 0.12)
+        );
+
+}
+
+
+/* ---------------------------------------------------------
+   GLOW
+--------------------------------------------------------- */
+
+.puzzle-glow {
+
+    position:
+        absolute;
+
+    inset:
+        15%;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(60, 210, 255, 0.12);
+
+    filter:
+        blur(35px);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   PUZZLETEILE
+========================================================= */
+
+.puzzle-piece {
+
+    position:
+        relative;
+
+    margin:
+        -1px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #102d3c,
+            #07151e
+        );
+
+    border:
+        1px solid rgba(91, 213, 255, 0.42);
+
+    color:
+        rgba(156, 236, 255, 0.45);
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        9px;
+
+    transition:
+        transform 0.65s cubic-bezier(.2,.8,.2,1),
+        opacity 0.45s ease,
+        filter 0.4s ease,
+        background 0.4s ease;
+
+    opacity:
+        0;
+
+    transform:
+        scale(0.55);
+
+    overflow:
+        visible;
+
+}
+
+
+/*
+ * Puzzle-Verbindungen.
+ * Die pseudo-elements erzeugen Tabs/Aussparungen,
+ * sodass die Teile nicht wie einfache Rechtecke wirken.
+ */
+
+.puzzle-piece::before,
+.puzzle-piece::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        22px;
+
+    height:
+        22px;
+
+    border-radius:
+        50%;
+
+    background:
+        inherit;
+
+    border:
+        inherit;
+
+    z-index:
+        2;
+
+}
+
+
+/* horizontale Verbindung */
+
+.puzzle-piece::before {
+
+    right:
+        -12px;
+
+    top:
+        calc(50% - 11px);
+
+}
+
+
+/* vertikale Verbindung */
+
+.puzzle-piece::after {
+
+    bottom:
+        -12px;
+
+    left:
+        calc(50% - 11px);
+
+}
+
+
+/*
+ * Abwechselnde Aussparungsoptik
+ */
+
+.piece-02::before,
+.piece-04::before,
+.piece-06::before,
+.piece-08::before,
+.piece-10::before,
+.piece-12::before {
+
+    width:
+        18px;
+
+    height:
+        18px;
+
+}
+
+
+.piece-03::after,
+.piece-06::after,
+.piece-09::after,
+.piece-12::after {
+
+    width:
+        18px;
+
+    height:
+        18px;
+
+}
+
+
+.puzzle-piece.active {
+
+    opacity:
+        1;
+
+    transform:
+        scale(1.06);
+
+    background:
+        linear-gradient(
+            145deg,
+            #17475c,
+            #0b2735
+        );
+
+    color:
+        var(--cyan-bright);
+
+    filter:
+        drop-shadow(
+            0 0 14px rgba(86, 217, 255, 0.75)
+        );
+
+    z-index:
+        10;
+
+}
+
+
+.puzzle-piece.complete {
+
+    opacity:
+        1;
+
+    transform:
+        scale(1);
+
+    background:
+        linear-gradient(
+            145deg,
+            #123442,
+            #07151e
+        );
+
+    color:
+        rgba(156, 236, 255, 0.72);
+
+}
+
+
+/* =========================================================
+   ZENTRUM
+========================================================= */
+
+.puzzle-center {
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.7);
+
+    width:
+        112px;
+
+    height:
+        82px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    border:
+        1px solid rgba(86, 217, 255, 0.6);
+
+    background:
+        rgba(4, 14, 21, 0.94);
+
+    box-shadow:
+        0 0 30px rgba(86, 217, 255, 0.18);
+
+    opacity:
+        0;
+
+    transition:
+        0.8s ease;
+
+    z-index:
+        20;
+
+}
+
+
+.puzzle-center strong {
+
+    font-size:
+        28px;
+
+    letter-spacing:
+        4px;
+
+    color:
+        var(--cyan-bright);
+
+}
+
+
+.puzzle-center small {
+
+    margin-top:
+        3px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.puzzle-center.complete {
+
+    opacity:
+        1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    box-shadow:
+        0 0 45px rgba(86, 217, 255, 0.32);
+
+}
+
+
+/* =========================================================
+   ANALYSE
+========================================================= */
+
+.startup-analysis {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        7px;
+
+}
+
+
+.analysis-item {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        25px 1fr 30px;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    padding:
+        7px 8px;
+
+    border:
+        1px solid rgba(127, 154, 170, 0.13);
+
+    background:
+        rgba(3, 10, 15, 0.7);
+
+    font-size:
+        8px;
+
+}
+
+
+.analysis-number {
+
+    color:
+        var(--cyan);
+
+}
+
+
+.analysis-name {
+
+    color:
+        var(--muted);
+
+    text-align:
+        left;
+
+}
+
+
+.analysis-state {
+
+    text-align:
+        right;
+
+}
+
+
+.analysis-item.active {
+
+    border-color:
+        rgba(86, 217, 255, 0.55);
+
+}
+
+
+.analysis-item.active .analysis-state {
+
+    color:
+        var(--cyan);
+
+}
+
+
+.analysis-item.complete .analysis-state {
+
+    color:
+        var(--green);
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.startup-progress-wrapper {
+
+    margin-top:
+        12px;
+
+}
+
+
+.startup-progress-header {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    font-size:
+        8px;
+
+    color:
+        var(--muted);
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.startup-progress-track {
+
+    height:
+        5px;
+
+    margin-top:
+        5px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+}
+
+
+.startup-progress-fill {
+
+    width:
+        0%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1f8eb0,
+            var(--cyan-bright)
+        );
+
+    box-shadow:
+        0 0 12px rgba(86,217,255,0.5);
+
+    transition:
+        width 0.6s ease;
+
+}
+
+
+.startup-status {
+
+    margin-top:
+        8px;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.jac-header {
+
+    height:
+        68px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        0 28px;
+
+    border-bottom:
+        1px solid var(--line);
+
+    background:
+        rgba(4, 10, 16, 0.92);
+
+}
+
+
+.header-left {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
+
+}
+
+
+.jac-logo {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    object-fit:
+        contain;
+
+}
+
+
+.portal-title {
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        var(--cyan);
+
+}
+
+
+.case-title {
+
+    margin-top:
+        3px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.header-status {
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.status-dot {
+
+    display:
+        inline-block;
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    margin-right:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--green);
+
+    box-shadow:
+        0 0 9px var(--green);
+
+}
+
+
+/* =========================================================
+   HAUPTINHALT
+========================================================= */
+
+.case-container {
+
+    width:
+        min(1050px, 94vw);
+
+    margin:
+        35px auto 80px;
+
+}
+
+
+.case-visible {
+
+    animation:
+        caseReveal 0.7s ease;
+
+}
+
+
+@keyframes caseReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.case-intro {
+
+    margin-bottom:
+        22px;
+
+}
+
+
+.case-label,
+.puzzle-label {
+
+    color:
+        var(--cyan);
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        3px;
+
+}
+
+
+.case-intro h1 {
+
+    margin:
+        8px 0;
+
+    font-size:
+        42px;
+
+}
+
+
+.case-intro p {
+
+    max-width:
+        760px;
+
+    color:
+        var(--muted);
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   PUZZLE CARD
+========================================================= */
+
+.puzzle-card {
+
+    padding:
+        24px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        var(--panel);
+
+}
+
+
+.puzzle-header {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        12px;
+
+}
+
+
+.puzzle-header h2 {
+
+    margin:
+        5px 0 0;
+
+    font-size:
+        22px;
+
+}
+
+
+.case-number {
+
+    font-size:
+        32px;
+
+    font-weight:
+        800;
+
+    color:
+        rgba(86,217,255,0.25);
+
+}
+
+
+.puzzle-progress {
+
+    margin-bottom:
+        16px;
+
+    color:
+        var(--cyan);
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+/* =========================================================
+   PUZZLE ITEMS
+========================================================= */
+
+.puzzle-item {
+
+    margin-bottom:
+        10px;
+
+    padding:
+        14px;
+
+    border:
+        1px solid rgba(127,154,170,0.16);
+
+    background:
+        rgba(5, 13, 20, 0.7);
+
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s;
+
+}
+
+
+.puzzle-item.correct {
+
+    border-color:
+        rgba(76,255,155,0.75);
+
+    box-shadow:
+        0 0 18px rgba(76,255,155,0.08);
+
+}
+
+
+.puzzle-item.incorrect {
+
+    border-color:
+        rgba(255,82,102,0.75);
+
+    box-shadow:
+        0 0 18px rgba(255,82,102,0.08);
+
+}
+
+
+.puzzle-item-header {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.puzzle-number {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid rgba(86,217,255,0.25);
+
+    color:
+        var(--cyan);
+
+    font-size:
+        10px;
+
+}
+
+
+.puzzle-category {
+
+    color:
+        var(--cyan);
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.puzzle-question {
+
+    margin-top:
+        3px;
+
+    font-size:
+        13px;
+
+}
+
+
+/* =========================================================
+   ANTWORTEN
+========================================================= */
+
+.puzzle-options {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        8px;
+
+}
+
+
+.puzzle-option {
+
+    min-height:
+        42px;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid rgba(127,154,170,0.22);
+
+    background:
+        rgba(8, 18, 27, 0.9);
+
+    color:
+        var(--text);
+
+    cursor:
+        pointer;
+
+    font-size:
+        11px;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.puzzle-option:hover {
+
+    border-color:
+        rgba(86,217,255,0.65);
+
+    background:
+        rgba(17,42,55,0.85);
+
+}
+
+
+.puzzle-option.selected {
+
+    border-color:
+        var(--cyan);
+
+    background:
+        rgba(31,107,132,0.28);
+
+    box-shadow:
+        inset 0 0 15px rgba(86,217,255,0.05);
+
+}
+
+
+/*
+ * Erst nach der Prüfung:
+ */
+
+.puzzle-option.answer-correct {
+
+    border-color:
+        var(--green) !important;
+
+    background:
+        rgba(40,150,90,0.25) !important;
+
+    color:
+        #c9ffe0 !important;
+
+}
+
+
+.puzzle-option.answer-wrong {
+
+    border-color:
+        var(--red) !important;
+
+    background:
+        rgba(170,40,55,0.24) !important;
+
+    color:
+        #ffd0d6 !important;
+
+}
+
+
+.jac-button {
+
+    width:
+        100%;
+
+    margin-top:
+        14px;
+
+    padding:
+        13px 18px;
+
+    border:
+        1px solid rgba(86,217,255,0.5);
+
+    background:
+        rgba(15,55,72,0.75);
+
+    color:
+        var(--cyan-bright);
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
+    cursor:
+        pointer;
+
+}
+
+
+.jac-button:hover:not(:disabled) {
+
+    background:
+        rgba(25,82,105,0.9);
+
+}
+
+
+.jac-button:disabled {
+
+    opacity:
+        0.35;
+
+    cursor:
+        not-allowed;
+
+}
+
+
+.puzzle-hint {
+
+    margin-top:
+        10px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+    text-align:
+        center;
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.jac-modal {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        1500;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        rgba(0,0,0,0.78);
+
+}
+
+
+.result-modal-box {
+
+    width:
+        min(500px, 94vw);
+
+    padding:
+        34px;
+
+    text-align:
+        center;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        var(--panel-light);
+
+}
+
+
+.result-logo {
+
+    width:
+        54px;
+
+}
+
+
+.result-icon {
+
+    margin:
+        15px 0;
+
+    font-size:
+        46px;
+
+    color:
+        var(--cyan);
+
+}
+
+
+.result-title {
+
+    font-size:
+        22px;
+
+    font-weight:
+        800;
+
+}
+
+
+.result-text {
+
+    margin:
+        14px 0;
+
+    color:
+        var(--muted);
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   COMPLETION
+========================================================= */
+
+.completion-screen {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        1400;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        rgba(2,6,9,0.97);
+
+}
+
+
+.completion-box {
+
+    width:
+        min(620px, 94vw);
+
+    padding:
+        45px;
+
+    text-align:
+        center;
+
+    border:
+        1px solid rgba(76,255,155,0.35);
+
+    background:
+        var(--panel);
+
+    box-shadow:
+        0 0 70px rgba(76,255,155,0.08);
+
+}
+
+
+.completion-logo {
+
+    width:
+        70px;
+
+}
+
+
+.completion-label {
+
+    margin-top:
+        15px;
+
+    color:
+        var(--cyan);
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        3px;
+
+}
+
+
+.completion-box h2 {
+
+    margin:
+        12px 0;
+
+    color:
+        var(--green);
+
+}
+
+
+.completion-box p {
+
+    color:
+        var(--muted);
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.jac-footer {
+
+    position:
+        fixed;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    bottom:
+        0;
+
+    padding:
+        8px;
+
+    text-align:
+        center;
+
+    border-top:
+        1px solid rgba(127,154,170,0.1);
+
+    background:
+        rgba(2,6,9,0.92);
+
+    color:
+        rgba(127,154,170,0.6);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.jac-footer span {
+
+    margin:
+        0 8px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .startup-box {
+
+        padding:
+            22px 18px;
+
+    }
+
+
+    .startup-puzzle {
+
+        width:
+            min(500px, 90vw);
+
+    }
+
+
+    .startup-analysis {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .puzzle-options {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .case-intro h1 {
+
+        font-size:
+            32px;
+
+    }
+
+}
+
+
+@media (max-height: 800px) {
+
+    .startup-box {
+
+        padding-top:
+            16px;
+
+        padding-bottom:
+            16px;
+
+    }
+
+
+    .startup-logo {
+
+        width:
+            52px;
+
+        height:
+            52px;
+
+    }
+
+
+    .startup-title {
+
+        font-size:
+            34px;
+
+    }
+
+
+    .startup-animation {
+
+        margin-top:
+            12px;
+
+    }
+
+
+    .startup-puzzle {
+
+        margin:
+            10px auto;
+
+        width:
+            min(480px, 65vw);
+
+    }
+
+}

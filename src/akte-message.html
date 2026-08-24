@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>JAC Portal | Ermittlungsfreigabe</title>
+
+
+    <!-- Gemeinsame JAC Styles -->
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/animation.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+
+    <!-- =================================================
+         SYSTEMMELDUNG – SEITENSPEZIFISCHE AUSRICHTUNG
+    ================================================== -->
+
+    <style>
+
+        html,
+        body {
+
+            width: 100%;
+            min-height: 100%;
+
+            margin: 0;
+            padding: 0;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+        }
+
+
+        /* =============================================
+           SYSTEMKARTE
+        ============================================= */
+
+        #case-message-card.system-message-card {
+
+            width: min(
+                720px,
+                calc(100% - 40px)
+            );
+
+            margin: 0 auto !important;
+
+            padding: 45px 35px;
+
+            box-sizing: border-box;
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            text-align: center !important;
+
+        }
+
+
+        /* =============================================
+           LOGO
+        ============================================= */
+
+        #case-message-card .system-logo {
+
+            display: block;
+
+            width: 118px;
+
+            height: auto;
+
+            margin: 0 auto 28px !important;
+
+        }
+
+
+        /* =============================================
+           SYSTEMBEZEICHNUNG
+        ============================================= */
+
+        #case-message-card .section-label {
+
+            display: block !important;
+
+            width: 100% !important;
+
+            margin: 0 auto 10px !important;
+
+            text-align: center !important;
+
+        }
+
+
+        /* =============================================
+           HAUPTTITEL
+        ============================================= */
+
+        #case-message-card h1 {
+
+            display: block;
+
+            width: 100%;
+
+            margin: 0 auto 25px !important;
+
+            text-align: center !important;
+
+        }
+
+
+        /* =============================================
+           AKTENTITEL
+        ============================================= */
+
+        #case-message-card h2 {
+
+            display: block;
+
+            width: 100%;
+
+            margin: 0 auto 25px !important;
+
+            text-align: center !important;
+
+        }
+
+
+        /* =============================================
+           SYSTEMTEXT
+        ============================================= */
+
+        #case-message-card .system-text {
+
+            display: block !important;
+
+            width: 100% !important;
+
+            max-width: 620px;
+
+            margin: 0 auto 18px !important;
+
+            text-align: center !important;
+
+            line-height: 1.7;
+
+        }
+
+
+        #case-message-card .system-text.small {
+
+            margin-top: 18px !important;
+
+            margin-bottom: 25px !important;
+
+        }
+
+
+        /* =============================================
+           TRENNLINIE
+        ============================================= */
+
+        #case-message-card .system-divider {
+
+            width: 80px;
+
+            height: 1px;
+
+            margin: 10px auto 22px;
+
+        }
+
+
+        /* =============================================
+           WARNHINWEIS
+        ============================================= */
+
+        #case-message-card .system-warning {
+
+            display: block !important;
+
+            width: 100% !important;
+
+            margin: 0 auto 18px !important;
+
+            text-align: center !important;
+
+        }
+
+
+        /* =============================================
+           BUTTON
+        ============================================= */
+
+        #case-message-card .system-action-button {
+
+            display: block !important;
+
+            margin: 5px auto 0 !important;
+
+        }
+
+
+        /* =============================================
+           MOBILE
+        ============================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 20px 0;
+
+                box-sizing: border-box;
+
+            }
+
+
+            #case-message-card.system-message-card {
+
+                width: calc(100% - 24px);
+
+                padding: 32px 20px;
+
+            }
+
+
+            #case-message-card .system-logo {
+
+                width: 100px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         SYSTEMMELDUNG
+    ================================================== -->
+
+    <section
+        id="case-message-card"
+        class="system-message-card"
+    >
+
+
+        <!-- JAC LOGO -->
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="system-logo"
+        >
+
+
+        <!-- SYSTEMBEZEICHNUNG -->
+
+        <div class="section-label">
+            JAC ERMITTLUNGSSYSTEM
+        </div>
+
+
+        <!-- HAUPTTITEL -->
+
+        <h1 id="message-title">
+            ERMITTLUNGSPHASE FREIGEGEBEN
+        </h1>
+
+
+        <!-- AKTE -->
+
+        <h2 id="case-title">
+            AKTE 01
+        </h2>
+
+
+        <!-- EINLEITUNG -->
+
+        <p
+            id="message-intro"
+            class="system-text"
+        >
+            Die erste Ermittlungsphase wurde
+            für Sie freigegeben.
+        </p>
+
+
+        <!-- TRENNLINIE -->
+
+        <div class="system-divider"></div>
+
+
+        <!-- WARNHINWEIS -->
+
+        <p
+            id="message-warning"
+            class="system-warning"
+        >
+            UMSCHLAG 01 DARF JETZT GEÖFFNET WERDEN.
+        </p>
+
+
+        <!-- ANWEISUNG -->
+
+        <p
+            id="message-instruction"
+            class="system-text small"
+        >
+            Öffnen Sie ausschließlich den
+            freigegebenen Umschlag und folgen
+            Sie anschließend den Anweisungen
+            der Ermittlungsakte.
+        </p>
+
+
+        <!-- BUTTON -->
+
+        <button
+            id="continue-case-button"
+            type="button"
+            class="system-action-button"
+        >
+            AKTE 01 ÖFFNEN
+        </button>
+
+
+    </section>
+
+
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================== -->
+
+  <!-- =================================================
+     JAC GAME STATE
+================================================== -->
+
+<script src="../js/gameState.js"></script>
+
+
+<!-- =================================================
+     JAC AUDIO SYSTEM
+================================================== -->
+
+<script src="../js/audio.js"></script>
+
+
+<!-- =================================================
+     AKTE MESSAGE
+================================================== -->
+
+<script src="../js/akte-message.js"></script>
+
+</body>
+
+</html>

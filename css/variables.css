@@ -1,0 +1,102 @@
+/* =====================================================
+   JURY ASSESSMENT COMMISSION
+   VARIABLES
+===================================================== */
+
+/* ---------- Farben ---------- */
+
+:root {
+
+    --primary-color: #0F172A;
+    --secondary-color: #1E293B;
+    --accent-color: #2563EB;
+
+    --success-color: #16A34A;
+    --warning-color: #F59E0B;
+    --danger-color: #DC2626;
+
+    --background-color: #F4F7FA;
+    --surface-color: #FFFFFF;
+
+    --text-color: #1F2937;
+    --text-light: #6B7280;
+
+    --border-color: #D1D5DB;
+
+}
+
+
+/* ---------- Schriftarten ---------- */
+
+:root {
+
+    --font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+/* ---------- Schriftgrößen ---------- */
+
+:root {
+
+    --font-xs: 0.75rem;
+    --font-small: 0.9rem;
+    --font-normal: 1rem;
+    --font-large: 1.2rem;
+    --font-xl: 2rem;
+    --font-title: 2.8rem;
+
+}
+
+
+/* ---------- Abstände ---------- */
+
+:root {
+
+    --spacing-xs: 5px;
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 30px;
+    --spacing-xl: 50px;
+
+}
+
+
+/* ---------- Rundungen ---------- */
+
+:root {
+
+    --border-radius: 12px;
+    --border-radius-large: 20px;
+
+}
+
+
+/* ---------- Schatten ---------- */
+
+:root {
+
+    --shadow-small:
+        0 2px 8px rgba(0,0,0,0.08);
+
+    --shadow-medium:
+        0 6px 18px rgba(0,0,0,0.12);
+
+    --shadow-large:
+        0 10px 30px rgba(0,0,0,0.18);
+
+}
+
+
+/* ---------- Übergänge ---------- */
+
+:root {
+
+    --transition:
+        all .3s ease;
+
+}

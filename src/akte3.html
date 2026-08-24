@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>JAC Portal – Akte 03</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/akte3.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     JAC SYSTEM START / AUDIO FORENSICS
+====================================================== -->
+
+<div
+    id="startup-screen"
+    class="startup-screen"
+>
+
+
+    <!-- =================================================
+         SYSTEM START BUTTON
+    ================================================== -->
+
+    <div
+        id="system-start-panel"
+        class="system-start-panel"
+    >
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="startup-logo"
+        >
+
+
+        <div class="audio-startup-label">
+            JAC AUDIO FORENSICS
+        </div>
+
+
+        <div class="audio-startup-title">
+            AKTE 03
+        </div>
+
+
+        <div class="system-start-status">
+            AUDIO-FORENSIKSYSTEM BEREIT
+        </div>
+
+
+        <button
+            id="system-start-button"
+            class="jac-button system-start-button"
+            type="button"
+        >
+            SYSTEM STARTEN
+        </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         AUDIO FORENSICS STARTANIMATION
+    ================================================== -->
+
+    <div
+        id="audio-startup-box"
+        class="audio-startup-box hidden"
+    >
+
+
+        <!-- JAC LOGO -->
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="startup-logo"
+        >
+
+
+        <!-- KATEGORIE -->
+
+        <div class="audio-startup-label">
+            JAC AUDIO FORENSICS
+        </div>
+
+
+        <!-- HAUPTTITEL -->
+
+        <div class="audio-startup-title">
+            AKUSTISCHE ANALYSE
+        </div>
+
+
+        <!-- AUDIO VISUALIZER -->
+
+        <div
+            class="audio-visualizer"
+            aria-hidden="true"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- SIGNAL STATUS -->
+
+        <div class="audio-signal-status">
+
+            <span class="signal-indicator"></span>
+
+            <span id="startup-text">
+                AUDIO-SYSTEM WIRD INITIALISIERT...
+            </span>
+
+        </div>
+
+
+        <!-- SIGNAL INFORMATION -->
+
+        <div class="audio-analysis-grid">
+
+
+            <div
+                id="signal-1"
+                class="audio-analysis-item"
+            >
+
+                <span class="analysis-number">
+                    01
+                </span>
+
+                <span class="analysis-name">
+                    SIGNAL
+                </span>
+
+                <span class="analysis-state">
+                    —
+                </span>
+
+            </div>
+
+
+            <div
+                id="signal-2"
+                class="audio-analysis-item"
+            >
+
+                <span class="analysis-number">
+                    02
+                </span>
+
+                <span class="analysis-name">
+                    SIGNAL
+                </span>
+
+                <span class="analysis-state">
+                    —
+                </span>
+
+            </div>
+
+
+            <div
+                id="signal-3"
+                class="audio-analysis-item"
+            >
+
+                <span class="analysis-number">
+                    03
+                </span>
+
+                <span class="analysis-name">
+                    SIGNAL
+                </span>
+
+                <span class="analysis-state">
+                    —
+                </span>
+
+            </div>
+
+
+            <div
+                id="signal-4"
+                class="audio-analysis-item"
+            >
+
+                <span class="analysis-number">
+                    04
+                </span>
+
+                <span class="analysis-name">
+                    SIGNAL
+                </span>
+
+                <span class="analysis-state">
+                    —
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="audio-progress">
+
+            <div class="audio-progress-track">
+
+                <div
+                    id="startup-progress"
+                    class="audio-progress-fill"
+                ></div>
+
+            </div>
+
+
+            <div class="audio-progress-label">
+
+                <span>
+                    SIGNALANALYSE
+                </span>
+
+                <span id="startup-percent">
+                    0 %
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="audio-startup-footer">
+
+            FORENSIC AUDIO MODULE
+
+            <span>•</span>
+
+            SECURE CONNECTION
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAC HEADER
+====================================================== -->
+
+<header class="jac-header">
+
+
+    <div class="header-left">
+
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="jac-logo"
+        >
+
+
+        <div class="header-title">
+
+            <div class="portal-title">
+                JAC PORTAL
+            </div>
+
+            <div class="case-title">
+                AKTE 03
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="header-status">
+
+        <span class="status-dot"></span>
+
+        SYSTEM ONLINE
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     HAUPTBEREICH
+====================================================== -->
+
+<main class="case-container">
+
+
+    <!-- =================================================
+         FALLKOPF
+    ================================================== -->
+
+    <section class="case-intro">
+
+        <div class="case-label">
+            FORENSISCHE FALLANALYSE
+        </div>
+
+
+        <h1>
+            AKTE 03
+        </h1>
+
+
+        <p>
+            Hören Sie die Zeugenaussagen und ermitteln Sie
+            mithilfe der vier Verdächtigenprofile im Umschlag,
+            welcher der vier Verdächtigen als Hauptverdächtiger
+            in Betracht kommt.
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ZEUGENAUSSAGEN
+    ================================================== -->
+
+    <section class="evidence-card">
+
+
+        <div class="puzzle-header">
+
+            <div>
+
+                <div class="puzzle-label">
+                    ZEUGENAUSSAGEN
+                </div>
+
+                <h2>
+                    Aussagen anhören
+                </h2>
+
+            </div>
+
+
+            <div class="case-number">
+                03
+            </div>
+
+        </div>
+
+
+
+        <!-- AUSSAGEN FORTSCHRITT -->
+
+        <div
+            id="witness-progress"
+            class="witness-progress"
+        >
+            0 / 4 AUSSAGEN ANGEHÖRT
+        </div>
+
+
+
+        <div
+            id="witness-list"
+            class="witness-list"
+        >
+
+
+            <!-- AUSSAGE 1 -->
+
+            <div class="witness-item">
+
+                <div class="witness-number">
+                    01
+                </div>
+
+
+                <div class="witness-info">
+
+                    <div class="witness-title">
+                        Aussage 1
+                    </div>
+
+                    <div class="witness-role">
+                        Hausmeister
+                    </div>
+
+                </div>
+
+
+                <audio
+                    controls
+                    preload="metadata"
+                >
+
+                    <source
+                        src="../assets/audio/akte3/aussage1.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Ihr Browser unterstützt
+                    keine Audio-Wiedergabe.
+
+                </audio>
+
+            </div>
+
+
+
+            <!-- AUSSAGE 2 -->
+
+            <div class="witness-item">
+
+                <div class="witness-number">
+                    02
+                </div>
+
+
+                <div class="witness-info">
+
+                    <div class="witness-title">
+                        Aussage 2
+                    </div>
+
+                    <div class="witness-role">
+                        Empfangsmitarbeiterin
+                    </div>
+
+                </div>
+
+
+                <audio
+                    controls
+                    preload="metadata"
+                >
+
+                    <source
+                        src="../assets/audio/akte3/aussage2.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Ihr Browser unterstützt
+                    keine Audio-Wiedergabe.
+
+                </audio>
+
+            </div>
+
+
+
+            <!-- AUSSAGE 3 -->
+
+            <div class="witness-item">
+
+                <div class="witness-number">
+                    03
+                </div>
+
+
+                <div class="witness-info">
+
+                    <div class="witness-title">
+                        Aussage 3
+                    </div>
+
+                    <div class="witness-role">
+                        IT-Mitarbeiter
+                    </div>
+
+                </div>
+
+
+                <audio
+                    controls
+                    preload="metadata"
+                >
+
+                    <source
+                        src="../assets/audio/akte3/aussage3.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Ihr Browser unterstützt
+                    keine Audio-Wiedergabe.
+
+                </audio>
+
+            </div>
+
+
+
+            <!-- AUSSAGE 4 -->
+
+            <div class="witness-item">
+
+                <div class="witness-number">
+                    04
+                </div>
+
+
+                <div class="witness-info">
+
+                    <div class="witness-title">
+                        Aussage 4
+                    </div>
+
+                    <div class="witness-role">
+                        Reinigungskraft
+                    </div>
+
+                </div>
+
+
+                <audio
+                    controls
+                    preload="metadata"
+                >
+
+                    <source
+                        src="../assets/audio/akte3/aussage4.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Ihr Browser unterstützt
+                    keine Audio-Wiedergabe.
+
+                </audio>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         VERDÄCHTIGE
+    ================================================== -->
+
+    <section class="suspect-card">
+
+
+        <div class="puzzle-header">
+
+            <div>
+
+                <div class="puzzle-label">
+                    VERDÄCHTIGENANALYSE
+                </div>
+
+                <h2>
+                    Hauptverdächtigen auswählen
+                </h2>
+
+            </div>
+
+
+            <div class="case-number">
+                04
+            </div>
+
+        </div>
+
+
+
+        <!-- SPERRSTATUS -->
+
+        <div
+            id="suspect-status"
+            class="suspect-status"
+        >
+            🔒 VERDÄCHTIGENANALYSE GESPERRT –
+            ZUERST ALLE 4 AUSSAGEN ANHÖREN
+        </div>
+
+
+
+        <div
+            id="suspect-list"
+            class="suspect-list"
+        >
+
+
+            <!-- VERDÄCHTIGER 1 -->
+
+            <button
+                type="button"
+                class="suspect-item"
+                data-suspect="1"
+                disabled
+                aria-disabled="true"
+            >
+
+                <img
+                    src="../assets/images/akte3/verdaechtiger1.png"
+                    alt="Martin Weber"
+                >
+
+                <span class="suspect-name">
+                    Martin Weber
+                </span>
+
+            </button>
+
+
+
+            <!-- VERDÄCHTIGER 2 -->
+
+            <button
+                type="button"
+                class="suspect-item"
+                data-suspect="2"
+                disabled
+                aria-disabled="true"
+            >
+
+                <img
+                    src="../assets/images/akte3/verdaechtiger2.png"
+                    alt="Sarah Klein"
+                >
+
+                <span class="suspect-name">
+                    Sarah Klein
+                </span>
+
+            </button>
+
+
+
+            <!-- VERDÄCHTIGER 3 -->
+
+            <button
+                type="button"
+                class="suspect-item"
+                data-suspect="3"
+                disabled
+                aria-disabled="true"
+            >
+
+                <img
+                    src="../assets/images/akte3/verdaechtiger3.png"
+                    alt="David Hoffmann"
+                >
+
+                <span class="suspect-name">
+                    David Hoffmann
+                </span>
+
+            </button>
+
+
+
+            <!-- VERDÄCHTIGER 4 -->
+
+            <button
+                type="button"
+                class="suspect-item"
+                data-suspect="4"
+                disabled
+                aria-disabled="true"
+            >
+
+                <img
+                    src="../assets/images/akte3/verdaechtiger4.png"
+                    alt="Laura Becker"
+                >
+
+                <span class="suspect-name">
+                    Laura Becker
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+
+        <div
+            id="suspect-hint"
+            class="puzzle-hint"
+        >
+
+            Hören Sie zunächst alle vier Zeugenaussagen
+            vollständig an. Danach wird die
+            Verdächtigenanalyse freigeschaltet.
+
+        </div>
+
+
+
+        <button
+            id="check-suspect"
+            class="jac-button"
+            type="button"
+            disabled
+            aria-disabled="true"
+        >
+
+            VERDÄCHTIGEN BESTÄTIGEN
+
+        </button>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="jac-footer">
+
+    JAC FORENSIC SYSTEM
+
+    <span>•</span>
+
+    CASE 03
+
+</footer>
+
+
+
+<!-- =====================================================
+     ERGEBNIS POPUP
+====================================================== -->
+
+<div
+    id="result-modal"
+    class="jac-modal hidden"
+>
+
+    <div class="result-modal-box">
+
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="result-logo"
+        >
+
+
+        <div
+            id="result-icon"
+            class="result-icon"
+        ></div>
+
+
+        <div
+            id="result-title"
+            class="result-title"
+        ></div>
+
+
+        <div
+            id="result-text"
+            class="result-text"
+        ></div>
+
+
+        <button
+            id="result-button"
+            class="jac-button"
+            type="button"
+        ></button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ABSCHLUSSBILDSCHIRM
+====================================================== -->
+
+<div
+    id="completion-screen"
+    class="completion-screen hidden"
+>
+
+    <div class="completion-box">
+
+
+        <img
+            src="../assets/logos/jac-logo.png"
+            alt="JAC Logo"
+            class="completion-logo"
+        >
+
+
+        <div class="completion-label">
+            FORENSISCHE FALLANALYSE
+        </div>
+
+
+        <h2>
+            AKTE 03 ABGESCHLOSSEN
+        </h2>
+
+
+        <p>
+            Der Hauptverdächtige wurde anhand
+            der Zeugenaussagen erfolgreich ermittelt.
+        </p>
+
+
+        <button
+            id="dashboard-button"
+            class="jac-button"
+            type="button"
+        >
+
+            ZUM DASHBOARD
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     AUDIO SYSTEM
+====================================================== -->
+
+<script src="../js/audio.js"></script>
+
+
+<!-- =====================================================
+     GAME STATE
+====================================================== -->
+
+<script src="../js/gameState.js"></script>
+
+
+<!-- =====================================================
+     AKTE 3
+====================================================== -->
+
+<script src="../js/akte3.js"></script>
+
+
+</body>
+
+</html>

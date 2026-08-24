@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>JAC Portal | Prüfung 02</title>
+
+
+    <!-- =====================================================
+         JAC BASIS CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/animation.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/pruefung-2.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main
+    id="verification-two"
+    class="verification-two"
+>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="verification-two-header">
+
+        <div class="verification-two-brand">
+
+            <img
+                src="../assets/logos/jac-logo.png"
+                alt="JAC"
+                class="verification-two-logo"
+            >
+
+            <div class="verification-two-heading">
+
+                <span>
+                    JURY ASSESSMENT COMMISSION
+                </span>
+
+                <strong>
+                    IDENTITÄTSPRÜFUNG 02
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="verification-phase"
+            class="verification-phase"
+        >
+            BIOMETRISCHE PRÜFUNG
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <section class="verification-two-main">
+
+
+        <!-- =================================================
+             INTRO
+        ================================================== -->
+
+        <div class="verification-two-intro">
+
+            <span class="terminal-label">
+                JAC SECURITY PROTOCOL // PHASE 02
+            </span>
+
+            <h1>
+                BIOMETRISCHE<br>
+                AUSWEISPRÜFUNG
+            </h1>
+
+            <p id="verification-status">
+                Biometrische Komponenten bereit.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             STARTBUTTON
+        ================================================== -->
+
+        <div class="verification-start-area">
+
+            <button
+                id="start-biometric-button"
+                type="button"
+            >
+                BIOMETRISCHE PRÜFUNG STARTEN
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             BIOMETRIC GRID
+        ================================================== -->
+
+        <div class="biometric-grid">
+
+
+            <!-- =================================================
+                 FINGERABDRUCK
+            ================================================== -->
+
+            <section
+                id="fingerprint-module"
+                class="biometric-module fingerprint-module"
+                data-state="pending"
+            >
+
+                <div class="module-header">
+
+                    <div>
+
+                        <span class="module-number">
+                            01
+                        </span>
+
+                        <span class="module-title">
+                            FINGERABDRUCK
+                        </span>
+
+                    </div>
+
+
+                    <span
+                        id="fingerprint-state"
+                        class="module-state"
+                    >
+                        AUSSTEHEND
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="module-content fingerprint-content"
+                >
+
+
+                    <!-- SCANNER -->
+
+                    <div class="fingerprint-scanner">
+
+                        <div class="scan-frame">
+
+
+                            <!-- Fingerabdruck PNG -->
+
+                            <img
+                                id="fingerprint"
+                                class="fingerprint"
+                                src="../assets/images/pruefung-2/fingerprint-scan.png"
+                                alt="Biometrischer Fingerabdruck"
+                            >
+
+
+                            <!-- separate Scanlinie -->
+
+                            <div
+                                id="fingerprint-scan-line"
+                                class="fingerprint-scan-line"
+                            ></div>
+
+
+                            <!-- Scanner Ecken -->
+
+                            <div
+                                class="scanner-corner corner-tl"
+                            ></div>
+
+                            <div
+                                class="scanner-corner corner-tr"
+                            ></div>
+
+                            <div
+                                class="scanner-corner corner-bl"
+                            ></div>
+
+                            <div
+                                class="scanner-corner corner-br"
+                            ></div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- INFORMATION -->
+
+                    <div class="module-info">
+
+                        <span class="module-info-label">
+                            BIOMETRISCHE SIGNATUR
+                        </span>
+
+
+                        <strong id="fingerprint-message">
+                            FINGER AUF SENSOR ERKANNT
+                        </strong>
+
+
+                        <div class="mini-progress">
+
+                            <div
+                                id="fingerprint-progress"
+                                class="mini-progress-bar"
+                            ></div>
+
+                        </div>
+
+
+                        <span id="fingerprint-detail">
+                            BEREIT ZUR BIOMETRISCHEN PRÜFUNG
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 HOLOGRAMM
+            ================================================== -->
+
+            <section
+                id="hologram-module"
+                class="biometric-module hologram-module"
+                data-state="pending"
+            >
+
+                <div class="module-header">
+
+                    <div>
+
+                        <span class="module-number">
+                            02
+                        </span>
+
+                        <span class="module-title">
+                            SICHERHEITSHOLOGRAMM
+                        </span>
+
+                    </div>
+
+
+                    <span
+                        id="hologram-state"
+                        class="module-state"
+                    >
+                        AUSSTEHEND
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="module-content hologram-content"
+                >
+
+
+                    <!-- HOLOGRAMM -->
+
+                    <div class="hologram-scanner">
+
+                        <div class="hologram-frame">
+
+
+                            <img
+                                id="hologram"
+                                class="hologram"
+                                src="../assets/images/pruefung-2/hologramm-jac.png"
+                                alt="JAC Sicherheitshologramm"
+                            >
+
+
+                            <!-- separate hologram scanline -->
+
+                            <div
+                                id="hologram-scan-line"
+                                class="hologram-scan-line"
+                            ></div>
+
+
+                            <div
+                                class="scanner-corner corner-tl"
+                            ></div>
+
+                            <div
+                                class="scanner-corner corner-tr"
+                            ></div>
+
+                            <div
+                                class="scanner-corner corner-bl"
+                            ></div>
+
+                            <div
+                                class="scanner-corner corner-br"
+                            ></div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- INFORMATION -->
+
+                    <div class="module-info">
+
+                        <span class="module-info-label">
+                            AUTHENTIZITÄTSMERKMAL
+                        </span>
+
+
+                        <strong id="hologram-message">
+                            HOLOGRAMM WIRD GESUCHT
+                        </strong>
+
+
+                        <div class="mini-progress">
+
+                            <div
+                                id="hologram-progress"
+                                class="mini-progress-bar"
+                            ></div>
+
+                        </div>
+
+
+                        <span id="hologram-detail">
+                            SICHERHEITSMERKMAL BEREIT
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             AGENTENSTATUS
+        ================================================== -->
+
+        <section
+            id="agent-verification"
+            class="agent-verification"
+        >
+
+            <div class="agent-verification-top">
+
+                <span>
+                    JAC AGENT IDENTIFICATION
+                </span>
+
+                <span id="agent-access">
+                    ACCESS: PENDING
+                </span>
+
+            </div>
+
+
+            <div class="agent-verification-body">
+
+
+                <div>
+
+                    <span class="agent-small-label">
+                        AGENT ID
+                    </span>
+
+                    <strong>
+                        JAC-090996
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span class="agent-small-label">
+                        BIOMETRIE
+                    </span>
+
+                    <strong id="agent-biometric-status">
+                        AUSSTEHEND
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span class="agent-small-label">
+                        SICHERHEITSSTUFE
+                    </span>
+
+                    <strong>
+                        LEVEL 01
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="agent-confirmation"
+                    class="agent-confirmation"
+                >
+
+                    <span class="confirmation-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        IDENTITÄT BESTÄTIGT
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="verification-two-footer">
+
+        <span>
+            JAC SECURE TERMINAL
+        </span>
+
+        <span id="footer-status">
+            SYSTEMPRÜFUNG BEREIT
+        </span>
+
+    </footer>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="../js/audio.js"></script>
+
+<script src="../js/gameState.js"></script>
+
+<script src="../js/pruefung-2.js"></script>
+
+
+</body>
+
+</html>

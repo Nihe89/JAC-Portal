@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>JAC Portal | Verifizierung</title>
+
+    <meta
+        name="description"
+        content="Jury Assessment Commission Portal">
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/animation.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         VERIFIZIERUNG
+    ====================================================== -->
+
+    <main
+        id="verification-page"
+        class="verification-page">
+
+
+        <!-- =================================================
+             PRÜFUNG
+        ================================================== -->
+
+        <section
+            class="verification-card"
+            aria-labelledby="verification-title">
+
+
+            <!-- JAC LOGO -->
+
+            <div class="verification-logo-wrap">
+
+                <img
+                    src="../assets/logos/jac-logo.png"
+                    alt="JAC Logo"
+                    class="verification-logo">
+
+            </div>
+
+
+            <!-- TITEL -->
+
+            <h1 id="verification-title">
+                IDENTITÄTSVERIFIZIERUNG
+            </h1>
+
+
+            <!-- STATUS -->
+
+            <p
+                id="verification-status"
+                class="verification-status"
+                aria-live="polite">
+
+                Verbindung wird hergestellt...
+
+            </p>
+
+
+            <!-- PRÜFUNGSPHASEN -->
+
+            <div
+                id="verification-stage"
+                class="verification-stage"
+                aria-live="polite">
+
+                INITIALISIERUNG
+
+            </div>
+
+
+            <!-- FORTSCHRITTSBALKEN -->
+
+            <div
+                class="progress-container"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                aria-label="Verifizierungsfortschritt">
+
+                <div
+                    id="progress-bar">
+                </div>
+
+            </div>
+
+
+            <!-- PROZENT -->
+
+            <p
+                id="progress-text"
+                class="progress-text">
+
+                0 %
+
+            </p>
+
+
+            <!-- PRÜFSCHRITTE -->
+
+            <div
+                class="verification-checks"
+                aria-label="Prüfschritte">
+
+
+                <div
+                    id="check-connection"
+                    class="verification-check">
+
+                    <span class="check-icon">
+                        ○
+                    </span>
+
+                    <span>
+                        Verbindung
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="check-identity"
+                    class="verification-check">
+
+                    <span class="check-icon">
+                        ○
+                    </span>
+
+                    <span>
+                        Identität
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="check-security"
+                    class="verification-check">
+
+                    <span class="check-icon">
+                        ○
+                    </span>
+
+                    <span>
+                        Sicherheitsfreigabe
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             JAC AGENTENAUSWEIS
+        ================================================== -->
+
+        <aside
+            id="jac-agent-card"
+            class="jac-agent-card verification-agent-card"
+            data-status="pending"
+            data-stage="connecting"
+            aria-label="JAC Agentenausweis">
+
+
+            <!-- HEADER -->
+
+            <div
+                class="agent-card-header">
+
+
+                <div>
+
+                    <span
+                        class="agent-card-label">
+
+                        JAC
+
+                    </span>
+
+
+                    <span
+                        class="agent-card-title">
+
+                        AGENT IDENTIFICATION
+
+                    </span>
+
+                </div>
+
+
+                <!-- STATUS-HAKEN -->
+
+                <span
+                    id="agent-card-indicator"
+                    class="agent-card-indicator"
+                    aria-label="Verifizierungsstatus">
+
+                    ✓
+
+                </span>
+
+
+            </div>
+
+
+
+            <!-- TRENNLINIE -->
+
+            <div
+                class="agent-card-divider">
+            </div>
+
+
+
+            <!-- AGENT ID -->
+
+            <div
+                class="agent-card-id">
+
+                <span>
+                    AGENT ID
+                </span>
+
+                <strong id="agent-id">
+                    JAC-090996
+                </strong>
+
+            </div>
+
+
+
+            <!-- STATUS -->
+
+            <div
+                class="agent-card-row">
+
+                <span>
+                    STATUS
+                </span>
+
+                <strong
+                    id="agent-status">
+
+                    PRÜFUNG AUSSTEHEND
+
+                </strong>
+
+            </div>
+
+
+
+            <!-- IDENTITÄT -->
+
+            <div
+                class="agent-card-row">
+
+                <span>
+                    IDENTITÄT
+                </span>
+
+                <strong
+                    id="agent-identity">
+
+                    WIRD GEPRÜFT
+
+                </strong>
+
+            </div>
+
+
+
+            <!-- SICHERHEITSSTUFE -->
+
+            <div
+                class="agent-card-row">
+
+                <span>
+                    SICHERHEITSSTUFE
+                </span>
+
+                <strong
+                    id="agent-security">
+
+                    LEVEL 01
+
+                </strong>
+
+            </div>
+
+
+
+            <!-- BIOMETRIE -->
+
+            <div
+                class="agent-card-row">
+
+                <span>
+                    BIOMETRIE
+                </span>
+
+                <strong
+                    id="agent-biometric">
+
+                    AUSSTEHEND
+
+                </strong>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 AUSWEIS-PRÜFUNG
+            ================================================== -->
+
+            <div
+                id="agent-verification-badge"
+                class="agent-verification-badge">
+
+                <span
+                    id="agent-verification-icon">
+
+                    ⟳
+
+                </span>
+
+                <span
+                    id="agent-verification-text">
+
+                    IDENTITÄT WIRD GEPRÜFT
+
+                </span>
+
+            </div>
+
+
+
+            <!-- TRENNLINIE -->
+
+            <div
+                class="agent-card-divider">
+            </div>
+
+
+
+            <!-- FOOTER -->
+
+            <div
+                class="agent-card-footer">
+
+                <span>
+                    JURY ASSESSMENT COMMISSION
+                </span>
+
+                <span
+                    id="agent-card-access">
+
+                    ACCESS: PENDING
+
+                </span>
+
+            </div>
+
+
+        </aside>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="../js/app.js">
+    </script>
+
+    <script
+        src="../js/gameState.js">
+    </script>
+
+    <!--
+        Audio bleibt eingebunden.
+        In Phase 1 werden jedoch keine Sounds
+        automatisch ausgelöst.
+    -->
+
+    <script
+        src="../js/audio.js">
+    </script>
+
+    <script
+        src="../js/verifizierung.js">
+    </script>
+
+
+</body>
+
+</html>

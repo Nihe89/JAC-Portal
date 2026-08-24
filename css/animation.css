@@ -1,0 +1,203 @@
+/* =====================================================
+   JURY ASSESSMENT COMMISSION
+   ANIMATIONS.CSS
+===================================================== */
+
+
+/* =====================================================
+   FADE IN
+===================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+/* =====================================================
+   FADE UP
+===================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   SCALE IN
+===================================================== */
+
+@keyframes scaleIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   SPINNER
+===================================================== */
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.jac-logo{
+
+    animation:fadeIn 1.2s ease;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.jac-header{
+
+    animation:fadeIn .8s ease;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main{
+
+    animation:fadeUp .7s ease;
+
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.message-card,
+.progress-card,
+.case-card,
+.mission-card,
+.instruction-card,
+.feedback-card,
+.finish-card,
+.success-card,
+.status-card,
+.login-card,
+.audio-card,
+.document-section,
+.code-section{
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button{
+
+    transition:
+        background .3s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+input{
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.spinner,
+.loading-spinner{
+
+    animation:spin 1s linear infinite;
+
+}
