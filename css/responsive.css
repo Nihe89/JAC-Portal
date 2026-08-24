@@ -1,131 +1,175 @@
 /* =====================================================
-   JURY ASSESSMENT COMMISSION
-   RESPONSIVE.CSS
+   JAC PORTAL
+   RESPONSIVE SYSTEM
+   VERSION 2.0
+   Smartphone / Tablet / Laptop
 ===================================================== */
 
 
 /* =====================================================
-   LAPTOP (1200px)
+   GRUNDLAGEN
 ===================================================== */
 
-@media (max-width:1200px){
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-    main{
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
 
-        max-width:1000px;
+body {
+    overflow-x: hidden;
+}
 
+
+/* =====================================================
+   LAPTOP
+   BIS 1200px
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    main {
+        max-width: 1000px;
     }
 
 }
 
 
 /* =====================================================
-   TABLET (992px)
+   TABLET
+   BIS 992px
 ===================================================== */
 
-@media (max-width:992px){
+@media (max-width: 992px) {
 
-    .jac-header{
-
-        flex-direction:column;
-
-        gap:20px;
-
-        text-align:center;
-
-        padding:25px;
-
+    .jac-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 25px;
     }
 
-    .jac-header-right{
-
-        justify-content:center;
-
-        flex-wrap:wrap;
-
+    .jac-header-right {
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
-    #cases{
+    #cases {
+        grid-template-columns: 1fr;
+    }
 
-        grid-template-columns:1fr;
+    .comparison-container {
+        grid-template-columns: 1fr;
+    }
 
+
+    /* -------------------------------------------------
+       SPLASH / STARTSEITE
+    ------------------------------------------------- */
+
+    #splash-screen {
+        width: 100%;
+        min-height: 100vh;
+        padding: 30px;
+    }
+
+    .logo-container {
+        width: 180px;
+        max-width: 40vw;
+    }
+
+    #jac-logo {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .title-container {
+        width: 100%;
+        max-width: 700px;
+        text-align: center;
+    }
+
+    .title-container h1 {
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.15;
+    }
+
+    .title-container p {
+        font-size: 16px;
     }
 
 }
 
 
 /* =====================================================
-   TABLET KLEIN (768px)
+   TABLET KLEIN
+   BIS 768px
 ===================================================== */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-    body{
-
-        font-size:15px;
-
+    body {
+        font-size: 15px;
     }
 
-    main{
-
-        margin:20px auto;
-
-        padding:15px;
-
+    main {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 15px;
     }
 
-    .jac-logo{
 
-        width:70px;
+    /* -------------------------------------------------
+       HEADER
+    ------------------------------------------------- */
 
+    .jac-header {
+        width: 100%;
+        padding: 20px 15px;
     }
 
-    .jac-header-center h1{
-
-        font-size:26px;
-
+    .jac-header-right {
+        width: 100%;
+        justify-content: center;
     }
 
-    .comparison-container{
 
-        grid-template-columns:1fr;
+    /* -------------------------------------------------
+       LOGO
+    ------------------------------------------------- */
 
+    .jac-logo {
+        width: 70px;
+        max-width: 30vw;
+        height: auto;
     }
 
-    .image-card{
 
-        width:100%;
+    /* -------------------------------------------------
+       HEADER TEXT
+    ------------------------------------------------- */
 
+    .jac-header-center h1 {
+        font-size: 26px;
+        line-height: 1.2;
     }
 
-    button{
-
-        width:100%;
-
+    .jac-header-center p {
+        font-size: 14px;
     }
 
-}
 
-
-/* =====================================================
-   SMARTPHONE (576px)
-===================================================== */
-
-@media (max-width:576px){
-
-    .jac-header{
-
-        padding:20px 15px;
-
-    }
-
-    .jac-header-right{
-
-        flex-direction:column;
-
-        gap:12px;
-
-    }
+    /* -------------------------------------------------
+       CARDS
+    ------------------------------------------------- */
 
     .message-card,
     .progress-card,
@@ -139,49 +183,1179 @@
     .login-card,
     .audio-card,
     .document-section,
-    .code-section{
+    .code-section {
 
-        padding:20px;
-
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
     }
 
-    .jac-header-center h1{
 
-        font-size:22px;
+    /* -------------------------------------------------
+       VERGLEICHE
+    ------------------------------------------------- */
 
+    .comparison-container {
+        grid-template-columns: 1fr;
+        width: 100%;
     }
 
-    .jac-header-center p{
+    .image-card {
+        width: 100%;
+        max-width: 100%;
+    }
 
-        font-size:14px;
 
+    /* -------------------------------------------------
+       BUTTONS
+    ------------------------------------------------- */
+
+    button {
+        max-width: 100%;
+    }
+
+
+    /* -------------------------------------------------
+       SPLASH / INDEX
+    ------------------------------------------------- */
+
+    #splash-screen {
+
+        width: 100%;
+        min-height: 100vh;
+
+        padding:
+            30px
+            20px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+    }
+
+
+    .logo-container {
+
+        width: 150px;
+        max-width: 45vw;
+
+        margin: 0 auto;
+    }
+
+
+    #jac-logo {
+
+        display: block;
+
+        width: 100%;
+        max-width: 150px;
+
+        height: auto;
+    }
+
+
+    .title-container {
+
+        width: 100%;
+        max-width: 600px;
+
+        margin:
+            25px auto
+            20px;
+
+        text-align: center;
+
+        padding: 0 10px;
+    }
+
+
+    .title-container h1 {
+
+        margin: 0;
+
+        font-size:
+            clamp(
+                22px,
+                5vw,
+                32px
+            );
+
+        line-height: 1.2;
+
+        letter-spacing:
+            clamp(
+                1px,
+                0.6vw,
+                3px
+            );
+
+        overflow-wrap: break-word;
+    }
+
+
+    .title-container p {
+
+        margin-top: 10px;
+
+        font-size: 14px;
+
+        line-height: 1.4;
+    }
+
+
+    .loading-container {
+
+        width: 100%;
+        max-width: 320px;
+
+        margin: 20px auto 0;
+
+        text-align: center;
+    }
+
+
+    .loading-spinner {
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    #loading-text {
+
+        margin-top: 15px;
+
+        font-size: 11px;
+
+        line-height: 1.4;
+
+        text-align: center;
+
+        overflow-wrap: break-word;
     }
 
 }
 
 
 /* =====================================================
-   KLEINE SMARTPHONES (400px)
+   SMARTPHONE
+   BIS 576px
 ===================================================== */
 
-@media (max-width:400px){
+@media (max-width: 576px) {
 
-    body{
-
-        font-size:14px;
-
+    body {
+        font-size: 14px;
     }
 
-    .jac-logo{
 
-        width:60px;
+    /* -------------------------------------------------
+       HEADER
+    ------------------------------------------------- */
 
+    .jac-header {
+        padding: 18px 12px;
     }
 
-    .jac-header-center h1{
+    .jac-header-right {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-        font-size:19px;
 
+    /* -------------------------------------------------
+       HEADER TEXT
+    ------------------------------------------------- */
+
+    .jac-header-center h1 {
+        font-size: 21px;
+    }
+
+    .jac-header-center p {
+        font-size: 13px;
+    }
+
+
+    /* -------------------------------------------------
+       CARDS
+    ------------------------------------------------- */
+
+    .message-card,
+    .progress-card,
+    .case-card,
+    .mission-card,
+    .instruction-card,
+    .feedback-card,
+    .finish-card,
+    .success-card,
+    .status-card,
+    .login-card,
+    .audio-card,
+    .document-section,
+    .code-section {
+
+        padding: 16px;
+    }
+
+
+    /* -------------------------------------------------
+       BUTTONS
+    ------------------------------------------------- */
+
+    button {
+        width: 100%;
+        min-height: 44px;
+    }
+
+
+    /* =================================================
+       INDEX / SPLASH
+    ================================================= */
+
+    #splash-screen {
+
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+
+        padding:
+            20px
+            15px;
+
+        overflow: hidden;
+    }
+
+
+    .logo-container {
+
+        width: 120px;
+        max-width: 35vw;
+
+        margin-bottom: 10px;
+    }
+
+
+    #jac-logo {
+
+        width: 100%;
+        max-width: 120px;
+        height: auto;
+    }
+
+
+    .title-container {
+
+        width: 100%;
+
+        margin:
+            18px auto
+            15px;
+
+        padding:
+            0 5px;
+    }
+
+
+    .title-container h1 {
+
+        font-size: 20px;
+
+        line-height: 1.2;
+
+        letter-spacing: 1px;
+    }
+
+
+    .title-container p {
+
+        margin-top: 8px;
+
+        font-size: 12px;
+    }
+
+
+    .loading-container {
+
+        width: 100%;
+        max-width: 280px;
+
+        margin-top: 15px;
+    }
+
+
+    #loading-text {
+
+        font-size: 10px;
+
+        letter-spacing: .5px;
+    }
+
+}
+
+
+/* =====================================================
+   KLEINES SMARTPHONE
+   BIS 400px
+===================================================== */
+
+@media (max-width: 400px) {
+
+    body {
+        font-size: 13px;
+    }
+
+
+    /* -------------------------------------------------
+       LOGO
+    ------------------------------------------------- */
+
+    .jac-logo {
+        width: 60px;
+    }
+
+
+    .jac-header-center h1 {
+        font-size: 19px;
+    }
+
+
+    /* -------------------------------------------------
+       INDEX / SPLASH
+    ------------------------------------------------- */
+
+    #splash-screen {
+
+        padding:
+            15px
+            12px;
+    }
+
+
+    .logo-container {
+
+        width: 100px;
+        max-width: 30vw;
+    }
+
+
+    #jac-logo {
+
+        max-width: 100px;
+    }
+
+
+    .title-container {
+
+        margin:
+            15px auto
+            12px;
+    }
+
+
+    .title-container h1 {
+
+        font-size: 17px;
+
+        line-height: 1.2;
+
+        letter-spacing: .7px;
+    }
+
+
+    .title-container p {
+
+        font-size: 11px;
+    }
+
+
+    .loading-container {
+
+        max-width: 240px;
+        margin-top: 10px;
+    }
+
+
+    #loading-text {
+
+        font-size: 9px;
+    }
+
+}
+
+
+/* =====================================================
+   SEHR KLEINE GERÄTE
+   BIS 350px
+===================================================== */
+
+@media (max-width: 350px) {
+
+    .logo-container {
+        width: 85px;
+    }
+
+    #jac-logo {
+        max-width: 85px;
+    }
+
+    .title-container h1 {
+        font-size: 15px;
+    }
+
+    .title-container p {
+        font-size: 10px;
+    }
+
+    #loading-text {
+        font-size: 8px;
+    }
+
+}
+
+
+/* =====================================================
+   LANDSCAPE SMARTPHONE
+===================================================== */
+
+@media (max-height: 600px) and (orientation: landscape) {
+
+    #splash-screen {
+
+        min-height: 100vh;
+
+        padding:
+            10px
+            20px;
+
+        justify-content: center;
+    }
+
+
+    .logo-container {
+
+        width: 75px;
+        margin-bottom: 5px;
+    }
+
+
+    #jac-logo {
+
+        max-width: 75px;
+    }
+
+
+    .title-container {
+
+        margin:
+            8px auto;
+    }
+
+
+    .title-container h1 {
+
+        font-size: 18px;
+    }
+
+
+    .title-container p {
+
+        margin-top: 4px;
+
+        font-size: 10px;
+    }
+
+
+    .loading-container {
+
+        margin-top: 8px;
+    }
+
+
+    #loading-text {
+
+        margin-top: 6px;
+
+        font-size: 9px;
+    }
+
+}
+
+
+/* =====================================================
+   TOUCH-GERÄTE
+===================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+    button,
+    a,
+    input,
+    select,
+    textarea {
+
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+    button {
+
+        min-height: 44px;
+    }
+
+}
+
+
+/* =====================================================
+   SICHERHEIT GEGEN HORIZONTALES SCROLLEN
+===================================================== */
+
+img,
+video,
+canvas {
+
+    max-width: 100%;
+}
+
+
+iframe {
+
+    max-width: 100%;
+}
+
+
+table {
+
+    max-width: 100%;
+}
+
+
+/* =====================================================
+   REDUZIERTE BEWEGUNG
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+}
+/* =====================================================
+   JAC PORTAL
+   LOGIN – MOBILE OPTIMIERUNG
+===================================================== */
+
+
+/* =====================================================
+   LOGIN GRUNDLAYOUT
+===================================================== */
+
+#login-page {
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   LOGIN HEADER
+===================================================== */
+
+.login-header {
+
+    width: 100%;
+    max-width: 620px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.login-header #jac-logo {
+
+    display: block;
+
+    width: 105px;
+    max-width: 32vw;
+    height: auto;
+
+    margin: 0 auto 20px;
+}
+
+.login-header h1 {
+
+    width: 100%;
+
+    margin: 0;
+
+    font-size: clamp(20px, 4vw, 32px);
+
+    line-height: 1.2;
+
+    letter-spacing: 2px;
+
+    overflow-wrap: break-word;
+}
+
+.login-header .subtitle {
+
+    margin: 8px 0 0;
+
+    font-size: 14px;
+
+    opacity: .7;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   LOGIN CARD
+===================================================== */
+
+#login-page .login-card {
+
+    width: 100%;
+    max-width: 470px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    overflow: hidden;
+}
+
+#login-page .login-card h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 12px;
+
+    text-align: center;
+
+    font-size: 25px;
+}
+
+#login-page .login-card .description {
+
+    margin: 0 auto 25px;
+
+    max-width: 380px;
+
+    text-align: center;
+
+    line-height: 1.6;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FORMULAR
+===================================================== */
+
+#login-form {
+
+    width: 100%;
+}
+
+#login-page .form-group {
+
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+#login-page .form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+#login-page .form-group input {
+
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 48px;
+
+    padding: 12px 14px;
+
+    font-size: 16px;
+
+    border-radius: 4px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+#login-page #login-button {
+
+    display: block;
+
+    width: 100%;
+
+    min-height: 50px;
+
+    margin-top: 10px;
+
+    padding: 12px 20px;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   LOGIN MESSAGE
+===================================================== */
+
+#login-page #login-message {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    line-height: 1.5;
+
+    font-size: 12px;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =====================================================
+   LOGIN FOOTER
+===================================================== */
+
+#login-page footer {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+#login-page footer p {
+
+    margin: 0;
+
+    font-size: 9px;
+
+    opacity: .45;
+
+    letter-spacing: .5px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+    #login-page {
+
+        min-height: 100vh;
+
+        padding: 30px 18px;
+    }
+
+    .login-header {
+
+        margin-bottom: 25px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 90px;
+
+        margin-bottom: 16px;
+    }
+
+    .login-header h1 {
+
+        font-size: 23px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .login-header .subtitle {
+
+        font-size: 13px;
+    }
+
+    #login-page .login-card {
+
+        max-width: 450px;
+
+        padding: 30px 25px;
+    }
+
+}
+
+
+/* =====================================================
+   SMARTPHONE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    #login-page {
+
+        min-height: 100svh;
+
+        padding: 20px 15px;
+
+        justify-content: center;
+    }
+
+    .login-header {
+
+        margin-bottom: 20px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 75px;
+
+        max-width: 25vw;
+
+        margin-bottom: 12px;
+    }
+
+    .login-header h1 {
+
+        font-size: 19px;
+
+        line-height: 1.25;
+
+        letter-spacing: 1px;
+    }
+
+    .login-header .subtitle {
+
+        margin-top: 6px;
+
+        font-size: 11px;
+    }
+
+
+    #login-page .login-card {
+
+        width: 100%;
+
+        max-width: 390px;
+
+        padding: 23px 18px;
+    }
+
+    #login-page .login-card h2 {
+
+        font-size: 21px;
+
+        margin-bottom: 9px;
+    }
+
+    #login-page .login-card .description {
+
+        font-size: 12px;
+
+        line-height: 1.5;
+
+        margin-bottom: 20px;
+    }
+
+
+    #login-page .form-group {
+
+        margin-bottom: 15px;
+    }
+
+    #login-page .form-group label {
+
+        font-size: 10px;
+
+        margin-bottom: 6px;
+    }
+
+    #login-page .form-group input {
+
+        min-height: 48px;
+
+        padding: 12px;
+
+        font-size: 16px;
+    }
+
+
+    #login-page #login-button {
+
+        min-height: 48px;
+
+        margin-top: 7px;
+
+        font-size: 12px;
+    }
+
+
+    #login-page footer {
+
+        margin-top: 18px;
+    }
+
+}
+
+
+/* =====================================================
+   KLEINES SMARTPHONE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    #login-page {
+
+        padding: 15px 12px;
+    }
+
+    .login-header {
+
+        margin-bottom: 15px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 65px;
+
+        margin-bottom: 10px;
+    }
+
+    .login-header h1 {
+
+        font-size: 16px;
+
+        letter-spacing: .7px;
+    }
+
+    .login-header .subtitle {
+
+        font-size: 10px;
+    }
+
+
+    #login-page .login-card {
+
+        padding: 20px 15px;
+    }
+
+    #login-page .login-card h2 {
+
+        font-size: 19px;
+    }
+
+    #login-page .login-card .description {
+
+        font-size: 11px;
+
+        margin-bottom: 17px;
+    }
+
+    #login-page .form-group input {
+
+        min-height: 46px;
+
+        font-size: 16px;
+    }
+
+    #login-page #login-button {
+
+        min-height: 46px;
+    }
+
+    #login-page footer p {
+
+        font-size: 8px;
+    }
+
+}
+
+
+/* =====================================================
+   SEHR KLEINES DISPLAY / GERINGE HÖHE
+===================================================== */
+
+@media (max-height: 650px) {
+
+    #login-page {
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .login-header {
+
+        margin-bottom: 12px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 60px;
+
+        margin-bottom: 8px;
+    }
+
+    .login-header h1 {
+
+        font-size: 17px;
+    }
+
+    .login-header .subtitle {
+
+        margin-top: 4px;
+
+        font-size: 10px;
+    }
+
+    #login-page .login-card {
+
+        padding: 18px;
+    }
+
+    #login-page .login-card .description {
+
+        margin-bottom: 14px;
+    }
+
+    #login-page .form-group {
+
+        margin-bottom: 11px;
+    }
+
+    #login-page footer {
+
+        margin-top: 10px;
+    }
+
+}
+
+
+/* =====================================================
+   LANDSCAPE AUF HANDY
+===================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    #login-page {
+
+        justify-content: flex-start;
+
+        padding: 15px 20px;
+
+        overflow-y: auto;
+    }
+
+    .login-header {
+
+        margin-bottom: 12px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 50px;
+
+        margin-bottom: 5px;
+    }
+
+    .login-header h1 {
+
+        font-size: 16px;
+    }
+
+    .login-header .subtitle {
+
+        display: none;
+    }
+
+    #login-page .login-card {
+
+        max-width: 430px;
+
+        padding: 15px 20px;
+    }
+
+    #login-page .login-card h2 {
+
+        font-size: 18px;
+
+        margin-bottom: 6px;
+    }
+
+    #login-page .login-card .description {
+
+        font-size: 10px;
+
+        margin-bottom: 10px;
+    }
+
+    #login-page .form-group {
+
+        margin-bottom: 9px;
+    }
+
+    #login-page .form-group input {
+
+        min-height: 40px;
+
+        padding: 8px 10px;
+    }
+
+    #login-page #login-button {
+
+        min-height: 40px;
+    }
+
+    #login-page footer {
+
+        display: none;
     }
 
 }
