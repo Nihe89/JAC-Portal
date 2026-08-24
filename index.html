@@ -1,52 +1,31 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>JAC Portal</title>
 
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animation.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <meta
+        http-equiv="refresh"
+        content="0; url=src/index.html"
+    >
 </head>
 
 <body>
 
-    <main id="splash-screen">
+    <p>
+        JAC Portal wird geladen...
+    </p>
 
-        <section class="logo-container">
-
-            <!-- JAC Logo -->
-            <img
-                src="assets/logos/jac-logo.png"
-                alt="JAC Logo"
-                id="jac-logo">
-
-        </section>
-
-        <section class="title-container">
-
-            <h1>JURY ASSESSMENT COMMISSION</h1>
-
-            <p>Assessment Portal</p>
-
-        </section>
-
-        <section class="loading-container">
-
-            <div class="loading-spinner"></div>
-
-            <p id="loading-text">
-                System wird initialisiert...
-            </p>
-
-        </section>
-
-    </main>
-
-    <script src="js/app.js"></script>
+    <script>
+        window.location.replace("src/index.html");
+    </script>
 
 </body>
 </html>
+```
