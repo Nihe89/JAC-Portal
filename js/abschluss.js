@@ -3,19 +3,45 @@
 /* =========================================================
    JAC PORTAL
    ABSCHLUSS
-   FINALE GOLD SEQUENZ
+   FINALE GOLD-SEQUENZ
    ========================================================= */
 
+
+/* =========================================================
+   KONFIGURATION
+========================================================= */
+
 const CONFIG = {
+
+    /* Start */
     overlayLeaving: 700,
     logoDelay: 100,
+
+    /* Akten */
     caseStart: 850,
-    caseStep: 650,
-    energyDelay: 650,
+    caseStep: 900,
+
+    /*
+     * Zeit zwischen:
+     *
+     * Akte 1 → Akte 2 → Akte 3 → Akte 4 → Akte 5
+     */
+
+    caseGoldDelay: 350,
+
+    /* Energie nach letzter goldener Akte */
+    energyDelay: 700,
+
+    /* Hauptfeuerwerk */
     fireworksDelay: 1800,
+
+    /* Abschluss */
     completionDelay: 10400,
     completionMessageDelay: 1150,
+
+    /* Rückkehr Login */
     endRedirectDelay: 2600
+
 };
 
 
@@ -49,6 +75,11 @@ let endConfirmation;
 let finaleStarted = false;
 let startLocked = false;
 
+
+/*
+ * Alle Timer sammeln.
+ */
+
 const timers = new Set();
 
 
@@ -63,11 +94,18 @@ function later(fn, ms) {
         timers.delete(id);
 
         try {
+
             fn();
+
         }
 
         catch (error) {
-            console.error("JAC Abschluss:", error);
+
+            console.error(
+                "JAC Abschluss:",
+                error
+            );
+
         }
 
     }, ms);
@@ -75,6 +113,47 @@ function later(fn, ms) {
     timers.add(id);
 
     return id;
+
+}
+
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+/*
+ * Zentraler Audio-Aufruf.
+ *
+ * Dadurch bleibt die Abschlussanimation robust,
+ * falls ein Sound einmal nicht geladen werden kann.
+ */
+
+function playAudio(method) {
+
+    if (
+        !window.JACAudio ||
+        typeof window.JACAudio[method] !== "function"
+    ) {
+
+        return;
+
+    }
+
+    try {
+
+        window.JACAudio[method]();
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            `JAC Audio "${method}":`,
+            error
+        );
+
+    }
+
 }
 
 
@@ -85,56 +164,91 @@ function later(fn, ms) {
 function initializeCompletion() {
 
     startOverlay =
-        document.getElementById("final-start-overlay");
+        document.getElementById(
+            "final-start-overlay"
+        );
 
     startButton =
-        document.getElementById("final-start-button");
+        document.getElementById(
+            "final-start-button"
+        );
 
     finalScreen =
-        document.getElementById("final-animation-screen");
+        document.getElementById(
+            "final-animation-screen"
+        );
 
     completionScreen =
-        document.getElementById("completion-screen");
+        document.getElementById(
+            "completion-screen"
+        );
 
     finalStage =
-        document.getElementById("final-logo-stage");
+        document.getElementById(
+            "final-logo-stage"
+        );
 
     sparkleContainer =
-        document.getElementById("final-sparkle-container");
+        document.getElementById(
+            "final-sparkle-container"
+        );
 
     fireworkContainer =
-        document.getElementById("firework-container");
+        document.getElementById(
+            "firework-container"
+        );
 
     lightningContainer =
-        document.getElementById("lightning-container");
+        document.getElementById(
+            "lightning-container"
+        );
 
     transitionFlash =
-        document.getElementById("transition-flash");
+        document.getElementById(
+            "transition-flash"
+        );
 
     energyLines =
-        document.querySelector(".energy-lines");
+        document.querySelector(
+            ".energy-lines"
+        );
 
     cases =
         Array.from(
-            document.querySelectorAll(".final-case")
+            document.querySelectorAll(
+                ".final-case"
+            )
         );
 
     endButton =
-        document.getElementById("end-button");
+        document.getElementById(
+            "end-button"
+        );
 
     endConfirmation =
-        document.getElementById("end-confirmation");
+        document.getElementById(
+            "end-confirmation"
+        );
 
 
     createBackgroundStars();
+
     prepareFinalAnimation();
+
     setupStartOverlay();
+
     setupEndButton();
 
 
+    /*
+     * Start-Overlay anzeigen.
+     */
+
     if (startOverlay) {
 
-        startOverlay.classList.remove("hidden");
+        startOverlay.classList.remove(
+            "hidden"
+        );
 
         startOverlay.setAttribute(
             "aria-hidden",
@@ -163,8 +277,13 @@ function prepareFinalAnimation() {
             "aria-hidden",
             "true"
         );
+
     }
 
+
+    /*
+     * Akten zurücksetzen.
+     */
 
     cases.forEach(card => {
 
@@ -176,6 +295,10 @@ function prepareFinalAnimation() {
     });
 
 
+    /*
+     * Logo zurücksetzen.
+     */
+
     if (finalStage) {
 
         finalStage.classList.remove(
@@ -186,16 +309,28 @@ function prepareFinalAnimation() {
     }
 
 
+    /*
+     * Energie zurücksetzen.
+     */
+
     if (energyLines) {
 
-        energyLines.classList.remove("active");
+        energyLines.classList.remove(
+            "active"
+        );
 
     }
 
 
+    /*
+     * Abschlussbildschirm zurücksetzen.
+     */
+
     if (completionScreen) {
 
-        completionScreen.classList.remove("visible");
+        completionScreen.classList.remove(
+            "visible"
+        );
 
         completionScreen.setAttribute(
             "aria-hidden",
@@ -208,7 +343,7 @@ function prepareFinalAnimation() {
 
 
 /* =========================================================
-   START OVERLAY
+   START-OVERLAY
 ========================================================= */
 
 function setupStartOverlay() {
@@ -220,6 +355,7 @@ function setupStartOverlay() {
         );
 
         return;
+
     }
 
 
@@ -229,19 +365,31 @@ function setupStartOverlay() {
     );
 
 
+    /*
+     * Enter / Leertaste
+     */
+
     document.addEventListener(
         "keydown",
         event => {
 
             if (!startOverlay) {
+
                 return;
+
             }
 
+
             if (
-                startOverlay.classList.contains("hidden")
+                startOverlay.classList.contains(
+                    "hidden"
+                )
             ) {
+
                 return;
+
             }
+
 
             if (
                 event.key === "Enter" ||
@@ -270,16 +418,27 @@ async function handleFinalStart() {
         startLocked ||
         finaleStarted
     ) {
+
         return;
+
     }
+
 
     startLocked = true;
 
 
     if (startButton) {
+
         startButton.disabled = true;
+
     }
 
+
+    /*
+     * Audio entsperren.
+     *
+     * Noch KEIN Final-Sound.
+     */
 
     if (
         window.JACAudio &&
@@ -304,19 +463,24 @@ async function handleFinalStart() {
     }
 
 
-    if (
-        window.JACAudio &&
-        typeof window.JACAudio.click === "function"
-    ) {
+    /*
+     * Nur Button-Klick.
+     */
 
-        window.JACAudio.click();
+    playAudio(
+        "click"
+    );
 
-    }
 
+    /*
+     * Overlay schließen.
+     */
 
     if (startOverlay) {
 
-        startOverlay.classList.add("hidden");
+        startOverlay.classList.add(
+            "hidden"
+        );
 
         startOverlay.setAttribute(
             "aria-hidden",
@@ -335,24 +499,35 @@ async function handleFinalStart() {
 
 
 /* =========================================================
-   FINALE
+   FINALE STARTEN
 ========================================================= */
 
 function startFinalAnimation() {
 
     if (finaleStarted) {
+
         return;
+
     }
+
 
     finaleStarted = true;
 
 
     if (!finalScreen) {
+
         return;
+
     }
 
 
-    finalScreen.classList.add("running");
+    /*
+     * Finale sichtbar.
+     */
+
+    finalScreen.classList.add(
+        "running"
+    );
 
     finalScreen.setAttribute(
         "aria-hidden",
@@ -360,9 +535,15 @@ function startFinalAnimation() {
     );
 
 
+    /*
+     * Abschlussbildschirm sicher verstecken.
+     */
+
     if (completionScreen) {
 
-        completionScreen.classList.remove("visible");
+        completionScreen.classList.remove(
+            "visible"
+        );
 
         completionScreen.setAttribute(
             "aria-hidden",
@@ -372,15 +553,19 @@ function startFinalAnimation() {
     }
 
 
-    if (
-        window.JACAudio &&
-        typeof window.JACAudio.finalReveal === "function"
-    ) {
+    /*
+     * WICHTIG:
+     *
+     * KEIN finalReveal()!
+     *
+     * Dadurch startet die Animation ohne
+     * eine Sound-Kaskade.
+     */
 
-        window.JACAudio.finalReveal();
 
-    }
-
+    /* =====================================================
+       LOGO
+    ===================================================== */
 
     later(() => {
 
@@ -395,6 +580,12 @@ function startFinalAnimation() {
     }, CONFIG.logoDelay);
 
 
+    /* =====================================================
+       AKTEN SICHTBAR MACHEN
+       
+       Noch KEIN SOUND!
+    ===================================================== */
+
     cases.forEach((card, index) => {
 
         later(() => {
@@ -403,59 +594,6 @@ function startFinalAnimation() {
                 "case-visible"
             );
 
-
-            if (
-                window.JACAudio &&
-                typeof window.JACAudio.unlockCase === "function"
-            ) {
-
-                window.JACAudio.unlockCase();
-
-            }
-
-        },
-        CONFIG.caseStart + index * 150);
-
-    });
-
-
-    cases.forEach((card, index) => {
-
-        later(() => {
-
-            card.classList.add("gold");
-
-            createCaseGoldBurst(card);
-
-
-            if (
-                index === cases.length - 1
-            ) {
-
-                if (
-                    window.JACAudio &&
-                    typeof window.JACAudio.completeCase === "function"
-                ) {
-
-                    window.JACAudio.completeCase();
-
-                }
-
-            }
-
-            else {
-
-                if (
-                    window.JACAudio &&
-                    typeof window.JACAudio.sparkle === "function"
-                ) {
-
-                    window.JACAudio.sparkle();
-
-                }
-
-            }
-
         },
         CONFIG.caseStart +
         index * CONFIG.caseStep);
@@ -463,84 +601,241 @@ function startFinalAnimation() {
     });
 
 
-    const allGoldAt =
+    /* =====================================================
+       AKTEN GOLD MACHEN
+       
+       JEDE AKTE:
+       
+       GOLD
+       +
+       derselbe sparkle-Sound
+    ===================================================== */
+
+    cases.forEach((card, index) => {
+
+        const goldTime =
+            CONFIG.caseStart +
+            index * CONFIG.caseStep +
+            CONFIG.caseGoldDelay;
+
+
+        later(() => {
+
+            /*
+             * Akte wird GOLD.
+             */
+
+            card.classList.add(
+                "gold"
+            );
+
+
+            /*
+             * Gold-Partikel.
+             */
+
+            createCaseGoldBurst(
+                card
+            );
+
+
+            /*
+             * =================================================
+             * AUDIO
+             * =================================================
+             *
+             * ALLE fünf Akten bekommen exakt denselben Sound.
+             *
+             * Auch Akte 5!
+             */
+
+            playAudio(
+                "sparkle"
+            );
+
+        },
+        goldTime);
+
+    });
+
+
+    /* =====================================================
+       ALLE AKTEN GOLD
+    ===================================================== */
+
+    const lastCaseGoldTime =
         CONFIG.caseStart +
         (cases.length - 1) *
         CONFIG.caseStep +
+        CONFIG.caseGoldDelay;
+
+
+    const allGoldAt =
+        lastCaseGoldTime +
         CONFIG.energyDelay;
 
 
+    /* =====================================================
+       ENERGIEAUFBAU
+    ===================================================== */
+
     later(() => {
+
+        /*
+         * Energie-Linien starten.
+         */
 
         if (energyLines) {
-            energyLines.classList.add("active");
+
+            energyLines.classList.add(
+                "active"
+            );
+
         }
+
+
+        /*
+         * Logo intensivieren.
+         */
 
         if (finalStage) {
-            finalStage.classList.add("logo-intense");
+
+            finalStage.classList.add(
+                "logo-intense"
+            );
+
         }
+
+
+        /*
+         * Sparkle-Ring.
+         */
 
         createLogoSparkleRing();
-        createLightningBurst(14);
 
 
-        if (
-            window.JACAudio &&
-            typeof window.JACAudio.doubleSparkle === "function"
-        ) {
+        /*
+         * Blitzring.
+         */
 
-            window.JACAudio.doubleSparkle();
+        createLightningBurst(
+            14
+        );
 
-        }
 
-    }, allGoldAt);
+        /*
+         * Größerer Sound als bei den Akten.
+         */
 
+        playAudio(
+            "doubleSparkle"
+        );
+
+    },
+    allGoldAt);
+
+
+    /* =====================================================
+       GROSSES HAUPTFEUERWERK
+    ===================================================== */
 
     later(() => {
+
+        /*
+         * Feuerwerk erzeugen.
+         */
 
         createLogoFirework();
 
 
-        if (
-            window.JACAudio &&
-            typeof window.JACAudio.finalComplete === "function"
-        ) {
+        /*
+         * Finaler großer Sound.
+         */
 
-            window.JACAudio.finalComplete();
-
-        }
+        playAudio(
+            "finalComplete"
+        );
 
     },
-    allGoldAt + CONFIG.fireworksDelay);
+    allGoldAt +
+    CONFIG.fireworksDelay);
 
+
+    /* =====================================================
+       FEUERWERK WELLE 1
+    ===================================================== */
 
     later(
-        () => createFireworkWave(5),
-        allGoldAt + CONFIG.fireworksDelay + 800
+        () => {
+
+            createFireworkWave(
+                5
+            );
+
+        },
+        allGoldAt +
+        CONFIG.fireworksDelay +
+        800
     );
 
 
+    /* =====================================================
+       FEUERWERK WELLE 2
+    ===================================================== */
+
     later(
-        () => createFireworkWave(4),
-        allGoldAt + CONFIG.fireworksDelay + 1550
+        () => {
+
+            createFireworkWave(
+                4
+            );
+
+        },
+        allGoldAt +
+        CONFIG.fireworksDelay +
+        1550
     );
 
 
+    /* =====================================================
+       FEUERWERK WELLE 3
+    ===================================================== */
+
     later(
-        () => createFireworkWave(5),
-        allGoldAt + CONFIG.fireworksDelay + 2300
+        () => {
+
+            createFireworkWave(
+                5
+            );
+
+        },
+        allGoldAt +
+        CONFIG.fireworksDelay +
+        2300
     );
 
+
+    /* =====================================================
+       ÜBERGANG
+    ===================================================== */
 
     later(() => {
 
         if (transitionFlash) {
-            transitionFlash.classList.add("active");
+
+            transitionFlash.classList.add(
+                "active"
+            );
+
         }
 
     },
     CONFIG.completionDelay - 450);
 
+
+    /* =====================================================
+       ABSCHLUSSBILDSCHIRM
+    ===================================================== */
 
     later(
         showCompletionScreen,
@@ -551,78 +846,116 @@ function startFinalAnimation() {
 
 
 /* =========================================================
-   STERNE
+   HINTERGRUND-STERNE
 ========================================================= */
 
 function createBackgroundStars() {
 
     const container =
-        document.getElementById("background-stars");
+        document.getElementById(
+            "background-stars"
+        );
+
 
     if (!container) {
+
         return;
+
     }
 
+
     container.replaceChildren();
+
 
     const fragment =
         document.createDocumentFragment();
 
 
-    for (let i = 0; i < 50; i++) {
+    for (
+        let i = 0;
+        i < 50;
+        i++
+    ) {
 
         const star =
-            document.createElement("i");
+            document.createElement(
+                "i"
+            );
+
 
         star.style.left =
             `${Math.random() * 100}%`;
 
+
         star.style.top =
             `${Math.random() * 100}%`;
+
 
         star.style.animationDelay =
             `${Math.random() * 3}s`;
 
+
         star.style.opacity =
             `${0.15 + Math.random() * 0.55}`;
 
-        fragment.appendChild(star);
+
+        fragment.appendChild(
+            star
+        );
 
     }
 
 
-    container.appendChild(fragment);
+    container.appendChild(
+        fragment
+    );
 
 }
 
 
 /* =========================================================
-   CASE GOLD BURST
+   GOLD-BURST
 ========================================================= */
 
-function createCaseGoldBurst(card) {
+function createCaseGoldBurst(
+    card
+) {
 
     if (!sparkleContainer) {
+
         return;
+
     }
 
 
     const rect =
         card.getBoundingClientRect();
 
+
     const centerX =
-        rect.left + rect.width / 2;
+        rect.left +
+        rect.width / 2;
+
 
     const centerY =
-        rect.top + rect.height / 2;
+        rect.top +
+        rect.height / 2;
 
 
-    for (let i = 0; i < 14; i++) {
+    for (
+        let i = 0;
+        i < 14;
+        i++
+    ) {
 
         const particle =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
 
-        particle.className = "sparkle";
+
+        particle.className =
+            "sparkle";
 
 
         const angle =
@@ -633,11 +966,13 @@ function createCaseGoldBurst(card) {
 
         const distance =
             35 +
-            Math.random() * 80;
+            Math.random() *
+            80;
 
 
         particle.style.left =
             `${centerX}px`;
+
 
         particle.style.top =
             `${centerY}px`;
@@ -648,10 +983,12 @@ function createCaseGoldBurst(card) {
             `${Math.cos(angle) * distance}px`
         );
 
+
         particle.style.setProperty(
             "--y",
             `${Math.sin(angle) * distance}px`
         );
+
 
         particle.style.setProperty(
             "--size",
@@ -675,34 +1012,55 @@ function createCaseGoldBurst(card) {
 
 
 /* =========================================================
-   LOGO SPARKLE
+   LOGO SPARKLE RING
 ========================================================= */
 
 function createLogoSparkleRing() {
 
     if (!sparkleContainer) {
+
         return;
+
     }
 
 
-    for (let i = 0; i < 32; i++) {
+    for (
+        let i = 0;
+        i < 32;
+        i++
+    ) {
 
         const particle =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
 
-        particle.className = "sparkle";
+
+        particle.className =
+            "sparkle";
 
 
         const angle =
-            (Math.PI * 2 / 32) * i;
+            (
+                Math.PI *
+                2 /
+                32
+            ) *
+            i;
 
 
         const distance =
-            100 + Math.random() * 110;
+            100 +
+            Math.random() *
+            110;
 
 
-        particle.style.left = "50%";
-        particle.style.top = "50%";
+        particle.style.left =
+            "50%";
+
+
+        particle.style.top =
+            "50%";
 
 
         particle.style.setProperty(
@@ -710,10 +1068,12 @@ function createLogoSparkleRing() {
             `${Math.cos(angle) * distance}px`
         );
 
+
         particle.style.setProperty(
             "--y",
             `${Math.sin(angle) * distance}px`
         );
+
 
         particle.style.setProperty(
             "--size",
@@ -740,10 +1100,14 @@ function createLogoSparkleRing() {
    BLITZE
 ========================================================= */
 
-function createLightningBurst(count = 14) {
+function createLightningBurst(
+    count = 14
+) {
 
     if (!lightningContainer) {
+
         return;
+
     }
 
 
@@ -754,10 +1118,17 @@ function createLightningBurst(count = 14) {
         document.createDocumentFragment();
 
 
-    for (let i = 0; i < count; i++) {
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
 
         const bolt =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
+
 
         bolt.className =
             "lightning-bolt";
@@ -774,7 +1145,9 @@ function createLightningBurst(count = 14) {
             `${Math.random() * 0.2}s`;
 
 
-        fragment.appendChild(bolt);
+        fragment.appendChild(
+            bolt
+        );
 
     }
 
@@ -803,7 +1176,9 @@ function createLogoFirework() {
         !fireworkContainer ||
         !finalStage
     ) {
+
         return;
+
     }
 
 
@@ -812,10 +1187,13 @@ function createLogoFirework() {
 
 
     const x =
-        rect.left + rect.width / 2;
+        rect.left +
+        rect.width / 2;
+
 
     const y =
-        rect.top + rect.height / 2;
+        rect.top +
+        rect.height / 2;
 
 
     createFireworkAt(
@@ -827,7 +1205,9 @@ function createLogoFirework() {
     );
 
 
-    createLightningBurst(18);
+    createLightningBurst(
+        18
+    );
 
 }
 
@@ -845,12 +1225,17 @@ function createFireworkAt(
 ) {
 
     if (!fireworkContainer) {
+
         return;
+
     }
 
 
     const core =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     core.className =
         "firework-burst";
@@ -860,6 +1245,7 @@ function createFireworkAt(
         "--left",
         `${x}px`
     );
+
 
     core.style.setProperty(
         "--top",
@@ -876,26 +1262,43 @@ function createFireworkAt(
         document.createDocumentFragment();
 
 
-    for (let i = 0; i < count; i++) {
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
 
         const particle =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
+
 
         particle.className =
             "firework-particle";
 
 
         const angle =
-            (Math.PI * 2 / count) *
+            (
+                Math.PI *
+                2 /
+                count
+            ) *
             i +
-            (Math.random() - 0.5) *
+            (
+                Math.random() -
+                0.5
+            ) *
             0.16;
 
 
         const distance =
             minDistance +
             Math.random() *
-            (maxDistance - minDistance);
+            (
+                maxDistance -
+                minDistance
+            );
 
 
         particle.style.setProperty(
@@ -903,25 +1306,30 @@ function createFireworkAt(
             `${x}px`
         );
 
+
         particle.style.setProperty(
             "--top",
             `${y}px`
         );
+
 
         particle.style.setProperty(
             "--x",
             `${Math.cos(angle) * distance}px`
         );
 
+
         particle.style.setProperty(
             "--y",
             `${Math.sin(angle) * distance}px`
         );
 
+
         particle.style.setProperty(
             "--size",
             `${2 + Math.random() * 3}px`
         );
+
 
         particle.style.setProperty(
             "--delay",
@@ -954,14 +1362,19 @@ function createFireworkAt(
    FEUERWERKSWELLE
 ========================================================= */
 
-function createFireworkWave(count = 5) {
+function createFireworkWave(
+    count = 5
+) {
 
     if (!fireworkContainer) {
+
         return;
+
     }
 
 
     const positions = [
+
         [18, 31],
         [33, 20],
         [50, 26],
@@ -970,17 +1383,28 @@ function createFireworkWave(count = 5) {
         [25, 53],
         [50, 48],
         [77, 53]
+
     ];
 
 
     const selected =
         [...positions]
-            .sort(() => Math.random() - 0.5)
-            .slice(0, count);
+            .sort(
+                () =>
+                    Math.random() -
+                    0.5
+            )
+            .slice(
+                0,
+                count
+            );
 
 
     selected.forEach(
-        (position, index) => {
+        (
+            position,
+            index
+        ) => {
 
             later(
                 () => {
@@ -1039,15 +1463,23 @@ function createSmallFirework(
 function showCompletionScreen() {
 
     if (!completionScreen) {
+
         return;
+
     }
 
 
     if (finalScreen) {
 
-        finalScreen.classList.remove("running");
+        finalScreen.classList.remove(
+            "running"
+        );
 
-        finalScreen.classList.add("final-finished");
+
+        finalScreen.classList.add(
+            "final-finished"
+        );
+
 
         finalScreen.setAttribute(
             "aria-hidden",
@@ -1057,7 +1489,10 @@ function showCompletionScreen() {
     }
 
 
-    completionScreen.classList.add("visible");
+    completionScreen.classList.add(
+        "visible"
+    );
+
 
     completionScreen.setAttribute(
         "aria-hidden",
@@ -1068,15 +1503,12 @@ function showCompletionScreen() {
     createCompletionSparkles();
 
 
-    if (
-        window.JACAudio &&
-        typeof window.JACAudio.finalComplete === "function"
-    ) {
-
-        window.JACAudio.finalComplete();
-
-    }
-
+    /*
+     * KEIN finalComplete() MEHR HIER.
+     *
+     * Der finale Sound wurde bereits beim
+     * großen Feuerwerk abgespielt.
+     */
 
     later(() => {
 
@@ -1087,20 +1519,21 @@ function showCompletionScreen() {
 
 
         if (message) {
+
             message.classList.add(
                 "message-ready"
             );
-        }
-
-
-        if (
-            window.JACAudio &&
-            typeof window.JACAudio.message === "function"
-        ) {
-
-            window.JACAudio.message();
 
         }
+
+
+        /*
+         * System-Meldungston.
+         */
+
+        playAudio(
+            "message"
+        );
 
     },
     CONFIG.completionMessageDelay);
@@ -1109,7 +1542,7 @@ function showCompletionScreen() {
 
 
 /* =========================================================
-   ABSCHLUSS GLITZER
+   ABSCHLUSS-GLITZER
 ========================================================= */
 
 function createCompletionSparkles() {
@@ -1121,7 +1554,9 @@ function createCompletionSparkles() {
 
 
     if (!container) {
+
         return;
+
     }
 
 
@@ -1132,10 +1567,16 @@ function createCompletionSparkles() {
         document.createDocumentFragment();
 
 
-    for (let i = 0; i < 50; i++) {
+    for (
+        let i = 0;
+        i < 50;
+        i++
+    ) {
 
         const sparkle =
-            document.createElement("i");
+            document.createElement(
+                "i"
+            );
 
 
         sparkle.className =
@@ -1145,16 +1586,20 @@ function createCompletionSparkles() {
         sparkle.style.left =
             `${Math.random() * 100}%`;
 
+
         sparkle.style.top =
             `${Math.random() * 100}%`;
 
 
         const size =
-            1 + Math.random() * 3;
+            1 +
+            Math.random() *
+            3;
 
 
         sparkle.style.width =
             `${size}px`;
+
 
         sparkle.style.height =
             `${size}px`;
@@ -1191,6 +1636,7 @@ function setupEndButton() {
         );
 
         return;
+
     }
 
 
@@ -1208,14 +1654,9 @@ function setupEndButton() {
 
 function handleEndButton() {
 
-    if (
-        window.JACAudio &&
-        typeof window.JACAudio.click === "function"
-    ) {
-
-        window.JACAudio.click();
-
-    }
+    playAudio(
+        "click"
+    );
 
 
     showEndConfirmation();
@@ -1249,14 +1690,9 @@ function showEndConfirmation() {
     );
 
 
-    if (
-        window.JACAudio &&
-        typeof window.JACAudio.message === "function"
-    ) {
-
-        window.JACAudio.message();
-
-    }
+    playAudio(
+        "message"
+    );
 
 
     later(
@@ -1279,7 +1715,7 @@ function finishAssessment() {
 
 
     /*
-     * AUDIO ZURÜCKSETZEN
+     * AUDIO RESET
      */
 
     if (
@@ -1306,7 +1742,7 @@ function finishAssessment() {
 
 
     /*
-     * SPIELSTAND ZURÜCKSETZEN
+     * GAMESTATE RESET
      */
 
     if (
@@ -1333,8 +1769,7 @@ function finishAssessment() {
 
 
     /*
-     * LOKALE SICHERHEITS-CACHE
-     * ebenfalls entfernen.
+     * LOCAL STORAGE
      */
 
     try {
@@ -1356,7 +1791,7 @@ function finishAssessment() {
 
 
     /*
-     * SESSION-CACHE entfernen.
+     * SESSION STORAGE
      */
 
     try {
@@ -1376,18 +1811,13 @@ function finishAssessment() {
 
 
     /*
-     * GITHUB-PAGES-SICHERE
-     * RÜCKKEHR ZUM PORTAL.
-     *
-     * Abschluss liegt:
+     * GITHUB PAGES
      *
      * /JAC-Portal/src/abschluss.html
      *
-     * Login liegt:
+     * zurück zu:
      *
      * /JAC-Portal/src/login.html
-     *
-     * Deshalb NICHT "index.html".
      */
 
     const basePath =
