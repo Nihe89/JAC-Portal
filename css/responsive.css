@@ -487,45 +487,133 @@ iframe {
     }
 
 
-  /* =================================================
-   AGENTENAUSWEIS
+  /* =====================================================
+   VERIFIZIERUNG – MOBILE
+   AUF HANDY IMMER VERTIKAL
+===================================================== */
 
-   POSITION:
-   IMMER UNTERHALB DER VERIFIZIERUNG
-================================================= */
+@media (max-width: 768px) {
 
-#verification-page #jac-agent-card,
-#verification-page .verification-agent-card {
+    #verification-page {
 
-    order: 2 !important;
+        display: flex !important;
 
-    position: relative !important;
+        flex-direction: column !important;
 
-    width: 100% !important;
+        justify-content: flex-start !important;
 
-    max-width: 380px !important;
+        align-items: center !important;
 
-    min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
 
-    margin: 18px auto 0 !important;
+        min-height: 100svh !important;
 
-    flex: 0 0 auto !important;
+        padding: 25px 15px 30px !important;
 
-    align-self: center !important;
+        gap: 0 !important;
 
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
 
-    transform: none !important;
 
-    float: none !important;
+    /* =============================================
+       VERIFIZIERUNGSKARTE
+    ============================================= */
 
-    overflow: hidden !important;
+    #verification-page .verification-card {
 
-    /* kompakter */
-    padding: 13px 15px !important;
+        order: 1 !important;
+
+        width: 100% !important;
+
+        max-width: 650px !important;
+
+        min-width: 0 !important;
+
+        margin: 0 auto !important;
+
+        flex: 0 0 auto !important;
+
+        text-align: center !important;
+    }
+
+
+    /* =============================================
+       AGENTENAUSWEIS
+       IMMER UNTERHALB DER VERIFIZIERUNG
+    ============================================= */
+
+    #verification-page #jac-agent-card,
+    #verification-page .verification-agent-card {
+
+        order: 2 !important;
+
+        position: relative !important;
+
+        display: block !important;
+
+        width: 100% !important;
+
+        max-width: 380px !important;
+
+        min-width: 0 !important;
+
+        height: auto !important;
+
+        margin: 18px auto 0 !important;
+
+        flex: 0 0 auto !important;
+
+        align-self: center !important;
+
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+
+        transform: none !important;
+
+        float: none !important;
+
+        box-sizing: border-box !important;
+
+        overflow: hidden !important;
+
+        padding: 13px 15px !important;
+    }
+}
+/* =====================================================
+   VERIFIZIERUNG – SMARTPHONE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    #verification-page {
+
+        padding: 20px 10px 25px !important;
+    }
+
+
+    #verification-page .verification-card {
+
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+
+    #verification-page #jac-agent-card,
+    #verification-page .verification-agent-card {
+
+        width: 100% !important;
+
+        max-width: 350px !important;
+
+        margin-top: 16px !important;
+
+        padding: 12px 13px !important;
+    }
 }
 
 
