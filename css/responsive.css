@@ -1429,3 +1429,506 @@ table {
         margin-top: 12px !important;
     }
 }
+/* =====================================================
+   JAC PORTAL
+   LOGIN – FINALES MOBILES LAYOUT
+   NUR LOGIN-SEITE
+===================================================== */
+
+@media screen and (max-width: 576px) {
+
+    /* -------------------------------------------------
+       LOGIN GESAMT
+       ALLES VERTIKAL
+    ------------------------------------------------- */
+
+    #login-page {
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        min-height: 100svh !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        padding: 20px 15px !important;
+
+        margin: 0 !important;
+
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+
+
+    /* -------------------------------------------------
+       LOGIN HEADER
+       LOGO OBEN
+    ------------------------------------------------- */
+
+    #login-page .login-header {
+
+        width: 100% !important;
+        max-width: 620px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        text-align: center !important;
+
+        margin: 0 auto 20px !important;
+
+        order: 1 !important;
+    }
+
+
+    /* -------------------------------------------------
+       JAC LOGO
+    ------------------------------------------------- */
+
+    #login-page .login-header #jac-logo {
+
+        display: block !important;
+
+        width: 75px !important;
+        max-width: 25vw !important;
+
+        height: auto !important;
+
+        margin: 0 auto 12px !important;
+    }
+
+
+    /* -------------------------------------------------
+       LOGIN ÜBERSCHRIFT
+    ------------------------------------------------- */
+
+    #login-page .login-header h1 {
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+        text-align: center !important;
+
+        font-size: 19px !important;
+
+        line-height: 1.25 !important;
+
+        letter-spacing: 1px !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+
+    /* -------------------------------------------------
+       UNTERTITEL
+    ------------------------------------------------- */
+
+    #login-page .login-header .subtitle {
+
+        width: 100% !important;
+
+        margin: 6px 0 0 !important;
+
+        text-align: center !important;
+
+        font-size: 11px !important;
+
+        line-height: 1.4 !important;
+    }
+
+
+    /* -------------------------------------------------
+       LOGIN CARD
+       UNTER DEM LOGO / HEADER
+    ------------------------------------------------- */
+
+    #login-page .login-card {
+
+        display: block !important;
+
+        width: 100% !important;
+
+        max-width: 390px !important;
+        min-width: 0 !important;
+
+        margin: 0 auto !important;
+
+        padding: 23px 18px !important;
+
+        order: 2 !important;
+
+        flex: 0 0 auto !important;
+
+        box-sizing: border-box !important;
+
+        overflow: hidden !important;
+    }
+
+
+    /* -------------------------------------------------
+       LOGIN TITEL
+    ------------------------------------------------- */
+
+    #login-page .login-card h2 {
+
+        margin-top: 0 !important;
+        margin-bottom: 9px !important;
+
+        text-align: center !important;
+
+        font-size: 21px !important;
+
+        line-height: 1.25 !important;
+    }
+
+
+    /* -------------------------------------------------
+       BESCHREIBUNG
+    ------------------------------------------------- */
+
+    #login-page .login-card .description {
+
+        width: 100% !important;
+        max-width: 380px !important;
+
+        margin: 0 auto 20px !important;
+
+        text-align: center !important;
+
+        font-size: 12px !important;
+
+        line-height: 1.5 !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+
+    /* -------------------------------------------------
+       FORMULAR
+    ------------------------------------------------- */
+
+    #login-page #login-form {
+
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+
+    #login-page .form-group {
+
+        width: 100% !important;
+
+        margin-bottom: 15px !important;
+    }
+
+
+    #login-page .form-group input {
+
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        min-height: 48px !important;
+
+        padding: 12px !important;
+
+        font-size: 16px !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* -------------------------------------------------
+       LOGIN BUTTON
+    ------------------------------------------------- */
+
+    #login-page #login-button {
+
+        display: block !important;
+
+        width: 100% !important;
+
+        min-height: 48px !important;
+
+        margin-top: 7px !important;
+
+        padding: 12px 15px !important;
+
+        font-size: 12px !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* -------------------------------------------------
+       LOGIN MELDUNG
+    ------------------------------------------------- */
+
+    #login-page #login-message {
+
+        width: 100% !important;
+
+        margin-top: 18px !important;
+
+        text-align: center !important;
+
+        font-size: 12px !important;
+
+        line-height: 1.5 !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+
+    /* -------------------------------------------------
+       FOOTER
+    ------------------------------------------------- */
+
+    #login-page footer {
+
+        width: 100% !important;
+
+        margin-top: 18px !important;
+
+        text-align: center !important;
+    }
+
+
+    #login-page footer p {
+
+        font-size: 8px !important;
+
+        line-height: 1.4 !important;
+    }
+
+}
+
+
+/* =====================================================
+   KLEINES SMARTPHONE
+===================================================== */
+
+@media screen and (max-width: 400px) {
+
+    #login-page {
+
+        padding: 15px 12px !important;
+    }
+
+
+    #login-page .login-header {
+
+        margin-bottom: 15px !important;
+    }
+
+
+    #login-page .login-header #jac-logo {
+
+        width: 65px !important;
+
+        margin-bottom: 10px !important;
+    }
+
+
+    #login-page .login-header h1 {
+
+        font-size: 16px !important;
+
+        letter-spacing: .7px !important;
+    }
+
+
+    #login-page .login-header .subtitle {
+
+        font-size: 10px !important;
+    }
+
+
+    #login-page .login-card {
+
+        max-width: 360px !important;
+
+        padding: 20px 15px !important;
+    }
+
+
+    #login-page .login-card h2 {
+
+        font-size: 19px !important;
+    }
+
+
+    #login-page .login-card .description {
+
+        font-size: 11px !important;
+
+        margin-bottom: 17px !important;
+    }
+
+}
+
+
+/* =====================================================
+   SEHR KLEINE DISPLAY / GERINGE HÖHE
+===================================================== */
+
+@media screen and (max-height: 650px) and (max-width: 576px) {
+
+    #login-page {
+
+        justify-content: flex-start !important;
+
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+    }
+
+
+    #login-page .login-header {
+
+        margin-bottom: 12px !important;
+    }
+
+
+    #login-page .login-header #jac-logo {
+
+        width: 60px !important;
+
+        margin-bottom: 8px !important;
+    }
+
+
+    #login-page .login-header h1 {
+
+        font-size: 17px !important;
+    }
+
+
+    #login-page .login-header .subtitle {
+
+        margin-top: 4px !important;
+
+        font-size: 10px !important;
+    }
+
+
+    #login-page .login-card {
+
+        padding: 18px !important;
+    }
+
+
+    #login-page .form-group {
+
+        margin-bottom: 11px !important;
+    }
+
+
+    #login-page footer {
+
+        margin-top: 10px !important;
+    }
+
+}
+
+
+/* =====================================================
+   LOGIN – LANDSCAPE HANDY
+===================================================== */
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+
+    #login-page {
+
+        justify-content: flex-start !important;
+
+        padding: 12px 20px !important;
+
+        overflow-y: auto !important;
+    }
+
+
+    #login-page .login-header {
+
+        margin-bottom: 10px !important;
+    }
+
+
+    #login-page .login-header #jac-logo {
+
+        width: 50px !important;
+
+        margin-bottom: 5px !important;
+    }
+
+
+    #login-page .login-header h1 {
+
+        font-size: 16px !important;
+    }
+
+
+    #login-page .login-header .subtitle {
+
+        display: none !important;
+    }
+
+
+    #login-page .login-card {
+
+        max-width: 430px !important;
+
+        padding: 15px 20px !important;
+    }
+
+
+    #login-page .login-card h2 {
+
+        font-size: 18px !important;
+
+        margin-bottom: 6px !important;
+    }
+
+
+    #login-page .login-card .description {
+
+        font-size: 10px !important;
+
+        margin-bottom: 10px !important;
+    }
+
+
+    #login-page .form-group {
+
+        margin-bottom: 9px !important;
+    }
+
+
+    #login-page .form-group input {
+
+        min-height: 40px !important;
+
+        padding: 8px 10px !important;
+    }
+
+
+    #login-page #login-button {
+
+        min-height: 40px !important;
+    }
+
+
+    #login-page footer {
+
+        display: none !important;
+    }
+
+}
