@@ -1,8 +1,9 @@
 /* =====================================================
    JAC PORTAL
    RESPONSIVE SYSTEM
-   VERSION 4.0
+   VERSION 5.0
    Smartphone / Tablet / Laptop
+   CLEAN + MOBILE SAFE
 ===================================================== */
 
 
@@ -31,7 +32,8 @@ body {
 img,
 video,
 canvas,
-iframe {
+iframe,
+table {
     max-width: 100%;
 }
 
@@ -41,7 +43,7 @@ iframe {
    BIS 1200px
 ===================================================== */
 
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
 
     main {
         width: 100%;
@@ -56,7 +58,7 @@ iframe {
    BIS 992px
 ===================================================== */
 
-@media (max-width: 992px) {
+@media screen and (max-width: 992px) {
 
     .jac-header {
         flex-direction: column;
@@ -113,7 +115,7 @@ iframe {
    BIS 768px
 ===================================================== */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
     body {
         font-size: 15px;
@@ -222,7 +224,8 @@ iframe {
     #splash-screen {
 
         width: 100%;
-        min-height: 100vh;
+        min-height: 100svh;
+        min-height: 100dvh;
 
         padding: 30px 20px;
 
@@ -292,10 +295,7 @@ iframe {
 
     /* =================================================
        VERIFIZIERUNG
-       
-       WICHTIG:
-       ALLES UNTEREINANDER
-       AUSWEIS GANZ UNTEN
+       MOBILE – ALLES VERTIKAL
     ================================================= */
 
     #verification-page {
@@ -303,18 +303,19 @@ iframe {
         width: 100% !important;
         max-width: 100% !important;
 
-        min-height: 100svh;
+        min-height: 100svh !important;
+        min-height: 100dvh !important;
+
+        height: auto !important;
 
         margin: 0 !important;
 
         padding: 25px 15px 30px !important;
 
         display: flex !important;
-
         flex-direction: column !important;
 
         align-items: center !important;
-
         justify-content: flex-start !important;
 
         gap: 0 !important;
@@ -336,9 +337,22 @@ iframe {
         max-width: 650px !important;
         min-width: 0 !important;
 
+        height: auto !important;
+
         margin: 0 auto !important;
 
         flex: 0 0 auto !important;
+
+        position: relative !important;
+
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+
+        transform: none !important;
+
+        text-align: center !important;
     }
 
 
@@ -353,16 +367,13 @@ iframe {
         display: flex;
 
         justify-content: center;
-
         align-items: center;
     }
 
     #verification-page .verification-logo {
 
         width: 90px;
-
         max-width: 25vw;
-
         height: auto;
 
         display: block;
@@ -376,7 +387,6 @@ iframe {
     #verification-page #verification-title {
 
         width: 100%;
-
         max-width: 100%;
 
         font-size: clamp(21px, 5vw, 30px);
@@ -396,7 +406,6 @@ iframe {
     #verification-page .verification-status {
 
         width: 100%;
-
         max-width: 100%;
 
         overflow-wrap: break-word;
@@ -412,7 +421,6 @@ iframe {
     #verification-page .verification-stage {
 
         width: 100%;
-
         max-width: 100%;
 
         overflow-wrap: break-word;
@@ -428,7 +436,6 @@ iframe {
     #verification-page .progress-container {
 
         width: 100%;
-
         max-width: 100%;
 
         overflow: hidden;
@@ -460,11 +467,9 @@ iframe {
     #verification-page .verification-checks {
 
         width: 100%;
-
         max-width: 100%;
 
         display: flex;
-
         flex-direction: column;
 
         gap: 8px;
@@ -476,9 +481,7 @@ iframe {
     #verification-page .verification-check {
 
         width: 100%;
-
         max-width: 100%;
-
         min-width: 0;
 
         box-sizing: border-box;
@@ -487,63 +490,10 @@ iframe {
     }
 
 
-  /* =====================================================
-   VERIFIZIERUNG – MOBILE
-   AUF HANDY IMMER VERTIKAL
-===================================================== */
-
-@media (max-width: 768px) {
-
-    #verification-page {
-
-        display: flex !important;
-
-        flex-direction: column !important;
-
-        justify-content: flex-start !important;
-
-        align-items: center !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        min-height: 100svh !important;
-
-        padding: 25px 15px 30px !important;
-
-        gap: 0 !important;
-
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-    }
-
-
-    /* =============================================
-       VERIFIZIERUNGSKARTE
-    ============================================= */
-
-    #verification-page .verification-card {
-
-        order: 1 !important;
-
-        width: 100% !important;
-
-        max-width: 650px !important;
-
-        min-width: 0 !important;
-
-        margin: 0 auto !important;
-
-        flex: 0 0 auto !important;
-
-        text-align: center !important;
-    }
-
-
-    /* =============================================
+    /* -------------------------------------------------
        AGENTENAUSWEIS
-       IMMER UNTERHALB DER VERIFIZIERUNG
-    ============================================= */
+       IMMER UNTER DER VERIFIZIERUNG
+    ------------------------------------------------- */
 
     #verification-page #jac-agent-card,
     #verification-page .verification-agent-card {
@@ -555,14 +505,14 @@ iframe {
         display: block !important;
 
         width: 100% !important;
-
         max-width: 380px !important;
-
         min-width: 0 !important;
 
         height: auto !important;
 
         margin: 18px auto 0 !important;
+
+        padding: 13px 15px !important;
 
         flex: 0 0 auto !important;
 
@@ -576,45 +526,12 @@ iframe {
         transform: none !important;
 
         float: none !important;
+        clear: both !important;
 
         box-sizing: border-box !important;
 
         overflow: hidden !important;
-
-        padding: 13px 15px !important;
     }
-}
-/* =====================================================
-   VERIFIZIERUNG – SMARTPHONE
-===================================================== */
-
-@media (max-width: 576px) {
-
-    #verification-page {
-
-        padding: 20px 10px 25px !important;
-    }
-
-
-    #verification-page .verification-card {
-
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-
-    #verification-page #jac-agent-card,
-    #verification-page .verification-agent-card {
-
-        width: 100% !important;
-
-        max-width: 350px !important;
-
-        margin-top: 16px !important;
-
-        padding: 12px 13px !important;
-    }
-}
 
 
     /* -------------------------------------------------
@@ -627,21 +544,17 @@ iframe {
     #verification-page .agent-card-footer {
 
         width: 100%;
-
         max-width: 100%;
 
         box-sizing: border-box;
     }
 
-
     #verification-page .agent-card-row,
     #verification-page .agent-card-id {
 
         gap: 10px;
-
         min-width: 0;
     }
-
 
     #verification-page .agent-card-row strong,
     #verification-page .agent-card-id strong {
@@ -651,26 +564,300 @@ iframe {
         max-width: 65%;
 
         overflow-wrap: anywhere;
-
         word-break: break-word;
 
         text-align: right;
     }
 
-
     #verification-page .agent-card-footer {
 
         gap: 8px;
-
         flex-wrap: wrap;
     }
-
 
     #verification-page .agent-verification-badge {
 
         max-width: 100%;
 
         overflow-wrap: break-word;
+    }
+
+
+    /* =================================================
+       INTRO VIDEO
+       MOBILE – WICHTIG
+    ================================================= */
+
+    #intro-video-page {
+
+        width: 100% !important;
+
+        height: 100vh !important;
+        height: 100svh !important;
+        height: 100dvh !important;
+
+        min-height: 100svh !important;
+        min-height: 100dvh !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        position: relative !important;
+
+        display: flex !important;
+
+        justify-content: center !important;
+        align-items: center !important;
+
+        overflow: hidden !important;
+
+        background: #050b14;
+    }
+
+
+    /* -------------------------------------------------
+       INTRO VIDEO
+    ------------------------------------------------- */
+
+    #intro-video {
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+
+        display: block;
+    }
+
+
+    /* -------------------------------------------------
+       INTRO OVERLAY
+    ------------------------------------------------- */
+
+    #intro-overlay {
+
+        position: absolute !important;
+
+        inset: 0 !important;
+
+        width: 100% !important;
+
+        height: 100vh !important;
+        height: 100svh !important;
+        height: 100dvh !important;
+
+        min-height: 100svh !important;
+        min-height: 100dvh !important;
+
+        padding-top: max(
+            18px,
+            env(safe-area-inset-top)
+        ) !important;
+
+        padding-right: max(
+            15px,
+            env(safe-area-inset-right)
+        ) !important;
+
+        padding-bottom: max(
+            18px,
+            env(safe-area-inset-bottom)
+        ) !important;
+
+        padding-left: max(
+            15px,
+            env(safe-area-inset-left)
+        ) !important;
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        align-items: center !important;
+
+        justify-content: center !important;
+
+        text-align: center !important;
+
+        background: #050b14;
+
+        z-index: 100;
+
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+
+        overscroll-behavior: contain;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    /* -------------------------------------------------
+       INTRO LOGO
+       NIE MEHR OBEN ABSCHNEIDEN
+    ------------------------------------------------- */
+
+    #intro-overlay .intro-logo {
+
+        display: block !important;
+
+        width: clamp(
+            65px,
+            20vw,
+            105px
+        ) !important;
+
+        max-width: 28vw !important;
+
+        height: auto !important;
+
+        flex: 0 0 auto !important;
+
+        margin-top: 0 !important;
+
+        margin-right: auto !important;
+        margin-bottom: clamp(10px, 2vh, 18px) !important;
+        margin-left: auto !important;
+    }
+
+
+    /* -------------------------------------------------
+       INTRO H1
+    ------------------------------------------------- */
+
+    #intro-overlay h1 {
+
+        width: 100% !important;
+
+        max-width: 650px !important;
+
+        margin-top: 0 !important;
+        margin-right: auto !important;
+        margin-bottom: 8px !important;
+        margin-left: auto !important;
+
+        color: #ffffff;
+
+        font-size: clamp(
+            18px,
+            5vw,
+            30px
+        ) !important;
+
+        line-height: 1.18 !important;
+
+        letter-spacing: clamp(
+            1px,
+            .5vw,
+            3px
+        );
+
+        text-align: center !important;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* -------------------------------------------------
+       INTRO H2
+    ------------------------------------------------- */
+
+    #intro-overlay h2 {
+
+        width: 100% !important;
+
+        max-width: 600px !important;
+
+        margin-top: 0 !important;
+        margin-right: auto !important;
+        margin-bottom: clamp(10px, 2vh, 18px) !important;
+        margin-left: auto !important;
+
+        color: #caa84f;
+
+        font-size: clamp(
+            10px,
+            3vw,
+            17px
+        ) !important;
+
+        line-height: 1.3 !important;
+
+        font-weight: 500;
+
+        text-align: center !important;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* -------------------------------------------------
+       INTRO TEXT
+    ------------------------------------------------- */
+
+    #intro-overlay .intro-text {
+
+        width: 100% !important;
+
+        max-width: 560px !important;
+
+        margin-top: 0 !important;
+        margin-right: auto !important;
+        margin-bottom: clamp(12px, 2.5vh, 24px) !important;
+        margin-left: auto !important;
+
+        color: #d5d8de;
+
+        font-size: clamp(
+            10px,
+            2.7vw,
+            15px
+        ) !important;
+
+        line-height: 1.48 !important;
+
+        text-align: center !important;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* -------------------------------------------------
+       INTRO BUTTON
+       IMMER SICHTBAR / TIPPBAR
+    ------------------------------------------------- */
+
+    #intro-overlay #start-intro {
+
+        display: block !important;
+
+        width: min(
+            100%,
+            340px
+        ) !important;
+
+        min-height: 46px !important;
+
+        flex: 0 0 auto !important;
+
+        margin-top: 0 !important;
+        margin-right: auto !important;
+        margin-bottom: 0 !important;
+        margin-left: auto !important;
+
+        padding: 11px 18px !important;
+
+        font-size: clamp(
+            11px,
+            3vw,
+            14px
+        ) !important;
+
+        line-height: 1.2 !important;
+
+        box-sizing: border-box !important;
+
+        touch-action: manipulation;
     }
 
 }
@@ -681,7 +868,7 @@ iframe {
    BIS 576px
 ===================================================== */
 
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
 
     body {
         font-size: 14px;
@@ -749,7 +936,9 @@ iframe {
     #splash-screen {
 
         width: 100%;
+
         min-height: 100svh;
+        min-height: 100dvh;
 
         padding: 20px 15px;
     }
@@ -800,49 +989,35 @@ iframe {
     ================================================= */
 
     #verification-page {
-
         padding: 20px 10px 25px !important;
     }
 
-
     #verification-page .verification-card {
-
         width: 100% !important;
-
         max-width: 100% !important;
     }
 
-
     #verification-page .verification-logo {
-
         width: 70px;
-
         max-width: 22vw;
     }
 
-
     #verification-page #verification-title {
-
         font-size: 19px;
-
         line-height: 1.2;
     }
 
-
     #verification-page .verification-status {
-
         font-size: 11px;
     }
 
-
     #verification-page .verification-stage {
-
         font-size: 10px;
     }
 
 
     /* -------------------------------------------------
-       AUSWEIS KLEINER
+       AUSWEIS
     ------------------------------------------------- */
 
     #verification-page #jac-agent-card,
@@ -857,54 +1032,130 @@ iframe {
         padding: 14px !important;
     }
 
-
     #verification-page .agent-card-header {
-
         font-size: 11px;
     }
 
-
     #verification-page .agent-card-label {
-
         font-size: 10px;
     }
-
 
     #verification-page .agent-card-title {
-
         font-size: 10px;
     }
-
 
     #verification-page .agent-card-row,
     #verification-page .agent-card-id {
 
         font-size: 9px;
-
         gap: 7px;
     }
-
 
     #verification-page .agent-card-row strong,
     #verification-page .agent-card-id strong {
 
         font-size: 9px;
-
         max-width: 62%;
     }
-
 
     #verification-page .agent-verification-badge {
 
         font-size: 9px;
-
         padding: 8px;
     }
 
-
     #verification-page .agent-card-footer {
-
         font-size: 7px;
+    }
+
+
+    /* =================================================
+       INTRO VIDEO
+       SMARTPHONE
+    ================================================= */
+
+    #intro-video-page {
+
+        height: 100vh !important;
+        height: 100svh !important;
+        height: 100dvh !important;
+
+        min-height: 100svh !important;
+        min-height: 100dvh !important;
+    }
+
+    #intro-overlay {
+
+        justify-content: center !important;
+
+        padding-top: max(
+            14px,
+            env(safe-area-inset-top)
+        ) !important;
+
+        padding-right: max(
+            12px,
+            env(safe-area-inset-right)
+        ) !important;
+
+        padding-bottom: max(
+            14px,
+            env(safe-area-inset-bottom)
+        ) !important;
+
+        padding-left: max(
+            12px,
+            env(safe-area-inset-left)
+        ) !important;
+    }
+
+    #intro-overlay .intro-logo {
+
+        width: 82px !important;
+
+        max-width: 23vw !important;
+
+        margin-bottom: 11px !important;
+    }
+
+    #intro-overlay h1 {
+
+        font-size: 19px !important;
+
+        line-height: 1.18 !important;
+
+        margin-bottom: 6px !important;
+    }
+
+    #intro-overlay h2 {
+
+        font-size: 11px !important;
+
+        line-height: 1.25 !important;
+
+        margin-bottom: 11px !important;
+    }
+
+    #intro-overlay .intro-text {
+
+        font-size: 11px !important;
+
+        line-height: 1.4 !important;
+
+        margin-bottom: 15px !important;
+    }
+
+    #intro-overlay #start-intro {
+
+        width: 100% !important;
+
+        max-width: 320px !important;
+
+        min-height: 45px !important;
+
+        padding: 10px 14px !important;
+
+        font-size: 12px !important;
     }
 
 }
@@ -915,12 +1166,16 @@ iframe {
    BIS 400px
 ===================================================== */
 
-@media (max-width: 400px) {
+@media screen and (max-width: 400px) {
 
     body {
         font-size: 13px;
     }
 
+
+    /* =================================================
+       LOGO / HEADER
+    ================================================= */
 
     .jac-logo {
         width: 60px;
@@ -977,37 +1232,28 @@ iframe {
     ================================================= */
 
     #verification-page {
-
         padding: 15px 8px 20px !important;
     }
 
-
     #verification-page .verification-logo {
-
         width: 60px;
     }
 
-
     #verification-page #verification-title {
-
         font-size: 17px;
     }
 
-
     #verification-page .verification-status {
-
         font-size: 10px;
     }
 
-
     #verification-page .verification-stage {
-
         font-size: 9px;
     }
 
 
     /* -------------------------------------------------
-       AUSWEIS NOCH KOMPAKTER
+       AUSWEIS
     ------------------------------------------------- */
 
     #verification-page #jac-agent-card,
@@ -1022,12 +1268,9 @@ iframe {
         padding: 12px !important;
     }
 
-
     #verification-page .agent-card-header {
-
         font-size: 10px;
     }
-
 
     #verification-page .agent-card-row,
     #verification-page .agent-card-id {
@@ -1037,7 +1280,6 @@ iframe {
         gap: 6px;
     }
 
-
     #verification-page .agent-card-row strong,
     #verification-page .agent-card-id strong {
 
@@ -1046,7 +1288,6 @@ iframe {
         max-width: 60%;
     }
 
-
     #verification-page .agent-verification-badge {
 
         font-size: 8px;
@@ -1054,10 +1295,81 @@ iframe {
         padding: 7px;
     }
 
-
     #verification-page .agent-card-footer {
-
         font-size: 6.5px;
+    }
+
+
+    /* =================================================
+       INTRO
+    ================================================= */
+
+    #intro-overlay {
+
+        padding-top: max(
+            10px,
+            env(safe-area-inset-top)
+        ) !important;
+
+        padding-right: max(
+            10px,
+            env(safe-area-inset-right)
+        ) !important;
+
+        padding-bottom: max(
+            12px,
+            env(safe-area-inset-bottom)
+        ) !important;
+
+        padding-left: max(
+            10px,
+            env(safe-area-inset-left)
+        ) !important;
+    }
+
+    #intro-overlay .intro-logo {
+
+        width: 68px !important;
+
+        max-width: 21vw !important;
+
+        margin-bottom: 8px !important;
+    }
+
+    #intro-overlay h1 {
+
+        font-size: 16px !important;
+
+        line-height: 1.15 !important;
+
+        margin-bottom: 5px !important;
+    }
+
+    #intro-overlay h2 {
+
+        font-size: 9.5px !important;
+
+        margin-bottom: 8px !important;
+    }
+
+    #intro-overlay .intro-text {
+
+        font-size: 10px !important;
+
+        line-height: 1.35 !important;
+
+        margin-bottom: 11px !important;
+    }
+
+    #intro-overlay #start-intro {
+
+        max-width: 290px !important;
+
+        min-height: 43px !important;
+
+        padding: 9px 12px !important;
+
+        font-size: 10.5px !important;
     }
 
 }
@@ -1068,7 +1380,7 @@ iframe {
    BIS 350px
 ===================================================== */
 
-@media (max-width: 350px) {
+@media screen and (max-width: 350px) {
 
     .logo-container {
         width: 85px;
@@ -1091,7 +1403,9 @@ iframe {
     }
 
 
-    /* VERIFIZIERUNG */
+    /* -------------------------------------------------
+       VERIFIZIERUNG
+    ------------------------------------------------- */
 
     #verification-page #jac-agent-card,
     #verification-page .verification-agent-card {
@@ -1103,6 +1417,182 @@ iframe {
         padding: 10px !important;
     }
 
+
+    /* -------------------------------------------------
+       INTRO
+    ------------------------------------------------- */
+
+    #intro-overlay {
+
+        padding-top: max(
+            8px,
+            env(safe-area-inset-top)
+        ) !important;
+
+        padding-bottom: max(
+            8px,
+            env(safe-area-inset-bottom)
+        ) !important;
+    }
+
+    #intro-overlay .intro-logo {
+
+        width: 58px !important;
+
+        margin-bottom: 6px !important;
+    }
+
+    #intro-overlay h1 {
+        font-size: 14px !important;
+    }
+
+    #intro-overlay h2 {
+
+        font-size: 8.5px !important;
+
+        margin-bottom: 6px !important;
+    }
+
+    #intro-overlay .intro-text {
+
+        font-size: 8.5px !important;
+
+        line-height: 1.3 !important;
+
+        margin-bottom: 9px !important;
+    }
+
+    #intro-overlay #start-intro {
+
+        max-width: 270px !important;
+
+        min-height: 41px !important;
+
+        font-size: 10px !important;
+    }
+
+}
+
+
+/* =====================================================
+   GERINGE DISPLAY-HÖHE
+   SMARTPHONE HOCHFORMAT
+===================================================== */
+
+@media screen and (max-height: 700px) and (max-width: 768px) and (orientation: portrait) {
+
+    #intro-overlay {
+
+        justify-content: flex-start !important;
+
+        overflow-y: auto !important;
+
+        padding-top: max(
+            12px,
+            env(safe-area-inset-top)
+        ) !important;
+    }
+
+    #intro-overlay .intro-logo {
+
+        width: 65px !important;
+
+        margin-bottom: 7px !important;
+    }
+
+    #intro-overlay h1 {
+
+        font-size: 17px !important;
+
+        margin-bottom: 5px !important;
+    }
+
+    #intro-overlay h2 {
+
+        font-size: 9.5px !important;
+
+        margin-bottom: 8px !important;
+    }
+
+    #intro-overlay .intro-text {
+
+        font-size: 10px !important;
+
+        line-height: 1.35 !important;
+
+        margin-bottom: 10px !important;
+    }
+
+    #intro-overlay #start-intro {
+
+        min-height: 43px !important;
+    }
+
+}
+
+
+/* =====================================================
+   SEHR GERINGE DISPLAY-HÖHE
+===================================================== */
+
+@media screen and (max-height: 600px) and (max-width: 768px) {
+
+    #intro-overlay {
+
+        justify-content: flex-start !important;
+
+        overflow-y: auto !important;
+
+        padding-top: max(
+            10px,
+            env(safe-area-inset-top)
+        ) !important;
+
+        padding-bottom: max(
+            10px,
+            env(safe-area-inset-bottom)
+        ) !important;
+    }
+
+    #intro-overlay .intro-logo {
+
+        width: 55px !important;
+
+        margin-bottom: 5px !important;
+    }
+
+    #intro-overlay h1 {
+
+        font-size: 16px !important;
+
+        margin-bottom: 4px !important;
+    }
+
+    #intro-overlay h2 {
+
+        font-size: 9px !important;
+
+        margin-bottom: 6px !important;
+    }
+
+    #intro-overlay .intro-text {
+
+        font-size: 9px !important;
+
+        line-height: 1.3 !important;
+
+        margin-bottom: 8px !important;
+    }
+
+    #intro-overlay #start-intro {
+
+        min-height: 40px !important;
+
+        padding: 8px 12px !important;
+
+        font-size: 10px !important;
+    }
+
 }
 
 
@@ -1110,11 +1600,12 @@ iframe {
    LANDSCAPE SMARTPHONE
 ===================================================== */
 
-@media (max-height: 600px) and (orientation: landscape) {
+@media screen and (max-height: 600px) and (orientation: landscape) {
 
     #splash-screen {
 
         min-height: 100vh;
+        min-height: 100dvh;
 
         padding: 10px 20px;
 
@@ -1159,37 +1650,29 @@ iframe {
 
     #verification-page {
 
-        min-height: 100vh;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
 
         padding: 12px 15px 18px !important;
 
         overflow-y: auto !important;
     }
 
-
     #verification-page .verification-logo {
-
         width: 50px;
     }
 
-
     #verification-page #verification-title {
-
         font-size: 17px;
     }
 
-
     #verification-page .verification-status {
-
         font-size: 10px;
     }
 
-
     #verification-page .verification-stage {
-
         font-size: 9px;
     }
-
 
     #verification-page #jac-agent-card,
     #verification-page .verification-agent-card {
@@ -1201,246 +1684,87 @@ iframe {
         padding: 10px !important;
     }
 
-}
 
+    /* =================================================
+       INTRO LANDSCAPE
+    ================================================= */
 
-/* =====================================================
-   TOUCH-GERÄTE
-===================================================== */
+    #intro-video-page {
 
-@media (hover: none) and (pointer: coarse) {
+        height: 100vh !important;
+        height: 100dvh !important;
 
-    button,
-    a,
-    input,
-    select,
-    textarea {
-
-        -webkit-tap-highlight-color: transparent;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
     }
 
-    button {
-        min-height: 44px;
-    }
-
-}
-
-
-/* =====================================================
-   SICHERHEIT GEGEN HORIZONTALES SCROLLEN
-===================================================== */
-
-img,
-video,
-canvas,
-iframe,
-table {
-
-    max-width: 100%;
-}
-
-
-/* =====================================================
-   REDUZIERTE BEWEGUNG
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration: .01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: .01ms !important;
-
-        scroll-behavior: auto !important;
-    }
-
-}
-/* =====================================================
-   JAC VERIFIZIERUNG
-   FINAL MOBILE LAYOUT
-   AUSWEIS IMMER UNTER DER VERIFIZIERUNG
-===================================================== */
-
-@media screen and (max-width: 768px) {
-
-    #verification-page.verification-page {
-
-        display: flex !important;
-
-        flex-direction: column !important;
+    #intro-overlay {
 
         justify-content: flex-start !important;
 
-        align-items: center !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        min-height: 100svh !important;
-
-        height: auto !important;
-
-        padding: 20px 10px 30px !important;
-
-        margin: 0 !important;
-
-        gap: 0 !important;
-
-        overflow-x: hidden !important;
         overflow-y: auto !important;
+
+        padding-top: max(
+            8px,
+            env(safe-area-inset-top)
+        ) !important;
+
+        padding-bottom: max(
+            8px,
+            env(safe-area-inset-bottom)
+        ) !important;
     }
 
+    #intro-overlay .intro-logo {
 
-    /* =================================================
-       VERIFIZIERUNG
-    ================================================= */
+        width: 48px !important;
 
-    #verification-page.verification-page > .verification-card {
-
-        display: block !important;
-
-        position: relative !important;
-
-        order: 1 !important;
-
-        width: 100% !important;
-
-        max-width: 650px !important;
-
-        min-width: 0 !important;
-
-        height: auto !important;
-
-        margin: 0 auto !important;
-
-        flex: none !important;
-
-        align-self: center !important;
-
-        left: auto !important;
-        right: auto !important;
-        top: auto !important;
-        bottom: auto !important;
-
-        transform: none !important;
+        margin-bottom: 4px !important;
     }
 
+    #intro-overlay h1 {
 
-    /* =================================================
-       AGENTENAUSWEIS
-       IMMER GANZ UNTEN
-    ================================================= */
+        font-size: 15px !important;
 
-    #verification-page.verification-page > #jac-agent-card,
-    #verification-page.verification-page > .verification-agent-card {
-
-        display: block !important;
-
-        position: relative !important;
-
-        order: 2 !important;
-
-        width: calc(100% - 20px) !important;
-
-        max-width: 360px !important;
-
-        min-width: 0 !important;
-
-        height: auto !important;
-
-        margin: 18px auto 0 !important;
-
-        padding: 12px 14px !important;
-
-        flex: none !important;
-
-        align-self: center !important;
-
-        left: auto !important;
-        right: auto !important;
-        top: auto !important;
-        bottom: auto !important;
-
-        transform: none !important;
-
-        float: none !important;
-
-        clear: both !important;
-
-        box-sizing: border-box !important;
-
-        overflow: hidden !important;
+        margin-bottom: 4px !important;
     }
+
+    #intro-overlay h2 {
+
+        font-size: 9px !important;
+
+        margin-bottom: 5px !important;
+    }
+
+    #intro-overlay .intro-text {
+
+        font-size: 8.5px !important;
+
+        line-height: 1.25 !important;
+
+        margin-bottom: 7px !important;
+    }
+
+    #intro-overlay #start-intro {
+
+        min-height: 38px !important;
+
+        max-width: 280px !important;
+
+        padding: 7px 12px !important;
+
+        font-size: 9.5px !important;
+    }
+
 }
 
 
 /* =====================================================
-   KLEINES SMARTPHONE
+   LOGIN
+   MOBILE
 ===================================================== */
 
 @media screen and (max-width: 576px) {
-
-    #verification-page.verification-page {
-
-        padding: 15px 8px 25px !important;
-    }
-
-
-    #verification-page.verification-page > .verification-card {
-
-        width: 100% !important;
-
-        max-width: 100% !important;
-    }
-
-
-    #verification-page.verification-page > #jac-agent-card,
-    #verification-page.verification-page > .verification-agent-card {
-
-        width: calc(100% - 16px) !important;
-
-        max-width: 330px !important;
-
-        margin-top: 15px !important;
-
-        padding: 10px 12px !important;
-    }
-}
-
-
-/* =====================================================
-   SEHR KLEINES HANDY
-===================================================== */
-
-@media screen and (max-width: 400px) {
-
-    #verification-page.verification-page > #jac-agent-card,
-    #verification-page.verification-page > .verification-agent-card {
-
-        max-width: 310px !important;
-
-        padding: 9px 10px !important;
-
-        margin-top: 12px !important;
-    }
-}
-/* =====================================================
-   JAC PORTAL
-   LOGIN – FINALES MOBILES LAYOUT
-   NUR LOGIN-SEITE
-===================================================== */
-
-@media screen and (max-width: 576px) {
-
-    /* -------------------------------------------------
-       LOGIN GESAMT
-       ALLES VERTIKAL
-    ------------------------------------------------- */
 
     #login-page {
 
@@ -1448,8 +1772,10 @@ table {
         max-width: 100% !important;
 
         min-height: 100svh !important;
+        min-height: 100dvh !important;
 
         display: flex !important;
+
         flex-direction: column !important;
 
         align-items: center !important;
@@ -1466,7 +1792,6 @@ table {
 
     /* -------------------------------------------------
        LOGIN HEADER
-       LOGO OBEN
     ------------------------------------------------- */
 
     #login-page .login-header {
@@ -1475,6 +1800,7 @@ table {
         max-width: 620px !important;
 
         display: flex !important;
+
         flex-direction: column !important;
 
         align-items: center !important;
@@ -1489,7 +1815,7 @@ table {
 
 
     /* -------------------------------------------------
-       JAC LOGO
+       LOGIN LOGO
     ------------------------------------------------- */
 
     #login-page .login-header #jac-logo {
@@ -1528,7 +1854,7 @@ table {
 
 
     /* -------------------------------------------------
-       UNTERTITEL
+       LOGIN UNTERTITEL
     ------------------------------------------------- */
 
     #login-page .login-header .subtitle {
@@ -1547,7 +1873,6 @@ table {
 
     /* -------------------------------------------------
        LOGIN CARD
-       UNTER DEM LOGO / HEADER
     ------------------------------------------------- */
 
     #login-page .login-card {
@@ -1621,14 +1946,12 @@ table {
         max-width: 100% !important;
     }
 
-
     #login-page .form-group {
 
         width: 100% !important;
 
         margin-bottom: 15px !important;
     }
-
 
     #login-page .form-group input {
 
@@ -1702,7 +2025,6 @@ table {
         text-align: center !important;
     }
 
-
     #login-page footer p {
 
         font-size: 8px !important;
@@ -1714,22 +2036,18 @@ table {
 
 
 /* =====================================================
-   KLEINES SMARTPHONE
+   LOGIN – KLEINES SMARTPHONE
 ===================================================== */
 
 @media screen and (max-width: 400px) {
 
     #login-page {
-
         padding: 15px 12px !important;
     }
 
-
     #login-page .login-header {
-
         margin-bottom: 15px !important;
     }
-
 
     #login-page .login-header #jac-logo {
 
@@ -1738,7 +2056,6 @@ table {
         margin-bottom: 10px !important;
     }
 
-
     #login-page .login-header h1 {
 
         font-size: 16px !important;
@@ -1746,12 +2063,9 @@ table {
         letter-spacing: .7px !important;
     }
 
-
     #login-page .login-header .subtitle {
-
         font-size: 10px !important;
     }
-
 
     #login-page .login-card {
 
@@ -1760,12 +2074,9 @@ table {
         padding: 20px 15px !important;
     }
 
-
     #login-page .login-card h2 {
-
         font-size: 19px !important;
     }
-
 
     #login-page .login-card .description {
 
@@ -1778,7 +2089,7 @@ table {
 
 
 /* =====================================================
-   SEHR KLEINE DISPLAY / GERINGE HÖHE
+   LOGIN – GERINGE HÖHE
 ===================================================== */
 
 @media screen and (max-height: 650px) and (max-width: 576px) {
@@ -1791,12 +2102,9 @@ table {
         padding-bottom: 15px !important;
     }
 
-
     #login-page .login-header {
-
         margin-bottom: 12px !important;
     }
-
 
     #login-page .login-header #jac-logo {
 
@@ -1805,12 +2113,9 @@ table {
         margin-bottom: 8px !important;
     }
 
-
     #login-page .login-header h1 {
-
         font-size: 17px !important;
     }
-
 
     #login-page .login-header .subtitle {
 
@@ -1819,21 +2124,15 @@ table {
         font-size: 10px !important;
     }
 
-
     #login-page .login-card {
-
         padding: 18px !important;
     }
 
-
     #login-page .form-group {
-
         margin-bottom: 11px !important;
     }
 
-
     #login-page footer {
-
         margin-top: 10px !important;
     }
 
@@ -1841,7 +2140,7 @@ table {
 
 
 /* =====================================================
-   LOGIN – LANDSCAPE HANDY
+   LOGIN – LANDSCAPE
 ===================================================== */
 
 @media screen and (max-height: 500px) and (orientation: landscape) {
@@ -1855,12 +2154,9 @@ table {
         overflow-y: auto !important;
     }
 
-
     #login-page .login-header {
-
         margin-bottom: 10px !important;
     }
-
 
     #login-page .login-header #jac-logo {
 
@@ -1869,18 +2165,13 @@ table {
         margin-bottom: 5px !important;
     }
 
-
     #login-page .login-header h1 {
-
         font-size: 16px !important;
     }
 
-
     #login-page .login-header .subtitle {
-
         display: none !important;
     }
-
 
     #login-page .login-card {
 
@@ -1889,14 +2180,12 @@ table {
         padding: 15px 20px !important;
     }
 
-
     #login-page .login-card h2 {
 
         font-size: 18px !important;
 
         margin-bottom: 6px !important;
     }
-
 
     #login-page .login-card .description {
 
@@ -1905,12 +2194,9 @@ table {
         margin-bottom: 10px !important;
     }
 
-
     #login-page .form-group {
-
         margin-bottom: 9px !important;
     }
-
 
     #login-page .form-group input {
 
@@ -1919,462 +2205,78 @@ table {
         padding: 8px 10px !important;
     }
 
-
     #login-page #login-button {
-
         min-height: 40px !important;
     }
 
-
     #login-page footer {
-
         display: none !important;
     }
 
 }
-/* =====================================================
-   JAC PORTAL
-   INTRO VIDEO – MOBILE FIX
-   Logo vollständig sichtbar / Button sichtbar
-===================================================== */
-
-@media screen and (max-width: 768px) {
-
-    /* -------------------------------------------------
-       INTRO SEITE
-    ------------------------------------------------- */
-
-    #intro-video-page {
-
-        width: 100%;
-        min-height: 100svh;
-
-        margin: 0;
-        padding: 0;
-
-        overflow: hidden;
-
-        position: relative;
-    }
-
-
-    /* -------------------------------------------------
-       START-OVERLAY
-    ------------------------------------------------- */
-
-    #intro-overlay {
-
-        width: 100%;
-        min-height: 100svh;
-
-        padding:
-            30px
-            20px
-            35px;
-
-        display: flex;
-        flex-direction: column;
-
-        align-items: center;
-        justify-content: center;
-
-        text-align: center;
-
-        overflow-y: auto;
-        overflow-x: hidden;
-
-        position: relative;
-
-        box-sizing: border-box;
-    }
-
-
-    /* -------------------------------------------------
-       LOGO
-    ------------------------------------------------- */
-
-    #intro-overlay .intro-logo {
-
-        display: block;
-
-        width: 110px;
-        max-width: 30vw;
-
-        height: auto;
-
-        flex: 0 0 auto;
-
-        margin:
-            0
-            auto
-            20px;
-    }
-
-
-    /* -------------------------------------------------
-       TITEL
-    ------------------------------------------------- */
-
-    #intro-overlay h1 {
-
-        width: 100%;
-        max-width: 650px;
-
-        margin:
-            0
-            auto
-            10px;
-
-        font-size: clamp(22px, 5vw, 32px);
-
-        line-height: 1.2;
-
-        text-align: center;
-
-        overflow-wrap: break-word;
-    }
-
-
-    #intro-overlay h2 {
-
-        width: 100%;
-        max-width: 600px;
-
-        margin:
-            0
-            auto
-            18px;
-
-        font-size: clamp(13px, 3vw, 18px);
-
-        line-height: 1.3;
-
-        text-align: center;
-
-        overflow-wrap: break-word;
-    }
-
-
-    /* -------------------------------------------------
-       TEXT
-    ------------------------------------------------- */
-
-    #intro-overlay .intro-text {
-
-        width: 100%;
-        max-width: 560px;
-
-        margin:
-            0
-            auto
-            25px;
-
-        font-size: 14px;
-
-        line-height: 1.55;
-
-        text-align: center;
-
-        overflow-wrap: break-word;
-    }
-
-
-    /* -------------------------------------------------
-       BUTTON
-    ------------------------------------------------- */
-
-    #intro-overlay #start-intro {
-
-        display: block;
-
-        width: min(100%, 360px);
-
-        min-height: 48px;
-
-        flex: 0 0 auto;
-
-        margin:
-            0
-            auto;
-
-        padding:
-            12px
-            20px;
-
-        font-size: 13px;
-
-        box-sizing: border-box;
-    }
-
-}
 
 
 /* =====================================================
-   SMARTPHONE
-   BIS 576px
+   TOUCH-GERÄTE
 ===================================================== */
 
-@media screen and (max-width: 576px) {
+@media (hover: none) and (pointer: coarse) {
 
-    #intro-overlay {
+    button,
+    a,
+    input,
+    select,
+    textarea {
 
-        min-height: 100svh;
-
-        padding:
-            22px
-            15px
-            28px;
-
-        justify-content: center;
+        -webkit-tap-highlight-color: transparent;
     }
 
-
-    #intro-overlay .intro-logo {
-
-        width: 90px;
-
-        max-width: 26vw;
-
-        margin-bottom: 15px;
-    }
-
-
-    #intro-overlay h1 {
-
-        font-size: 20px;
-
-        line-height: 1.2;
-
-        margin-bottom: 8px;
-    }
-
-
-    #intro-overlay h2 {
-
-        font-size: 12px;
-
-        line-height: 1.3;
-
-        margin-bottom: 14px;
-    }
-
-
-    #intro-overlay .intro-text {
-
-        font-size: 12px;
-
-        line-height: 1.45;
-
-        margin-bottom: 20px;
-    }
-
-
-    #intro-overlay #start-intro {
-
-        width: 100%;
-
-        max-width: 330px;
-
-        min-height: 46px;
-
-        padding: 11px 16px;
-
-        font-size: 12px;
-    }
-
-}
-
-
-/* =====================================================
-   KLEINES SMARTPHONE
-   BIS 400px
-===================================================== */
-
-@media screen and (max-width: 400px) {
-
-    #intro-overlay {
-
-        padding:
-            15px
-            12px
-            22px;
-    }
-
-
-    #intro-overlay .intro-logo {
-
-        width: 75px;
-
-        max-width: 24vw;
-
-        margin-bottom: 10px;
-    }
-
-
-    #intro-overlay h1 {
-
-        font-size: 17px;
-
-        margin-bottom: 6px;
-    }
-
-
-    #intro-overlay h2 {
-
-        font-size: 10px;
-
-        margin-bottom: 10px;
-    }
-
-
-    #intro-overlay .intro-text {
-
-        font-size: 10.5px;
-
-        line-height: 1.4;
-
-        margin-bottom: 15px;
-    }
-
-
-    #intro-overlay #start-intro {
-
-        max-width: 300px;
-
+    button {
         min-height: 44px;
-
-        padding: 10px 14px;
-
-        font-size: 11px;
     }
 
 }
 
 
 /* =====================================================
-   SEHR KLEINE GERÄTE
-   BIS 350px
+   SICHERHEIT GEGEN HORIZONTALES SCROLLEN
 ===================================================== */
 
-@media screen and (max-width: 350px) {
+html,
+body {
 
-    #intro-overlay {
+    max-width: 100%;
 
-        padding:
-            12px
-            10px
-            18px;
-    }
+    overflow-x: hidden;
+}
 
+img,
+video,
+canvas,
+iframe,
+table {
 
-    #intro-overlay .intro-logo {
-
-        width: 65px;
-
-        margin-bottom: 8px;
-    }
-
-
-    #intro-overlay h1 {
-
-        font-size: 15px;
-    }
-
-
-    #intro-overlay h2 {
-
-        font-size: 9px;
-
-        margin-bottom: 8px;
-    }
-
-
-    #intro-overlay .intro-text {
-
-        font-size: 9px;
-
-        line-height: 1.35;
-
-        margin-bottom: 12px;
-    }
-
-
-    #intro-overlay #start-intro {
-
-        max-width: 280px;
-
-        min-height: 42px;
-
-        font-size: 10px;
-    }
-
+    max-width: 100%;
 }
 
 
 /* =====================================================
-   HANDY – LANDSCAPE
+   REDUZIERTE BEWEGUNG
 ===================================================== */
 
-@media screen and (max-height: 600px) and (orientation: landscape) {
+@media (prefers-reduced-motion: reduce) {
 
-    #intro-overlay {
+    *,
+    *::before,
+    *::after {
 
-        min-height: 100vh;
+        animation-duration: .01ms !important;
 
-        padding:
-            10px
-            20px
-            15px;
+        animation-iteration-count: 1 !important;
 
-        justify-content: flex-start;
+        transition-duration: .01ms !important;
 
-        overflow-y: auto;
-    }
-
-
-    #intro-overlay .intro-logo {
-
-        width: 55px;
-
-        margin-bottom: 6px;
-    }
-
-
-    #intro-overlay h1 {
-
-        font-size: 17px;
-
-        margin-bottom: 5px;
-    }
-
-
-    #intro-overlay h2 {
-
-        font-size: 10px;
-
-        margin-bottom: 7px;
-    }
-
-
-    #intro-overlay .intro-text {
-
-        font-size: 9px;
-
-        line-height: 1.3;
-
-        margin-bottom: 10px;
-    }
-
-
-    #intro-overlay #start-intro {
-
-        min-height: 40px;
-
-        max-width: 300px;
-
-        font-size: 10px;
-
-        padding: 8px 15px;
+        scroll-behavior: auto !important;
     }
 
 }
