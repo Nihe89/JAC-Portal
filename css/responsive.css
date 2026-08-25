@@ -1,7 +1,7 @@
 /* =====================================================
    JAC PORTAL
    RESPONSIVE SYSTEM
-   VERSION 3.0
+   VERSION 4.0
    Smartphone / Tablet / Laptop
 ===================================================== */
 
@@ -78,6 +78,11 @@ iframe {
         grid-template-columns: 1fr;
     }
 
+
+    /* -------------------------------------------------
+       SPLASH
+    ------------------------------------------------- */
+
     #splash-screen {
         width: 100%;
         min-height: 100vh;
@@ -122,7 +127,9 @@ iframe {
     }
 
 
-    /* HEADER */
+    /* =================================================
+       HEADER
+    ================================================= */
 
     .jac-header {
         width: 100%;
@@ -135,7 +142,9 @@ iframe {
     }
 
 
-    /* LOGO */
+    /* =================================================
+       LOGO
+    ================================================= */
 
     .jac-logo {
         width: 70px;
@@ -144,7 +153,9 @@ iframe {
     }
 
 
-    /* HEADER TEXT */
+    /* =================================================
+       HEADER TEXT
+    ================================================= */
 
     .jac-header-center h1 {
         font-size: 26px;
@@ -156,7 +167,9 @@ iframe {
     }
 
 
-    /* CARDS */
+    /* =================================================
+       CARDS
+    ================================================= */
 
     .message-card,
     .progress-card,
@@ -171,13 +184,16 @@ iframe {
     .audio-card,
     .document-section,
     .code-section {
+
         width: 100%;
         max-width: 100%;
         padding: 20px;
     }
 
 
-    /* VERGLEICH */
+    /* =================================================
+       VERGLEICH
+    ================================================= */
 
     .comparison-container {
         width: 100%;
@@ -190,18 +206,24 @@ iframe {
     }
 
 
-    /* BUTTONS */
+    /* =================================================
+       BUTTONS
+    ================================================= */
 
     button {
         max-width: 100%;
     }
 
 
-    /* SPLASH */
+    /* =================================================
+       SPLASH
+    ================================================= */
 
     #splash-screen {
+
         width: 100%;
         min-height: 100vh;
+
         padding: 30px 20px;
 
         display: flex;
@@ -267,6 +289,302 @@ iframe {
         overflow-wrap: break-word;
     }
 
+
+    /* =================================================
+       VERIFIZIERUNG
+       
+       WICHTIG:
+       ALLES UNTEREINANDER
+       AUSWEIS GANZ UNTEN
+    ================================================= */
+
+    #verification-page {
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        min-height: 100svh;
+
+        margin: 0 !important;
+
+        padding: 25px 15px 30px !important;
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        align-items: center !important;
+
+        justify-content: flex-start !important;
+
+        gap: 0 !important;
+
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+
+
+    /* -------------------------------------------------
+       VERIFIZIERUNGS-KARTE
+    ------------------------------------------------- */
+
+    #verification-page .verification-card {
+
+        order: 1 !important;
+
+        width: 100% !important;
+        max-width: 650px !important;
+        min-width: 0 !important;
+
+        margin: 0 auto !important;
+
+        flex: 0 0 auto !important;
+    }
+
+
+    /* -------------------------------------------------
+       LOGO
+    ------------------------------------------------- */
+
+    #verification-page .verification-logo-wrap {
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+    }
+
+    #verification-page .verification-logo {
+
+        width: 90px;
+
+        max-width: 25vw;
+
+        height: auto;
+
+        display: block;
+    }
+
+
+    /* -------------------------------------------------
+       TITEL
+    ------------------------------------------------- */
+
+    #verification-page #verification-title {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        font-size: clamp(21px, 5vw, 30px);
+
+        line-height: 1.2;
+
+        text-align: center;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* -------------------------------------------------
+       STATUS
+    ------------------------------------------------- */
+
+    #verification-page .verification-status {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow-wrap: break-word;
+
+        text-align: center;
+    }
+
+
+    /* -------------------------------------------------
+       STAGE
+    ------------------------------------------------- */
+
+    #verification-page .verification-stage {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow-wrap: break-word;
+
+        text-align: center;
+    }
+
+
+    /* -------------------------------------------------
+       LADEBALKEN
+    ------------------------------------------------- */
+
+    #verification-page .progress-container {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow: hidden;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* -------------------------------------------------
+       PROZENT
+    ------------------------------------------------- */
+
+    #verification-page .progress-text {
+
+        width: 100%;
+
+        text-align: center;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* -------------------------------------------------
+       PRÜFSCHRITTE
+    ------------------------------------------------- */
+
+    #verification-page .verification-checks {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #verification-page .verification-check {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        min-width: 0;
+
+        box-sizing: border-box;
+
+        overflow-wrap: break-word;
+    }
+
+
+  /* =================================================
+   AGENTENAUSWEIS
+
+   POSITION:
+   IMMER UNTERHALB DER VERIFIZIERUNG
+================================================= */
+
+#verification-page #jac-agent-card,
+#verification-page .verification-agent-card {
+
+    order: 2 !important;
+
+    position: relative !important;
+
+    width: 100% !important;
+
+    max-width: 380px !important;
+
+    min-width: 0 !important;
+
+    margin: 18px auto 0 !important;
+
+    flex: 0 0 auto !important;
+
+    align-self: center !important;
+
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+
+    transform: none !important;
+
+    float: none !important;
+
+    overflow: hidden !important;
+
+    /* kompakter */
+    padding: 13px 15px !important;
+}
+
+
+    /* -------------------------------------------------
+       AUSWEIS-INHALT
+    ------------------------------------------------- */
+
+    #verification-page .agent-card-header,
+    #verification-page .agent-card-row,
+    #verification-page .agent-card-id,
+    #verification-page .agent-card-footer {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        box-sizing: border-box;
+    }
+
+
+    #verification-page .agent-card-row,
+    #verification-page .agent-card-id {
+
+        gap: 10px;
+
+        min-width: 0;
+    }
+
+
+    #verification-page .agent-card-row strong,
+    #verification-page .agent-card-id strong {
+
+        min-width: 0;
+
+        max-width: 65%;
+
+        overflow-wrap: anywhere;
+
+        word-break: break-word;
+
+        text-align: right;
+    }
+
+
+    #verification-page .agent-card-footer {
+
+        gap: 8px;
+
+        flex-wrap: wrap;
+    }
+
+
+    #verification-page .agent-verification-badge {
+
+        max-width: 100%;
+
+        overflow-wrap: break-word;
+    }
+
 }
 
 
@@ -280,6 +598,11 @@ iframe {
     body {
         font-size: 14px;
     }
+
+
+    /* =================================================
+       HEADER
+    ================================================= */
 
     .jac-header {
         padding: 18px 12px;
@@ -298,6 +621,11 @@ iframe {
         font-size: 13px;
     }
 
+
+    /* =================================================
+       CARDS
+    ================================================= */
+
     .message-card,
     .progress-card,
     .case-card,
@@ -311,8 +639,14 @@ iframe {
     .audio-card,
     .document-section,
     .code-section {
+
         padding: 16px;
     }
+
+
+    /* =================================================
+       BUTTONS
+    ================================================= */
 
     button {
         width: 100%;
@@ -320,11 +654,15 @@ iframe {
     }
 
 
-    /* SPLASH */
+    /* =================================================
+       SPLASH
+    ================================================= */
 
     #splash-screen {
+
         width: 100%;
         min-height: 100svh;
+
         padding: 20px 15px;
     }
 
@@ -368,6 +706,119 @@ iframe {
         letter-spacing: .5px;
     }
 
+
+    /* =================================================
+       VERIFIZIERUNG
+    ================================================= */
+
+    #verification-page {
+
+        padding: 20px 10px 25px !important;
+    }
+
+
+    #verification-page .verification-card {
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+    }
+
+
+    #verification-page .verification-logo {
+
+        width: 70px;
+
+        max-width: 22vw;
+    }
+
+
+    #verification-page #verification-title {
+
+        font-size: 19px;
+
+        line-height: 1.2;
+    }
+
+
+    #verification-page .verification-status {
+
+        font-size: 11px;
+    }
+
+
+    #verification-page .verification-stage {
+
+        font-size: 10px;
+    }
+
+
+    /* -------------------------------------------------
+       AUSWEIS KLEINER
+    ------------------------------------------------- */
+
+    #verification-page #jac-agent-card,
+    #verification-page .verification-agent-card {
+
+        width: calc(100% - 20px) !important;
+
+        max-width: 360px !important;
+
+        margin-top: 20px !important;
+
+        padding: 14px !important;
+    }
+
+
+    #verification-page .agent-card-header {
+
+        font-size: 11px;
+    }
+
+
+    #verification-page .agent-card-label {
+
+        font-size: 10px;
+    }
+
+
+    #verification-page .agent-card-title {
+
+        font-size: 10px;
+    }
+
+
+    #verification-page .agent-card-row,
+    #verification-page .agent-card-id {
+
+        font-size: 9px;
+
+        gap: 7px;
+    }
+
+
+    #verification-page .agent-card-row strong,
+    #verification-page .agent-card-id strong {
+
+        font-size: 9px;
+
+        max-width: 62%;
+    }
+
+
+    #verification-page .agent-verification-badge {
+
+        font-size: 9px;
+
+        padding: 8px;
+    }
+
+
+    #verification-page .agent-card-footer {
+
+        font-size: 7px;
+    }
+
 }
 
 
@@ -382,6 +833,7 @@ iframe {
         font-size: 13px;
     }
 
+
     .jac-logo {
         width: 60px;
     }
@@ -389,6 +841,11 @@ iframe {
     .jac-header-center h1 {
         font-size: 19px;
     }
+
+
+    /* =================================================
+       SPLASH
+    ================================================= */
 
     #splash-screen {
         padding: 15px 12px;
@@ -426,6 +883,95 @@ iframe {
         font-size: 9px;
     }
 
+
+    /* =================================================
+       VERIFIZIERUNG
+    ================================================= */
+
+    #verification-page {
+
+        padding: 15px 8px 20px !important;
+    }
+
+
+    #verification-page .verification-logo {
+
+        width: 60px;
+    }
+
+
+    #verification-page #verification-title {
+
+        font-size: 17px;
+    }
+
+
+    #verification-page .verification-status {
+
+        font-size: 10px;
+    }
+
+
+    #verification-page .verification-stage {
+
+        font-size: 9px;
+    }
+
+
+    /* -------------------------------------------------
+       AUSWEIS NOCH KOMPAKTER
+    ------------------------------------------------- */
+
+    #verification-page #jac-agent-card,
+    #verification-page .verification-agent-card {
+
+        width: calc(100% - 16px) !important;
+
+        max-width: 330px !important;
+
+        margin-top: 18px !important;
+
+        padding: 12px !important;
+    }
+
+
+    #verification-page .agent-card-header {
+
+        font-size: 10px;
+    }
+
+
+    #verification-page .agent-card-row,
+    #verification-page .agent-card-id {
+
+        font-size: 8px;
+
+        gap: 6px;
+    }
+
+
+    #verification-page .agent-card-row strong,
+    #verification-page .agent-card-id strong {
+
+        font-size: 8px;
+
+        max-width: 60%;
+    }
+
+
+    #verification-page .agent-verification-badge {
+
+        font-size: 8px;
+
+        padding: 7px;
+    }
+
+
+    #verification-page .agent-card-footer {
+
+        font-size: 6.5px;
+    }
+
 }
 
 
@@ -456,6 +1002,19 @@ iframe {
         font-size: 8px;
     }
 
+
+    /* VERIFIZIERUNG */
+
+    #verification-page #jac-agent-card,
+    #verification-page .verification-agent-card {
+
+        width: calc(100% - 10px) !important;
+
+        max-width: 300px !important;
+
+        padding: 10px !important;
+    }
+
 }
 
 
@@ -466,8 +1025,11 @@ iframe {
 @media (max-height: 600px) and (orientation: landscape) {
 
     #splash-screen {
+
         min-height: 100vh;
+
         padding: 10px 20px;
+
         justify-content: center;
     }
 
@@ -502,6 +1064,55 @@ iframe {
         font-size: 9px;
     }
 
+
+    /* =================================================
+       VERIFIZIERUNG LANDSCAPE
+    ================================================= */
+
+    #verification-page {
+
+        min-height: 100vh;
+
+        padding: 12px 15px 18px !important;
+
+        overflow-y: auto !important;
+    }
+
+
+    #verification-page .verification-logo {
+
+        width: 50px;
+    }
+
+
+    #verification-page #verification-title {
+
+        font-size: 17px;
+    }
+
+
+    #verification-page .verification-status {
+
+        font-size: 10px;
+    }
+
+
+    #verification-page .verification-stage {
+
+        font-size: 9px;
+    }
+
+
+    #verification-page #jac-agent-card,
+    #verification-page .verification-agent-card {
+
+        max-width: 340px !important;
+
+        margin-top: 15px !important;
+
+        padding: 10px !important;
+    }
+
 }
 
 
@@ -516,6 +1127,7 @@ iframe {
     input,
     select,
     textarea {
+
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -523,6 +1135,20 @@ iframe {
         min-height: 44px;
     }
 
+}
+
+
+/* =====================================================
+   SICHERHEIT GEGEN HORIZONTALES SCROLLEN
+===================================================== */
+
+img,
+video,
+canvas,
+iframe,
+table {
+
+    max-width: 100%;
 }
 
 
@@ -535,9 +1161,13 @@ iframe {
     *,
     *::before,
     *::after {
+
         animation-duration: .01ms !important;
+
         animation-iteration-count: 1 !important;
+
         transition-duration: .01ms !important;
+
         scroll-behavior: auto !important;
     }
 

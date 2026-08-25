@@ -38,7 +38,7 @@
 
 
     <!-- =====================================================
-         VERIFIZIERUNG
+         JAC IDENTITÄTSVERIFIZIERUNG
     ====================================================== -->
 
     <main
@@ -47,7 +47,7 @@
 
 
         <!-- =================================================
-             PRÜFUNG
+             VERIFIZIERUNGSBEREICH
         ================================================== -->
 
         <section
@@ -86,7 +86,7 @@
             </p>
 
 
-            <!-- PRÜFUNGSPHASEN -->
+            <!-- AKTUELLER PRÜFSCHRITT -->
 
             <div
                 id="verification-stage"
@@ -187,6 +187,11 @@
 
         <!-- =================================================
              JAC AGENTENAUSWEIS
+
+             WICHTIG:
+             Der Ausweis ist ein eigener Bereich und wird
+             auf mobilen Geräten IMMER unter der kompletten
+             Verifizierung dargestellt.
         ================================================== -->
 
         <aside
@@ -199,31 +204,20 @@
 
             <!-- HEADER -->
 
-            <div
-                class="agent-card-header">
-
+            <div class="agent-card-header">
 
                 <div>
 
-                    <span
-                        class="agent-card-label">
-
+                    <span class="agent-card-label">
                         JAC
-
                     </span>
 
-
-                    <span
-                        class="agent-card-title">
-
+                    <span class="agent-card-title">
                         AGENT IDENTIFICATION
-
                     </span>
 
                 </div>
 
-
-                <!-- STATUS-HAKEN -->
 
                 <span
                     id="agent-card-indicator"
@@ -234,23 +228,19 @@
 
                 </span>
 
-
             </div>
 
 
 
             <!-- TRENNLINIE -->
 
-            <div
-                class="agent-card-divider">
-            </div>
+            <div class="agent-card-divider"></div>
 
 
 
             <!-- AGENT ID -->
 
-            <div
-                class="agent-card-id">
+            <div class="agent-card-id">
 
                 <span>
                     AGENT ID
@@ -266,18 +256,14 @@
 
             <!-- STATUS -->
 
-            <div
-                class="agent-card-row">
+            <div class="agent-card-row">
 
                 <span>
                     STATUS
                 </span>
 
-                <strong
-                    id="agent-status">
-
+                <strong id="agent-status">
                     PRÜFUNG AUSSTEHEND
-
                 </strong>
 
             </div>
@@ -286,18 +272,14 @@
 
             <!-- IDENTITÄT -->
 
-            <div
-                class="agent-card-row">
+            <div class="agent-card-row">
 
                 <span>
                     IDENTITÄT
                 </span>
 
-                <strong
-                    id="agent-identity">
-
+                <strong id="agent-identity">
                     WIRD GEPRÜFT
-
                 </strong>
 
             </div>
@@ -306,18 +288,14 @@
 
             <!-- SICHERHEITSSTUFE -->
 
-            <div
-                class="agent-card-row">
+            <div class="agent-card-row">
 
                 <span>
                     SICHERHEITSSTUFE
                 </span>
 
-                <strong
-                    id="agent-security">
-
+                <strong id="agent-security">
                     LEVEL 01
-
                 </strong>
 
             </div>
@@ -326,44 +304,32 @@
 
             <!-- BIOMETRIE -->
 
-            <div
-                class="agent-card-row">
+            <div class="agent-card-row">
 
                 <span>
                     BIOMETRIE
                 </span>
 
-                <strong
-                    id="agent-biometric">
-
+                <strong id="agent-biometric">
                     AUSSTEHEND
-
                 </strong>
 
             </div>
 
 
 
-            <!-- =================================================
-                 AUSWEIS-PRÜFUNG
-            ================================================== -->
+            <!-- AUSWEIS-PRÜFUNG -->
 
             <div
                 id="agent-verification-badge"
                 class="agent-verification-badge">
 
-                <span
-                    id="agent-verification-icon">
-
+                <span id="agent-verification-icon">
                     ⟳
-
                 </span>
 
-                <span
-                    id="agent-verification-text">
-
+                <span id="agent-verification-text">
                     IDENTITÄT WIRD GEPRÜFT
-
                 </span>
 
             </div>
@@ -372,26 +338,20 @@
 
             <!-- TRENNLINIE -->
 
-            <div
-                class="agent-card-divider">
-            </div>
+            <div class="agent-card-divider"></div>
 
 
 
             <!-- FOOTER -->
 
-            <div
-                class="agent-card-footer">
+            <div class="agent-card-footer">
 
                 <span>
                     JURY ASSESSMENT COMMISSION
                 </span>
 
-                <span
-                    id="agent-card-access">
-
+                <span id="agent-card-access">
                     ACCESS: PENDING
-
                 </span>
 
             </div>
@@ -408,27 +368,13 @@
          JAVASCRIPT
     ====================================================== -->
 
-    <script
-        src="../js/app.js">
-    </script>
+    <script src="../js/app.js"></script>
 
-    <script
-        src="../js/gameState.js">
-    </script>
+    <script src="../js/gameState.js"></script>
 
-    <!--
-        Audio bleibt eingebunden.
-        In Phase 1 werden jedoch keine Sounds
-        automatisch ausgelöst.
-    -->
+    <script src="../js/audio.js"></script>
 
-    <script
-        src="../js/audio.js">
-    </script>
-
-    <script
-        src="../js/verifizierung.js">
-    </script>
+    <script src="../js/verifizierung.js"></script>
 
 
 </body>
