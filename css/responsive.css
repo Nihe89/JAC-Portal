@@ -1,7 +1,7 @@
 /* =====================================================
    JAC PORTAL
    RESPONSIVE SYSTEM
-   VERSION 4.0
+   VERSION 2.0
    Smartphone / Tablet / Laptop
 ===================================================== */
 
@@ -21,18 +21,10 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 0;
 }
 
 body {
     overflow-x: hidden;
-}
-
-img,
-video,
-canvas,
-iframe {
-    max-width: 100%;
 }
 
 
@@ -44,7 +36,6 @@ iframe {
 @media (max-width: 1200px) {
 
     main {
-        width: 100%;
         max-width: 1000px;
     }
 
@@ -80,7 +71,7 @@ iframe {
 
 
     /* -------------------------------------------------
-       SPLASH
+       SPLASH / STARTSEITE
     ------------------------------------------------- */
 
     #splash-screen {
@@ -95,7 +86,7 @@ iframe {
     }
 
     #jac-logo {
-        width: 100%;
+        max-width: 100%;
         height: auto;
     }
 
@@ -103,6 +94,15 @@ iframe {
         width: 100%;
         max-width: 700px;
         text-align: center;
+    }
+
+    .title-container h1 {
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.15;
+    }
+
+    .title-container p {
+        font-size: 16px;
     }
 
 }
@@ -127,9 +127,9 @@ iframe {
     }
 
 
-    /* =================================================
+    /* -------------------------------------------------
        HEADER
-    ================================================= */
+    ------------------------------------------------- */
 
     .jac-header {
         width: 100%;
@@ -142,9 +142,9 @@ iframe {
     }
 
 
-    /* =================================================
+    /* -------------------------------------------------
        LOGO
-    ================================================= */
+    ------------------------------------------------- */
 
     .jac-logo {
         width: 70px;
@@ -153,9 +153,9 @@ iframe {
     }
 
 
-    /* =================================================
+    /* -------------------------------------------------
        HEADER TEXT
-    ================================================= */
+    ------------------------------------------------- */
 
     .jac-header-center h1 {
         font-size: 26px;
@@ -167,9 +167,9 @@ iframe {
     }
 
 
-    /* =================================================
+    /* -------------------------------------------------
        CARDS
-    ================================================= */
+    ------------------------------------------------- */
 
     .message-card,
     .progress-card,
@@ -191,13 +191,13 @@ iframe {
     }
 
 
-    /* =================================================
-       VERGLEICH
-    ================================================= */
+    /* -------------------------------------------------
+       VERGLEICHE
+    ------------------------------------------------- */
 
     .comparison-container {
-        width: 100%;
         grid-template-columns: 1fr;
+        width: 100%;
     }
 
     .image-card {
@@ -206,25 +206,27 @@ iframe {
     }
 
 
-    /* =================================================
+    /* -------------------------------------------------
        BUTTONS
-    ================================================= */
+    ------------------------------------------------- */
 
     button {
         max-width: 100%;
     }
 
 
-    /* =================================================
-       SPLASH
-    ================================================= */
+    /* -------------------------------------------------
+       SPLASH / INDEX
+    ------------------------------------------------- */
 
     #splash-screen {
 
         width: 100%;
         min-height: 100vh;
 
-        padding: 30px 20px;
+        padding:
+            30px
+            20px;
 
         display: flex;
         flex-direction: column;
@@ -234,441 +236,103 @@ iframe {
         overflow: hidden;
     }
 
+
     .logo-container {
+
         width: 150px;
         max-width: 45vw;
+
         margin: 0 auto;
     }
 
+
     #jac-logo {
+
         display: block;
+
         width: 100%;
         max-width: 150px;
+
         height: auto;
     }
+
 
     .title-container {
+
         width: 100%;
         max-width: 600px;
-        margin: 25px auto 20px;
-        padding: 0 10px;
+
+        margin:
+            25px auto
+            20px;
+
         text-align: center;
+
+        padding: 0 10px;
     }
+
 
     .title-container h1 {
+
         margin: 0;
-        font-size: clamp(22px, 5vw, 32px);
+
+        font-size:
+            clamp(
+                22px,
+                5vw,
+                32px
+            );
+
         line-height: 1.2;
-        letter-spacing: clamp(1px, .6vw, 3px);
+
+        letter-spacing:
+            clamp(
+                1px,
+                0.6vw,
+                3px
+            );
+
         overflow-wrap: break-word;
     }
+
 
     .title-container p {
+
         margin-top: 10px;
+
         font-size: 14px;
+
         line-height: 1.4;
     }
+
 
     .loading-container {
+
         width: 100%;
         max-width: 320px;
+
         margin: 20px auto 0;
+
         text-align: center;
     }
+
 
     .loading-spinner {
+
         margin-left: auto;
         margin-right: auto;
     }
+
 
     #loading-text {
+
         margin-top: 15px;
+
         font-size: 11px;
+
         line-height: 1.4;
-        text-align: center;
-        overflow-wrap: break-word;
-    }
-
-
-    /* =================================================
-       VERIFIZIERUNG
-       
-       WICHTIG:
-       ALLES UNTEREINANDER
-       AUSWEIS GANZ UNTEN
-    ================================================= */
-
-    #verification-page {
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        min-height: 100svh;
-
-        margin: 0 !important;
-
-        padding: 25px 15px 30px !important;
-
-        display: flex !important;
-
-        flex-direction: column !important;
-
-        align-items: center !important;
-
-        justify-content: flex-start !important;
-
-        gap: 0 !important;
-
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-    }
-
-
-    /* -------------------------------------------------
-       VERIFIZIERUNGS-KARTE
-    ------------------------------------------------- */
-
-    #verification-page .verification-card {
-
-        order: 1 !important;
-
-        width: 100% !important;
-        max-width: 650px !important;
-        min-width: 0 !important;
-
-        margin: 0 auto !important;
-
-        flex: 0 0 auto !important;
-    }
-
-
-    /* -------------------------------------------------
-       LOGO
-    ------------------------------------------------- */
-
-    #verification-page .verification-logo-wrap {
-
-        width: 100%;
-
-        display: flex;
-
-        justify-content: center;
-
-        align-items: center;
-    }
-
-    #verification-page .verification-logo {
-
-        width: 90px;
-
-        max-width: 25vw;
-
-        height: auto;
-
-        display: block;
-    }
-
-
-    /* -------------------------------------------------
-       TITEL
-    ------------------------------------------------- */
-
-    #verification-page #verification-title {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        font-size: clamp(21px, 5vw, 30px);
-
-        line-height: 1.2;
 
         text-align: center;
-
-        overflow-wrap: break-word;
-    }
-
-
-    /* -------------------------------------------------
-       STATUS
-    ------------------------------------------------- */
-
-    #verification-page .verification-status {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        overflow-wrap: break-word;
-
-        text-align: center;
-    }
-
-
-    /* -------------------------------------------------
-       STAGE
-    ------------------------------------------------- */
-
-    #verification-page .verification-stage {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        overflow-wrap: break-word;
-
-        text-align: center;
-    }
-
-
-    /* -------------------------------------------------
-       LADEBALKEN
-    ------------------------------------------------- */
-
-    #verification-page .progress-container {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        overflow: hidden;
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
-    /* -------------------------------------------------
-       PROZENT
-    ------------------------------------------------- */
-
-    #verification-page .progress-text {
-
-        width: 100%;
-
-        text-align: center;
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
-    /* -------------------------------------------------
-       PRÜFSCHRITTE
-    ------------------------------------------------- */
-
-    #verification-page .verification-checks {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 8px;
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #verification-page .verification-check {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        min-width: 0;
-
-        box-sizing: border-box;
-
-        overflow-wrap: break-word;
-    }
-
-
-  /* =====================================================
-   VERIFIZIERUNG – MOBILE
-   AUF HANDY IMMER VERTIKAL
-===================================================== */
-
-@media (max-width: 768px) {
-
-    #verification-page {
-
-        display: flex !important;
-
-        flex-direction: column !important;
-
-        justify-content: flex-start !important;
-
-        align-items: center !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        min-height: 100svh !important;
-
-        padding: 25px 15px 30px !important;
-
-        gap: 0 !important;
-
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-    }
-
-
-    /* =============================================
-       VERIFIZIERUNGSKARTE
-    ============================================= */
-
-    #verification-page .verification-card {
-
-        order: 1 !important;
-
-        width: 100% !important;
-
-        max-width: 650px !important;
-
-        min-width: 0 !important;
-
-        margin: 0 auto !important;
-
-        flex: 0 0 auto !important;
-
-        text-align: center !important;
-    }
-
-
-    /* =============================================
-       AGENTENAUSWEIS
-       IMMER UNTERHALB DER VERIFIZIERUNG
-    ============================================= */
-
-    #verification-page #jac-agent-card,
-    #verification-page .verification-agent-card {
-
-        order: 2 !important;
-
-        position: relative !important;
-
-        display: block !important;
-
-        width: 100% !important;
-
-        max-width: 380px !important;
-
-        min-width: 0 !important;
-
-        height: auto !important;
-
-        margin: 18px auto 0 !important;
-
-        flex: 0 0 auto !important;
-
-        align-self: center !important;
-
-        left: auto !important;
-        right: auto !important;
-        top: auto !important;
-        bottom: auto !important;
-
-        transform: none !important;
-
-        float: none !important;
-
-        box-sizing: border-box !important;
-
-        overflow: hidden !important;
-
-        padding: 13px 15px !important;
-    }
-}
-/* =====================================================
-   VERIFIZIERUNG – SMARTPHONE
-===================================================== */
-
-@media (max-width: 576px) {
-
-    #verification-page {
-
-        padding: 20px 10px 25px !important;
-    }
-
-
-    #verification-page .verification-card {
-
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-
-    #verification-page #jac-agent-card,
-    #verification-page .verification-agent-card {
-
-        width: 100% !important;
-
-        max-width: 350px !important;
-
-        margin-top: 16px !important;
-
-        padding: 12px 13px !important;
-    }
-}
-
-
-    /* -------------------------------------------------
-       AUSWEIS-INHALT
-    ------------------------------------------------- */
-
-    #verification-page .agent-card-header,
-    #verification-page .agent-card-row,
-    #verification-page .agent-card-id,
-    #verification-page .agent-card-footer {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        box-sizing: border-box;
-    }
-
-
-    #verification-page .agent-card-row,
-    #verification-page .agent-card-id {
-
-        gap: 10px;
-
-        min-width: 0;
-    }
-
-
-    #verification-page .agent-card-row strong,
-    #verification-page .agent-card-id strong {
-
-        min-width: 0;
-
-        max-width: 65%;
-
-        overflow-wrap: anywhere;
-
-        word-break: break-word;
-
-        text-align: right;
-    }
-
-
-    #verification-page .agent-card-footer {
-
-        gap: 8px;
-
-        flex-wrap: wrap;
-    }
-
-
-    #verification-page .agent-verification-badge {
-
-        max-width: 100%;
 
         overflow-wrap: break-word;
     }
@@ -688,9 +352,9 @@ iframe {
     }
 
 
-    /* =================================================
+    /* -------------------------------------------------
        HEADER
-    ================================================= */
+    ------------------------------------------------- */
 
     .jac-header {
         padding: 18px 12px;
@@ -701,6 +365,11 @@ iframe {
         gap: 10px;
     }
 
+
+    /* -------------------------------------------------
+       HEADER TEXT
+    ------------------------------------------------- */
+
     .jac-header-center h1 {
         font-size: 21px;
     }
@@ -710,9 +379,9 @@ iframe {
     }
 
 
-    /* =================================================
+    /* -------------------------------------------------
        CARDS
-    ================================================= */
+    ------------------------------------------------- */
 
     .message-card,
     .progress-card,
@@ -732,9 +401,9 @@ iframe {
     }
 
 
-    /* =================================================
+    /* -------------------------------------------------
        BUTTONS
-    ================================================= */
+    ------------------------------------------------- */
 
     button {
         width: 100%;
@@ -743,168 +412,85 @@ iframe {
 
 
     /* =================================================
-       SPLASH
+       INDEX / SPLASH
     ================================================= */
 
     #splash-screen {
 
-        width: 100%;
-        min-height: 100svh;
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
 
-        padding: 20px 15px;
+        padding:
+            20px
+            15px;
+
+        overflow: hidden;
     }
 
+
     .logo-container {
+
         width: 120px;
         max-width: 35vw;
+
         margin-bottom: 10px;
     }
 
+
     #jac-logo {
+
         width: 100%;
         max-width: 120px;
         height: auto;
     }
 
+
     .title-container {
+
         width: 100%;
-        margin: 18px auto 15px;
-        padding: 0 5px;
+
+        margin:
+            18px auto
+            15px;
+
+        padding:
+            0 5px;
     }
 
+
     .title-container h1 {
+
         font-size: 20px;
+
         line-height: 1.2;
+
         letter-spacing: 1px;
     }
 
+
     .title-container p {
+
         margin-top: 8px;
+
         font-size: 12px;
     }
 
+
     .loading-container {
+
         width: 100%;
         max-width: 280px;
+
         margin-top: 15px;
     }
 
+
     #loading-text {
+
         font-size: 10px;
+
         letter-spacing: .5px;
-    }
-
-
-    /* =================================================
-       VERIFIZIERUNG
-    ================================================= */
-
-    #verification-page {
-
-        padding: 20px 10px 25px !important;
-    }
-
-
-    #verification-page .verification-card {
-
-        width: 100% !important;
-
-        max-width: 100% !important;
-    }
-
-
-    #verification-page .verification-logo {
-
-        width: 70px;
-
-        max-width: 22vw;
-    }
-
-
-    #verification-page #verification-title {
-
-        font-size: 19px;
-
-        line-height: 1.2;
-    }
-
-
-    #verification-page .verification-status {
-
-        font-size: 11px;
-    }
-
-
-    #verification-page .verification-stage {
-
-        font-size: 10px;
-    }
-
-
-    /* -------------------------------------------------
-       AUSWEIS KLEINER
-    ------------------------------------------------- */
-
-    #verification-page #jac-agent-card,
-    #verification-page .verification-agent-card {
-
-        width: calc(100% - 20px) !important;
-
-        max-width: 360px !important;
-
-        margin-top: 20px !important;
-
-        padding: 14px !important;
-    }
-
-
-    #verification-page .agent-card-header {
-
-        font-size: 11px;
-    }
-
-
-    #verification-page .agent-card-label {
-
-        font-size: 10px;
-    }
-
-
-    #verification-page .agent-card-title {
-
-        font-size: 10px;
-    }
-
-
-    #verification-page .agent-card-row,
-    #verification-page .agent-card-id {
-
-        font-size: 9px;
-
-        gap: 7px;
-    }
-
-
-    #verification-page .agent-card-row strong,
-    #verification-page .agent-card-id strong {
-
-        font-size: 9px;
-
-        max-width: 62%;
-    }
-
-
-    #verification-page .agent-verification-badge {
-
-        font-size: 9px;
-
-        padding: 8px;
-    }
-
-
-    #verification-page .agent-card-footer {
-
-        font-size: 7px;
     }
 
 }
@@ -922,142 +508,79 @@ iframe {
     }
 
 
+    /* -------------------------------------------------
+       LOGO
+    ------------------------------------------------- */
+
     .jac-logo {
         width: 60px;
     }
+
 
     .jac-header-center h1 {
         font-size: 19px;
     }
 
 
-    /* =================================================
-       SPLASH
-    ================================================= */
+    /* -------------------------------------------------
+       INDEX / SPLASH
+    ------------------------------------------------- */
 
     #splash-screen {
-        padding: 15px 12px;
+
+        padding:
+            15px
+            12px;
     }
 
+
     .logo-container {
+
         width: 100px;
         max-width: 30vw;
     }
 
+
     #jac-logo {
+
         max-width: 100px;
     }
 
+
     .title-container {
-        margin: 15px auto 12px;
+
+        margin:
+            15px auto
+            12px;
     }
 
+
     .title-container h1 {
+
         font-size: 17px;
+
         line-height: 1.2;
+
         letter-spacing: .7px;
     }
 
+
     .title-container p {
+
         font-size: 11px;
     }
 
+
     .loading-container {
+
         max-width: 240px;
         margin-top: 10px;
     }
 
+
     #loading-text {
-        font-size: 9px;
-    }
-
-
-    /* =================================================
-       VERIFIZIERUNG
-    ================================================= */
-
-    #verification-page {
-
-        padding: 15px 8px 20px !important;
-    }
-
-
-    #verification-page .verification-logo {
-
-        width: 60px;
-    }
-
-
-    #verification-page #verification-title {
-
-        font-size: 17px;
-    }
-
-
-    #verification-page .verification-status {
-
-        font-size: 10px;
-    }
-
-
-    #verification-page .verification-stage {
 
         font-size: 9px;
-    }
-
-
-    /* -------------------------------------------------
-       AUSWEIS NOCH KOMPAKTER
-    ------------------------------------------------- */
-
-    #verification-page #jac-agent-card,
-    #verification-page .verification-agent-card {
-
-        width: calc(100% - 16px) !important;
-
-        max-width: 330px !important;
-
-        margin-top: 18px !important;
-
-        padding: 12px !important;
-    }
-
-
-    #verification-page .agent-card-header {
-
-        font-size: 10px;
-    }
-
-
-    #verification-page .agent-card-row,
-    #verification-page .agent-card-id {
-
-        font-size: 8px;
-
-        gap: 6px;
-    }
-
-
-    #verification-page .agent-card-row strong,
-    #verification-page .agent-card-id strong {
-
-        font-size: 8px;
-
-        max-width: 60%;
-    }
-
-
-    #verification-page .agent-verification-badge {
-
-        font-size: 8px;
-
-        padding: 7px;
-    }
-
-
-    #verification-page .agent-card-footer {
-
-        font-size: 6.5px;
     }
 
 }
@@ -1090,19 +613,6 @@ iframe {
         font-size: 8px;
     }
 
-
-    /* VERIFIZIERUNG */
-
-    #verification-page #jac-agent-card,
-    #verification-page .verification-agent-card {
-
-        width: calc(100% - 10px) !important;
-
-        max-width: 300px !important;
-
-        padding: 10px !important;
-    }
-
 }
 
 
@@ -1116,89 +626,59 @@ iframe {
 
         min-height: 100vh;
 
-        padding: 10px 20px;
+        padding:
+            10px
+            20px;
 
         justify-content: center;
     }
 
+
     .logo-container {
+
         width: 75px;
         margin-bottom: 5px;
     }
 
+
     #jac-logo {
+
         max-width: 75px;
     }
 
+
     .title-container {
-        margin: 8px auto;
+
+        margin:
+            8px auto;
     }
 
+
     .title-container h1 {
+
         font-size: 18px;
     }
 
+
     .title-container p {
+
         margin-top: 4px;
+
         font-size: 10px;
     }
 
+
     .loading-container {
+
         margin-top: 8px;
     }
 
+
     #loading-text {
+
         margin-top: 6px;
-        font-size: 9px;
-    }
-
-
-    /* =================================================
-       VERIFIZIERUNG LANDSCAPE
-    ================================================= */
-
-    #verification-page {
-
-        min-height: 100vh;
-
-        padding: 12px 15px 18px !important;
-
-        overflow-y: auto !important;
-    }
-
-
-    #verification-page .verification-logo {
-
-        width: 50px;
-    }
-
-
-    #verification-page #verification-title {
-
-        font-size: 17px;
-    }
-
-
-    #verification-page .verification-status {
-
-        font-size: 10px;
-    }
-
-
-    #verification-page .verification-stage {
 
         font-size: 9px;
-    }
-
-
-    #verification-page #jac-agent-card,
-    #verification-page .verification-agent-card {
-
-        max-width: 340px !important;
-
-        margin-top: 15px !important;
-
-        padding: 10px !important;
     }
 
 }
@@ -1219,7 +699,9 @@ iframe {
         -webkit-tap-highlight-color: transparent;
     }
 
+
     button {
+
         min-height: 44px;
     }
 
@@ -1232,8 +714,18 @@ iframe {
 
 img,
 video,
-canvas,
-iframe,
+canvas {
+
+    max-width: 100%;
+}
+
+
+iframe {
+
+    max-width: 100%;
+}
+
+
 table {
 
     max-width: 100%;
@@ -1251,131 +743,406 @@ table {
     *::after {
 
         animation-duration: .01ms !important;
-
         animation-iteration-count: 1 !important;
-
         transition-duration: .01ms !important;
-
         scroll-behavior: auto !important;
     }
 
 }
 /* =====================================================
-   JAC VERIFIZIERUNG
-   FINAL MOBILE LAYOUT
-   AUSWEIS IMMER UNTER DER VERIFIZIERUNG
+   JAC PORTAL
+   LOGIN – MOBILE OPTIMIERUNG
 ===================================================== */
 
-@media screen and (max-width: 768px) {
 
-    #verification-page.verification-page {
+/* =====================================================
+   LOGIN GRUNDLAYOUT
+===================================================== */
 
-        display: flex !important;
+#login-page {
 
-        flex-direction: column !important;
+    width: 100%;
+    min-height: 100vh;
 
-        justify-content: flex-start !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-        align-items: center !important;
+    padding: 40px 20px;
 
-        width: 100% !important;
-        max-width: 100% !important;
+    overflow-x: hidden;
+}
 
-        min-height: 100svh !important;
 
-        height: auto !important;
+/* =====================================================
+   LOGIN HEADER
+===================================================== */
 
-        padding: 20px 10px 30px !important;
+.login-header {
 
-        margin: 0 !important;
+    width: 100%;
+    max-width: 620px;
 
-        gap: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.login-header #jac-logo {
+
+    display: block;
+
+    width: 105px;
+    max-width: 32vw;
+    height: auto;
+
+    margin: 0 auto 20px;
+}
+
+.login-header h1 {
+
+    width: 100%;
+
+    margin: 0;
+
+    font-size: clamp(20px, 4vw, 32px);
+
+    line-height: 1.2;
+
+    letter-spacing: 2px;
+
+    overflow-wrap: break-word;
+}
+
+.login-header .subtitle {
+
+    margin: 8px 0 0;
+
+    font-size: 14px;
+
+    opacity: .7;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   LOGIN CARD
+===================================================== */
+
+#login-page .login-card {
+
+    width: 100%;
+    max-width: 470px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    overflow: hidden;
+}
+
+#login-page .login-card h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 12px;
+
+    text-align: center;
+
+    font-size: 25px;
+}
+
+#login-page .login-card .description {
+
+    margin: 0 auto 25px;
+
+    max-width: 380px;
+
+    text-align: center;
+
+    line-height: 1.6;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FORMULAR
+===================================================== */
+
+#login-form {
+
+    width: 100%;
+}
+
+#login-page .form-group {
+
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+#login-page .form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+#login-page .form-group input {
+
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 48px;
+
+    padding: 12px 14px;
+
+    font-size: 16px;
+
+    border-radius: 4px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+#login-page #login-button {
+
+    display: block;
+
+    width: 100%;
+
+    min-height: 50px;
+
+    margin-top: 10px;
+
+    padding: 12px 20px;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   LOGIN MESSAGE
+===================================================== */
+
+#login-page #login-message {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    line-height: 1.5;
+
+    font-size: 12px;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =====================================================
+   LOGIN FOOTER
+===================================================== */
+
+#login-page footer {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+#login-page footer p {
+
+    margin: 0;
+
+    font-size: 9px;
+
+    opacity: .45;
+
+    letter-spacing: .5px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+    #login-page {
+
+        min-height: 100vh;
+
+        padding: 30px 18px;
+    }
+
+    .login-header {
+
+        margin-bottom: 25px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 90px;
+
+        margin-bottom: 16px;
+    }
+
+    .login-header h1 {
+
+        font-size: 23px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .login-header .subtitle {
+
+        font-size: 13px;
+    }
+
+    #login-page .login-card {
+
+        max-width: 450px;
+
+        padding: 30px 25px;
+    }
+
+}
+
+
+/* =====================================================
+   SMARTPHONE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    #login-page {
+
+        min-height: 100svh;
+
+        padding: 20px 15px;
+
+        justify-content: center;
+    }
+
+    .login-header {
+
+        margin-bottom: 20px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 75px;
+
+        max-width: 25vw;
+
+        margin-bottom: 12px;
+    }
+
+    .login-header h1 {
+
+        font-size: 19px;
+
+        line-height: 1.25;
+
+        letter-spacing: 1px;
+    }
+
+    .login-header .subtitle {
+
+        margin-top: 6px;
+
+        font-size: 11px;
     }
 
 
-    /* =================================================
-       VERIFIZIERUNG
-    ================================================= */
+    #login-page .login-card {
 
-    #verification-page.verification-page > .verification-card {
+        width: 100%;
 
-        display: block !important;
+        max-width: 390px;
 
-        position: relative !important;
+        padding: 23px 18px;
+    }
 
-        order: 1 !important;
+    #login-page .login-card h2 {
 
-        width: 100% !important;
+        font-size: 21px;
 
-        max-width: 650px !important;
+        margin-bottom: 9px;
+    }
 
-        min-width: 0 !important;
+    #login-page .login-card .description {
 
-        height: auto !important;
+        font-size: 12px;
 
-        margin: 0 auto !important;
+        line-height: 1.5;
 
-        flex: none !important;
-
-        align-self: center !important;
-
-        left: auto !important;
-        right: auto !important;
-        top: auto !important;
-        bottom: auto !important;
-
-        transform: none !important;
+        margin-bottom: 20px;
     }
 
 
-    /* =================================================
-       AGENTENAUSWEIS
-       IMMER GANZ UNTEN
-    ================================================= */
+    #login-page .form-group {
 
-    #verification-page.verification-page > #jac-agent-card,
-    #verification-page.verification-page > .verification-agent-card {
-
-        display: block !important;
-
-        position: relative !important;
-
-        order: 2 !important;
-
-        width: calc(100% - 20px) !important;
-
-        max-width: 360px !important;
-
-        min-width: 0 !important;
-
-        height: auto !important;
-
-        margin: 18px auto 0 !important;
-
-        padding: 12px 14px !important;
-
-        flex: none !important;
-
-        align-self: center !important;
-
-        left: auto !important;
-        right: auto !important;
-        top: auto !important;
-        bottom: auto !important;
-
-        transform: none !important;
-
-        float: none !important;
-
-        clear: both !important;
-
-        box-sizing: border-box !important;
-
-        overflow: hidden !important;
+        margin-bottom: 15px;
     }
+
+    #login-page .form-group label {
+
+        font-size: 10px;
+
+        margin-bottom: 6px;
+    }
+
+    #login-page .form-group input {
+
+        min-height: 48px;
+
+        padding: 12px;
+
+        font-size: 16px;
+    }
+
+
+    #login-page #login-button {
+
+        min-height: 48px;
+
+        margin-top: 7px;
+
+        font-size: 12px;
+    }
+
+
+    #login-page footer {
+
+        margin-top: 18px;
+    }
+
 }
 
 
@@ -1383,49 +1150,212 @@ table {
    KLEINES SMARTPHONE
 ===================================================== */
 
-@media screen and (max-width: 576px) {
+@media (max-width: 400px) {
 
-    #verification-page.verification-page {
+    #login-page {
 
-        padding: 15px 8px 25px !important;
+        padding: 15px 12px;
+    }
+
+    .login-header {
+
+        margin-bottom: 15px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 65px;
+
+        margin-bottom: 10px;
+    }
+
+    .login-header h1 {
+
+        font-size: 16px;
+
+        letter-spacing: .7px;
+    }
+
+    .login-header .subtitle {
+
+        font-size: 10px;
     }
 
 
-    #verification-page.verification-page > .verification-card {
+    #login-page .login-card {
 
-        width: 100% !important;
-
-        max-width: 100% !important;
+        padding: 20px 15px;
     }
 
+    #login-page .login-card h2 {
 
-    #verification-page.verification-page > #jac-agent-card,
-    #verification-page.verification-page > .verification-agent-card {
-
-        width: calc(100% - 16px) !important;
-
-        max-width: 330px !important;
-
-        margin-top: 15px !important;
-
-        padding: 10px 12px !important;
+        font-size: 19px;
     }
+
+    #login-page .login-card .description {
+
+        font-size: 11px;
+
+        margin-bottom: 17px;
+    }
+
+    #login-page .form-group input {
+
+        min-height: 46px;
+
+        font-size: 16px;
+    }
+
+    #login-page #login-button {
+
+        min-height: 46px;
+    }
+
+    #login-page footer p {
+
+        font-size: 8px;
+    }
+
 }
 
 
 /* =====================================================
-   SEHR KLEINES HANDY
+   SEHR KLEINES DISPLAY / GERINGE HÖHE
 ===================================================== */
 
-@media screen and (max-width: 400px) {
+@media (max-height: 650px) {
 
-    #verification-page.verification-page > #jac-agent-card,
-    #verification-page.verification-page > .verification-agent-card {
+    #login-page {
 
-        max-width: 310px !important;
-
-        padding: 9px 10px !important;
-
-        margin-top: 12px !important;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
+
+    .login-header {
+
+        margin-bottom: 12px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 60px;
+
+        margin-bottom: 8px;
+    }
+
+    .login-header h1 {
+
+        font-size: 17px;
+    }
+
+    .login-header .subtitle {
+
+        margin-top: 4px;
+
+        font-size: 10px;
+    }
+
+    #login-page .login-card {
+
+        padding: 18px;
+    }
+
+    #login-page .login-card .description {
+
+        margin-bottom: 14px;
+    }
+
+    #login-page .form-group {
+
+        margin-bottom: 11px;
+    }
+
+    #login-page footer {
+
+        margin-top: 10px;
+    }
+
+}
+
+
+/* =====================================================
+   LANDSCAPE AUF HANDY
+===================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    #login-page {
+
+        justify-content: flex-start;
+
+        padding: 15px 20px;
+
+        overflow-y: auto;
+    }
+
+    .login-header {
+
+        margin-bottom: 12px;
+    }
+
+    .login-header #jac-logo {
+
+        width: 50px;
+
+        margin-bottom: 5px;
+    }
+
+    .login-header h1 {
+
+        font-size: 16px;
+    }
+
+    .login-header .subtitle {
+
+        display: none;
+    }
+
+    #login-page .login-card {
+
+        max-width: 430px;
+
+        padding: 15px 20px;
+    }
+
+    #login-page .login-card h2 {
+
+        font-size: 18px;
+
+        margin-bottom: 6px;
+    }
+
+    #login-page .login-card .description {
+
+        font-size: 10px;
+
+        margin-bottom: 10px;
+    }
+
+    #login-page .form-group {
+
+        margin-bottom: 9px;
+    }
+
+    #login-page .form-group input {
+
+        min-height: 40px;
+
+        padding: 8px 10px;
+    }
+
+    #login-page #login-button {
+
+        min-height: 40px;
+    }
+
+    #login-page footer {
+
+        display: none;
+    }
+
 }
