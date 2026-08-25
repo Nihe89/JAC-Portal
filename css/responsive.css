@@ -1932,3 +1932,449 @@ table {
     }
 
 }
+/* =====================================================
+   JAC PORTAL
+   INTRO VIDEO – MOBILE FIX
+   Logo vollständig sichtbar / Button sichtbar
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* -------------------------------------------------
+       INTRO SEITE
+    ------------------------------------------------- */
+
+    #intro-video-page {
+
+        width: 100%;
+        min-height: 100svh;
+
+        margin: 0;
+        padding: 0;
+
+        overflow: hidden;
+
+        position: relative;
+    }
+
+
+    /* -------------------------------------------------
+       START-OVERLAY
+    ------------------------------------------------- */
+
+    #intro-overlay {
+
+        width: 100%;
+        min-height: 100svh;
+
+        padding:
+            30px
+            20px
+            35px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        position: relative;
+
+        box-sizing: border-box;
+    }
+
+
+    /* -------------------------------------------------
+       LOGO
+    ------------------------------------------------- */
+
+    #intro-overlay .intro-logo {
+
+        display: block;
+
+        width: 110px;
+        max-width: 30vw;
+
+        height: auto;
+
+        flex: 0 0 auto;
+
+        margin:
+            0
+            auto
+            20px;
+    }
+
+
+    /* -------------------------------------------------
+       TITEL
+    ------------------------------------------------- */
+
+    #intro-overlay h1 {
+
+        width: 100%;
+        max-width: 650px;
+
+        margin:
+            0
+            auto
+            10px;
+
+        font-size: clamp(22px, 5vw, 32px);
+
+        line-height: 1.2;
+
+        text-align: center;
+
+        overflow-wrap: break-word;
+    }
+
+
+    #intro-overlay h2 {
+
+        width: 100%;
+        max-width: 600px;
+
+        margin:
+            0
+            auto
+            18px;
+
+        font-size: clamp(13px, 3vw, 18px);
+
+        line-height: 1.3;
+
+        text-align: center;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* -------------------------------------------------
+       TEXT
+    ------------------------------------------------- */
+
+    #intro-overlay .intro-text {
+
+        width: 100%;
+        max-width: 560px;
+
+        margin:
+            0
+            auto
+            25px;
+
+        font-size: 14px;
+
+        line-height: 1.55;
+
+        text-align: center;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* -------------------------------------------------
+       BUTTON
+    ------------------------------------------------- */
+
+    #intro-overlay #start-intro {
+
+        display: block;
+
+        width: min(100%, 360px);
+
+        min-height: 48px;
+
+        flex: 0 0 auto;
+
+        margin:
+            0
+            auto;
+
+        padding:
+            12px
+            20px;
+
+        font-size: 13px;
+
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* =====================================================
+   SMARTPHONE
+   BIS 576px
+===================================================== */
+
+@media screen and (max-width: 576px) {
+
+    #intro-overlay {
+
+        min-height: 100svh;
+
+        padding:
+            22px
+            15px
+            28px;
+
+        justify-content: center;
+    }
+
+
+    #intro-overlay .intro-logo {
+
+        width: 90px;
+
+        max-width: 26vw;
+
+        margin-bottom: 15px;
+    }
+
+
+    #intro-overlay h1 {
+
+        font-size: 20px;
+
+        line-height: 1.2;
+
+        margin-bottom: 8px;
+    }
+
+
+    #intro-overlay h2 {
+
+        font-size: 12px;
+
+        line-height: 1.3;
+
+        margin-bottom: 14px;
+    }
+
+
+    #intro-overlay .intro-text {
+
+        font-size: 12px;
+
+        line-height: 1.45;
+
+        margin-bottom: 20px;
+    }
+
+
+    #intro-overlay #start-intro {
+
+        width: 100%;
+
+        max-width: 330px;
+
+        min-height: 46px;
+
+        padding: 11px 16px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   KLEINES SMARTPHONE
+   BIS 400px
+===================================================== */
+
+@media screen and (max-width: 400px) {
+
+    #intro-overlay {
+
+        padding:
+            15px
+            12px
+            22px;
+    }
+
+
+    #intro-overlay .intro-logo {
+
+        width: 75px;
+
+        max-width: 24vw;
+
+        margin-bottom: 10px;
+    }
+
+
+    #intro-overlay h1 {
+
+        font-size: 17px;
+
+        margin-bottom: 6px;
+    }
+
+
+    #intro-overlay h2 {
+
+        font-size: 10px;
+
+        margin-bottom: 10px;
+    }
+
+
+    #intro-overlay .intro-text {
+
+        font-size: 10.5px;
+
+        line-height: 1.4;
+
+        margin-bottom: 15px;
+    }
+
+
+    #intro-overlay #start-intro {
+
+        max-width: 300px;
+
+        min-height: 44px;
+
+        padding: 10px 14px;
+
+        font-size: 11px;
+    }
+
+}
+
+
+/* =====================================================
+   SEHR KLEINE GERÄTE
+   BIS 350px
+===================================================== */
+
+@media screen and (max-width: 350px) {
+
+    #intro-overlay {
+
+        padding:
+            12px
+            10px
+            18px;
+    }
+
+
+    #intro-overlay .intro-logo {
+
+        width: 65px;
+
+        margin-bottom: 8px;
+    }
+
+
+    #intro-overlay h1 {
+
+        font-size: 15px;
+    }
+
+
+    #intro-overlay h2 {
+
+        font-size: 9px;
+
+        margin-bottom: 8px;
+    }
+
+
+    #intro-overlay .intro-text {
+
+        font-size: 9px;
+
+        line-height: 1.35;
+
+        margin-bottom: 12px;
+    }
+
+
+    #intro-overlay #start-intro {
+
+        max-width: 280px;
+
+        min-height: 42px;
+
+        font-size: 10px;
+    }
+
+}
+
+
+/* =====================================================
+   HANDY – LANDSCAPE
+===================================================== */
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+
+    #intro-overlay {
+
+        min-height: 100vh;
+
+        padding:
+            10px
+            20px
+            15px;
+
+        justify-content: flex-start;
+
+        overflow-y: auto;
+    }
+
+
+    #intro-overlay .intro-logo {
+
+        width: 55px;
+
+        margin-bottom: 6px;
+    }
+
+
+    #intro-overlay h1 {
+
+        font-size: 17px;
+
+        margin-bottom: 5px;
+    }
+
+
+    #intro-overlay h2 {
+
+        font-size: 10px;
+
+        margin-bottom: 7px;
+    }
+
+
+    #intro-overlay .intro-text {
+
+        font-size: 9px;
+
+        line-height: 1.3;
+
+        margin-bottom: 10px;
+    }
+
+
+    #intro-overlay #start-intro {
+
+        min-height: 40px;
+
+        max-width: 300px;
+
+        font-size: 10px;
+
+        padding: 8px 15px;
+    }
+
+}
