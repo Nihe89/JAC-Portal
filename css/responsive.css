@@ -1260,3 +1260,172 @@ table {
     }
 
 }
+/* =====================================================
+   JAC VERIFIZIERUNG
+   FINAL MOBILE LAYOUT
+   AUSWEIS IMMER UNTER DER VERIFIZIERUNG
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    #verification-page.verification-page {
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        justify-content: flex-start !important;
+
+        align-items: center !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        min-height: 100svh !important;
+
+        height: auto !important;
+
+        padding: 20px 10px 30px !important;
+
+        margin: 0 !important;
+
+        gap: 0 !important;
+
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+
+
+    /* =================================================
+       VERIFIZIERUNG
+    ================================================= */
+
+    #verification-page.verification-page > .verification-card {
+
+        display: block !important;
+
+        position: relative !important;
+
+        order: 1 !important;
+
+        width: 100% !important;
+
+        max-width: 650px !important;
+
+        min-width: 0 !important;
+
+        height: auto !important;
+
+        margin: 0 auto !important;
+
+        flex: none !important;
+
+        align-self: center !important;
+
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+
+        transform: none !important;
+    }
+
+
+    /* =================================================
+       AGENTENAUSWEIS
+       IMMER GANZ UNTEN
+    ================================================= */
+
+    #verification-page.verification-page > #jac-agent-card,
+    #verification-page.verification-page > .verification-agent-card {
+
+        display: block !important;
+
+        position: relative !important;
+
+        order: 2 !important;
+
+        width: calc(100% - 20px) !important;
+
+        max-width: 360px !important;
+
+        min-width: 0 !important;
+
+        height: auto !important;
+
+        margin: 18px auto 0 !important;
+
+        padding: 12px 14px !important;
+
+        flex: none !important;
+
+        align-self: center !important;
+
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+
+        transform: none !important;
+
+        float: none !important;
+
+        clear: both !important;
+
+        box-sizing: border-box !important;
+
+        overflow: hidden !important;
+    }
+}
+
+
+/* =====================================================
+   KLEINES SMARTPHONE
+===================================================== */
+
+@media screen and (max-width: 576px) {
+
+    #verification-page.verification-page {
+
+        padding: 15px 8px 25px !important;
+    }
+
+
+    #verification-page.verification-page > .verification-card {
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+    }
+
+
+    #verification-page.verification-page > #jac-agent-card,
+    #verification-page.verification-page > .verification-agent-card {
+
+        width: calc(100% - 16px) !important;
+
+        max-width: 330px !important;
+
+        margin-top: 15px !important;
+
+        padding: 10px 12px !important;
+    }
+}
+
+
+/* =====================================================
+   SEHR KLEINES HANDY
+===================================================== */
+
+@media screen and (max-width: 400px) {
+
+    #verification-page.verification-page > #jac-agent-card,
+    #verification-page.verification-page > .verification-agent-card {
+
+        max-width: 310px !important;
+
+        padding: 9px 10px !important;
+
+        margin-top: 12px !important;
+    }
+}
