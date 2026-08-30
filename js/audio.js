@@ -10,6 +10,8 @@
    - AudioContext wird beim Benutzerkontakt aktiviert
    - Fallback auf HTMLAudio, falls WebAudio nicht verfügbar ist
    - Bestehende JACAudio-API bleibt erhalten
+   - Kein unnötiger HTMLAudio-Fallback auf iOS
+   - Noch nicht geladene Sounds werden über WebAudio nachgeladen
    ========================================================= */
 
 "use strict";
@@ -17,7 +19,7 @@
 
 /* =========================================================
    AUDIO UNLOCK
-========================================================= */
+   ========================================================= */
 
 const JAC_AUDIO_UNLOCK_KEY =
     "JAC_AUDIO_UNLOCKED";
@@ -25,7 +27,7 @@ const JAC_AUDIO_UNLOCK_KEY =
 
 /* =========================================================
    AUDIO KONFIGURATION
-========================================================= */
+   ========================================================= */
 
 const JAC_AUDIO = {
 
@@ -84,7 +86,7 @@ const JAC_AUDIO = {
 
 /* =========================================================
    AUDIO ENGINE
-========================================================= */
+   ========================================================= */
 
 const JACAudio = {
 
@@ -101,6 +103,13 @@ const JACAudio = {
 
     loadingPromise:
         null,
+
+    /*
+     * Einzelne Sounds, die gerade nachgeladen werden.
+     * Verhindert doppelte fetch/decode-Vorgänge.
+     */
+    pendingLoads:
+        new Map(),
 
     enabled:
         true,
@@ -120,7 +129,7 @@ const JACAudio = {
 
     /* =====================================================
        AUDIO CONTEXT
-    ===================================================== */
+       ===================================================== */
 
     ensureAudioContext() {
 
@@ -150,7 +159,8 @@ const JACAudio = {
                 error
             );
 
-            this.audioContext = null;
+            this.audioContext =
+                null;
 
         }
 
@@ -161,7 +171,7 @@ const JACAudio = {
 
     /* =====================================================
        INIT
-    ===================================================== */
+       ===================================================== */
 
     init() {
 
@@ -174,6 +184,10 @@ const JACAudio = {
 
         this.ensureAudioContext();
 
+        /*
+         * Preloading läuft im Hintergrund.
+         * Es wird NICHT darauf gewartet.
+         */
         this.prepareSounds();
 
     },
@@ -183,9 +197,9 @@ const JACAudio = {
        SOUNDS VORBEREITEN
 
        WebAudio lädt die Dateien komplett in den Speicher.
-       Dadurch entfällt bei kurzen Sounds möglichst die
-       iOS-typische Verzögerung von HTMLAudio.play().
-    ===================================================== */
+       Dadurch werden kurze Sounds nach dem Laden ohne
+       HTMLAudio-Latenz abgespielt.
+       ===================================================== */
 
     prepareSounds() {
 
@@ -232,7 +246,8 @@ const JACAudio = {
                                 await fetch(
                                     url,
                                     {
-                                        cache: "force-cache"
+                                        cache:
+                                            "force-cache"
                                     }
                                 );
 
@@ -281,6 +296,10 @@ const JACAudio = {
 
             .then(() => {
 
+                /*
+                 * HTMLAudio bleibt nur als echter Fallback
+                 * erhalten.
+                 */
                 this.prepareHTMLAudioFallback();
 
                 return true;
@@ -309,9 +328,9 @@ const JACAudio = {
     /* =====================================================
        DECODE AUDIO DATA
 
-       Safari/iOS unterstützt Promise und Callback je nach
-       WebKit-Version unterschiedlich.
-    ===================================================== */
+       Safari/iOS unterstützt je nach WebKit-Version
+       unterschiedliche decodeAudioData-Varianten.
+       ===================================================== */
 
     decodeAudioData(arrayBuffer) {
 
@@ -324,20 +343,25 @@ const JACAudio = {
 
         return new Promise(resolve => {
 
-            let finished = false;
+            let finished =
+                false;
 
 
-            const done = buffer => {
+            const done =
+                buffer => {
 
-                if (finished) {
-                    return;
-                }
+                    if (finished) {
+                        return;
+                    }
 
-                finished = true;
+                    finished =
+                        true;
 
-                resolve(buffer || null);
+                    resolve(
+                        buffer || null
+                    );
 
-            };
+                };
 
 
             try {
@@ -350,14 +374,23 @@ const JACAudio = {
                     );
 
 
+                /*
+                 * Moderne Safari-Versionen geben
+                 * zusätzlich ein Promise zurück.
+                 */
                 if (
                     result &&
-                    typeof result.then === "function"
+                    typeof result.then ===
+                        "function"
                 ) {
 
                     result
-                        .then(buffer => done(buffer))
-                        .catch(() => done(null));
+                        .then(
+                            buffer => done(buffer)
+                        )
+                        .catch(
+                            () => done(null)
+                        );
 
                 }
 
@@ -381,7 +414,10 @@ const JACAudio = {
 
     /* =====================================================
        HTML AUDIO FALLBACK
-    ===================================================== */
+
+       Wird nur verwendet, wenn WebAudio überhaupt
+       nicht verfügbar ist.
+       ===================================================== */
 
     prepareHTMLAudioFallback() {
 
@@ -393,13 +429,11 @@ const JACAudio = {
                 return;
             }
 
-
             const audio =
                 new Audio(
                     JAC_AUDIO.basePath +
                     JAC_AUDIO.sounds[soundName]
                 );
-
 
             audio.preload =
                 "auto";
@@ -407,9 +441,11 @@ const JACAudio = {
             audio.autoplay =
                 false;
 
+            audio.playsInline =
+                true;
+
             audio.volume =
                 this.volume;
-
 
             this.instances[soundName] =
                 audio;
@@ -425,13 +461,11 @@ const JACAudio = {
                 return;
             }
 
-
             const audio =
                 new Audio(
                     JAC_AUDIO.basePath +
                     JAC_AUDIO.akte3[soundName]
                 );
-
 
             audio.preload =
                 "auto";
@@ -439,9 +473,11 @@ const JACAudio = {
             audio.autoplay =
                 false;
 
+            audio.playsInline =
+                true;
+
             audio.volume =
                 this.volume;
-
 
             this.instances[soundName] =
                 audio;
@@ -454,8 +490,8 @@ const JACAudio = {
     /* =====================================================
        AUDIO FREISCHALTEN
 
-       Wird aus einem echten Benutzerklick aufgerufen.
-    ===================================================== */
+       Wird aus einer echten Benutzerinteraktion aufgerufen.
+       ===================================================== */
 
     async unlock() {
 
@@ -469,6 +505,11 @@ const JACAudio = {
 
             if (context) {
 
+                /*
+                 * Safari / iOS:
+                 * AudioContext muss nach User-Geste
+                 * wieder aktiviert werden.
+                 */
                 if (
                     context.state ===
                     "suspended"
@@ -480,11 +521,12 @@ const JACAudio = {
 
 
                 /*
-                 * Ein sehr kurzer, stummer Buffer-Start
-                 * hilft insbesondere Safari/iOS dabei,
-                 * die Audio-Pipeline vollständig zu aktivieren.
+                 * Kurzer stummer Buffer.
+                 *
+                 * Kein hörbarer Ton.
+                 * Aktiviert auf vielen Safari-Versionen
+                 * zuverlässig die Audio-Pipeline.
                  */
-
                 if (
                     context.state ===
                     "running"
@@ -548,10 +590,10 @@ const JACAudio = {
 
 
         /*
-         * HTMLAudio-Fallback ebenfalls durch
-         * load() vorbereiten, ohne Sound abzuspielen.
+         * HTMLAudio-Fallback nur vorbereiten.
+         *
+         * Es wird KEIN Sound abgespielt.
          */
-
         Object.values(
             this.instances
         ).forEach(audio => {
@@ -568,33 +610,29 @@ const JACAudio = {
 
 
         /*
-         * Das Preloading darf hier abgeschlossen werden,
-         * damit nach dem Benutzerklick möglichst alle
-         * wichtigen Sounds bereits dekodiert sind.
+         * WICHTIG:
+         *
+         * Das globale Preloading wird NICHT abgewartet.
+         *
+         * Der AudioContext muss innerhalb der
+         * Benutzeraktion freigeschaltet werden.
+         * Die Dateien dürfen parallel laden/dekodieren.
          */
+        if (!this.loadingPromise) {
 
-        try {
-
-            if (this.loadingPromise) {
-
-                await this.loadingPromise;
-
-            }
+            this.prepareSounds();
 
         }
 
-        catch (_) {}
-
 
         /*
-         * Safari kann den Context nach einem Seitenwechsel
-         * oder Fokusverlust wieder suspendieren.
+         * Safari kann den Context nach Fokuswechsel
+         * oder Seitenwechsel wieder suspendieren.
          */
-
         if (
             this.audioContext &&
             this.audioContext.state ===
-            "suspended"
+                "suspended"
         ) {
 
             try {
@@ -631,20 +669,18 @@ const JACAudio = {
 
     /* =====================================================
        AUDIO CONTEXT AKTIV HALTEN
-    ===================================================== */
+       ===================================================== */
 
     keepContextRunning() {
 
-        if (
-            !this.audioContext ||
-            !this.audioUnlocked
-        ) {
-
+        if (!this.audioContext) {
             return;
-
         }
 
-
+        /*
+         * Nicht nur auf audioUnlocked verlassen.
+         * Safari kann jederzeit suspendieren.
+         */
         if (
             this.audioContext.state ===
             "suspended"
@@ -661,7 +697,7 @@ const JACAudio = {
 
     /* =====================================================
        PRÜFEN, OB AUDIO FREIGEGEBEN WURDE
-    ===================================================== */
+       ===================================================== */
 
     hasUnlockFromBoot() {
 
@@ -687,8 +723,12 @@ const JACAudio = {
     /* =====================================================
        SOUND ABSPIELEN
 
-       WebAudio wird für vorgeladene Sounds bevorzugt.
-    ===================================================== */
+       WebAudio wird bevorzugt.
+
+       WICHTIG:
+       Wenn der Buffer noch nicht vorhanden ist,
+       wird NICHT sofort auf HTMLAudio gewechselt.
+       ===================================================== */
 
     play(
         soundName,
@@ -697,152 +737,185 @@ const JACAudio = {
 
         this.init();
 
-
         if (!this.enabled) {
             return null;
         }
 
-
-        this.keepContextRunning();
-
-
-        const buffer =
-            this.buffers.get(soundName);
+        const context =
+            this.ensureAudioContext();
 
 
         /*
-         * WebAudio:
-         * Der Sound startet direkt aus dem bereits
-         * dekodierten Speicher.
+         * WebAudio vorhanden:
          */
+        if (context) {
 
-        if (
-            buffer &&
-            this.audioContext &&
-            this.audioContext.state === "running"
-        ) {
+            /*
+             * Safari kann den Context suspendiert haben.
+             */
+            if (
+                context.state ===
+                "suspended"
+            ) {
 
-            try {
+                context.resume().catch(() => {});
 
-                const source =
-                    this.audioContext.createBufferSource();
-
-
-                source.buffer =
-                    buffer;
+            }
 
 
-                source.loop =
-                    options.loop === true;
-
-
-                if (
-                    typeof options.playbackRate ===
-                    "number"
-                ) {
-
-                    source.playbackRate.value =
-                        options.playbackRate;
-
-                }
-
-
-                const gain =
-                    this.audioContext.createGain();
-
-
-                const volume =
-                    typeof options.volume === "number"
-
-                        ? Math.max(
-                            0,
-                            Math.min(
-                                1,
-                                options.volume
-                            )
-                        )
-
-                        : this.volume;
-
-
-                gain.gain.value =
-                    volume;
-
-
-                source.connect(gain);
-
-                gain.connect(
-                    this.audioContext.destination
-                );
-
-
-                const record = {
-
-                    source,
-                    gain,
+            const buffer =
+                this.buffers.get(
                     soundName
-
-                };
-
-
-                this.activeSources.add(
-                    record
                 );
 
 
-                source.onended =
-                    () => {
+            /*
+             * BUFFER VORHANDEN
+             *
+             * Direkt über WebAudio starten.
+             */
+            if (
+                buffer &&
+                context.state ===
+                    "running"
+            ) {
 
-                        this.activeSources.delete(
-                            record
-                        );
+                try {
+
+                    const source =
+                        context.createBufferSource();
 
 
-                        try {
+                    source.buffer =
+                        buffer;
 
-                            source.disconnect();
 
-                            gain.disconnect();
+                    source.loop =
+                        options.loop === true;
 
-                        }
 
-                        catch (_) {}
+                    if (
+                        typeof options.playbackRate ===
+                            "number"
+                    ) {
+
+                        source.playbackRate.value =
+                            options.playbackRate;
+
+                    }
+
+
+                    const gain =
+                        context.createGain();
+
+
+                    const volume =
+                        typeof options.volume ===
+                            "number"
+
+                            ? Math.max(
+                                0,
+                                Math.min(
+                                    1,
+                                    options.volume
+                                )
+                            )
+
+                            : this.volume;
+
+
+                    gain.gain.value =
+                        volume;
+
+
+                    source.connect(gain);
+
+                    gain.connect(
+                        context.destination
+                    );
+
+
+                    const record = {
+
+                        source,
+                        gain,
+                        soundName
 
                     };
 
 
-                /*
-                 * start(0) nutzt die Audio-Clock von WebAudio
-                 * und ist auf iOS wesentlich präziser als
-                 * wiederholtes HTMLAudio.play().
-                 */
-
-                source.start(0);
+                    this.activeSources.add(
+                        record
+                    );
 
 
-                return record;
+                    source.onended =
+                        () => {
+
+                            this.activeSources.delete(
+                                record
+                            );
+
+                            try {
+
+                                source.disconnect();
+                                gain.disconnect();
+
+                            }
+
+                            catch (_) {}
+
+                        };
+
+
+                    /*
+                     * SOFORTIGER START.
+                     *
+                     * Keine setTimeout-Verzögerung.
+                     */
+                    source.start(0);
+
+
+                    return record;
+
+                }
+
+                catch (error) {
+
+                    console.warn(
+                        "JAC WebAudio Wiedergabe:",
+                        soundName,
+                        error
+                    );
+
+                }
 
             }
 
-            catch (error) {
 
-                console.warn(
-                    "JAC WebAudio Wiedergabe:",
-                    soundName,
-                    error
-                );
+            /*
+             * BUFFER NOCH NICHT GELADEN
+             *
+             * NICHT HTMLAudio.play() verwenden.
+             *
+             * Stattdessen nachladen und anschließend
+             * über WebAudio abspielen.
+             */
+            this.loadAndPlayWhenReady(
+                soundName,
+                options
+            );
 
-            }
+
+            return null;
 
         }
 
 
         /*
-         * Fallback:
-         * Falls der Buffer noch nicht geladen wurde oder
-         * WebAudio nicht verfügbar ist.
+         * Echter Fallback:
+         * WebAudio ist überhaupt nicht verfügbar.
          */
-
         return this.playHTMLAudio(
             soundName,
             options
@@ -852,8 +925,205 @@ const JACAudio = {
 
 
     /* =====================================================
+       SOUND NACHLADEN UND DANACH ABSPIELEN
+
+       Verhindert doppelte Ladeprozesse und reduziert
+       iOS-Verzögerungen bei später ausgelösten Sounds.
+       ===================================================== */
+
+    loadAndPlayWhenReady(
+        soundName,
+        options = {}
+    ) {
+
+        if (!this.pendingLoads) {
+
+            this.pendingLoads =
+                new Map();
+
+        }
+
+
+        /*
+         * Sound wird bereits geladen.
+         */
+        if (
+            this.pendingLoads.has(
+                soundName
+            )
+        ) {
+
+            this.pendingLoads
+                .get(soundName)
+                .then(buffer => {
+
+                    if (!buffer) {
+                        return;
+                    }
+
+                    this.play(
+                        soundName,
+                        options
+                    );
+
+                });
+
+            return;
+
+        }
+
+
+        const filename =
+            JAC_AUDIO.sounds[soundName] ||
+            JAC_AUDIO.akte3[soundName];
+
+
+        if (!filename) {
+
+            console.warn(
+                "JAC Audio: Sound nicht gefunden:",
+                soundName
+            );
+
+            return;
+
+        }
+
+
+        const context =
+            this.ensureAudioContext();
+
+
+        if (!context) {
+            return;
+        }
+
+
+        const url =
+            JAC_AUDIO.basePath +
+            filename;
+
+
+        const promise =
+            fetch(
+                url,
+                {
+                    cache:
+                        "force-cache"
+                }
+            )
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `HTTP ${response.status}`
+                    );
+
+                }
+
+                return response.arrayBuffer();
+
+            })
+
+            .then(arrayBuffer => {
+
+                return this.decodeAudioData(
+                    arrayBuffer
+                );
+
+            })
+
+            .then(buffer => {
+
+                if (buffer) {
+
+                    this.buffers.set(
+                        soundName,
+                        buffer
+                    );
+
+                }
+
+                return buffer;
+
+            })
+
+            .catch(error => {
+
+                console.warn(
+                    "JAC Audio Nachladen:",
+                    soundName,
+                    error
+                );
+
+                return null;
+
+            })
+
+            .finally(() => {
+
+                this.pendingLoads.delete(
+                    soundName
+                );
+
+            });
+
+
+        this.pendingLoads.set(
+            soundName,
+            promise
+        );
+
+
+        promise.then(buffer => {
+
+            if (!buffer) {
+                return;
+            }
+
+
+            /*
+             * Safari kann während des Ladevorgangs
+             * den Context suspendieren.
+             */
+            if (
+                context.state ===
+                "suspended"
+            ) {
+
+                context.resume()
+                    .catch(() => {});
+
+            }
+
+
+            /*
+             * play() prüft den Context erneut
+             * und startet den Sound ohne künstliche
+             * Verzögerung.
+             */
+            if (
+                context.state ===
+                "running"
+            ) {
+
+                this.play(
+                    soundName,
+                    options
+                );
+
+            }
+
+        });
+
+    },
+
+
+    /* =====================================================
        HTML AUDIO FALLBACK
-    ===================================================== */
+       ===================================================== */
 
     playHTMLAudio(
         soundName,
@@ -881,7 +1151,8 @@ const JACAudio = {
 
 
         audio.volume =
-            typeof options.volume === "number"
+            typeof options.volume ===
+                "number"
 
                 ? Math.max(
                     0,
@@ -898,9 +1169,13 @@ const JACAudio = {
             options.loop === true;
 
 
+        audio.playsInline =
+            true;
+
+
         if (
             typeof options.playbackRate ===
-            "number"
+                "number"
         ) {
 
             audio.playbackRate =
@@ -951,7 +1226,7 @@ const JACAudio = {
             if (
                 promise &&
                 typeof promise.catch ===
-                "function"
+                    "function"
             ) {
 
                 promise.catch(
@@ -992,7 +1267,7 @@ const JACAudio = {
 
     /* =====================================================
        SOUND STOPPEN
-    ===================================================== */
+       ===================================================== */
 
     stop(audio) {
 
@@ -1004,7 +1279,6 @@ const JACAudio = {
         /*
          * WebAudio Record
          */
-
         if (
             typeof audio === "object" &&
             audio.source
@@ -1042,7 +1316,6 @@ const JACAudio = {
         /*
          * HTMLAudio
          */
-
         try {
 
             audio.pause();
@@ -1071,7 +1344,7 @@ const JACAudio = {
 
     /* =====================================================
        ALLE SOUNDS STOPPEN
-    ===================================================== */
+       ===================================================== */
 
     stopAll() {
 
@@ -1129,7 +1402,7 @@ const JACAudio = {
 
     /* =====================================================
        SOUND NACH NAMEN STOPPEN
-    ===================================================== */
+       ===================================================== */
 
     stopSound(soundName) {
 
@@ -1146,7 +1419,6 @@ const JACAudio = {
         /*
          * WebAudio
          */
-
         this.activeSources.forEach(
             record => {
 
@@ -1166,7 +1438,6 @@ const JACAudio = {
         /*
          * HTMLAudio
          */
-
         this.activeSounds.forEach(
             audio => {
 
@@ -1201,7 +1472,7 @@ const JACAudio = {
 
     /* =====================================================
        LAUTSTÄRKE
-    ===================================================== */
+       ===================================================== */
 
     setVolume(volume) {
 
@@ -1232,7 +1503,6 @@ const JACAudio = {
          * Bereits vorbereitete HTMLAudio-Instanzen
          * ebenfalls aktualisieren.
          */
-
         Object.values(
             this.instances
         ).forEach(audio => {
@@ -1253,7 +1523,7 @@ const JACAudio = {
 
     /* =====================================================
        ENABLE / DISABLE
-    ===================================================== */
+       ===================================================== */
 
     setEnabled(enabled) {
 
@@ -1272,7 +1542,7 @@ const JACAudio = {
 
     /* =====================================================
        UI
-    ===================================================== */
+       ===================================================== */
 
     hover() {
 
@@ -1300,7 +1570,7 @@ const JACAudio = {
 
     /* =====================================================
        SYSTEM
-    ===================================================== */
+       ===================================================== */
 
     boot() {
 
@@ -1340,7 +1610,7 @@ const JACAudio = {
 
     /* =====================================================
        AKTEN
-    ===================================================== */
+       ===================================================== */
 
     unlockCase() {
 
@@ -1380,7 +1650,7 @@ const JACAudio = {
 
     /* =====================================================
        SCAN
-    ===================================================== */
+       ===================================================== */
 
     scanStart() {
 
@@ -1445,7 +1715,7 @@ const JACAudio = {
 
     /* =====================================================
        DATEN
-    ===================================================== */
+       ===================================================== */
 
     processData() {
 
@@ -1473,7 +1743,7 @@ const JACAudio = {
 
     /* =====================================================
        HOLOGRAMM
-    ===================================================== */
+       ===================================================== */
 
     hologram() {
 
@@ -1502,7 +1772,7 @@ const JACAudio = {
 
     /* =====================================================
        FORTSCHRITT
-    ===================================================== */
+       ===================================================== */
 
     completeCase() {
 
@@ -1554,7 +1824,7 @@ const JACAudio = {
 
     /* =====================================================
        FINALE
-    ===================================================== */
+       ===================================================== */
 
     finalReveal() {
 
@@ -1592,7 +1862,7 @@ const JACAudio = {
 
     /* =====================================================
        RESET
-    ===================================================== */
+       ===================================================== */
 
     reset() {
 
@@ -1608,7 +1878,7 @@ const JACAudio = {
 
     /* =====================================================
        FEHLER
-    ===================================================== */
+       ===================================================== */
 
     error() {
 
@@ -1624,7 +1894,7 @@ const JACAudio = {
 
     /* =====================================================
        AKTE 3
-    ===================================================== */
+       ===================================================== */
 
     aussage1() {
 
@@ -1698,11 +1968,98 @@ const JACAudio = {
 
 
 /* =========================================================
+   iOS / iPadOS AUDIO UNLOCK
+
+   Safari benötigt für die Audio-Freigabe eine echte
+   Benutzerinteraktion.
+
+   pointerdown deckt moderne iOS-/iPadOS-Geräte ab.
+   touchstart bleibt als Fallback für ältere WebKit-Versionen.
+
+   Es wird kein hörbarer Sound gestartet.
+   ========================================================= */
+
+let jacAudioUserInteractionHandled =
+    false;
+
+
+function jacUnlockAudioFromUserInteraction() {
+
+    /*
+     * Initialen Unlock genau einmal durchführen.
+     */
+    if (
+        !jacAudioUserInteractionHandled
+    ) {
+
+        jacAudioUserInteractionHandled =
+            true;
+
+
+        /*
+         * unlock() innerhalb der Benutzerinteraktion.
+         */
+        JACAudio.unlock()
+            .catch(() => {});
+
+
+        return;
+
+    }
+
+
+    /*
+     * Safari kann den Context später wieder suspendieren.
+     */
+    if (
+        JACAudio.audioContext &&
+        JACAudio.audioContext.state ===
+            "suspended"
+    ) {
+
+        JACAudio.audioContext
+            .resume()
+            .catch(() => {});
+
+    }
+
+}
+
+
+/*
+ * Moderner iOS-Pfad.
+ */
+document.addEventListener(
+    "pointerdown",
+    jacUnlockAudioFromUserInteraction,
+    {
+        passive: true,
+        capture: true
+    }
+);
+
+
+/*
+ * Fallback für ältere iOS-/WebKit-Versionen.
+ */
+document.addEventListener(
+    "touchstart",
+    jacUnlockAudioFromUserInteraction,
+    {
+        passive: true,
+        capture: true
+    }
+);
+
+
+/* =========================================================
    iOS / iPadOS:
 
    Bei Rückkehr aus dem Hintergrund AudioContext wieder
-   aktivieren. Es wird dabei kein Sound automatisch gestartet.
-========================================================= */
+   aktivieren.
+
+   Es wird dabei kein Sound automatisch gestartet.
+   ========================================================= */
 
 document.addEventListener(
     "visibilitychange",
@@ -1723,7 +2080,7 @@ document.addEventListener(
 
 /* =========================================================
    DOM INIT
-========================================================= */
+   ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -1737,7 +2094,7 @@ document.addEventListener(
 
 /* =========================================================
    GLOBALE API
-========================================================= */
+   ========================================================= */
 
 window.JACAudio =
     JACAudio;
@@ -1745,4 +2102,4 @@ window.JACAudio =
 
 /* =========================================================
    ENDE
-========================================================= */
+   ========================================================= */
