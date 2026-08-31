@@ -930,12 +930,62 @@ function startVerification() {
 
                 /*
                  * Laufender Scan-Sound.
+                 *
+                 * Die Audioinstanz wird wie bisher
+                 * über JACAudio erzeugt.
+                 *
+                 * Zusätzlich wird play() hier noch
+                 * einmal explizit aufgerufen.
                  */
 
                 verificationScanAudio =
                     playAudio(
                         "scanLoop"
                     );
+
+
+                if (
+                    verificationScanAudio &&
+                    typeof verificationScanAudio.play ===
+                        "function"
+                ) {
+
+                    try {
+
+                        const scanPlayPromise =
+                            verificationScanAudio.play();
+
+
+                        if (
+                            scanPlayPromise &&
+                            typeof scanPlayPromise.catch ===
+                                "function"
+                        ) {
+
+                            scanPlayPromise.catch(
+                                error => {
+
+                                    console.warn(
+                                        "JAC Scan-Loop konnte nicht gestartet werden:",
+                                        error
+                                    );
+
+                                }
+                            );
+
+                        }
+
+                    } catch (error) {
+
+                        console.warn(
+                            "JAC Scan-Loop Wiedergabefehler:",
+                            error
+                        );
+
+                    }
+
+                }
+
             }
 
 
