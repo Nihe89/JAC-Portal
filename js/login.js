@@ -3,12 +3,14 @@
 /* =========================================================
    JAC PORTAL
    LOGIN
+   WINDOWS + ANDROID
+   STABILES AUDIO-SYSTEM
    ========================================================= */
 
 
 /* =========================================================
    ZUGANGSDATEN
-   ========================================================= */
+========================================================= */
 
 const JAC_LOGIN_ID = "JAC-090996";
 const JAC_LOGIN_CODE = "M30H-U96J";
@@ -16,7 +18,7 @@ const JAC_LOGIN_CODE = "M30H-U96J";
 
 /* =========================================================
    DOM
-   ========================================================= */
+========================================================= */
 
 const loginForm =
     document.getElementById("login-form");
@@ -36,14 +38,24 @@ const loginMessage =
 
 /* =========================================================
    STATUS
-   ========================================================= */
+========================================================= */
 
 let loginRunning = false;
 
 
 /* =========================================================
    AUDIO
-   ========================================================= */
+========================================================= */
+
+/*
+ * WICHTIG:
+ *
+ * Hier wird wieder ausschließlich das
+ * bestehende JACAudio verwendet.
+ *
+ * Das separate iOS-System wird NICHT
+ * in den normalen Login eingebaut.
+ */
 
 function jacSound(name) {
 
@@ -60,6 +72,7 @@ function jacSound(name) {
 
             console.warn(
                 "JAC Audio Fehler:",
+                name,
                 error
             );
 
@@ -67,13 +80,18 @@ function jacSound(name) {
 
     }
 
+    console.warn(
+        "JAC Audio Funktion nicht vorhanden:",
+        name
+    );
+
     return null;
 }
 
 
 /* =========================================================
    NACHRICHT
-   ========================================================= */
+========================================================= */
 
 function showMessage(
     text,
@@ -91,43 +109,32 @@ function showMessage(
         type
             ? `login-message ${type}`
             : "login-message";
-
 }
 
 
 /* =========================================================
    LOGIN SPERREN
-   ========================================================= */
+========================================================= */
 
 function lockLogin() {
 
     if (participantIdInput) {
-
-        participantIdInput.disabled =
-            true;
-
+        participantIdInput.disabled = true;
     }
 
     if (accessCodeInput) {
-
-        accessCodeInput.disabled =
-            true;
-
+        accessCodeInput.disabled = true;
     }
 
     if (loginButton) {
-
-        loginButton.disabled =
-            true;
-
+        loginButton.disabled = true;
     }
-
 }
 
 
 /* =========================================================
    LOGIN PRÜFEN
-   ========================================================= */
+========================================================= */
 
 function checkLogin() {
 
@@ -145,7 +152,7 @@ function checkLogin() {
 
 
     /* -----------------------------------------------------
-       FELDER LEER
+       TEILNEHMER-ID FEHLT
     ----------------------------------------------------- */
 
     if (!enteredId) {
@@ -162,9 +169,12 @@ function checkLogin() {
         }
 
         return false;
-
     }
 
+
+    /* -----------------------------------------------------
+       ZUGANGSCODE FEHLT
+    ----------------------------------------------------- */
 
     if (!enteredCode) {
 
@@ -180,7 +190,6 @@ function checkLogin() {
         }
 
         return false;
-
     }
 
 
@@ -201,12 +210,10 @@ function checkLogin() {
         );
 
         return false;
-
     }
 
 
     return true;
-
 }
 
 
@@ -220,24 +227,53 @@ function startLogin() {
         return;
     }
 
-
-    loginRunning =
-        true;
-
+    loginRunning = true;
 
     lockLogin();
 
 
-    /* -----------------------------------------------------
-       SOFORTIGER KLICK-SOUND
-    ----------------------------------------------------- */
+    /* =====================================================
+       AUDIO INITIALISIEREN
+    ===================================================== */
+
+    /*
+     * Nur das bestehende Audiosystem.
+     *
+     * Die Initialisierung passiert hier,
+     * nachdem der Benutzer auf LOGIN geklickt hat.
+     */
+
+    if (
+        window.JACAudio &&
+        typeof window.JACAudio.init === "function"
+    ) {
+
+        try {
+
+            window.JACAudio.init();
+
+        } catch (error) {
+
+            console.warn(
+                "JAC Audio konnte nicht initialisiert werden:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       KLICK
+    ===================================================== */
 
     jacSound("click");
 
 
-    /* -----------------------------------------------------
-       SYSTEMMELDUNG
-    ----------------------------------------------------- */
+    /* =====================================================
+       LOGIN NACHRICHT
+    ===================================================== */
 
     showMessage(
         "Zugangsdaten werden verifiziert...",
@@ -245,90 +281,81 @@ function startLogin() {
     );
 
 
-    /* -----------------------------------------------------
-       SCAN
-    ----------------------------------------------------- */
+    /* =====================================================
+       SCANNER START
+    ===================================================== */
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            jacSound("scanStart");
+        jacSound("scanStart");
 
-            showMessage(
-                "Identität wird überprüft...",
-                "info"
-            );
+        showMessage(
+            "Identität wird überprüft...",
+            "info"
+        );
 
-        },
-        250
-    );
+    }, 400);
 
 
-    /* -----------------------------------------------------
-       BIOMETRIE
-    ----------------------------------------------------- */
+    /* =====================================================
+       BIOMETRISCHE PRÜFUNG
+    ===================================================== */
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            jacSound("fingerprintScan");
+        jacSound("fingerprintScan");
 
-            showMessage(
-                "Biometrische Daten werden abgeglichen...",
-                "info"
-            );
+        showMessage(
+            "Biometrische Daten werden abgeglichen...",
+            "info"
+        );
 
-        },
-        850
-    );
+    }, 1400);
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        ERFOLG
-    ----------------------------------------------------- */
+    ===================================================== */
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            jacSound("scanSuccess");
+        jacSound("scanSuccess");
 
-            showMessage(
-                "Identität bestätigt. Zugang freigegeben.",
-                "success"
-            );
+        showMessage(
+            "Identität bestätigt. Zugang freigegeben.",
+            "success"
+        );
 
-        },
-        1450
-    );
+    }, 2400);
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        SYSTEM BEREIT
-    ----------------------------------------------------- */
+    ===================================================== */
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            jacSound("ready");
+        jacSound("ready");
 
-        },
-        1750
-    );
+    }, 3100);
 
 
-    /* -----------------------------------------------------
-       VERIFIZIERUNG
-    ----------------------------------------------------- */
+    /* =====================================================
+       NOCH KURZ LOGIN SICHTBAR LASSEN
+    ===================================================== */
 
-    setTimeout(
-        () => {
+    /*
+     * Die erfolgreiche Login-Sequenz darf
+     * vollständig sichtbar und hörbar werden,
+     * bevor die nächste Seite geladen wird.
+     */
 
-            window.location.href =
-                "verifizierung.html";
+    setTimeout(() => {
 
-        },
-        2200
-    );
+        window.location.href =
+            "verifizierung.html";
+
+    }, 4300);
 
 }
 
@@ -351,26 +378,18 @@ if (loginForm) {
             }
 
 
-            /*
-               WICHTIG:
-               Sound direkt innerhalb der
-               Benutzeraktion.
-            */
-
-            jacSound("click");
-
+            /* ---------------------------------------------
+               LOGIN PRÜFEN
+            --------------------------------------------- */
 
             if (!checkLogin()) {
-
                 return;
-
             }
 
 
-            /*
-               Bei korrekten Daten
-               Login-Prozess starten.
-            */
+            /* ---------------------------------------------
+               LOGIN STARTEN
+            --------------------------------------------- */
 
             startLogin();
 
@@ -391,11 +410,13 @@ if (loginButton) {
         () => {
 
             /*
-               Kein separater Sound hier,
-               damit der Klick nicht doppelt ertönt.
-
-               Der Submit-Handler übernimmt ihn.
-            */
+             * Absichtlich leer.
+             *
+             * Der Submit-Handler übernimmt
+             * den eigentlichen Ablauf.
+             *
+             * Dadurch gibt es keinen doppelten Klick-Sound.
+             */
 
         }
     );
@@ -412,30 +433,43 @@ document.addEventListener(
     () => {
 
         /*
-           Audio initialisieren,
-           falls audio.js vorhanden ist.
-        */
+         * Bestehendes JACAudio initialisieren,
+         * sofern vorhanden.
+         */
 
         if (
             window.JACAudio &&
-            typeof window.JACAudio.init ===
-                "function"
+            typeof window.JACAudio.init === "function"
         ) {
 
-            window.JACAudio.init();
+            try {
+
+                window.JACAudio.init();
+
+            } catch (error) {
+
+                console.warn(
+                    "JAC Audio Initialisierung:",
+                    error
+                );
+
+            }
 
         }
 
 
-        /*
-           Erstes Feld fokussieren.
-        */
+        /* ---------------------------------------------
+           ERSTES FELD FOKUSSIEREN
+        --------------------------------------------- */
 
         if (participantIdInput) {
-
             participantIdInput.focus();
-
         }
 
     }
 );
+
+
+/* =========================================================
+   ENDE LOGIN
+========================================================= */

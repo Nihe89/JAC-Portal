@@ -3,6 +3,8 @@
 /* =========================================================
    JAC PORTAL
    VERIFIZIERUNG – PHASE 1
+   WINDOWS + ANDROID
+   STABILES AUDIO
    ========================================================= */
 
 
@@ -91,6 +93,15 @@ let baseStatus = "";
    AUDIO
 ========================================================= */
 
+/*
+ * Aktive Instanz des laufenden Scan-Loops.
+ *
+ * WICHTIG:
+ * scanLoop() aus audio.js startet den Sound bereits.
+ * Deshalb wird hier NICHT noch einmal .play()
+ * aufgerufen.
+ */
+
 let verificationScanAudio = null;
 
 
@@ -103,20 +114,26 @@ function audioAvailable() {
     return (
         typeof window.JACAudio !== "undefined"
     );
+
 }
 
 
 function initializeAudio() {
 
     if (!audioAvailable()) {
+
         return;
+
     }
+
 
     try {
 
         window.JACAudio.init();
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.warn(
             "JAC Audio konnte nicht initialisiert werden:",
@@ -124,6 +141,7 @@ function initializeAudio() {
         );
 
     }
+
 }
 
 
@@ -133,8 +151,11 @@ function playAudio(
 ) {
 
     if (!audioAvailable()) {
+
         return null;
+
     }
+
 
     try {
 
@@ -149,16 +170,21 @@ function playAudio(
 
         }
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.warn(
             "JAC Audio Fehler:",
+            method,
             error
         );
 
     }
 
+
     return null;
+
 }
 
 
@@ -172,26 +198,35 @@ function startDots() {
 
     currentDots = 1;
 
-    dotsTimer = setInterval(() => {
 
-        currentDots++;
+    dotsTimer =
+        setInterval(() => {
 
-        if (currentDots > 3) {
-            currentDots = 1;
-        }
+            currentDots++;
 
-        if (
-            statusText &&
-            baseStatus
-        ) {
 
-            statusText.textContent =
-                baseStatus +
-                ".".repeat(currentDots);
+            if (currentDots > 3) {
 
-        }
+                currentDots = 1;
 
-    }, 450);
+            }
+
+
+            if (
+                statusText &&
+                baseStatus
+            ) {
+
+                statusText.textContent =
+                    baseStatus +
+                    ".".repeat(
+                        currentDots
+                    );
+
+            }
+
+        }, 450);
+
 }
 
 
@@ -206,7 +241,9 @@ function stopDots() {
         );
 
         dotsTimer = null;
+
     }
+
 }
 
 
@@ -221,6 +258,7 @@ function setStatus(
 
     baseStatus = text;
 
+
     if (statusText) {
 
         statusText.textContent =
@@ -230,32 +268,41 @@ function setStatus(
                     ? "."
                     : ""
             );
+
     }
+
 
     if (animated) {
 
         startDots();
 
-    } else {
+    }
+
+    else {
 
         stopDots();
 
     }
+
 }
 
 
 /* =========================================================
-   VERIFIZIERUNGSSTUFE / STAGE
+   VERIFIZIERUNGSSTUFE
 ========================================================= */
 
 function setStage(text) {
 
     if (!verificationStage) {
+
         return;
+
     }
+
 
     verificationStage.textContent =
         text;
+
 }
 
 
@@ -269,8 +316,11 @@ function setCheckState(
 ) {
 
     if (!element) {
+
         return;
+
     }
+
 
     element.classList.remove(
         "active",
@@ -278,10 +328,12 @@ function setCheckState(
         "pending"
     );
 
+
     const icon =
         element.querySelector(
             ".check-icon"
         );
+
 
     if (state === "active") {
 
@@ -289,11 +341,17 @@ function setCheckState(
             "active"
         );
 
+
         if (icon) {
-            icon.textContent = "◌";
+
+            icon.textContent =
+                "◌";
+
         }
 
-    } else if (
+    }
+
+    else if (
         state === "complete"
     ) {
 
@@ -301,21 +359,32 @@ function setCheckState(
             "complete"
         );
 
+
         if (icon) {
-            icon.textContent = "✓";
+
+            icon.textContent =
+                "✓";
+
         }
 
-    } else {
+    }
+
+    else {
 
         element.classList.add(
             "pending"
         );
 
+
         if (icon) {
-            icon.textContent = "○";
+
+            icon.textContent =
+                "○";
+
         }
 
     }
+
 }
 
 
@@ -326,15 +395,18 @@ function resetChecks() {
         "pending"
     );
 
+
     setCheckState(
         checkIdentity,
         "pending"
     );
 
+
     setCheckState(
         checkSecurity,
         "pending"
     );
+
 }
 
 
@@ -352,42 +424,45 @@ function updateAgent(
 
         agentStatus.textContent =
             status;
+
     }
+
 
     if (agentIdentity) {
 
         agentIdentity.textContent =
             identity;
+
     }
+
 
     if (agentSecurity) {
 
         agentSecurity.textContent =
             "LEVEL 01";
+
     }
 
+
     /*
-     * WICHTIG:
-     *
-     * Biometrie wird in Phase 1
-     * NICHT geprüft.
-     *
-     * Fingerabdruck und Hologramm
-     * kommen erst bei der zweiten
-     * Prüfung.
+     * Biometrie gehört erst zu Prüfung 2.
      */
 
     if (agentBiometric) {
 
         agentBiometric.textContent =
             "AUSSTEHEND";
+
     }
+
 
     if (agentAccess) {
 
         agentAccess.textContent =
             access;
+
     }
+
 }
 
 
@@ -398,8 +473,11 @@ function updateAgent(
 function setAgentPending() {
 
     if (!agentCard) {
+
         return;
+
     }
+
 
     agentCard.dataset.status =
         "pending";
@@ -407,24 +485,30 @@ function setAgentPending() {
     agentCard.dataset.stage =
         "verification";
 
+
     agentCard.classList.remove(
         "verification-complete"
     );
+
 
     if (agentIndicator) {
 
         agentIndicator.textContent =
             "✓";
 
+
         agentIndicator.classList.remove(
             "verified"
         );
+
 
         agentIndicator.setAttribute(
             "aria-label",
             "Verifizierung läuft"
         );
+
     }
+
 }
 
 
@@ -442,10 +526,13 @@ function setAgentVerified() {
         agentCard.dataset.stage =
             "complete";
 
+
         agentCard.classList.add(
             "verification-complete"
         );
+
     }
+
 
     updateAgent(
         "✓ VERIFIZIERT",
@@ -453,20 +540,25 @@ function setAgentVerified() {
         "ACCESS: VERIFIED"
     );
 
+
     if (agentIndicator) {
 
         agentIndicator.textContent =
             "✓";
 
+
         agentIndicator.classList.add(
             "verified"
         );
+
 
         agentIndicator.setAttribute(
             "aria-label",
             "Identität verifiziert"
         );
+
     }
+
 }
 
 
@@ -490,7 +582,9 @@ function saveVerification() {
         );
 
         return;
+
     }
+
 
     try {
 
@@ -502,6 +596,7 @@ function saveVerification() {
             window.JACGameState.setVerified(
                 true
             );
+
         }
 
 
@@ -515,13 +610,11 @@ function saveVerification() {
                 verified: true,
 
                 /*
-                 * Noch KEINE Biometrie.
+                 * Prüfung 2 noch nicht durchgeführt.
                  */
+
                 fingerprintVerified: false,
 
-                /*
-                 * Noch KEIN Hologramm.
-                 */
                 hologramUnlocked: false,
 
                 dashboardAuthenticated: false,
@@ -532,15 +625,20 @@ function saveVerification() {
                 securityLevel: 1
 
             });
+
         }
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.warn(
             "JACGameState konnte nicht aktualisiert werden:",
             error
         );
+
     }
+
 }
 
 
@@ -551,10 +649,20 @@ function saveVerification() {
 function stopVerificationAudio() {
 
     if (!audioAvailable()) {
+
+        verificationScanAudio =
+            null;
+
         return;
+
     }
 
+
     try {
+
+        /*
+         * Zuerst die konkrete Audioinstanz stoppen.
+         */
 
         if (
             verificationScanAudio
@@ -564,21 +672,43 @@ function stopVerificationAudio() {
                 verificationScanAudio
             );
 
+
             verificationScanAudio =
                 null;
+
         }
 
-        window.JACAudio.stopSound(
-            "scanLoop"
-        );
 
-    } catch (error) {
+        /*
+         * Zusätzlich alle aktiven
+         * scanLoop-Instanzen stoppen.
+         *
+         * Dadurch bleibt garantiert kein
+         * Scan-Sound im Hintergrund hängen.
+         */
+
+        if (
+            typeof window.JACAudio.stopSound ===
+            "function"
+        ) {
+
+            window.JACAudio.stopSound(
+                "scanLoop"
+            );
+
+        }
+
+    }
+
+    catch (error) {
 
         console.warn(
             "JAC Scan-Sound konnte nicht gestoppt werden:",
             error
         );
+
     }
+
 }
 
 
@@ -600,7 +730,9 @@ function finishVerification() {
             verificationTimer
         );
 
-        verificationTimer = null;
+        verificationTimer =
+            null;
+
     }
 
 
@@ -612,7 +744,7 @@ function finishVerification() {
 
 
     /*
-     * Scan-Sound stoppen
+     * Scan-Loop stoppen
      */
 
     stopVerificationAudio();
@@ -622,7 +754,8 @@ function finishVerification() {
      * 100 %
      */
 
-    progress = 100;
+    progress =
+        100;
 
 
     if (progressBar) {
@@ -630,10 +763,12 @@ function finishVerification() {
         progressBar.style.width =
             "100%";
 
+
         progressBar.setAttribute(
             "aria-valuenow",
             "100"
         );
+
     }
 
 
@@ -641,6 +776,7 @@ function finishVerification() {
 
         progressText.textContent =
             "100 %";
+
     }
 
 
@@ -653,16 +789,22 @@ function finishVerification() {
         "complete"
     );
 
+
     setCheckState(
         checkIdentity,
         "complete"
     );
+
 
     setCheckState(
         checkSecurity,
         "complete"
     );
 
+
+    /*
+     * Abschlussstatus
+     */
 
     setStage(
         "VERIFIZIERUNG ABGESCHLOSSEN"
@@ -687,7 +829,7 @@ function finishVerification() {
 
 
     /*
-     * Erfolgssound
+     * Erfolgssound EINMAL
      */
 
     playAudio(
@@ -716,18 +858,18 @@ function finishVerification() {
 
 
     /*
-     * Erst nach erfolgreicher
-     * Verifizierung wird der
-     * 5-Sekunden-Timer gestartet.
+     * 5 Sekunden sichtbar lassen
      */
 
-    redirectTimer = setTimeout(() => {
+    redirectTimer =
+        setTimeout(() => {
 
-        window.location.assign(
-            REDIRECT_PAGE
-        );
+            window.location.assign(
+                REDIRECT_PAGE
+            );
 
-    }, HOLD_TIME);
+        }, HOLD_TIME);
+
 }
 
 
@@ -749,7 +891,9 @@ function startVerification() {
             verificationTimer
         );
 
-        verificationTimer = null;
+        verificationTimer =
+            null;
+
     }
 
 
@@ -761,17 +905,28 @@ function startVerification() {
             redirectTimer
         );
 
-        redirectTimer = null;
+        redirectTimer =
+            null;
+
     }
 
 
+    /*
+     * Alte Animation stoppen
+     */
+
     stopDots();
+
+
+    /*
+     * Eventuell noch laufenden Scan stoppen
+     */
 
     stopVerificationAudio();
 
 
     /*
-     * Audio vorbereiten
+     * Audio initialisieren
      */
 
     initializeAudio();
@@ -781,7 +936,8 @@ function startVerification() {
      * Start
      */
 
-    progress = 0;
+    progress =
+        0;
 
 
     if (progressBar) {
@@ -789,10 +945,12 @@ function startVerification() {
         progressBar.style.width =
             "0%";
 
+
         progressBar.setAttribute(
             "aria-valuenow",
             "0"
         );
+
     }
 
 
@@ -800,10 +958,12 @@ function startVerification() {
 
         progressText.textContent =
             "0 %";
+
     }
 
 
     resetChecks();
+
 
     setAgentPending();
 
@@ -827,7 +987,11 @@ function startVerification() {
 
 
     /*
-     * Startsound
+     * =====================================================
+     * STARTSOUND
+     * =====================================================
+     *
+     * Einmalig.
      */
 
     playAudio(
@@ -836,7 +1000,9 @@ function startVerification() {
 
 
     /*
-     * Prüfung starten
+     * =====================================================
+     * VERIFIZIERUNG STARTEN
+     * =====================================================
      */
 
     verificationTimer =
@@ -845,19 +1011,21 @@ function startVerification() {
             progress++;
 
 
-            /*
-             * Fortschritt
-             */
+            /* =================================================
+               FORTSCHRITT
+            ================================================= */
 
             if (progressBar) {
 
                 progressBar.style.width =
                     progress + "%";
 
+
                 progressBar.setAttribute(
                     "aria-valuenow",
                     String(progress)
                 );
+
             }
 
 
@@ -865,6 +1033,7 @@ function startVerification() {
 
                 progressText.textContent =
                     progress + " %";
+
             }
 
 
@@ -878,21 +1047,25 @@ function startVerification() {
                     "VERBINDUNG WIRD HERGESTELLT"
                 );
 
+
                 setCheckState(
                     checkConnection,
                     "active"
                 );
+
 
                 setStatus(
                     "Verbindung wird hergestellt",
                     true
                 );
 
+
                 updateAgent(
                     "PRÜFUNG AUSSTEHEND",
                     "VERBINDUNG WIRD HERGESTELLT",
                     "ACCESS: PENDING"
                 );
+
             }
 
 
@@ -906,20 +1079,24 @@ function startVerification() {
                     "VERBINDUNG HERGESTELLT"
                 );
 
+
                 setCheckState(
                     checkConnection,
                     "complete"
                 );
+
 
                 setCheckState(
                     checkIdentity,
                     "active"
                 );
 
+
                 setStatus(
                     "Verbindung hergestellt",
                     true
                 );
+
 
                 updateAgent(
                     "VERIFIZIERUNG LÄUFT",
@@ -929,62 +1106,27 @@ function startVerification() {
 
 
                 /*
-                 * Laufender Scan-Sound.
+                 * =================================================
+                 * SCAN LOOP
+                 * =================================================
                  *
-                 * Die Audioinstanz wird wie bisher
-                 * über JACAudio erzeugt.
+                 * WICHTIG:
                  *
-                 * Zusätzlich wird play() hier noch
-                 * einmal explizit aufgerufen.
+                 * JACAudio.scanLoop() ruft intern
+                 * bereits play() auf.
+                 *
+                 * KEIN zusätzliches:
+                 *
+                 * verificationScanAudio.play()
+                 *
+                 * Dadurch verhindern wir den
+                 * doppelten Scan-Sound.
                  */
 
                 verificationScanAudio =
                     playAudio(
                         "scanLoop"
                     );
-
-
-                if (
-                    verificationScanAudio &&
-                    typeof verificationScanAudio.play ===
-                        "function"
-                ) {
-
-                    try {
-
-                        const scanPlayPromise =
-                            verificationScanAudio.play();
-
-
-                        if (
-                            scanPlayPromise &&
-                            typeof scanPlayPromise.catch ===
-                                "function"
-                        ) {
-
-                            scanPlayPromise.catch(
-                                error => {
-
-                                    console.warn(
-                                        "JAC Scan-Loop konnte nicht gestartet werden:",
-                                        error
-                                    );
-
-                                }
-                            );
-
-                        }
-
-                    } catch (error) {
-
-                        console.warn(
-                            "JAC Scan-Loop Wiedergabefehler:",
-                            error
-                        );
-
-                    }
-
-                }
 
             }
 
@@ -999,16 +1141,19 @@ function startVerification() {
                     "IDENTITÄTSDATEN WERDEN GELADEN"
                 );
 
+
                 setStatus(
                     "Identitätsdaten werden geladen",
                     true
                 );
+
 
                 updateAgent(
                     "VERIFIZIERUNG LÄUFT",
                     "DATENANALYSE",
                     "ACCESS: PENDING"
                 );
+
             }
 
 
@@ -1022,16 +1167,19 @@ function startVerification() {
                     "IDENTITÄT WIRD VERIFIZIERT"
                 );
 
+
                 setStatus(
                     "Identität wird verifiziert",
                     true
                 );
+
 
                 updateAgent(
                     "VERIFIZIERUNG LÄUFT",
                     "IDENTITÄT WIRD GEPRÜFT",
                     "ACCESS: PENDING"
                 );
+
             }
 
 
@@ -1045,26 +1193,31 @@ function startVerification() {
                     "SICHERHEITSPROFIL WIRD GEPRÜFT"
                 );
 
+
                 setCheckState(
                     checkIdentity,
                     "complete"
                 );
+
 
                 setCheckState(
                     checkSecurity,
                     "active"
                 );
 
+
                 setStatus(
                     "Sicherheitsprofil wird geprüft",
                     true
                 );
+
 
                 updateAgent(
                     "SICHERHEITSPRÜFUNG",
                     "IDENTITÄT ABGEGLICHEN",
                     "ACCESS: PENDING"
                 );
+
             }
 
 
@@ -1078,16 +1231,19 @@ function startVerification() {
                     "SICHERHEITSFREIGABE WIRD VORBEREITET"
                 );
 
+
                 setStatus(
                     "Sicherheitsfreigabe wird vorbereitet",
                     true
                 );
+
 
                 updateAgent(
                     "AUTORISIERUNG",
                     "IDENTITÄT BESTÄTIGT",
                     "ACCESS: AUTHORIZING"
                 );
+
             }
 
 
@@ -1101,16 +1257,19 @@ function startVerification() {
                     "JAC-ZUGANG WIRD AUTORISIERT"
                 );
 
+
                 setStatus(
                     "JAC-Zugang wird autorisiert",
                     true
                 );
+
 
                 updateAgent(
                     "AUTORISIERUNG",
                     "IDENTITÄT BESTÄTIGT",
                     "ACCESS: AUTHORIZING"
                 );
+
             }
 
 
@@ -1124,10 +1283,12 @@ function startVerification() {
                     "VERIFIZIERUNG WIRD ABGESCHLOSSEN"
                 );
 
+
                 setStatus(
                     "Verifizierung wird abgeschlossen",
                     true
                 );
+
             }
 
 
@@ -1138,9 +1299,11 @@ function startVerification() {
             if (progress >= 100) {
 
                 finishVerification();
+
             }
 
         }, STEP_TIME);
+
 }
 
 
@@ -1166,18 +1329,17 @@ function initializeVerification() {
         );
 
         return;
+
     }
 
 
     /*
      * Die Verifizierungsseite führt
      * ihre Prüfung immer aus.
-     *
-     * Kein Abbruch aufgrund eines
-     * bereits gesetzten GameState.
      */
 
     startVerification();
+
 }
 
 
@@ -1195,7 +1357,15 @@ if (
         initializeVerification
     );
 
-} else {
+}
+
+else {
 
     initializeVerification();
+
 }
+
+
+/* =========================================================
+   ENDE
+========================================================= */

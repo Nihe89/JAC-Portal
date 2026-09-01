@@ -1,51 +1,203 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>JAC Portal</title>
 
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/animation.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <meta
+        name="description"
+        content="Jury Assessment Commission Portal">
+
+    <!-- =====================================================
+         PWA
+    ====================================================== -->
+
+    <link
+        rel="manifest"
+        href="../manifest.json">
+
+    <meta
+        name="theme-color"
+        content="#050b14">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/animation.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css">
+
 </head>
+
 
 <body>
 
-    <main id="splash-screen">
 
-        <section class="logo-container">
+    <!-- =====================================================
+         JAC PORTAL
+    ====================================================== -->
 
-            <img
-                src="../assets/logos/jac-logo.png"
-                alt="JAC Logo"
-                id="jac-logo">
+    <main
+        id="portal"
+        class="portal">
 
-        </section>
 
-        <section class="title-container">
+        <!-- =================================================
+             LOGIN
+        ================================================== -->
 
-            <h1>JURY ASSESSMENT COMMISSION</h1>
+        <section
+            id="login-section"
+            class="login-section">
 
-            <p>Assessment Portal</p>
 
-        </section>
+            <!-- JAC LOGO -->
 
-        <section class="loading-container">
+            <div class="login-logo-wrap">
 
-            <div class="loading-spinner"></div>
+                <img
+                    src="../assets/logos/jac-logo.png"
+                    alt="JAC Logo"
+                    class="login-logo">
 
-            <p id="loading-text">
-                System wird initialisiert...
+            </div>
+
+
+            <!-- TITEL -->
+
+            <h1>
+                JURY ASSESSMENT COMMISSION
+            </h1>
+
+
+            <p class="login-subtitle">
+                SECURE ACCESS PORTAL
             </p>
 
+
+            <!-- LOGIN FORM -->
+
+            <form
+                id="login-form"
+                class="login-form">
+
+
+                <!-- TEILNEHMER-ID -->
+
+                <div class="form-group">
+
+                    <label
+                        for="participant-id">
+
+                        TEILNEHMER-ID
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="participant-id"
+                        name="participant-id"
+                        autocomplete="off"
+                        autocapitalize="characters"
+                        spellcheck="false"
+                        placeholder="JAC-XXXXXX"
+                        required>
+
+                </div>
+
+
+                <!-- ZUGANGSCODE -->
+
+                <div class="form-group">
+
+                    <label
+                        for="access-code">
+
+                        ZUGANGSCODE
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="access-code"
+                        name="access-code"
+                        autocomplete="off"
+                        autocapitalize="characters"
+                        spellcheck="false"
+                        placeholder="XXXX-XXXX"
+                        required>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    id="login-button"
+                    class="login-button">
+
+                    ZUGANG PRÜFEN
+
+                </button>
+
+
+                <!-- LOGIN MELDUNG -->
+
+                <p
+                    id="login-message"
+                    class="login-message"
+                    aria-live="polite">
+
+                </p>
+
+
+            </form>
+
+
         </section>
+
 
     </main>
 
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
     <script src="../js/app.js"></script>
 
+    <script src="../js/gameState.js"></script>
+
+    <script src="../js/audio.js"></script>
+
+    <script src="../js/login.js"></script>
+
+
 </body>
+
 </html>
+```
